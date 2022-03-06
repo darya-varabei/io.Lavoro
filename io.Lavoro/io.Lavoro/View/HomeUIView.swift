@@ -10,9 +10,9 @@ import LocalAuthentication
 
 struct HomeUIView: View {
     
-    @State var userName = "darya-vo@rambler.ru"
+    @State var userName = ""
     @State var password = ""
-    @AppStorage("stored_User") var user = "darya-vo@rambler.ru"
+    @AppStorage("stored_User") var user = "daria-vo@rambler.ru"
     @AppStorage("status") var logged = false
     
     var body: some View {
