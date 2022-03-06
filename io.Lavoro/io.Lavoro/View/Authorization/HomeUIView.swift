@@ -27,11 +27,11 @@ struct HomeUIView: View {
             
             HStack {
                 VStack(alignment: .leading, spacing: 12, content: {
-                    Text("Вход в аккаунт")
+                    Text(Literals.logInText.rawValue)
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(Color("primaryBlue"))
-                    Text("Введите данные учетной записи")
+                    Text(Literals.enterData.rawValue)
                         .foregroundColor(Color("primaryBlue").opacity(0.5))
                 })
                 Spacer(minLength: 0)
@@ -44,7 +44,7 @@ struct HomeUIView: View {
                     .foregroundColor(Color("primaryBlue").opacity(0.7))
                     .frame(width: 35)
                 
-                TextField("Эл.почта", text: $userName)
+                TextField(Literals.email.rawValue, text: $userName)
                     .autocapitalization(.none)
             }
             .padding()
@@ -58,7 +58,7 @@ struct HomeUIView: View {
                     .foregroundColor(Color("primaryBlue").opacity(0.7))
                     .frame(width: 35)
                 
-                SecureField("Пароль", text: $password)
+                SecureField(Literals.password.rawValue, text: $password)
                     .autocapitalization(.none)
             }
             .padding()
@@ -69,7 +69,7 @@ struct HomeUIView: View {
             
             HStack(spacing: 15) {
                 Button(action: { performAuthentification() }, label: {
-                    Text("Войти")
+                    Text(Literals.enter.rawValue)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding(.vertical)
@@ -91,18 +91,18 @@ struct HomeUIView: View {
                 }
             }.padding(.top)
             Button(action: {}, label: {
-                Text("Забыли пароль?")
+                Text(Literals.forgotPassword.rawValue)
                     .foregroundColor(Color("primaryBlue"))
             }).padding(.top, 8)
             
             Spacer(minLength: 0)
             
             HStack(spacing: 5) {
-                Text("Еще нет аккаунта?")
+                Text(Literals.noAccount.rawValue)
                     .foregroundColor(Color("primaryBlue").opacity(0.8))
                 
                 Button(action: {}, label: {
-                    Text("Зарегистрируйтесь")
+                    Text(Literals.register.rawValue)
                         .fontWeight(.medium)
                         .foregroundColor(Color("primaryBlue"))
                 })
@@ -110,7 +110,7 @@ struct HomeUIView: View {
             
             Button(action: {}, label: {
                 HStack(alignment: .center, spacing: 10) {
-                Text("Войти через Facebook")
+                Text(Literals.facebookText.rawValue)
                     Image("facebookIcon")
                         .resizable()
                         .frame(width: 40, height: 40, alignment: .center)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D57F297827D568BB00703726 /* Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F297727D568BB00703726 /* Literals.swift */; };
 		D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFE927D5588500FBEE17 /* RegistrationUIView.swift */; };
 		D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */; };
 		D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D57F297727D568BB00703726 /* Literals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Literals.swift; sourceTree = "<group>"; };
 		D5AECFE927D5588500FBEE17 /* RegistrationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUIView.swift; sourceTree = "<group>"; };
 		D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIView.swift; sourceTree = "<group>"; };
 		D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListUIView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */,
+				D57F297727D568BB00703726 /* Literals.swift */,
 				D5AECFF427D55A3200FBEE17 /* Models */,
 				D5E2600527D4C5CF001CA5B1 /* View */,
 				D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */,
@@ -337,6 +340,7 @@
 				D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */,
 				D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */,
 				D5AECFF827D55A7600FBEE17 /* UserRegister.swift in Sources */,
+				D57F297827D568BB00703726 /* Literals.swift in Sources */,
 				D5AED00027D55B0900FBEE17 /* Application.swift in Sources */,
 				D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */,
 				D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */,
