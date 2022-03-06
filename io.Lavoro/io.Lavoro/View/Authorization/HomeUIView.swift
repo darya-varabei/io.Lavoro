@@ -22,7 +22,7 @@ struct HomeUIView: View {
             Image("logo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .padding(.horizontal, 65)
+                .padding(.horizontal, 100)
                 .padding(.vertical)
             
             HStack {
@@ -30,9 +30,9 @@ struct HomeUIView: View {
                     Text("Вход в аккаунт")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color("primaryBlue"))
                     Text("Введите данные учетной записи")
-                        .foregroundColor(Color.white.opacity(0.5))
+                        .foregroundColor(Color("primaryBlue").opacity(0.5))
                 })
                 Spacer(minLength: 0)
             }
@@ -41,7 +41,7 @@ struct HomeUIView: View {
             HStack {
                 Image(systemName: "envelope")
                     .font(.title2)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("primaryBlue").opacity(0.7))
                     .frame(width: 35)
                 
                 TextField("Эл.почта", text: $userName)
@@ -55,7 +55,7 @@ struct HomeUIView: View {
             HStack {
                 Image(systemName: "lock")
                     .font(.title2)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("primaryBlue").opacity(0.7))
                     .frame(width: 35)
                 
                 SecureField("Пароль", text: $password)
@@ -70,17 +70,15 @@ struct HomeUIView: View {
             HStack(spacing: 15) {
                 Button(action: { performAuthentification() }, label: {
                     Text("Войти")
-                        .fontWeight(.heavy)
-                        .font(.custom("", size: 14))
-                        .foregroundColor(.black)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 150)
-                        .background(Color.blue)
+                        .background(Color("primaryBlue"))
                         .clipShape(Capsule())
                 })
                     .opacity(userName != "" && password != "" ? 1: 0.5)
                     .disabled(userName != "" && password != "" ? false: true)
-                    //.padding(.top)
                 
                 if getBiometricStatus() {
                     Button(action: { performAuthentification() }, label: {
@@ -88,29 +86,39 @@ struct HomeUIView: View {
                             .font(.title)
                             .foregroundColor(.black)
                             .padding()
-                            .background(Color.blue)
+                            .background(Color("primaryBlue"))
                     })
                 }
             }.padding(.top)
             Button(action: {}, label: {
-                Text("Forgot passsword?")
-                    .foregroundColor(Color.green)
+                Text("Забыли пароль?")
+                    .foregroundColor(Color("primaryBlue"))
             }).padding(.top, 8)
             
             Spacer(minLength: 0)
             
             HStack(spacing: 5) {
-                Text("Don't have an account?")
-                    .foregroundColor(Color.white.opacity(0.6))
+                Text("Еще нет аккаунта?")
+                    .foregroundColor(Color("primaryBlue").opacity(0.8))
                 
                 Button(action: {}, label: {
-                    Text("Sign up")
-                        .fontWeight(.heavy)
-                        .foregroundColor(Color.blue)
+                    Text("Зарегистрируйтесь")
+                        .fontWeight(.medium)
+                        .foregroundColor(Color("primaryBlue"))
                 })
             }.padding(.vertical)
+            
+            Button(action: {}, label: {
+                HStack(alignment: .center, spacing: 10) {
+                Text("Войти через Facebook")
+                    Image("facebookIcon")
+                        .resizable()
+                        .frame(width: 40, height: 40, alignment: .center)
+                }
+                .padding(.all, 10)
+            })
         }
-        .background(Color.green.ignoresSafeArea(.all, edges: .all))
+        .background(Color("white").ignoresSafeArea(.all, edges: .all))
         .animation(.easeOut)
     }
     

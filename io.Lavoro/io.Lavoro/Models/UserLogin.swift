@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct UserLigin {
+    private let email: String
+    private let password: String
+}
