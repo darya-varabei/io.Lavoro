@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 struct HomeUIView: View {
     
-    @State var userName = ""
+    @State var userName = "darya-vo@rambler.ru"
     @State var password = ""
+    @AppStorage("stored_User") var user = "darya-vo@rambler.ru"
+    @AppStorage("status") var logged = false
+    
     var body: some View {
         VStack {
             
@@ -41,6 +45,7 @@ struct HomeUIView: View {
                     .frame(width: 35)
                 
                 TextField("Эл.почта", text: $userName)
+                    .autocapitalization(.none)
             }
             .padding()
             .background(Color.white.opacity(0.12))
@@ -53,7 +58,8 @@ struct HomeUIView: View {
                     .foregroundColor(.white)
                     .frame(width: 35)
                 
-                SecureField("Пароль", text: $userName)
+                SecureField("Пароль", text: $password)
+                    .autocapitalization(.none)
             }
             .padding()
             .background(Color.white.opacity(0.12))
@@ -61,18 +67,31 @@ struct HomeUIView: View {
             .padding(.horizontal)
             .padding(.top)
             
-            Button(action: {}, label: {
-                Text("Войти")
-                    .fontWeight(.heavy)
-                    .font(.custom("", size: 14))
-                    .foregroundColor(.black)
-                    .padding(.vertical)
-                    .frame(width: UIScreen.main.bounds.width - 150)
-                    .background(Color.blue)
-                    .clipShape(Capsule())
-            })
-                .padding(.top)
-            
+            HStack(spacing: 15) {
+                Button(action: { performAuthentification() }, label: {
+                    Text("Войти")
+                        .fontWeight(.heavy)
+                        .font(.custom("", size: 14))
+                        .foregroundColor(.black)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 150)
+                        .background(Color.blue)
+                        .clipShape(Capsule())
+                })
+                    .opacity(userName != "" && password != "" ? 1: 0.5)
+                    .disabled(userName != "" && password != "" ? false: true)
+                    //.padding(.top)
+                
+                if getBiometricStatus() {
+                    Button(action: {}, label: {
+                        Image(systemName: LAContext().biometryType == .faceID ? "faceid" : "touchid")
+                            .font(.title)
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(Color.blue)
+                    })
+                }
+            }.padding(.top)
             Button(action: {}, label: {
                 Text("Forgot passsword?")
                     .foregroundColor(Color.green)
@@ -91,8 +110,27 @@ struct HomeUIView: View {
                 })
             }.padding(.vertical)
         }
-        
         .background(Color.green.ignoresSafeArea(.all, edges: .all))
+        .animation(.easeOut)
+    }
+    
+    private func getBiometricStatus() -> Bool {
+        let scanner = LAContext()
+        if userName == user && scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none) {
+            return true
+        }
+        return false
+    }
+    
+    private func performAuthentification() {
+        let scanner = LAContext()
+        scanner.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To unlock \(userName)") { (status, err) in
+            if err != nil {
+                print(err!.localizedDescription)
+                return
+            }
+            withAnimation(.easeOut){}
+        }
     }
 }
 
