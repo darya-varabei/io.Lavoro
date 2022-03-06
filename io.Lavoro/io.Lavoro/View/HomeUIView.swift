@@ -83,7 +83,7 @@ struct HomeUIView: View {
                     //.padding(.top)
                 
                 if getBiometricStatus() {
-                    Button(action: {}, label: {
+                    Button(action: { performAuthentification() }, label: {
                         Image(systemName: LAContext().biometryType == .faceID ? "faceid" : "touchid")
                             .font(.title)
                             .foregroundColor(.black)
@@ -129,7 +129,7 @@ struct HomeUIView: View {
                 print(err!.localizedDescription)
                 return
             }
-            withAnimation(.easeOut){}
+            withAnimation(.easeOut){ logged = true }
         }
     }
 }
