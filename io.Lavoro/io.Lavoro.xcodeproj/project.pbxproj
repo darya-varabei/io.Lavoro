@@ -12,6 +12,15 @@
 		D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */; };
 		D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */; };
 		D5AECFF227D5594A00FBEE17 /* ParametersForrmUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF127D5594A00FBEE17 /* ParametersForrmUIView.swift */; };
+		D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */; };
+		D5AECFF827D55A7600FBEE17 /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF727D55A7600FBEE17 /* UserRegister.swift */; };
+		D5AECFFA27D55ABF00FBEE17 /* Applicant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF927D55ABF00FBEE17 /* Applicant.swift */; };
+		D5AECFFC27D55ACE00FBEE17 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFFB27D55ACE00FBEE17 /* Project.swift */; };
+		D5AECFFE27D55AEA00FBEE17 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFFD27D55AEA00FBEE17 /* Skill.swift */; };
+		D5AED00027D55B0900FBEE17 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFFF27D55B0900FBEE17 /* Application.swift */; };
+		D5AED00227D55B1900FBEE17 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00127D55B1900FBEE17 /* Response.swift */; };
+		D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00327D55B8100FBEE17 /* Offer.swift */; };
+		D5AED00627D55C0500FBEE17 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00527D55C0500FBEE17 /* Role.swift */; };
 		D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */; };
 		D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDD27D4C567001CA5B1 /* ContentView.swift */; };
 		D5E25FE027D4C569001CA5B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */; };
@@ -45,6 +54,15 @@
 		D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListUIView.swift; sourceTree = "<group>"; };
 		D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsListUIView.swift; sourceTree = "<group>"; };
 		D5AECFF127D5594A00FBEE17 /* ParametersForrmUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersForrmUIView.swift; sourceTree = "<group>"; };
+		D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		D5AECFF727D55A7600FBEE17 /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
+		D5AECFF927D55ABF00FBEE17 /* Applicant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant.swift; sourceTree = "<group>"; };
+		D5AECFFB27D55ACE00FBEE17 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		D5AECFFD27D55AEA00FBEE17 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		D5AECFFF27D55B0900FBEE17 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		D5AED00127D55B1900FBEE17 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		D5AED00327D55B8100FBEE17 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		D5AED00527D55C0500FBEE17 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		D5E25FD827D4C567001CA5B1 /* io.Lavoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = io.Lavoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_LavoroApp.swift; sourceTree = "<group>"; };
 		D5E25FDD27D4C567001CA5B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +101,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D5AECFF327D559C000FBEE17 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				D5E2600627D4C5E6001CA5B1 /* HomeUIView.swift */,
+				D5AECFE927D5588500FBEE17 /* RegistrationUIView.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		D5AECFF427D55A3200FBEE17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */,
+				D5AED00527D55C0500FBEE17 /* Role.swift */,
+				D5AECFF727D55A7600FBEE17 /* UserRegister.swift */,
+				D5AECFFB27D55ACE00FBEE17 /* Project.swift */,
+				D5AECFFD27D55AEA00FBEE17 /* Skill.swift */,
+				D5AED00127D55B1900FBEE17 /* Response.swift */,
+				D5AED00327D55B8100FBEE17 /* Offer.swift */,
+				D5AECFFF27D55B0900FBEE17 /* Application.swift */,
+				D5AECFF927D55ABF00FBEE17 /* Applicant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D5E25FCF27D4C567001CA5B1 = {
 			isa = PBXGroup;
 			children = (
@@ -107,8 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */,
+				D5AECFF427D55A3200FBEE17 /* Models */,
 				D5E2600527D4C5CF001CA5B1 /* View */,
-				D5E25FDD27D4C567001CA5B1 /* ContentView.swift */,
 				D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */,
 				D5E25FE127D4C569001CA5B1 /* Preview Content */,
 			);
@@ -143,12 +186,12 @@
 		D5E2600527D4C5CF001CA5B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D5E2600627D4C5E6001CA5B1 /* HomeUIView.swift */,
-				D5AECFE927D5588500FBEE17 /* RegistrationUIView.swift */,
+				D5AECFF327D559C000FBEE17 /* Authorization */,
 				D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */,
 				D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */,
 				D5AECFF127D5594A00FBEE17 /* ParametersForrmUIView.swift */,
 				D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */,
+				D5E25FDD27D4C567001CA5B1 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,13 +327,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */,
+				D5AECFFE27D55AEA00FBEE17 /* Skill.swift in Sources */,
+				D5AED00627D55C0500FBEE17 /* Role.swift in Sources */,
 				D5AECFF227D5594A00FBEE17 /* ParametersForrmUIView.swift in Sources */,
+				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
+				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
 				D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */,
+				D5AECFFA27D55ABF00FBEE17 /* Applicant.swift in Sources */,
 				D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */,
+				D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */,
+				D5AECFF827D55A7600FBEE17 /* UserRegister.swift in Sources */,
+				D5AED00027D55B0900FBEE17 /* Application.swift in Sources */,
 				D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */,
 				D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
 				D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */,
+				D5AECFFC27D55ACE00FBEE17 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
