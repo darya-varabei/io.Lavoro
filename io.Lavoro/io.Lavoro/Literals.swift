@@ -18,3 +18,18 @@ enum Literals: String {
     case register = "Зарегистрируйтесь"
     case facebookText = "Войти через Facebook"
 }
+
+enum Colors: String {
+    case white = "white"
+    case primaryBlue = "primaryBlue"
+    case dakBlue = "darkBlue"
+}
+
+enum Images: String {
+    case lock = "lock"
+    case envelope = "envelope"
+    case faceid = "faceid"
+    case touchid = "touchid"
+    case facebookIcon = "facebookIcon"
+    case logo = "logo"
+}

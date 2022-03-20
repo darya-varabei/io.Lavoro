@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D570CB3727E7CFB300155781 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3627E7CFB300155781 /* WebService.swift */; };
+		D570CB3927E7D00600155781 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3827E7D00600155781 /* User.swift */; };
+		D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3B27E7D08500155781 /* LoginViewModel.swift */; };
 		D57F297827D568BB00703726 /* Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F297727D568BB00703726 /* Literals.swift */; };
 		D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFE927D5588500FBEE17 /* RegistrationUIView.swift */; };
 		D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D570CB3627E7CFB300155781 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		D570CB3827E7D00600155781 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D570CB3B27E7D08500155781 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D57F297727D568BB00703726 /* Literals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Literals.swift; sourceTree = "<group>"; };
 		D5AECFE927D5588500FBEE17 /* RegistrationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUIView.swift; sourceTree = "<group>"; };
 		D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIView.swift; sourceTree = "<group>"; };
@@ -103,6 +109,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D570CB3527E7CF9400155781 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D570CB3627E7CFB300155781 /* WebService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D570CB3A27E7D06E00155781 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D570CB3B27E7D08500155781 /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		D5AECFF327D559C000FBEE17 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +142,7 @@
 				D5AECFF727D55A7600FBEE17 /* UserRegister.swift */,
 				D5AECFFB27D55ACE00FBEE17 /* Project.swift */,
 				D5AECFFD27D55AEA00FBEE17 /* Skill.swift */,
+				D570CB3827E7D00600155781 /* User.swift */,
 				D5AED00127D55B1900FBEE17 /* Response.swift */,
 				D5AED00327D55B8100FBEE17 /* Offer.swift */,
 				D5AECFFF27D55B0900FBEE17 /* Application.swift */,
@@ -153,6 +176,8 @@
 			children = (
 				D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */,
 				D57F297727D568BB00703726 /* Literals.swift */,
+				D570CB3A27E7D06E00155781 /* ViewModels */,
+				D570CB3527E7CF9400155781 /* Service */,
 				D5AECFF427D55A3200FBEE17 /* Models */,
 				D5E2600527D4C5CF001CA5B1 /* View */,
 				D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */,
@@ -337,9 +362,11 @@
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
 				D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */,
 				D5AECFFA27D55ABF00FBEE17 /* Applicant.swift in Sources */,
+				D570CB3927E7D00600155781 /* User.swift in Sources */,
 				D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */,
 				D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */,
 				D5AECFF827D55A7600FBEE17 /* UserRegister.swift in Sources */,
+				D570CB3727E7CFB300155781 /* WebService.swift in Sources */,
 				D57F297827D568BB00703726 /* Literals.swift in Sources */,
 				D5AED00027D55B0900FBEE17 /* Application.swift in Sources */,
 				D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */,
@@ -347,6 +374,7 @@
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
 				D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */,
 				D5AECFFC27D55ACE00FBEE17 /* Project.swift in Sources */,
+				D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
