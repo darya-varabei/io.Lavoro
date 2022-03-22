@@ -8,6 +8,8 @@
 import Foundation
 
 class Applicant {
+    
+    var user: User
     var name: String
     var surname: String
     var age: Int

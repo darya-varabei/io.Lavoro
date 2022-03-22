@@ -26,6 +26,8 @@
 		D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00327D55B8100FBEE17 /* Offer.swift */; };
 		D5AED00627D55C0500FBEE17 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00527D55C0500FBEE17 /* Role.swift */; };
 		D5BFA1B027EA862C007A872A /* Technology.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1AF27EA862C007A872A /* Technology.swift */; };
+		D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */; };
+		D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B327EA8737007A872A /* ProjectCellView.swift */; };
 		D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */; };
 		D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDD27D4C567001CA5B1 /* ContentView.swift */; };
 		D5E25FE027D4C569001CA5B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		D5AED00327D55B8100FBEE17 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D5AED00527D55C0500FBEE17 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		D5BFA1AF27EA862C007A872A /* Technology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Technology.swift; sourceTree = "<group>"; };
+		D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCellView.swift; sourceTree = "<group>"; };
+		D5BFA1B327EA8737007A872A /* ProjectCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellView.swift; sourceTree = "<group>"; };
 		D5E25FD827D4C567001CA5B1 /* io.Lavoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = io.Lavoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_LavoroApp.swift; sourceTree = "<group>"; };
 		D5E25FDD27D4C567001CA5B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D5BFA1B527EA8828007A872A /* Project list */ = {
+			isa = PBXGroup;
+			children = (
+				D5BFA1B327EA8737007A872A /* ProjectCellView.swift */,
+				D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */,
+			);
+			path = "Project list";
+			sourceTree = "<group>";
+		};
+		D5BFA1B627EA8866007A872A /* Employee List */ = {
+			isa = PBXGroup;
+			children = (
+				D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */,
+				D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */,
+			);
+			path = "Employee List";
+			sourceTree = "<group>";
+		};
 		D5E25FCF27D4C567001CA5B1 = {
 			isa = PBXGroup;
 			children = (
@@ -217,11 +239,11 @@
 		D5E2600527D4C5CF001CA5B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D5BFA1B627EA8866007A872A /* Employee List */,
+				D5BFA1B527EA8828007A872A /* Project list */,
 				D5AECFF327D559C000FBEE17 /* Authorization */,
 				D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */,
-				D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */,
 				D5AECFF127D5594A00FBEE17 /* ParametersForrmUIView.swift */,
-				D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */,
 				D5E25FDD27D4C567001CA5B1 /* ContentView.swift */,
 			);
 			path = View;
@@ -364,6 +386,7 @@
 				D5AECFFE27D55AEA00FBEE17 /* Skill.swift in Sources */,
 				D5AED00627D55C0500FBEE17 /* Role.swift in Sources */,
 				D5AECFF227D5594A00FBEE17 /* ParametersForrmUIView.swift in Sources */,
+				D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */,
 				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
 				D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */,
@@ -377,6 +400,7 @@
 				D5AED00027D55B0900FBEE17 /* Application.swift in Sources */,
 				D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */,
 				D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */,
+				D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
 				D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */,
 				D5BFA1B027EA862C007A872A /* Technology.swift in Sources */,
