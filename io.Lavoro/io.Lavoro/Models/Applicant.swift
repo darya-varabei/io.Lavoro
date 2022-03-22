@@ -6,3 +6,25 @@
 //
 
 import Foundation
+
+class Applicant {
+    var name: String
+    var surname: String
+    var age: Int
+    var location: String
+    var interests: String
+    var description: String
+    var skills: [Skill]
+    var relocate: Bool
+    
+    init(name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool) {
+        self.name = name
+        self.surname = surname
+        self.age = age
+        self.location = location
+        self.interests = interests
+        self.description = description
+        self.skills = sklls
+        self.relocate = relocate
+    }
+}

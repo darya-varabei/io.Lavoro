@@ -14,6 +14,7 @@ struct HomeUIView: View {
     @State var password = ""
     @AppStorage("stored_User") var user = "daria-vo@rambler.ru"
     @AppStorage("status") var logged = false
+    @StateObject private var loginVM = LoginViewModel()
     
     var body: some View {
         VStack {
@@ -30,9 +31,7 @@ struct HomeUIView: View {
                     Text(Literals.logInText.rawValue)
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(Color(Colors.primaryBlue.rawValue))
-                    Text(Literals.enterData.rawValue)
-                        .foregroundColor(Color(Colors.primaryBlue.rawValue).opacity(0.5))
+                        .foregroundColor(.primaryBlue)//(Color(Colors.primaryBlue.rawValue))
                 })
                 Spacer(minLength: 0)
             }
@@ -41,10 +40,10 @@ struct HomeUIView: View {
             HStack {
                 Image(systemName: Images.envelope.rawValue)
                     .font(.title2)
-                    .foregroundColor(Color(Colors.primaryBlue.rawValue).opacity(0.7))
+                    .foregroundColor(.primaryBlue).opacity(0.7)
                     .frame(width: 35)
                 
-                TextField(Literals.email.rawValue, text: $userName)
+                TextField(Literals.email.rawValue, text: $loginVM.username)
                     .autocapitalization(.none)
             }
             .padding()
@@ -55,10 +54,10 @@ struct HomeUIView: View {
             HStack {
                 Image(systemName: Images.lock.rawValue)
                     .font(.title2)
-                    .foregroundColor(Color(Colors.primaryBlue.rawValue).opacity(0.7))
+                    .foregroundColor(.primaryBlue).opacity(0.7)
                     .frame(width: 35)
                 
-                SecureField(Literals.password.rawValue, text: $password)
+                SecureField(Literals.password.rawValue, text: $loginVM.password)
                     .autocapitalization(.none)
             }
             .padding()
@@ -74,11 +73,12 @@ struct HomeUIView: View {
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 150)
-                        .background(Color(Colors.primaryBlue.rawValue))
+                        
+                        //.backgroundColor(.primaryBlue)
                         .clipShape(Capsule())
                 })
-                    .opacity(userName != "" && password != "" ? 1: 0.5)
-                    .disabled(userName != "" && password != "" ? false: true)
+                    .opacity(1)//($loginVM.username != "" && loginVM.password != "" ? 1: 0.5)
+                    .disabled(false)//($loginVM.userName != "" && $loginVM.password != "" ? false: true)
                 
                 if getBiometricStatus() {
                     Button(action: { performAuthentification() }, label: {
@@ -86,25 +86,25 @@ struct HomeUIView: View {
                             .font(.title)
                             .foregroundColor(.black)
                             .padding()
-                            .background(Color(Colors.primaryBlue.rawValue))
+                           // .background(.primaryBlue)
                     })
                 }
             }.padding(.top)
             Button(action: {}, label: {
                 Text(Literals.forgotPassword.rawValue)
-                    .foregroundColor(Color(Colors.primaryBlue.rawValue))
+                    .foregroundColor(.primaryBlue)
             }).padding(.top, 8)
             
             Spacer(minLength: 0)
             
             HStack(spacing: 5) {
                 Text(Literals.noAccount.rawValue)
-                    .foregroundColor(Color(Colors.primaryBlue.rawValue).opacity(0.8))
+                    .foregroundColor(.primaryBlue).opacity(0.8)
                 
                 Button(action: {}, label: {
                     Text(Literals.register.rawValue)
                         .fontWeight(.medium)
-                        .foregroundColor(Color(Colors.primaryBlue.rawValue))
+                        .foregroundColor(.primaryBlue)
                 })
             }.padding(.vertical)
             

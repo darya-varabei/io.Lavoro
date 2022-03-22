@@ -30,7 +30,7 @@ struct LoginResponse: Codable {
 }
 
 class Webservice {
-        
+    
     func getAllAccounts(token: String, completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
         guard let url = URL(string: "https://strong-spangled-apartment.glitch.me/accounts") else {
@@ -54,12 +54,7 @@ class Webservice {
             }
             
             completion(.success(accounts))
-            
-            
-            
         }.resume()
-        
-        
     }
     
     
@@ -99,7 +94,5 @@ class Webservice {
             completion(.success(token))
             
         }.resume()
-        
     }
-    
 }

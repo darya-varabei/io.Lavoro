@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Literals: String {
     case logInText = "Вход в аккаунт"
@@ -19,10 +20,10 @@ enum Literals: String {
     case facebookText = "Войти через Facebook"
 }
 
-enum Colors: String {
-    case white = "white"
-    case primaryBlue = "primaryBlue"
-    case dakBlue = "darkBlue"
+extension Color {
+    static let customWhite = Color("customWhite")
+    static let primaryBlue = Color("primaryBlue")
+    static let darkBlue = Color("darkBlue")
 }
 
 enum Images: String {

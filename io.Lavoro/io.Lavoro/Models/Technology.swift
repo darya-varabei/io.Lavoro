@@ -1,13 +1,13 @@
 //
-//  Skill.swift
+//  Technology.swift
 //  io.Lavoro
 //
-//  Created by Дарья Воробей on 7.03.22.
+//  Created by Дарья Воробей on 23.03.22.
 //
 
 import Foundation
 
-class Skill {
+class Technology {
     var name: String
     var level: String
     

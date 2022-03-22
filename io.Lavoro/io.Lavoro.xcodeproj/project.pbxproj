@@ -25,6 +25,7 @@
 		D5AED00227D55B1900FBEE17 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00127D55B1900FBEE17 /* Response.swift */; };
 		D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00327D55B8100FBEE17 /* Offer.swift */; };
 		D5AED00627D55C0500FBEE17 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00527D55C0500FBEE17 /* Role.swift */; };
+		D5BFA1B027EA862C007A872A /* Technology.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1AF27EA862C007A872A /* Technology.swift */; };
 		D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */; };
 		D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDD27D4C567001CA5B1 /* ContentView.swift */; };
 		D5E25FE027D4C569001CA5B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		D5AED00127D55B1900FBEE17 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D5AED00327D55B8100FBEE17 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D5AED00527D55C0500FBEE17 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		D5BFA1AF27EA862C007A872A /* Technology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Technology.swift; sourceTree = "<group>"; };
 		D5E25FD827D4C567001CA5B1 /* io.Lavoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = io.Lavoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_LavoroApp.swift; sourceTree = "<group>"; };
 		D5E25FDD27D4C567001CA5B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				D5AED00327D55B8100FBEE17 /* Offer.swift */,
 				D5AECFFF27D55B0900FBEE17 /* Application.swift */,
 				D5AECFF927D55ABF00FBEE17 /* Applicant.swift */,
+				D5BFA1AF27EA862C007A872A /* Technology.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +315,9 @@
 				Base,
 			);
 			mainGroup = D5E25FCF27D4C567001CA5B1;
+			packageReferences = (
+				D5BADE5527E98D7C00D9D4EE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = D5E25FD927D4C567001CA5B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -373,6 +379,7 @@
 				D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
 				D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */,
+				D5BFA1B027EA862C007A872A /* Technology.swift in Sources */,
 				D5AECFFC27D55ACE00FBEE17 /* Project.swift in Sources */,
 				D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */,
 			);
@@ -707,6 +714,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D5BADE5527E98D7C00D9D4EE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = D5E25FD027D4C567001CA5B1 /* Project object */;
 }
