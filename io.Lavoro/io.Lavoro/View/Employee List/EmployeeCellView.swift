@@ -8,19 +8,38 @@
 import SwiftUI
 
 struct EmployeeCellView: View {
-   // @State var applicant: Applicant
+    @State var applicant: Applicant
     var body: some View {
         Color(Color.primaryBlue as! CGColor).opacity(0.0)
-                    .edgesIgnoringSafeArea(.all)
-                ZStack(){
-                    RoundedRectangle(cornerRadius: 12)
-                        .frame(width: 319, height: 100, alignment: .center)
-                        .foregroundColor(Color.customWhite)
-                    
-                    HStack {
+            .edgesIgnoringSafeArea(.all)
+        ZStack(){
+            RoundedRectangle(cornerRadius: 19)
+                .frame(width: UIScreen.main.bounds.width - 80, height: 133, alignment: .center)
+                .foregroundColor(Color.customWhite)
+            
+            VStack {
+                
+                HStack {
+                    Image(uiImage: applicant.user.photo)
+                    VStack {
+                        Text("\(applicant.description)")
+                            .font(.custom("Montserrat-SemiBold", size: 10))
+                        Text("\(applicant.name) \(applicant.surname)")
+                            .font(.custom("Montserrat-Bold", size: 4))
                         
+                        HStack {
+                            Text("\(applicant.location)")
+                                .font(.custom("Montserrat-SemiBold", size: 10))
+                            
+                            Text("\(applicant.mode)")
+                                .font(.custom("Montserrat-SemiBold", size: 10))
+                        }
                     }
                 }
+                Text("\(applicant.payment)")
+                    .font(.custom("Montserrat-Medium", size: 10))
+            }
+        }
     }
 }
 

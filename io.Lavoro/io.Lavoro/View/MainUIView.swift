@@ -15,11 +15,12 @@ struct MainUIView: View {
             TabBar(index: self.$index)
         }
         .edgesIgnoringSafeArea(.top)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
-struct MainUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainUIView()
-    }
-}
+//struct MainUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainUIView()
+//    }
+//}

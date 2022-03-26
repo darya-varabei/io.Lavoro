@@ -14,10 +14,28 @@ struct OptionsView: View {
     var body: some View {
         GeometryReader { _ in
             VStack {
-                
+                switch(index) {
+                case 0:
+                    AccountUIView()
+                case 1:
+                    EmployeesListUIView()
+                case 2:
+                    ParametersFormUIView()
+                case 3:
+                    ProjectsListUIView()
+                default:
+                    EmptyView()
+                }
             }
-           // .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+            .padding(.top, 200)
         }.background(Color.primaryBlue.edgesIgnoringSafeArea(.top))
             .clipShape(Corners())
     }
 }
+
+struct MainUIView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainUIView()
+    }
+}
+

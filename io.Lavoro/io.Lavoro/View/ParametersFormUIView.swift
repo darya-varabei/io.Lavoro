@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ParametersForrmUIView: View {
+struct ParametersFormUIView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Parameters")
     }
 }
 
 struct ParametersForrmUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ParametersForrmUIView()
+        ParametersFormUIView()
     }
 }

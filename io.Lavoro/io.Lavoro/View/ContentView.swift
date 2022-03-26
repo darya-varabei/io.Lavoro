@@ -19,10 +19,10 @@ struct ContentView: View {
                 Text("User logged")
             }
             else {
-               // MainUIView()
-                HomeUIView()
+                MainUIView()
+               // HomeUIView()
                //     .preferredColorScheme(.dark)
-                    .navigationBarHidden(true)
+                    //.navigationBarHidden(true)
             }
         }
     }

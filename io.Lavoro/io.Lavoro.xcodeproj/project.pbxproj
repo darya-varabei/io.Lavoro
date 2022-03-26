@@ -18,7 +18,7 @@
 		D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */; };
 		D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */; };
 		D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */; };
-		D5AECFF227D5594A00FBEE17 /* ParametersForrmUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF127D5594A00FBEE17 /* ParametersForrmUIView.swift */; };
+		D5AECFF227D5594A00FBEE17 /* ParametersFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF127D5594A00FBEE17 /* ParametersFormUIView.swift */; };
 		D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */; };
 		D5AECFF827D55A7600FBEE17 /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF727D55A7600FBEE17 /* UserRegister.swift */; };
 		D5AECFFA27D55ABF00FBEE17 /* Applicant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF927D55ABF00FBEE17 /* Applicant.swift */; };
@@ -34,6 +34,15 @@
 		D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B827EA899E007A872A /* LavoroTextField.swift */; };
 		D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1BA27EA89C2007A872A /* LavoroCounterTextField.swift */; };
 		D5BFA1BD27EA89F3007A872A /* LavoroButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */; };
+		D5C9B3C527EF73C60011AE7F /* AccountUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C9B3C427EF73C50011AE7F /* AccountUIView.swift */; };
+		D5C9B3C827EF90D00011AE7F /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3C727EF90D00011AE7F /* Montserrat-Regular.ttf */; };
+		D5C9B3C927EF90D00011AE7F /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3C727EF90D00011AE7F /* Montserrat-Regular.ttf */; };
+		D5C9B3CD27EF90EE0011AE7F /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3CA27EF90EE0011AE7F /* Montserrat-SemiBold.ttf */; };
+		D5C9B3CE27EF90EE0011AE7F /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3CA27EF90EE0011AE7F /* Montserrat-SemiBold.ttf */; };
+		D5C9B3CF27EF90EE0011AE7F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3CB27EF90EE0011AE7F /* Montserrat-Bold.ttf */; };
+		D5C9B3D027EF90EE0011AE7F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3CB27EF90EE0011AE7F /* Montserrat-Bold.ttf */; };
+		D5C9B3D127EF90EE0011AE7F /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3CC27EF90EE0011AE7F /* Montserrat-Medium.ttf */; };
+		D5C9B3D227EF90EE0011AE7F /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3CC27EF90EE0011AE7F /* Montserrat-Medium.ttf */; };
 		D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */; };
 		D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDD27D4C567001CA5B1 /* ContentView.swift */; };
 		D5E25FE027D4C569001CA5B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */; };
@@ -72,7 +81,7 @@
 		D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIView.swift; sourceTree = "<group>"; };
 		D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListUIView.swift; sourceTree = "<group>"; };
 		D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsListUIView.swift; sourceTree = "<group>"; };
-		D5AECFF127D5594A00FBEE17 /* ParametersForrmUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersForrmUIView.swift; sourceTree = "<group>"; };
+		D5AECFF127D5594A00FBEE17 /* ParametersFormUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersFormUIView.swift; sourceTree = "<group>"; };
 		D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		D5AECFF727D55A7600FBEE17 /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
 		D5AECFF927D55ABF00FBEE17 /* Applicant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant.swift; sourceTree = "<group>"; };
@@ -88,6 +97,12 @@
 		D5BFA1B827EA899E007A872A /* LavoroTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroTextField.swift; sourceTree = "<group>"; };
 		D5BFA1BA27EA89C2007A872A /* LavoroCounterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroCounterTextField.swift; sourceTree = "<group>"; };
 		D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroButton.swift; sourceTree = "<group>"; };
+		D5C9B3C427EF73C50011AE7F /* AccountUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUIView.swift; sourceTree = "<group>"; };
+		D5C9B3C727EF90D00011AE7F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		D5C9B3CA27EF90EE0011AE7F /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		D5C9B3CB27EF90EE0011AE7F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		D5C9B3CC27EF90EE0011AE7F /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		D5C9B3D327EF930B0011AE7F /* io-Lavoro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "io-Lavoro-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D5E25FD827D4C567001CA5B1 /* io.Lavoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = io.Lavoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_LavoroApp.swift; sourceTree = "<group>"; };
 		D5E25FDD27D4C567001CA5B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -148,7 +163,6 @@
 			children = (
 				D5E2600627D4C5E6001CA5B1 /* HomeUIView.swift */,
 				D5AECFE927D5588500FBEE17 /* RegistrationUIView.swift */,
-				D5466F0F27EEF99300720F80 /* TabBar.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -200,11 +214,24 @@
 		D5BFA1BE27EA89FF007A872A /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				D5466F0F27EEF99300720F80 /* TabBar.swift */,
 				D5BFA1B827EA899E007A872A /* LavoroTextField.swift */,
 				D5BFA1BA27EA89C2007A872A /* LavoroCounterTextField.swift */,
 				D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		D5C9B3C627EF909F0011AE7F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D5C9B3CB27EF90EE0011AE7F /* Montserrat-Bold.ttf */,
+				D5C9B3CC27EF90EE0011AE7F /* Montserrat-Medium.ttf */,
+				D5C9B3CA27EF90EE0011AE7F /* Montserrat-SemiBold.ttf */,
+				D5C9B3C727EF90D00011AE7F /* Montserrat-Regular.ttf */,
+				D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		D5E25FCF27D4C567001CA5B1 = {
@@ -230,14 +257,15 @@
 		D5E25FDA27D4C567001CA5B1 /* io.Lavoro */ = {
 			isa = PBXGroup;
 			children = (
+				D5C9B3D327EF930B0011AE7F /* io-Lavoro-Info.plist */,
 				D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */,
 				D57F297727D568BB00703726 /* Literals.swift */,
+				D5C9B3C627EF909F0011AE7F /* Resources */,
 				D5BFA1B727EA8974007A872A /* LavoroUI */,
 				D570CB3A27E7D06E00155781 /* ViewModels */,
 				D570CB3527E7CF9400155781 /* Service */,
 				D5AECFF427D55A3200FBEE17 /* Models */,
 				D5E2600527D4C5CF001CA5B1 /* View */,
-				D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */,
 				D5E25FE127D4C569001CA5B1 /* Preview Content */,
 			);
 			path = io.Lavoro;
@@ -275,9 +303,10 @@
 				D5BFA1B527EA8828007A872A /* Project list */,
 				D5AECFF327D559C000FBEE17 /* Authorization */,
 				D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */,
-				D5AECFF127D5594A00FBEE17 /* ParametersForrmUIView.swift */,
+				D5AECFF127D5594A00FBEE17 /* ParametersFormUIView.swift */,
 				D5E25FDD27D4C567001CA5B1 /* ContentView.swift */,
 				D5466F1427EF17C900720F80 /* OptionsView.swift */,
+				D5C9B3C427EF73C50011AE7F /* AccountUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,7 +422,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5C9B3CF27EF90EE0011AE7F /* Montserrat-Bold.ttf in Resources */,
+				D5C9B3C827EF90D00011AE7F /* Montserrat-Regular.ttf in Resources */,
 				D5E25FE327D4C569001CA5B1 /* Preview Assets.xcassets in Resources */,
+				D5C9B3CD27EF90EE0011AE7F /* Montserrat-SemiBold.ttf in Resources */,
+				D5C9B3D127EF90EE0011AE7F /* Montserrat-Medium.ttf in Resources */,
 				D5E25FE027D4C569001CA5B1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +435,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5C9B3CE27EF90EE0011AE7F /* Montserrat-SemiBold.ttf in Resources */,
+				D5C9B3C927EF90D00011AE7F /* Montserrat-Regular.ttf in Resources */,
+				D5C9B3D227EF90EE0011AE7F /* Montserrat-Medium.ttf in Resources */,
+				D5C9B3D027EF90EE0011AE7F /* Montserrat-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +459,7 @@
 				D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */,
 				D5AECFFE27D55AEA00FBEE17 /* Skill.swift in Sources */,
 				D5AED00627D55C0500FBEE17 /* Role.swift in Sources */,
-				D5AECFF227D5594A00FBEE17 /* ParametersForrmUIView.swift in Sources */,
+				D5AECFF227D5594A00FBEE17 /* ParametersFormUIView.swift in Sources */,
 				D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */,
 				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
@@ -437,6 +474,7 @@
 				D570CB3727E7CFB300155781 /* WebService.swift in Sources */,
 				D57F297827D568BB00703726 /* Literals.swift in Sources */,
 				D5AED00027D55B0900FBEE17 /* Application.swift in Sources */,
+				D5C9B3C527EF73C60011AE7F /* AccountUIView.swift in Sources */,
 				D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */,
 				D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */,
 				D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */,
@@ -613,8 +651,8 @@
 				DEVELOPMENT_TEAM = WSTWL4B246;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "io-Lavoro-Info.plist";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Разрешите вход в приложение с использованием Face ID";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -644,8 +682,8 @@
 				DEVELOPMENT_TEAM = WSTWL4B246;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "io-Lavoro-Info.plist";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Разрешите вход в приложение с использованием Face ID";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
