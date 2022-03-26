@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct MainUIView: View {
+    @State var index = 0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0) {
+            OptionsView(index: self.$index)
+            TabBar(index: self.$index)
+        }
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

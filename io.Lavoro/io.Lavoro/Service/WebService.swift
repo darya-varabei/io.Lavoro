@@ -48,12 +48,12 @@ class Webservice {
                 return
             }
             
-            guard let accounts = try? JSONDecoder().decode([User].self, from: data) else {
-                completion(.failure(.decodingError))
-                return
-            }
-            
-            completion(.success(accounts))
+//            guard let accounts = try? JSONDecoder().decode([User].self, from: data) else {
+//                completion(.failure(.decodingError))
+//                return
+//            }
+//            
+//            completion(.success(accounts))
         }.resume()
     }
     

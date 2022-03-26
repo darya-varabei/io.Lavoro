@@ -64,34 +64,34 @@ struct RegistrationUIView: View {
             .padding(.horizontal)
             .padding(.top)
             
-            HStack(spacing: 15) {
-                Button(action: { performAuthentification() }, label: {
-                    Text(Literals.enter.rawValue)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .padding(.vertical)
-                        .frame(width: UIScreen.main.bounds.width - 150)
-                        
-                        //.backgroundColor(.primaryBlue)
-                        .clipShape(Capsule())
-                })
-                    .opacity(1)//($loginVM.username != "" && loginVM.password != "" ? 1: 0.5)
-                    .disabled(false)//($loginVM.userName != "" && $loginVM.password != "" ? false: true)
-                
-                if getBiometricStatus() {
-                    Button(action: { performAuthentification() }, label: {
-                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .padding()
-                           // .background(.primaryBlue)
-                    })
-                }
-            }.padding(.top)
-            Button(action: {}, label: {
-                Text(Literals.forgotPassword.rawValue)
-                    .foregroundColor(.primaryBlue)
-            }).padding(.top, 8)
+//            HStack(spacing: 15) {
+//                Button(action: { //performAuthentification() }, label: {
+//                    Text(Literals.enter.rawValue)
+//                        .fontWeight(.semibold)
+//                        .foregroundColor(.white)
+//                        .padding(.vertical)
+//                        .frame(width: UIScreen.main.bounds.width - 150)
+//
+//                        //.backgroundColor(.primaryBlue)
+//                        .clipShape(Capsule())
+//                })
+//                    .opacity(1)//($loginVM.username != "" && loginVM.password != "" ? 1: 0.5)
+//                    .disabled(false)//($loginVM.userName != "" && $loginVM.password != "" ? false: true)
+//
+//                if getBiometricStatus() {
+//                    Button(action: { performAuthentification() }, label: {
+//                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
+//                            .font(.title)
+//                            .foregroundColor(.black)
+//                            .padding()
+//                           // .background(.primaryBlue)
+//                    })
+//                }
+//            }.padding(.top)
+//            Button(action: {}, label: {
+//                Text(Literals.forgotPassword.rawValue)
+//                    .foregroundColor(.primaryBlue)
+//            }).padding(.top, 8)
             
             Spacer(minLength: 0)
             

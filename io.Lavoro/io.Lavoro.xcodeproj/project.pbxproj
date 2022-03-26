@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5466F1027EEF99300720F80 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5466F0F27EEF99300720F80 /* TabBar.swift */; };
+		D5466F1327EF171C00720F80 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = D5466F1227EF171C00720F80 /* FacebookLogin */; };
+		D5466F1527EF17C900720F80 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5466F1427EF17C900720F80 /* OptionsView.swift */; };
 		D570CB3727E7CFB300155781 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3627E7CFB300155781 /* WebService.swift */; };
 		D570CB3927E7D00600155781 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3827E7D00600155781 /* User.swift */; };
 		D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3B27E7D08500155781 /* LoginViewModel.swift */; };
@@ -28,6 +31,9 @@
 		D5BFA1B027EA862C007A872A /* Technology.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1AF27EA862C007A872A /* Technology.swift */; };
 		D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */; };
 		D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B327EA8737007A872A /* ProjectCellView.swift */; };
+		D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B827EA899E007A872A /* LavoroTextField.swift */; };
+		D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1BA27EA89C2007A872A /* LavoroCounterTextField.swift */; };
+		D5BFA1BD27EA89F3007A872A /* LavoroButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */; };
 		D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */; };
 		D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDD27D4C567001CA5B1 /* ContentView.swift */; };
 		D5E25FE027D4C569001CA5B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */; };
@@ -56,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D5466F0F27EEF99300720F80 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		D5466F1427EF17C900720F80 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		D570CB3627E7CFB300155781 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D570CB3827E7D00600155781 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D570CB3B27E7D08500155781 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -77,6 +85,9 @@
 		D5BFA1AF27EA862C007A872A /* Technology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Technology.swift; sourceTree = "<group>"; };
 		D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCellView.swift; sourceTree = "<group>"; };
 		D5BFA1B327EA8737007A872A /* ProjectCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellView.swift; sourceTree = "<group>"; };
+		D5BFA1B827EA899E007A872A /* LavoroTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroTextField.swift; sourceTree = "<group>"; };
+		D5BFA1BA27EA89C2007A872A /* LavoroCounterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroCounterTextField.swift; sourceTree = "<group>"; };
+		D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroButton.swift; sourceTree = "<group>"; };
 		D5E25FD827D4C567001CA5B1 /* io.Lavoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = io.Lavoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_LavoroApp.swift; sourceTree = "<group>"; };
 		D5E25FDD27D4C567001CA5B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5466F1327EF171C00720F80 /* FacebookLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +148,7 @@
 			children = (
 				D5E2600627D4C5E6001CA5B1 /* HomeUIView.swift */,
 				D5AECFE927D5588500FBEE17 /* RegistrationUIView.swift */,
+				D5466F0F27EEF99300720F80 /* TabBar.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -176,6 +189,24 @@
 			path = "Employee List";
 			sourceTree = "<group>";
 		};
+		D5BFA1B727EA8974007A872A /* LavoroUI */ = {
+			isa = PBXGroup;
+			children = (
+				D5BFA1BE27EA89FF007A872A /* Controls */,
+			);
+			path = LavoroUI;
+			sourceTree = "<group>";
+		};
+		D5BFA1BE27EA89FF007A872A /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				D5BFA1B827EA899E007A872A /* LavoroTextField.swift */,
+				D5BFA1BA27EA89C2007A872A /* LavoroCounterTextField.swift */,
+				D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		D5E25FCF27D4C567001CA5B1 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +232,7 @@
 			children = (
 				D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */,
 				D57F297727D568BB00703726 /* Literals.swift */,
+				D5BFA1B727EA8974007A872A /* LavoroUI */,
 				D570CB3A27E7D06E00155781 /* ViewModels */,
 				D570CB3527E7CF9400155781 /* Service */,
 				D5AECFF427D55A3200FBEE17 /* Models */,
@@ -245,6 +277,7 @@
 				D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */,
 				D5AECFF127D5594A00FBEE17 /* ParametersForrmUIView.swift */,
 				D5E25FDD27D4C567001CA5B1 /* ContentView.swift */,
+				D5466F1427EF17C900720F80 /* OptionsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,6 +298,9 @@
 			dependencies = (
 			);
 			name = io.Lavoro;
+			packageProductDependencies = (
+				D5466F1227EF171C00720F80 /* FacebookLogin */,
+			);
 			productName = io.Lavoro;
 			productReference = D5E25FD827D4C567001CA5B1 /* io.Lavoro.app */;
 			productType = "com.apple.product-type.application";
@@ -339,6 +375,7 @@
 			mainGroup = D5E25FCF27D4C567001CA5B1;
 			packageReferences = (
 				D5BADE5527E98D7C00D9D4EE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				D5466F1127EF171C00720F80 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = D5E25FD927D4C567001CA5B1 /* Products */;
 			projectDirPath = "";
@@ -389,6 +426,8 @@
 				D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */,
 				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
+				D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */,
+				D5466F1527EF17C900720F80 /* OptionsView.swift in Sources */,
 				D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */,
 				D5AECFFA27D55ABF00FBEE17 /* Applicant.swift in Sources */,
 				D570CB3927E7D00600155781 /* User.swift in Sources */,
@@ -401,11 +440,14 @@
 				D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */,
 				D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */,
 				D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */,
+				D5BFA1BD27EA89F3007A872A /* LavoroButton.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
+				D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */,
 				D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */,
 				D5BFA1B027EA862C007A872A /* Technology.swift in Sources */,
 				D5AECFFC27D55ACE00FBEE17 /* Project.swift in Sources */,
 				D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */,
+				D5466F1027EEF99300720F80 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +782,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D5466F1127EF171C00720F80 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		D5BADE5527E98D7C00D9D4EE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
@@ -749,6 +799,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D5466F1227EF171C00720F80 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5BADE5527E98D7C00D9D4EE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D5E25FD027D4C567001CA5B1 /* Project object */;
 }

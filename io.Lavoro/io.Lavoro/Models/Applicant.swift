@@ -19,14 +19,15 @@ class Applicant {
     var skills: [Skill]
     var relocate: Bool
     
-    init(name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool) {
+    init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool) {
+        self.user = user
         self.name = name
         self.surname = surname
         self.age = age
         self.location = location
         self.interests = interests
         self.description = description
-        self.skills = sklls
+        self.skills = skills
         self.relocate = relocate
     }
 }
