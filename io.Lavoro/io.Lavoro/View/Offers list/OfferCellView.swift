@@ -1,14 +1,14 @@
 //
-//  EmployeeCellView.swift
+//  OfferListUIView.swift
 //  io.Lavoro
 //
-//  Created by Дарья Воробей on 23.03.22.
+//  Created by Дарья Воробей on 26.03.22.
 //
 
 import SwiftUI
 
-struct EmployeeCellView: View {
-    @State var applicant: Applicant
+struct OfferCellView: View {
+    @State var offer: Offer
     var body: some View {
         Color(Color.primaryBlue as! CGColor).opacity(0.0)
             .edgesIgnoringSafeArea(.all)
@@ -20,31 +20,31 @@ struct EmployeeCellView: View {
             VStack {
                 
                 HStack {
-                    Image(uiImage: applicant.user.photo)
+                    Image(uiImage: offer.project.user.photo)
                     VStack {
-                        Text("\(applicant.description)")
+                        Text("\(offer.timeMode)")
                             .font(.custom("Montserrat-SemiBold", size: 10))
-                        Text("\(applicant.name) \(applicant.surname)")
+                        Text("\(offer.name)")
                             .font(.custom("Montserrat-Bold", size: 14))
                         
                         HStack {
-                            Text("\(applicant.location)")
+                            Text("\(offer.project.location)")
                                 .font(.custom("Montserrat-SemiBold", size: 10))
                             
-                            Text("\(applicant.mode)")
+                            Text("\(offer.mode)")
                                 .font(.custom("Montserrat-SemiBold", size: 10))
                         }
                     }
                 }
-                Text("\(applicant.payment)")
+                Text("\(offer.salary)")
                     .font(.custom("Montserrat-Medium", size: 10))
             }
         }
     }
 }
 
-//struct EmployeeCellView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EmployeeCellView()
-//    }
-//}
+struct OfferCellView_Previews: PreviewProvider {
+    static var previews: some View {
+        OfferListUIView()
+    }
+}

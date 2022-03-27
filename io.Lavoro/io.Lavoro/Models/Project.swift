@@ -8,15 +8,21 @@
 import Foundation
 
 class Project {
+    var user: User
+    var category: String
     var name: String
     var location: String
     var description: String
     var offers: [Offer]
+    var mode: String
     
-    init(name: String, location: String, description: String, offers: [Offer]) {
+    init(user: User, name: String, location: String, description: String, offers: [Offer], category: String, mode: String) {
+        self.user = user
         self.name = name
         self.location = location
         self.description = description
         self.offers = offers
+        self.category = category
+        self.mode = mode
     }
 }
