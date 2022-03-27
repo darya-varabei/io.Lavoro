@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmployeeCellView: View {
-    @State var applicant: Applicant
+    @Binding var applicant: Applicant
     var body: some View {
         Color(Color.primaryBlue as! CGColor).opacity(0.0)
             .edgesIgnoringSafeArea(.all)
@@ -16,6 +16,7 @@ struct EmployeeCellView: View {
             RoundedRectangle(cornerRadius: 19)
                 .frame(width: UIScreen.main.bounds.width - 80, height: 133, alignment: .center)
                 .foregroundColor(Color.customWhite)
+                .shadow(color: Color.black.opacity(0.25), radius: 2, x: 2, y: 2)
             
             VStack(alignment: .leading, spacing: 33) {
                 HStack(spacing: 15) {

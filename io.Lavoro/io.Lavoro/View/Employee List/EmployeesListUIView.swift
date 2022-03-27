@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct EmployeesListUIView: View {
-    
+    @Namespace var animationID
+    @StateObject var employeeViewModel: EmployeeViewModel
     var body: some View {
-        Text("Employees")
+        VStack(spacing: 15) {
+            ForEach($employeeViewModel.applicants) { $applicant in
+                EmployeeCellView(applicant: applicant)
+            }
+        }.padding(.top, 20)
     }
 }
 
