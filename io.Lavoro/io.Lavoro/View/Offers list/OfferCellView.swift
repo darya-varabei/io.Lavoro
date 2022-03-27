@@ -19,7 +19,7 @@ struct OfferCellView: View {
             
             VStack {
                 
-                HStack {
+                HStack(spacing: 15) {
                     Image(uiImage: offer.project.user.photo)
                     VStack {
                         Text("\(offer.timeMode)")
@@ -38,7 +38,7 @@ struct OfferCellView: View {
                 }
                 Text("\(offer.salary)")
                     .font(.custom("Montserrat-Medium", size: 10))
-            }
+            }.padding(.all, 16)
         }
     }
 }

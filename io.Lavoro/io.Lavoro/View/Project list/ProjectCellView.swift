@@ -17,23 +17,23 @@ struct ProjectCellView: View {
                 .frame(width: UIScreen.main.bounds.width - 80, height: 133, alignment: .center)
                 .foregroundColor(Color.customWhite)
             
-            HStack {
+            HStack(spacing: 20) {
                 Image(uiImage: project.user.photo)
-                VStack {
-                    Text("\(project.category)")
-                        .font(.custom("Montserrat-SemiBold", size: 10))
-                    Text("\(project.name)")
-                        .font(.custom("Montserrat-Bold", size: 14))
-                    
-                    HStack {
+                VStack(alignment: .leading, spacing: 21) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("\(project.category)")
+                            .font(.custom("Montserrat-SemiBold", size: 10))
+                        Text("\(project.name)")
+                            .font(.custom("Montserrat-Bold", size: 14))
+                    }
+                    HStack(spacing: 20) {
                         Text("\(project.location)")
                             .font(.custom("Montserrat-SemiBold", size: 10))
                         Text("\(project.mode)")
                             .font(.custom("Montserrat-SemiBold", size: 10))
                     }
-                    
                 }
-            }
+            }.padding(.all, 16)
         }
     }
 }

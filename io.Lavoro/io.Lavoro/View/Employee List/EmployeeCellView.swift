@@ -17,17 +17,16 @@ struct EmployeeCellView: View {
                 .frame(width: UIScreen.main.bounds.width - 80, height: 133, alignment: .center)
                 .foregroundColor(Color.customWhite)
             
-            VStack {
-                
-                HStack {
+            VStack(alignment: .leading, spacing: 33) {
+                HStack(spacing: 15) {
                     Image(uiImage: applicant.user.photo)
-                    VStack {
+                    VStack(spacing: 10) {
                         Text("\(applicant.description)")
                             .font(.custom("Montserrat-SemiBold", size: 10))
                         Text("\(applicant.name) \(applicant.surname)")
                             .font(.custom("Montserrat-Bold", size: 14))
                         
-                        HStack {
+                        HStack(spacing: 20) {
                             Text("\(applicant.location)")
                                 .font(.custom("Montserrat-SemiBold", size: 10))
                             
@@ -38,7 +37,7 @@ struct EmployeeCellView: View {
                 }
                 Text("\(applicant.payment)")
                     .font(.custom("Montserrat-Medium", size: 10))
-            }
+            }.padding(.all, 16)
         }
     }
 }
