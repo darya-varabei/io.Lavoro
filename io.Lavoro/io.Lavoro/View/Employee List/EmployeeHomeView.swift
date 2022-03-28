@@ -38,9 +38,9 @@ struct EmployeeHomeView: View {
         }.background(Color.clear)
     }
 }
-
-struct EmployeeHomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmployeeHomeView()
-    }
-}
+//
+//struct EmployeeHomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EmployeeHomeView()
+//    }
+//}

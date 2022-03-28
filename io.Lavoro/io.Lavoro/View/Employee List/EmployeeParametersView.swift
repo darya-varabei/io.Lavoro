@@ -10,7 +10,25 @@ import SwiftUI
 struct EmployeeParametersView: View {
     @EnvironmentObject var employeeModel: EmployeeViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if !employeeModel.isParametersOpen {
+            VStack {
+                HStack {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "arrow.left")
+                            .font(.title2)
+                            .foregroundColor(.darkBlue)
+                    }
+                    Spacer()
+                    Text("Параметры")
+                        .font(.custom("Montserrat-Medium", size: 12))
+                        .foregroundColor(.darkBlue)
+                }
+            }.padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .background(Color.clear)
+        }
     }
 }
 

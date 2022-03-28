@@ -46,6 +46,8 @@
 		D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B827EA899E007A872A /* LavoroTextField.swift */; };
 		D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1BA27EA89C2007A872A /* LavoroCounterTextField.swift */; };
 		D5BFA1BD27EA89F3007A872A /* LavoroButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */; };
+		D5C62F3427F209E4004AEFA5 /* LavoroTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C62F3327F209E4004AEFA5 /* LavoroTextFieldStyle.swift */; };
+		D5C62F3627F20A51004AEFA5 /* LavoroMultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C62F3527F20A51004AEFA5 /* LavoroMultilineTextField.swift */; };
 		D5C9B3C527EF73C60011AE7F /* AccountUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C9B3C427EF73C50011AE7F /* AccountUIView.swift */; };
 		D5C9B3C827EF90D00011AE7F /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3C727EF90D00011AE7F /* Montserrat-Regular.ttf */; };
 		D5C9B3C927EF90D00011AE7F /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5C9B3C727EF90D00011AE7F /* Montserrat-Regular.ttf */; };
@@ -115,6 +117,8 @@
 		D5BFA1B827EA899E007A872A /* LavoroTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroTextField.swift; sourceTree = "<group>"; };
 		D5BFA1BA27EA89C2007A872A /* LavoroCounterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroCounterTextField.swift; sourceTree = "<group>"; };
 		D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroButton.swift; sourceTree = "<group>"; };
+		D5C62F3327F209E4004AEFA5 /* LavoroTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroTextFieldStyle.swift; sourceTree = "<group>"; };
+		D5C62F3527F20A51004AEFA5 /* LavoroMultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroMultilineTextField.swift; sourceTree = "<group>"; };
 		D5C9B3C427EF73C50011AE7F /* AccountUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUIView.swift; sourceTree = "<group>"; };
 		D5C9B3C727EF90D00011AE7F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		D5C9B3CA27EF90EE0011AE7F /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 				D5BFA1B827EA899E007A872A /* LavoroTextField.swift */,
 				D5BFA1BA27EA89C2007A872A /* LavoroCounterTextField.swift */,
 				D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */,
+				D5C62F3327F209E4004AEFA5 /* LavoroTextFieldStyle.swift */,
+				D5C62F3527F20A51004AEFA5 /* LavoroMultilineTextField.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -510,10 +516,12 @@
 				D5C9B3D627EFA5A40011AE7F /* OfferCellView.swift in Sources */,
 				D5C9B3C527EF73C60011AE7F /* AccountUIView.swift in Sources */,
 				D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */,
+				D5C62F3627F20A51004AEFA5 /* LavoroMultilineTextField.swift in Sources */,
 				D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */,
 				D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */,
 				D544724827EFE68E00421940 /* OfferListUIView.swift in Sources */,
 				D5BFA1BD27EA89F3007A872A /* LavoroButton.swift in Sources */,
+				D5C62F3427F209E4004AEFA5 /* LavoroTextFieldStyle.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
 				D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */,
 				D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */,
