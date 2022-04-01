@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct OfferListUIView: View {
+    @Namespace var animationID
+    @State var offerViewModel: OfferViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(offerViewModel.offers, id: \.name) { offer in
+                NavigationLink(
+                    destination: OfferDetailView(offer: offer),
+                    label: { OfferCellView(offer: offer)
+                    }
+                )
+            }
+        }.padding(.top, 20)
     }
 }
 

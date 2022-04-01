@@ -43,6 +43,8 @@
 		D5B92E7C27F6C446005E3E70 /* EmployeeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B92E7B27F6C446005E3E70 /* EmployeeDetailsView.swift */; };
 		D5B92E7E27F6C6B9005E3E70 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B92E7D27F6C6B9005E3E70 /* ProjectViewModel.swift */; };
 		D5B92E8027F6C71B005E3E70 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B92E7F27F6C71B005E3E70 /* ProjectDetailView.swift */; };
+		D5B92E8227F6C898005E3E70 /* OfferDatailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B92E8127F6C898005E3E70 /* OfferDatailView.swift */; };
+		D5B92E8427F6C8CE005E3E70 /* OfferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B92E8327F6C8CE005E3E70 /* OfferViewModel.swift */; };
 		D5BFA1B027EA862C007A872A /* Technology.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1AF27EA862C007A872A /* Technology.swift */; };
 		D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */; };
 		D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B327EA8737007A872A /* ProjectCellView.swift */; };
@@ -117,6 +119,8 @@
 		D5B92E7B27F6C446005E3E70 /* EmployeeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsView.swift; sourceTree = "<group>"; };
 		D5B92E7D27F6C6B9005E3E70 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		D5B92E7F27F6C71B005E3E70 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
+		D5B92E8127F6C898005E3E70 /* OfferDatailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDatailView.swift; sourceTree = "<group>"; };
+		D5B92E8327F6C8CE005E3E70 /* OfferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewModel.swift; sourceTree = "<group>"; };
 		D5BFA1AF27EA862C007A872A /* Technology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Technology.swift; sourceTree = "<group>"; };
 		D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCellView.swift; sourceTree = "<group>"; };
 		D5BFA1B327EA8737007A872A /* ProjectCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellView.swift; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 			children = (
 				D5C9B3D527EFA5A40011AE7F /* OfferCellView.swift */,
 				D544724727EFE68E00421940 /* OfferListUIView.swift */,
+				D5B92E8127F6C898005E3E70 /* OfferDatailView.swift */,
+				D5B92E8327F6C8CE005E3E70 /* OfferViewModel.swift */,
 			);
 			path = "Offers list";
 			sourceTree = "<group>";
@@ -512,6 +518,7 @@
 				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
 				D5B92E8027F6C71B005E3E70 /* ProjectDetailView.swift in Sources */,
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
+				D5B92E8227F6C898005E3E70 /* OfferDatailView.swift in Sources */,
 				D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */,
 				D5466F1527EF17C900720F80 /* OptionsView.swift in Sources */,
 				D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */,
@@ -543,6 +550,7 @@
 				D5AECFFC27D55ACE00FBEE17 /* Project.swift in Sources */,
 				D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */,
 				D5466F1027EEF99300720F80 /* TabBar.swift in Sources */,
+				D5B92E8427F6C8CE005E3E70 /* OfferViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
