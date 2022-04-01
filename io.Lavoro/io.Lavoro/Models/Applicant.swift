@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Applicant {
-    
+class Applicant: Identifiable {
+    var id: ObjectIdentifier
     var user: User
     var name: String
     var surname: String
@@ -21,7 +21,7 @@ class Applicant {
     var skills: [Skill]
     var relocate: Bool
     
-    init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool, mode: String, payment: String) {
+    init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool, mode: String, payment: String, id: ObjectIdentifier) {
         self.user = user
         self.name = name
         self.surname = surname
@@ -33,5 +33,6 @@ class Applicant {
         self.description = description
         self.skills = skills
         self.relocate = relocate
+        self.id = id
     }
 }

@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ProjectsListUIView: View {
+    @Namespace var animationID
+    @State var projectViewModel: ProjectViewModel
     var body: some View {
-        Text("Projects")
+        NavigationView {
+            List(projectViewModel.projects, id: \.name) { project in
+                NavigationLink(
+                    destination: ProjectDetailView(project: project),
+                    label: { ProjectCellView(project: project)
+                    }
+                )
+            }
+        }.padding(.top, 20)
     }
 }
 

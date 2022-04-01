@@ -9,18 +9,22 @@ import SwiftUI
 
 struct EmployeesListUIView: View {
     @Namespace var animationID
-    @StateObject var employeeViewModel: EmployeeViewModel
+    @State var employeeViewModel: EmployeeViewModel
     var body: some View {
-        VStack(spacing: 15) {
-            ForEach($employeeViewModel.applicants) { $applicant in
-                EmployeeCellView(applicant: applicant)
+        NavigationView {
+            List(employeeViewModel.applicants, id: \.id) { applicant in
+                NavigationLink(
+                    destination: EmployeeDetailsView(applicant: applicant),
+                    label: { EmployeeCellView(applicant: applicant)
+                    }
+                )
             }
         }.padding(.top, 20)
     }
 }
 
-struct EmployeesListUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmployeesListUIView()
-    }
-}
+//struct EmployeesListUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EmployeesListUIView()
+//    }
+//}

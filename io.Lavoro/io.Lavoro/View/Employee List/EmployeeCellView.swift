@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmployeeCellView: View {
-    @Binding var applicant: Applicant
+    @State var applicant: Applicant
     var body: some View {
         Color(Color.primaryBlue as! CGColor).opacity(0.0)
             .edgesIgnoringSafeArea(.all)

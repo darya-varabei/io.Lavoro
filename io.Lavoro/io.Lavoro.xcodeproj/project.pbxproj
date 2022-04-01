@@ -40,6 +40,9 @@
 		D5AED00227D55B1900FBEE17 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00127D55B1900FBEE17 /* Response.swift */; };
 		D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00327D55B8100FBEE17 /* Offer.swift */; };
 		D5AED00627D55C0500FBEE17 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AED00527D55C0500FBEE17 /* Role.swift */; };
+		D5B92E7C27F6C446005E3E70 /* EmployeeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B92E7B27F6C446005E3E70 /* EmployeeDetailsView.swift */; };
+		D5B92E7E27F6C6B9005E3E70 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B92E7D27F6C6B9005E3E70 /* ProjectViewModel.swift */; };
+		D5B92E8027F6C71B005E3E70 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B92E7F27F6C71B005E3E70 /* ProjectDetailView.swift */; };
 		D5BFA1B027EA862C007A872A /* Technology.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1AF27EA862C007A872A /* Technology.swift */; };
 		D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */; };
 		D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BFA1B327EA8737007A872A /* ProjectCellView.swift */; };
@@ -111,6 +114,9 @@
 		D5AED00127D55B1900FBEE17 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		D5AED00327D55B8100FBEE17 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D5AED00527D55C0500FBEE17 /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		D5B92E7B27F6C446005E3E70 /* EmployeeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsView.swift; sourceTree = "<group>"; };
+		D5B92E7D27F6C6B9005E3E70 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		D5B92E7F27F6C71B005E3E70 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
 		D5BFA1AF27EA862C007A872A /* Technology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Technology.swift; sourceTree = "<group>"; };
 		D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCellView.swift; sourceTree = "<group>"; };
 		D5BFA1B327EA8737007A872A /* ProjectCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellView.swift; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 			children = (
 				D5BFA1B327EA8737007A872A /* ProjectCellView.swift */,
 				D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */,
+				D5B92E7D27F6C6B9005E3E70 /* ProjectViewModel.swift */,
+				D5B92E7F27F6C71B005E3E70 /* ProjectDetailView.swift */,
 			);
 			path = "Project list";
 			sourceTree = "<group>";
@@ -225,6 +233,7 @@
 				D544724B27F0431C00421940 /* EmployeeHomeView.swift */,
 				D544724F27F04D0F00421940 /* EmployeeViewModel.swift */,
 				D544725327F0571D00421940 /* EmployeeParametersView.swift */,
+				D5B92E7B27F6C446005E3E70 /* EmployeeDetailsView.swift */,
 			);
 			path = "Employee List";
 			sourceTree = "<group>";
@@ -501,6 +510,7 @@
 				D5AECFF227D5594A00FBEE17 /* ParametersFormUIView.swift in Sources */,
 				D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */,
 				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
+				D5B92E8027F6C71B005E3E70 /* ProjectDetailView.swift in Sources */,
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
 				D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */,
 				D5466F1527EF17C900720F80 /* OptionsView.swift in Sources */,
@@ -521,6 +531,8 @@
 				D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */,
 				D544724827EFE68E00421940 /* OfferListUIView.swift in Sources */,
 				D5BFA1BD27EA89F3007A872A /* LavoroButton.swift in Sources */,
+				D5B92E7C27F6C446005E3E70 /* EmployeeDetailsView.swift in Sources */,
+				D5B92E7E27F6C6B9005E3E70 /* ProjectViewModel.swift in Sources */,
 				D5C62F3427F209E4004AEFA5 /* LavoroTextFieldStyle.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
 				D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */,
