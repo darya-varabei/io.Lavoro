@@ -18,11 +18,13 @@ struct OptionsView: View {
                 case 0:
                     AccountUIView()
                 case 1:
-                    EmployeesListUIView()
+                    EmptyView()
+                   // EmployeesListUIView()
                 case 2:
                     ParametersFormUIView()
                 case 3:
-                    ProjectsListUIView()
+                    EmptyView()
+                    //ProjectsListUIView()
                 default:
                     EmptyView()
                 }

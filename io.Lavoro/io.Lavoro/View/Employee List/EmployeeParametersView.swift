@@ -18,12 +18,12 @@ struct EmployeeParametersView: View {
                     } label: {
                         Image(systemName: "arrow.left")
                             .font(.title2)
-                            .foregroundColor(.darkBlue)
+                            .foregroundColor(Color.darkBlue)
                     }
                     Spacer()
                     Text("Параметры")
                         .font(.custom("Montserrat-Medium", size: 12))
-                        .foregroundColor(.darkBlue)
+                        .foregroundColor(Color.darkBlue)
                 }
             }.padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

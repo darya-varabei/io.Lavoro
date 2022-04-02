@@ -21,7 +21,7 @@ enum Literals: String {
 }
 
 extension Color {
-    static let customWhite = Color("customWhite")
+    static let customWhite = Color("white")
     static let primaryBlue = Color("primaryBlue")
     static let darkBlue = Color("darkBlue")
 }

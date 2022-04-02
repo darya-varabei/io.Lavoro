@@ -23,8 +23,8 @@ struct OfferListUIView: View {
     }
 }
 
-struct OfferListUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        OfferListUIView()
-    }
-}
+//struct OfferListUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OfferListUIView()
+//    }
+//}

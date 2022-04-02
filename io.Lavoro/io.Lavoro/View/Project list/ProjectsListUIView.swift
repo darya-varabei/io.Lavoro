@@ -23,8 +23,8 @@ struct ProjectsListUIView: View {
     }
 }
 
-struct ProjectsListUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProjectsListUIView()
-    }
-}
+//struct ProjectsListUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProjectsListUIView()
+//    }
+//}
