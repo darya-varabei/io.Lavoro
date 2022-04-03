@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ApplicationView: View {
+    @State var sender: User
+    @State var receiver: User
+    @State var message: String
+    @State var offer: Offer
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            GHMultilineTextField("Сообщение", text: $message)
+            Button(action: {}, label: {
+                Text("")
+            })
+        }
     }
 }
 

@@ -149,7 +149,7 @@ struct OfferDetailView: View {
             case 1:
                 ProjectDescriptionView(project: offer.project)
             case 2:
-                ApplicationView()
+                ApplicationView(sender: User(username: "", role: "", photo: UIImage(named: "kate")!), receiver: User(username: "", role: "", photo: UIImage(named: "kate")!), message: "", offer: Offer(project: Project(user: User(username: "", role: "", photo: UIImage(named: "guideHuman")!), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time", description: ""))
             default:
                 EmptyView()
             }

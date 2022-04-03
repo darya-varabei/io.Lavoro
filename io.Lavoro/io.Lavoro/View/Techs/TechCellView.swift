@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct SkillCellView: View {
-    @State var skill: Skill
+struct TechCellView: View {
+    
+    @State var technologies: Technology
     var body: some View {
         HStack {
-            Text(skill.name)
+            Text(technologies.name)
                 .font(.custom("Montserrat-Medium", size: 16))
                 .foregroundColor(Color.black)
             ZStack {
@@ -19,7 +20,7 @@ struct SkillCellView: View {
                     .frame(width: 100, height: 10, alignment: .leading)
                     .foregroundColor(.gray)
                 Rectangle()
-                    .frame(width: skill.defineNumericLevel() * 20, height: 10, alignment: .leading)
+                    .frame(width: technologies.defineNumericLevel() * 20, height: 10, alignment: .leading)
                     .foregroundColor(Color.primaryBlue)
             }
         }

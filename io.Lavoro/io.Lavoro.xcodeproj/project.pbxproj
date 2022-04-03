@@ -22,6 +22,8 @@
 		D5466F1027EEF99300720F80 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5466F0F27EEF99300720F80 /* TabBar.swift */; };
 		D5466F1327EF171C00720F80 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = D5466F1227EF171C00720F80 /* FacebookLogin */; };
 		D5466F1527EF17C900720F80 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5466F1427EF17C900720F80 /* OptionsView.swift */; };
+		D54A3A0627F98F2400104A06 /* SkillSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A3A0527F98F2400104A06 /* SkillSetListView.swift */; };
+		D54A3A0827F98F3100104A06 /* SkillCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54A3A0727F98F3100104A06 /* SkillCellView.swift */; };
 		D570CB3727E7CFB300155781 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3627E7CFB300155781 /* WebService.swift */; };
 		D570CB3927E7D00600155781 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3827E7D00600155781 /* User.swift */; };
 		D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3B27E7D08500155781 /* LoginViewModel.swift */; };
@@ -70,8 +72,8 @@
 		D5D4CAAA27F912B40040F3F0 /* ProjectDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAA927F912B40040F3F0 /* ProjectDescriptionView.swift */; };
 		D5D4CAAC27F912C20040F3F0 /* ApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAAB27F912C20040F3F0 /* ApplicationView.swift */; };
 		D5D4CAAF27F914DB0040F3F0 /* LavoroLabeledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAAE27F914DB0040F3F0 /* LavoroLabeledText.swift */; };
-		D5D4CAB227F935460040F3F0 /* SkillSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB127F935460040F3F0 /* SkillSetListView.swift */; };
-		D5D4CAB427F935560040F3F0 /* SkillCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB327F935560040F3F0 /* SkillCellView.swift */; };
+		D5D4CAB227F935460040F3F0 /* TechSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB127F935460040F3F0 /* TechSetListView.swift */; };
+		D5D4CAB427F935560040F3F0 /* TechCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB327F935560040F3F0 /* TechCellView.swift */; };
 		D5D4CAB627F936720040F3F0 /* Skill+Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB527F936720040F3F0 /* Skill+Definition.swift */; };
 		D5D4CAB827F93D800040F3F0 /* Technology+Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB727F93D800040F3F0 /* Technology+Definition.swift */; };
 		D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */; };
@@ -108,6 +110,8 @@
 		D544725327F0571D00421940 /* EmployeeParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeParametersView.swift; sourceTree = "<group>"; };
 		D5466F0F27EEF99300720F80 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		D5466F1427EF17C900720F80 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
+		D54A3A0527F98F2400104A06 /* SkillSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSetListView.swift; sourceTree = "<group>"; };
+		D54A3A0727F98F3100104A06 /* SkillCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCellView.swift; sourceTree = "<group>"; };
 		D570CB3627E7CFB300155781 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D570CB3827E7D00600155781 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D570CB3B27E7D08500155781 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -152,8 +156,8 @@
 		D5D4CAA927F912B40040F3F0 /* ProjectDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescriptionView.swift; sourceTree = "<group>"; };
 		D5D4CAAB27F912C20040F3F0 /* ApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationView.swift; sourceTree = "<group>"; };
 		D5D4CAAE27F914DB0040F3F0 /* LavoroLabeledText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroLabeledText.swift; sourceTree = "<group>"; };
-		D5D4CAB127F935460040F3F0 /* SkillSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSetListView.swift; sourceTree = "<group>"; };
-		D5D4CAB327F935560040F3F0 /* SkillCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCellView.swift; sourceTree = "<group>"; };
+		D5D4CAB127F935460040F3F0 /* TechSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechSetListView.swift; sourceTree = "<group>"; };
+		D5D4CAB327F935560040F3F0 /* TechCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechCellView.swift; sourceTree = "<group>"; };
 		D5D4CAB527F936720040F3F0 /* Skill+Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skill+Definition.swift"; sourceTree = "<group>"; };
 		D5D4CAB727F93D800040F3F0 /* Technology+Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Technology+Definition.swift"; sourceTree = "<group>"; };
 		D5E25FD827D4C567001CA5B1 /* io.Lavoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = io.Lavoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +199,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D54A3A0427F98EFF00104A06 /* Skills */ = {
+			isa = PBXGroup;
+			children = (
+				D54A3A0527F98F2400104A06 /* SkillSetListView.swift */,
+				D54A3A0727F98F3100104A06 /* SkillCellView.swift */,
+			);
+			path = Skills;
+			sourceTree = "<group>";
+		};
 		D570CB3527E7CF9400155781 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,13 +342,13 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		D5D4CAB027F9352B0040F3F0 /* Skills */ = {
+		D5D4CAB027F9352B0040F3F0 /* Techs */ = {
 			isa = PBXGroup;
 			children = (
-				D5D4CAB127F935460040F3F0 /* SkillSetListView.swift */,
-				D5D4CAB327F935560040F3F0 /* SkillCellView.swift */,
+				D5D4CAB127F935460040F3F0 /* TechSetListView.swift */,
+				D5D4CAB327F935560040F3F0 /* TechCellView.swift */,
 			);
-			path = Skills;
+			path = Techs;
 			sourceTree = "<group>";
 		};
 		D5E25FCF27D4C567001CA5B1 = {
@@ -403,7 +416,8 @@
 		D5E2600527D4C5CF001CA5B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D5D4CAB027F9352B0040F3F0 /* Skills */,
+				D54A3A0427F98EFF00104A06 /* Skills */,
+				D5D4CAB027F9352B0040F3F0 /* Techs */,
 				D5D4CAA227F84E770040F3F0 /* Details */,
 				D5C9B3D427EFA5900011AE7F /* Offers list */,
 				D5BFA1B627EA8866007A872A /* Employee List */,
@@ -567,7 +581,7 @@
 				D5AECFFE27D55AEA00FBEE17 /* Skill.swift in Sources */,
 				D5AED00627D55C0500FBEE17 /* Role.swift in Sources */,
 				D5D4CAAC27F912C20040F3F0 /* ApplicationView.swift in Sources */,
-				D5D4CAB427F935560040F3F0 /* SkillCellView.swift in Sources */,
+				D5D4CAB427F935560040F3F0 /* TechCellView.swift in Sources */,
 				D544725427F0571D00421940 /* EmployeeParametersView.swift in Sources */,
 				D5AECFF227D5594A00FBEE17 /* ParametersFormUIView.swift in Sources */,
 				D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */,
@@ -603,7 +617,7 @@
 				D5B92E7C27F6C446005E3E70 /* EmployeeDetailsView.swift in Sources */,
 				D5B92E7E27F6C6B9005E3E70 /* ProjectViewModel.swift in Sources */,
 				D5C62F3427F209E4004AEFA5 /* LavoroTextFieldStyle.swift in Sources */,
-				D5D4CAB227F935460040F3F0 /* SkillSetListView.swift in Sources */,
+				D5D4CAB227F935460040F3F0 /* TechSetListView.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
 				D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */,
 				D5D4CAAA27F912B40040F3F0 /* ProjectDescriptionView.swift in Sources */,
@@ -613,6 +627,8 @@
 				D5BFA1B027EA862C007A872A /* Technology.swift in Sources */,
 				D5AECFFC27D55ACE00FBEE17 /* Project.swift in Sources */,
 				D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */,
+				D54A3A0827F98F3100104A06 /* SkillCellView.swift in Sources */,
+				D54A3A0627F98F2400104A06 /* SkillSetListView.swift in Sources */,
 				D5466F1027EEF99300720F80 /* TabBar.swift in Sources */,
 				D5B92E8427F6C8CE005E3E70 /* OfferViewModel.swift in Sources */,
 			);

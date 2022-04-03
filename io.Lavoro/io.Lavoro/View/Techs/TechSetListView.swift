@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct SkillSetListView: View {
-    @State var skillset: [Skill]
+struct TechSetListView: View {
+    @State var skillset: [Technology]
     var body: some View {
         NavigationView {
             List(skillset, id: \.name) { skill in
-               SkillCellView(skill: skill)
+                TechCellView(technologies: skill)
             }
         }.padding(.top, 20)
     }

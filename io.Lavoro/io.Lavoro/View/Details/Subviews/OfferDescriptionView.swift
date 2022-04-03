@@ -15,7 +15,7 @@ struct OfferDescriptionView: View {
             
             VStack {
             Text("Навыки")
-            SkillSetListView(skillset: offer.technologies)
+            TechSetListView(skillset: offer.technologies)
             }
             
             LavoroLabeledText(title: "Локакция", text: offer.project.location)
