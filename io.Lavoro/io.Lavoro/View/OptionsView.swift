@@ -21,7 +21,8 @@ struct OptionsView: View {
                     EmptyView()
                    // EmployeesListUIView()
                 case 2:
-                    ParametersFormUIView()
+                   // ParametersFormUIView()
+                    OfferListUIView()
                 case 3:
                     EmptyView()
                     //ProjectsListUIView()
@@ -29,7 +30,7 @@ struct OptionsView: View {
                     EmptyView()
                 }
             }
-            .padding(.top, 200)
+            .padding(.top, 100)
         }.background(Color.primaryBlue.edgesIgnoringSafeArea(.top))
             .clipShape(Corners())
     }

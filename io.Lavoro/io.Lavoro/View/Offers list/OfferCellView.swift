@@ -11,21 +11,23 @@ struct OfferCellView: View {
     @State var offer: Offer
     @State var isFullInfo: Bool = true
     var body: some View {
-        Color(Color.primaryBlue as! CGColor).opacity(0.0)
+        Color.primaryBlue// as! CGColor).opacity(0.0)
             .edgesIgnoringSafeArea(.all)
         ZStack(){
             RoundedRectangle(cornerRadius: 19)
                 .frame(width: UIScreen.main.bounds.width - 80, height: 133, alignment: .center)
-                .foregroundColor(Color.customWhite)
+                .foregroundColor(Color.clear)
             
-            VStack {
+            VStack(alignment: .leading, spacing: 10) {
                 
                 HStack(spacing: 15) {
                     if isFullInfo {
                     Image(uiImage: offer.project.user.photo)
+                            .resizable()
+                            .scaledToFit()
                     Spacer()
                     }
-                    VStack {
+                    VStack(alignment: .leading, spacing: 10) {
                         Text("\(offer.timeMode)")
                             .font(.custom("Montserrat-SemiBold", size: 10))
                         Text("\(offer.name)")
@@ -43,7 +45,8 @@ struct OfferCellView: View {
                 Text("\(offer.salary)")
                     .font(.custom("Montserrat-Medium", size: 10))
             }.padding(.all, 16)
-        }
+        }.frame(width: UIScreen.main.bounds.width - 80, height: 133)
+            .listRowBackground(Color.green)
     }
 }
 
