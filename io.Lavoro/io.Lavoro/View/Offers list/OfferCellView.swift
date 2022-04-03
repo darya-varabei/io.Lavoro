@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OfferCellView: View {
     @State var offer: Offer
+    @State var isFullInfo: Bool = true
     var body: some View {
         Color(Color.primaryBlue as! CGColor).opacity(0.0)
             .edgesIgnoringSafeArea(.all)
@@ -20,7 +21,10 @@ struct OfferCellView: View {
             VStack {
                 
                 HStack(spacing: 15) {
+                    if isFullInfo {
                     Image(uiImage: offer.project.user.photo)
+                    Spacer()
+                    }
                     VStack {
                         Text("\(offer.timeMode)")
                             .font(.custom("Montserrat-SemiBold", size: 10))

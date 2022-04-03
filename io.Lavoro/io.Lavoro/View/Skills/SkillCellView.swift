@@ -20,7 +20,7 @@ struct SkillCellView: View {
                     .frame(width: 100, height: 10, alignment: .leading)
                     .foregroundColor(.gray)
                 Rectangle()
-                    .frame(width: technologies.defineNumericLevel() / 100, height: 10, alignment: .leading)
+                    .frame(width: technologies.defineNumericLevel() * 20, height: 10, alignment: .leading)
                     .foregroundColor(Color.primaryBlue)
             }
         }
