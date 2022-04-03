@@ -24,7 +24,7 @@ enum Literals {
     }
     
     enum OfferDetail {
-        static let salary = "Зарплата:"
+        static let salary = "З/п:"
         static let aboutProject = "О проекте"
     }
 }

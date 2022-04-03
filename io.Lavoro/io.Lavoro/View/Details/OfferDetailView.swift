@@ -12,6 +12,9 @@ struct OfferDetailView: View {
     var offer: Offer
     @State var index = 0
     @Namespace var name
+    private var textColor: Color {
+        return offer.project.user.photo.brightness ? Color.customWhite : Color.black
+    }
     //var animation: Namespace.ID
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
@@ -20,7 +23,7 @@ struct OfferDetailView: View {
                 Image(uiImage: offer.project.user.photo)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 250)
+                    .frame(height: 200)
                     .clipShape(RoundedShape(corners: [.bottomLeft, .bottomRight]))
                 //.matchedGeometryEffect(id: offer.project.user.photo, in: animation)
                 
@@ -34,9 +37,8 @@ struct OfferDetailView: View {
                         }) {
                             Image(systemName: Images.chevronLeft.rawValue)
                                 .font(.title)
-                                .frame(width: 50, height: 50, alignment: .leading)
-                                .foregroundColor(offer.project.user.photo.brightness ? Color.customWhite : Color.darkBlue)
-                                .padding()
+                                .frame(width: 44, height: 44, alignment: .leading)
+                                .foregroundColor(textColor)
                                 .background(Color.clear)
                                 .clipShape(Circle())
                         }
@@ -45,19 +47,19 @@ struct OfferDetailView: View {
                     
                     VStack(alignment: .leading, spacing: 11) {
                         Text(offer.name)
-                            .font(.custom("Montserrat-Medium", size: 18))
-                            .foregroundColor(offer.project.user.photo.brightness ? Color.customWhite : Color.darkBlue)
+                            .font(.custom("Montserrat-SemiBold.ttf", size: 18))
+                            .foregroundColor(textColor)
                         
                         HStack{
                             Text(offer.project.location)
-                                .font(.custom("Montserrat-Medium", size: 14))
-                                .foregroundColor(offer.project.user.photo.brightness ? Color.customWhite : Color.darkBlue)
+                                .font(.custom("Montserrat-Medium.ttf", size: 14))
+                                .foregroundColor(textColor)
                             
                             Spacer()
                             
                             Text("\(Literals.OfferDetail.salary) \(offer.salary)")
-                                .font(.custom("Montserrat-Medium", size: 14))
-                                .foregroundColor(offer.project.user.photo.brightness ? Color.customWhite : Color.darkBlue)
+                                .font(.custom("Montserrat-Medium.ttf", size: 14))
+                                .foregroundColor(textColor)
                         }
                     }
                 }.padding(.horizontal, 25)
@@ -73,7 +75,7 @@ struct OfferDetailView: View {
                 }) {
                     VStack {
                         Text(Literals.OfferDescripttion.description)
-                            .font(.custom("Montserrat-Medium", size: 14))
+                            .font(.custom("Montserrat-Medium.ttf", size: 14))
                             .foregroundColor(index == 0 ? .darkBlue : .gray)
                         
                         ZStack {
@@ -99,7 +101,7 @@ struct OfferDetailView: View {
                     VStack {
                         Text(Literals.OfferDetail.aboutProject
                         )
-                            .font(.custom("Montserrat-Medium", size: 14))
+                            .font(.custom("Montserrat-Medium.ttf", size: 14))
                             .foregroundColor(index == 1 ? .darkBlue : .gray)
                         
                         ZStack {
@@ -124,7 +126,7 @@ struct OfferDetailView: View {
                 }) {
                     VStack {
                         Text("Заявка")
-                            .font(.custom("Montserrat-Medium", size: 14))
+                            .font(.custom("Montserrat-Medium.ttf", size: 14))
                             .foregroundColor(index == 2 ? .darkBlue : .gray)
                         
                         ZStack {
@@ -149,15 +151,16 @@ struct OfferDetailView: View {
             case 1:
                 ProjectDescriptionView(project: offer.project)
             case 2:
-                ApplicationView(sender: User(username: "", role: "", photo: UIImage(named: "kate")!), receiver: User(username: "", role: "", photo: UIImage(named: "kate")!), message: "", offer: Offer(project: Project(user: User(username: "", role: "", photo: UIImage(named: "guideHuman")!), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time", description: ""))
+                ApplicationView(receiver: offer.project.user, offer: offer)
             default:
                 EmptyView()
             }
-        }
+        }.navigationBarTitle("")
+            .navigationBarHidden(true)
     }
 }
 
-struct OfferDatailView_Previews: PreviewProvider {
+struct OfferDetailView_Previews: PreviewProvider {
     static var previews: some View {
         OfferDetailView(offer: Offer(project: Project(user: User(username: "", role: "", photo: UIImage(named: "guideHuman")!), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time", description: ""))
     }

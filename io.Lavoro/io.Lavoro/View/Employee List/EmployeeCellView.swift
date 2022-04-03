@@ -23,21 +23,21 @@ struct EmployeeCellView: View {
                     Image(uiImage: applicant.user.photo)
                     VStack(spacing: 10) {
                         Text("\(applicant.description)")
-                            .font(.custom("Montserrat-SemiBold", size: 10))
+                            .font(.custom("Montserrat-SemiBold.ttf", size: 10))
                         Text("\(applicant.name) \(applicant.surname)")
-                            .font(.custom("Montserrat-Bold", size: 14))
+                            .font(.custom("Montserrat-Bold.ttf", size: 14))
                         
                         HStack(spacing: 20) {
                             Text("\(applicant.location)")
-                                .font(.custom("Montserrat-SemiBold", size: 10))
+                                .font(.custom("Montserrat-SemiBold.ttf", size: 10))
                             
                             Text("\(applicant.mode)")
-                                .font(.custom("Montserrat-SemiBold", size: 10))
+                                .font(.custom("Montserrat-SemiBold.ttf", size: 10))
                         }
                     }
                 }
                 Text("\(applicant.payment)")
-                    .font(.custom("Montserrat-Medium", size: 10))
+                    .font(.custom("Montserrat-Medium.ttf", size: 10))
             }.padding(.all, 16)
         }
     }

@@ -22,7 +22,7 @@ struct EmployeeParametersView: View {
                     }
                     Spacer()
                     Text("Параметры")
-                        .font(.custom("Montserrat-Medium", size: 12))
+                        .font(.custom("Montserrat-Medium.ttf", size: 12))
                         .foregroundColor(Color.darkBlue)
                 }
             }.padding()

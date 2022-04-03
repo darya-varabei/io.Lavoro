@@ -10,6 +10,7 @@ import SwiftUI
 struct ProjectDescriptionView: View {
     @State var project: Project
     var body: some View {
+        ScrollView(.vertical, showsIndicators: false){
         VStack(alignment: .leading, spacing: 20) {
             LavoroLabeledText(title: project.name, text: project.category)
             LavoroLabeledText(title: "Описание", text: project.description)
@@ -29,6 +30,7 @@ struct ProjectDescriptionView: View {
                     }
                 }
             }
+        }
         }.padding(.top, 20)
             .padding(.horizontal, 20)
     }

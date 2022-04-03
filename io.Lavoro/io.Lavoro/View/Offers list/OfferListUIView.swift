@@ -18,8 +18,14 @@ struct OfferListUIView: View {
                     label: { OfferCellView(offer: offer)
                     }
                 )
-            }.background(Color.purple.ignoresSafeArea())
-        }.padding(.top, 20)
+            }.background(Color.primaryBlue.ignoresSafeArea())
+                .onAppear {
+                    // Set the default to clear
+                    UITableView.appearance().backgroundColor = .clear
+                }
+        }//.padding(.top, 20)
+        .navigationBarTitle("")
+            .navigationBarHidden(true)
     }
 }
 

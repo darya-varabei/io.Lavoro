@@ -10,6 +10,7 @@ import SwiftUI
 struct OfferDescriptionView: View {
     @State var offer: Offer
     var body: some View {
+        ScrollView(.vertical, showsIndicators: false){
         VStack {
             LavoroLabeledText(title: "Описание", text: offer.description)
             
@@ -26,7 +27,8 @@ struct OfferDescriptionView: View {
                 LavoroLabeledText(title: "Рабочее место", text: offer.project.mode)
             }
         }
-        .padding(.horizontal, 24)
+        }
+        .padding(.horizontal, 20)
     
     }
 }

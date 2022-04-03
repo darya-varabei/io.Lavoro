@@ -30,7 +30,7 @@ struct OptionsView: View {
                     EmptyView()
                 }
             }
-            .padding(.top, 100)
+            //.padding(.top, 40)
         }.background(Color.primaryBlue.edgesIgnoringSafeArea(.top))
             .clipShape(Corners())
     }
