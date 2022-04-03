@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectsListUIView: View {
     @Namespace var animationID
-    @State var projectViewModel: ProjectViewModel
+    @State var projectViewModel: ProjectViewModel = ProjectViewModel()
     var body: some View {
         NavigationView {
             List(projectViewModel.projects, id: \.name) { project in

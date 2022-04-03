@@ -19,6 +19,8 @@ struct ProjectCellView: View {
             
             HStack(spacing: 20) {
                 Image(uiImage: project.user.photo)
+                    .resizable()
+                    .scaledToFit()
                 VStack(alignment: .leading, spacing: 21) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("\(project.category)")

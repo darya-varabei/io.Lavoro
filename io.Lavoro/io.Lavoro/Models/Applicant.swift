@@ -8,10 +8,11 @@
 import Foundation
 
 class Applicant: Identifiable {
-    var id: ObjectIdentifier
+    var id: ObjectIdentifier?
     var user: User
     var name: String
     var surname: String
+    var specialization: String
     var age: Int
     var location: String
     var mode: String
@@ -21,7 +22,7 @@ class Applicant: Identifiable {
     var skills: [Skill]
     var relocate: Bool
     
-    init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool, mode: String, payment: String, id: ObjectIdentifier) {
+    init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool, mode: String, payment: String, id: ObjectIdentifier? = nil, specialization: String) {
         self.user = user
         self.name = name
         self.surname = surname
@@ -34,5 +35,6 @@ class Applicant: Identifiable {
         self.skills = skills
         self.relocate = relocate
         self.id = id
+        self.specialization = specialization
     }
 }

@@ -13,10 +13,10 @@ class Project {
     var name: String
     var location: String
     var description: String
-    var offers: [Offer]
+    var offers: [Offer]?
     var mode: String
     
-    init(user: User, name: String, location: String, description: String, offers: [Offer], category: String, mode: String) {
+    init(user: User, name: String, location: String, description: String, offers: [Offer]? = nil, category: String, mode: String) {
         self.user = user
         self.name = name
         self.location = location

@@ -46,7 +46,6 @@ struct OfferCellView: View {
                     .font(.custom("Montserrat-Medium.ttf", size: 10))
             }.padding(.all, 16)
         }.frame(width: UIScreen.main.bounds.width - 80, height: 133)
-            .listRowBackground(Color.green)
     }
 }
 

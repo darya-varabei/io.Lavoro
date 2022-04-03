@@ -10,7 +10,7 @@ import SwiftUI
 struct EmployeeCellView: View {
     @State var applicant: Applicant
     var body: some View {
-        Color(Color.primaryBlue as! CGColor).opacity(0.0)
+        Color.primaryBlue.opacity(0.0)// as! CGColor).opacity(0.0)
             .edgesIgnoringSafeArea(.all)
         ZStack(){
             RoundedRectangle(cornerRadius: 19)
@@ -21,6 +21,8 @@ struct EmployeeCellView: View {
             VStack(alignment: .leading, spacing: 33) {
                 HStack(spacing: 15) {
                     Image(uiImage: applicant.user.photo)
+                        .resizable()
+                        .scaledToFit()
                     VStack(spacing: 10) {
                         Text("\(applicant.description)")
                             .font(.custom("Montserrat-SemiBold.ttf", size: 10))
@@ -39,7 +41,7 @@ struct EmployeeCellView: View {
                 Text("\(applicant.payment)")
                     .font(.custom("Montserrat-Medium.ttf", size: 10))
             }.padding(.all, 16)
-        }
+        }.frame(width: UIScreen.main.bounds.width - 80, height: 133)
     }
 }
 

@@ -10,5 +10,5 @@ import SwiftUI
 
 class ProjectViewModel: ObservableObject {
     //@Published var isParametersOpen: Bool = false
-    @Published var projects: [Project] = []
+    @Published var projects: [Project] = [Project(user: User(username: "", role: "", photo: UIImage(named: "guideHuman")!), name: "Guide Human", location: "Portland, USA", description: "", category: "", mode: "")]
 }

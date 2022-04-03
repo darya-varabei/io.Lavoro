@@ -22,7 +22,7 @@ struct ProjectDescriptionView: View {
                 NavigationView {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
-                            ForEach(project.offers, id: \.name) { offer in
+                            ForEach(project.offers!, id: \.name) { offer in
                                 NavigationLink(destination: OfferDetailView(offer: offer), label: { OfferCellView(offer: offer)})
                                 
                             }
