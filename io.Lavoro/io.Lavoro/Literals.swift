@@ -8,16 +8,25 @@
 import Foundation
 import SwiftUI
 
-enum Literals: String {
-    case logInText = "Вход в аккаунт"
-    case enterData = "Введите данные учетной записи"
-    case email = "Эл.почта"
-    case password = "Пароль"
-    case enter = "Войти"
-    case forgotPassword = "Забыли пароль?"
-    case noAccount = "Еще нет аккаунта?"
-    case register = "Зарегистрируйтесь"
-    case facebookText = "Войти через Facebook"
+enum Literals {
+    static let logInText = "Вход в аккаунт"
+    static let enterData = "Введите данные учетной записи"
+    static let email = "Эл.почта"
+    static let password = "Пароль"
+    static let enter = "Войти"
+    static let forgotPassword = "Забыли пароль?"
+    static let noAccount = "Еще нет аккаунта?"
+    static let register = "Зарегистрируйтесь"
+    static let facebookText = "Войти через Facebook"
+    
+    enum OfferDescripttion {
+        static let description = "Описание"
+    }
+    
+    enum OfferDetail {
+        static let salary = "Зарплата:"
+        static let aboutProject = "О проекте"
+    }
 }
 
 extension Color {
@@ -33,4 +42,5 @@ enum Images: String {
     case touchid = "touchid"
     case facebookIcon = "facebookIcon"
     case logo = "logo"
+    case chevronLeft = "chevron.left"
 }

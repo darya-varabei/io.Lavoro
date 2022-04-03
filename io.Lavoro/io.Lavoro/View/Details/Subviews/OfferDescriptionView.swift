@@ -10,7 +10,24 @@ import SwiftUI
 struct OfferDescriptionView: View {
     @State var offer: Offer
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            LavoroLabeledText(title: "Описание", text: offer.description)
+            
+            VStack {
+            Text("Навыки")
+            SkillSetListView(skillset: offer.technologies)
+            }
+            
+            LavoroLabeledText(title: "Локакция", text: offer.project.location)
+            
+            HStack {
+                LavoroLabeledText(title: "Режим работы", text: offer.timeMode)
+                Spacer()
+                LavoroLabeledText(title: "Рабочее место", text: offer.project.mode)
+            }
+        }
+        .padding(.horizontal, 24)
+    
     }
 }
 

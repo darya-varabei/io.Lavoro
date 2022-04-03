@@ -32,7 +32,7 @@ struct OfferDetailView: View {
                                 self.presentationMode.wrappedValue.dismiss()
                             }
                         }) {
-                            Image(systemName: "chevron.left")
+                            Image(systemName: Images.chevronLeft.rawValue)
                                 .font(.title)
                                 .frame(width: 50, height: 50, alignment: .leading)
                                 .foregroundColor(offer.project.user.photo.brightness ? Color.customWhite : Color.darkBlue)
@@ -55,7 +55,7 @@ struct OfferDetailView: View {
                             
                             Spacer()
                             
-                            Text("Зарплата: \(offer.salary)")
+                            Text("\(Literals.OfferDetail.salary) \(offer.salary)")
                                 .font(.custom("Montserrat-Medium", size: 14))
                                 .foregroundColor(offer.project.user.photo.brightness ? Color.customWhite : Color.darkBlue)
                         }
@@ -72,7 +72,7 @@ struct OfferDetailView: View {
                     }
                 }) {
                     VStack {
-                        Text("Описание")
+                        Text(Literals.OfferDescripttion.description)
                             .font(.custom("Montserrat-Medium", size: 14))
                             .foregroundColor(index == 0 ? .darkBlue : .gray)
                         
@@ -97,7 +97,8 @@ struct OfferDetailView: View {
                     }
                 }) {
                     VStack {
-                        Text("О проекте")
+                        Text(Literals.OfferDetail.aboutProject
+                        )
                             .font(.custom("Montserrat-Medium", size: 14))
                             .foregroundColor(index == 1 ? .darkBlue : .gray)
                         
@@ -158,6 +159,6 @@ struct OfferDetailView: View {
 
 struct OfferDatailView_Previews: PreviewProvider {
     static var previews: some View {
-        OfferDetailView(offer: Offer(project: Project(user: User(username: "", role: "", photo: UIImage(named: "guideHuman")!), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time"))
+        OfferDetailView(offer: Offer(project: Project(user: User(username: "", role: "", photo: UIImage(named: "guideHuman")!), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time", description: ""))
     }
 }

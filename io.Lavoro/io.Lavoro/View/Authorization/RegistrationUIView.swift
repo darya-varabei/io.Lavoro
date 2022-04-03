@@ -26,7 +26,7 @@ struct RegistrationUIView: View {
             
             HStack {
                 VStack(alignment: .leading, spacing: 12, content: {
-                    Text(Literals.logInText.rawValue)
+                    Text(Literals.logInText)
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.primaryBlue)//(Color(Colors.primaryBlue.rawValue))
@@ -41,7 +41,7 @@ struct RegistrationUIView: View {
                     .foregroundColor(.primaryBlue).opacity(0.7)
                     .frame(width: 35)
                 
-                TextField(Literals.email.rawValue, text: $loginVM.username)
+                TextField(Literals.email, text: $loginVM.username)
                     .autocapitalization(.none)
             }
             .padding()
@@ -55,7 +55,7 @@ struct RegistrationUIView: View {
                     .foregroundColor(.primaryBlue).opacity(0.7)
                     .frame(width: 35)
                 
-                SecureField(Literals.password.rawValue, text: $loginVM.password)
+                SecureField(Literals.password, text: $loginVM.password)
                     .autocapitalization(.none)
             }
             .padding()
@@ -96,11 +96,11 @@ struct RegistrationUIView: View {
             Spacer(minLength: 0)
             
             HStack(spacing: 5) {
-                Text(Literals.noAccount.rawValue)
+                Text(Literals.noAccount)
                     .foregroundColor(.primaryBlue).opacity(0.8)
                 
                 Button(action: {}, label: {
-                    Text(Literals.register.rawValue)
+                    Text(Literals.register)
                         .fontWeight(.medium)
                         .foregroundColor(.primaryBlue)
                 })
@@ -108,7 +108,7 @@ struct RegistrationUIView: View {
             
             Button(action: {}, label: {
                 HStack(alignment: .center, spacing: 10) {
-                    Text(Literals.facebookText.rawValue)
+                    Text(Literals.facebookText)
                     Image(Images.facebookIcon.rawValue)
                         .resizable()
                         .frame(width: 40, height: 40, alignment: .center)

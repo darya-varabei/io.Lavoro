@@ -69,6 +69,11 @@
 		D5D4CAA827F912260040F3F0 /* OfferDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAA727F912260040F3F0 /* OfferDescriptionView.swift */; };
 		D5D4CAAA27F912B40040F3F0 /* ProjectDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAA927F912B40040F3F0 /* ProjectDescriptionView.swift */; };
 		D5D4CAAC27F912C20040F3F0 /* ApplicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAAB27F912C20040F3F0 /* ApplicationView.swift */; };
+		D5D4CAAF27F914DB0040F3F0 /* LavoroLabeledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAAE27F914DB0040F3F0 /* LavoroLabeledText.swift */; };
+		D5D4CAB227F935460040F3F0 /* SkillSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB127F935460040F3F0 /* SkillSetListView.swift */; };
+		D5D4CAB427F935560040F3F0 /* SkillCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB327F935560040F3F0 /* SkillCellView.swift */; };
+		D5D4CAB627F936720040F3F0 /* Skill+Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB527F936720040F3F0 /* Skill+Definition.swift */; };
+		D5D4CAB827F93D800040F3F0 /* Technology+Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4CAB727F93D800040F3F0 /* Technology+Definition.swift */; };
 		D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */; };
 		D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FDD27D4C567001CA5B1 /* ContentView.swift */; };
 		D5E25FE027D4C569001CA5B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5E25FDF27D4C569001CA5B1 /* Assets.xcassets */; };
@@ -146,6 +151,11 @@
 		D5D4CAA727F912260040F3F0 /* OfferDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDescriptionView.swift; sourceTree = "<group>"; };
 		D5D4CAA927F912B40040F3F0 /* ProjectDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescriptionView.swift; sourceTree = "<group>"; };
 		D5D4CAAB27F912C20040F3F0 /* ApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationView.swift; sourceTree = "<group>"; };
+		D5D4CAAE27F914DB0040F3F0 /* LavoroLabeledText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroLabeledText.swift; sourceTree = "<group>"; };
+		D5D4CAB127F935460040F3F0 /* SkillSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSetListView.swift; sourceTree = "<group>"; };
+		D5D4CAB327F935560040F3F0 /* SkillCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCellView.swift; sourceTree = "<group>"; };
+		D5D4CAB527F936720040F3F0 /* Skill+Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skill+Definition.swift"; sourceTree = "<group>"; };
+		D5D4CAB727F93D800040F3F0 /* Technology+Definition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Technology+Definition.swift"; sourceTree = "<group>"; };
 		D5E25FD827D4C567001CA5B1 /* io.Lavoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = io.Lavoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_LavoroApp.swift; sourceTree = "<group>"; };
 		D5E25FDD27D4C567001CA5B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -217,7 +227,9 @@
 				D5AED00527D55C0500FBEE17 /* Role.swift */,
 				D5AECFF727D55A7600FBEE17 /* UserRegister.swift */,
 				D5AECFFB27D55ACE00FBEE17 /* Project.swift */,
+				D5D4CAB527F936720040F3F0 /* Skill+Definition.swift */,
 				D5AECFFD27D55AEA00FBEE17 /* Skill.swift */,
+				D5D4CAB727F93D800040F3F0 /* Technology+Definition.swift */,
 				D570CB3827E7D00600155781 /* User.swift */,
 				D5AED00127D55B1900FBEE17 /* Response.swift */,
 				D5AED00327D55B8100FBEE17 /* Offer.swift */,
@@ -269,6 +281,7 @@
 				D5BFA1BC27EA89F3007A872A /* LavoroButton.swift */,
 				D5C62F3327F209E4004AEFA5 /* LavoroTextFieldStyle.swift */,
 				D5C62F3527F20A51004AEFA5 /* LavoroMultilineTextField.swift */,
+				D5D4CAAE27F914DB0040F3F0 /* LavoroLabeledText.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -314,6 +327,15 @@
 				D5D4CAAB27F912C20040F3F0 /* ApplicationView.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		D5D4CAB027F9352B0040F3F0 /* Skills */ = {
+			isa = PBXGroup;
+			children = (
+				D5D4CAB127F935460040F3F0 /* SkillSetListView.swift */,
+				D5D4CAB327F935560040F3F0 /* SkillCellView.swift */,
+			);
+			path = Skills;
 			sourceTree = "<group>";
 		};
 		D5E25FCF27D4C567001CA5B1 = {
@@ -381,6 +403,7 @@
 		D5E2600527D4C5CF001CA5B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D5D4CAB027F9352B0040F3F0 /* Skills */,
 				D5D4CAA227F84E770040F3F0 /* Details */,
 				D5C9B3D427EFA5900011AE7F /* Offers list */,
 				D5BFA1B627EA8866007A872A /* Employee List */,
@@ -544,10 +567,12 @@
 				D5AECFFE27D55AEA00FBEE17 /* Skill.swift in Sources */,
 				D5AED00627D55C0500FBEE17 /* Role.swift in Sources */,
 				D5D4CAAC27F912C20040F3F0 /* ApplicationView.swift in Sources */,
+				D5D4CAB427F935560040F3F0 /* SkillCellView.swift in Sources */,
 				D544725427F0571D00421940 /* EmployeeParametersView.swift in Sources */,
 				D5AECFF227D5594A00FBEE17 /* ParametersFormUIView.swift in Sources */,
 				D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */,
 				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
+				D5D4CAB627F936720040F3F0 /* Skill+Definition.swift in Sources */,
 				D5B92E8027F6C71B005E3E70 /* ProjectDetailView.swift in Sources */,
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
 				D5B92E8227F6C898005E3E70 /* OfferDetailView.swift in Sources */,
@@ -556,9 +581,11 @@
 				D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */,
 				D5AECFFA27D55ABF00FBEE17 /* Applicant.swift in Sources */,
 				D570CB3927E7D00600155781 /* User.swift in Sources */,
+				D5D4CAB827F93D800040F3F0 /* Technology+Definition.swift in Sources */,
 				D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */,
 				D5D4CAA627F8BC110040F3F0 /* UIImage+Brightness.swift in Sources */,
 				D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */,
+				D5D4CAAF27F914DB0040F3F0 /* LavoroLabeledText.swift in Sources */,
 				D5AECFF827D55A7600FBEE17 /* UserRegister.swift in Sources */,
 				D570CB3727E7CFB300155781 /* WebService.swift in Sources */,
 				D57F297827D568BB00703726 /* Literals.swift in Sources */,
@@ -576,6 +603,7 @@
 				D5B92E7C27F6C446005E3E70 /* EmployeeDetailsView.swift in Sources */,
 				D5B92E7E27F6C6B9005E3E70 /* ProjectViewModel.swift in Sources */,
 				D5C62F3427F209E4004AEFA5 /* LavoroTextFieldStyle.swift in Sources */,
+				D5D4CAB227F935460040F3F0 /* SkillSetListView.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
 				D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */,
 				D5D4CAAA27F912B40040F3F0 /* ProjectDescriptionView.swift in Sources */,
