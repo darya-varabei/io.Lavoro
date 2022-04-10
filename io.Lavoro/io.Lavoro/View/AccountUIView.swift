@@ -11,13 +11,31 @@ struct AccountUIView: View {
     
     @State var name: String = ""
     @State var specialization: String = ""
-    @State var account: Account
+    @State var account: WrappedAccount
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if account.account is Applicant {
+           applicantProfileView
+        }
+        else {
+            projectProfileView
+        }
     }
     
     @ViewBuilder
-    var avatarSelect: some View {
+    var applicantProfileView: some View {
+        HStack {
+            VStack {
+                Text("Мой профиль")
+                VStack {
+                    Text(account.getName())
+                    Text(account.getSpecialization())
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var projectProfileView: some View {
         HStack {
             VStack {
                 Text("Мой профиль")

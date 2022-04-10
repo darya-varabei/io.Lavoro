@@ -33,6 +33,7 @@ extension Color {
     static let customWhite = Color("white")
     static let primaryBlue = Color("primaryBlue")
     static let darkBlue = Color("darkBlue")
+    static let customBlack = Color("customBlack")
 }
 
 enum Images: String {

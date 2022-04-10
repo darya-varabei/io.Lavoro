@@ -21,7 +21,7 @@ protocol Account {
 
 class WrappedAccount: Account {
     
-    private var account: Account
+    var account: Account
     
     init(account: Account) {
         self.account = account

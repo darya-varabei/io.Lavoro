@@ -84,6 +84,7 @@
 		D5E25FF927D4C569001CA5B1 /* io_LavoroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FF827D4C569001CA5B1 /* io_LavoroUITestsLaunchTests.swift */; };
 		D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E2600627D4C5E6001CA5B1 /* HomeUIView.swift */; };
 		D5EF1866280304EB003F4E94 /* WrappedAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EF1865280304EB003F4E94 /* WrappedAccount.swift */; };
+		D5EF186F28031C08003F4E94 /* LavoroTitledText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EF186E28031C08003F4E94 /* LavoroTitledText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,7 @@
 		D5E25FF827D4C569001CA5B1 /* io_LavoroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_LavoroUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D5E2600627D4C5E6001CA5B1 /* HomeUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIView.swift; sourceTree = "<group>"; };
 		D5EF1865280304EB003F4E94 /* WrappedAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedAccount.swift; sourceTree = "<group>"; };
+		D5EF186E28031C08003F4E94 /* LavoroTitledText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroTitledText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 				D5C62F3327F209E4004AEFA5 /* LavoroTextFieldStyle.swift */,
 				D5C62F3527F20A51004AEFA5 /* LavoroMultilineTextField.swift */,
 				D5D4CAAE27F914DB0040F3F0 /* LavoroLabeledText.swift */,
+				D5EF186E28031C08003F4E94 /* LavoroTitledText.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				D5C9B3D627EFA5A40011AE7F /* OfferCellView.swift in Sources */,
 				D5D4CAA827F912260040F3F0 /* OfferDescriptionView.swift in Sources */,
 				D5C9B3C527EF73C60011AE7F /* AccountUIView.swift in Sources */,
+				D5EF186F28031C08003F4E94 /* LavoroTitledText.swift in Sources */,
 				D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */,
 				D5C62F3627F20A51004AEFA5 /* LavoroMultilineTextField.swift in Sources */,
 				D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */,
