@@ -8,6 +8,7 @@
 import Foundation
 
 class Project: Account {
+    
     var user: User
     var category: String
     var name: String
@@ -24,5 +25,37 @@ class Project: Account {
         self.offers = offers
         self.category = category
         self.mode = mode
+    }
+    
+    func getName() -> String {
+        return name
+    }
+    
+    func getSpecialization() -> String {
+        return ""
+    }
+    
+    func getDescription() -> String {
+        return description
+    }
+    
+    func getSkills() -> [Skill] {
+        return []
+    }
+    
+    func getLocation() -> String {
+        return location
+    }
+    
+    func getRelocate() -> String {
+        return ""
+    }
+    
+    func getInterests() -> String {
+        return ""
+    }
+    
+    func getMode() -> String {
+        return mode
     }
 }
