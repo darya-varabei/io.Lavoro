@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Applicant: Identifiable {
+class Applicant: Account, Identifiable {
     var id: ObjectIdentifier?
     var user: User
     var name: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Project {
+class Project: Account {
     var user: User
     var category: String
     var name: String

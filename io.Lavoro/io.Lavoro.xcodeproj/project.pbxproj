@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D544724827EFE68E00421940 /* OfferListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724727EFE68E00421940 /* OfferListUIView.swift */; };
 		D544724927EFE68E00421940 /* OfferListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724727EFE68E00421940 /* OfferListUIView.swift */; };
-		D544724A27EFE68E00421940 /* OfferListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724727EFE68E00421940 /* OfferListUIView.swift */; };
 		D544724C27F0431C00421940 /* EmployeeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724B27F0431C00421940 /* EmployeeHomeView.swift */; };
 		D544724D27F0431C00421940 /* EmployeeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724B27F0431C00421940 /* EmployeeHomeView.swift */; };
 		D544724E27F0431C00421940 /* EmployeeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724B27F0431C00421940 /* EmployeeHomeView.swift */; };
@@ -84,6 +83,7 @@
 		D5E25FF727D4C569001CA5B1 /* io_LavoroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FF627D4C569001CA5B1 /* io_LavoroUITests.swift */; };
 		D5E25FF927D4C569001CA5B1 /* io_LavoroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E25FF827D4C569001CA5B1 /* io_LavoroUITestsLaunchTests.swift */; };
 		D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E2600627D4C5E6001CA5B1 /* HomeUIView.swift */; };
+		D5EF1866280304EB003F4E94 /* WrappedAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EF1865280304EB003F4E94 /* WrappedAccount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +171,7 @@
 		D5E25FF627D4C569001CA5B1 /* io_LavoroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_LavoroUITests.swift; sourceTree = "<group>"; };
 		D5E25FF827D4C569001CA5B1 /* io_LavoroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = io_LavoroUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D5E2600627D4C5E6001CA5B1 /* HomeUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIView.swift; sourceTree = "<group>"; };
+		D5EF1865280304EB003F4E94 /* WrappedAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,19 +237,13 @@
 		D5AECFF427D55A3200FBEE17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */,
-				D5AED00527D55C0500FBEE17 /* Role.swift */,
-				D5AECFF727D55A7600FBEE17 /* UserRegister.swift */,
-				D5AECFFB27D55ACE00FBEE17 /* Project.swift */,
-				D5D4CAB527F936720040F3F0 /* Skill+Definition.swift */,
-				D5AECFFD27D55AEA00FBEE17 /* Skill.swift */,
-				D5D4CAB727F93D800040F3F0 /* Technology+Definition.swift */,
-				D570CB3827E7D00600155781 /* User.swift */,
+				D5EF186A280305DF003F4E94 /* User */,
+				D5EF1868280305AB003F4E94 /* Account */,
+				D5EF18672803059D003F4E94 /* Skill */,
 				D5AED00127D55B1900FBEE17 /* Response.swift */,
 				D5AED00327D55B8100FBEE17 /* Offer.swift */,
+				D5EF1869280305C6003F4E94 /* Technology */,
 				D5AECFFF27D55B0900FBEE17 /* Application.swift */,
-				D5AECFF927D55ABF00FBEE17 /* Applicant.swift */,
-				D5BFA1AF27EA862C007A872A /* Technology.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,8 +251,7 @@
 		D5BFA1B527EA8828007A872A /* Project list */ = {
 			isa = PBXGroup;
 			children = (
-				D5BFA1B327EA8737007A872A /* ProjectCellView.swift */,
-				D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */,
+				D5EF186B2803062B003F4E94 /* View */,
 				D5B92E7D27F6C6B9005E3E70 /* ProjectViewModel.swift */,
 			);
 			path = "Project list";
@@ -314,8 +308,7 @@
 		D5C9B3D427EFA5900011AE7F /* Offers list */ = {
 			isa = PBXGroup;
 			children = (
-				D5C9B3D527EFA5A40011AE7F /* OfferCellView.swift */,
-				D544724727EFE68E00421940 /* OfferListUIView.swift */,
+				D5EF186C28030645003F4E94 /* View */,
 				D5B92E8327F6C8CE005E3E70 /* OfferViewModel.swift */,
 			);
 			path = "Offers list";
@@ -428,6 +421,63 @@
 				D5E25FDD27D4C567001CA5B1 /* ContentView.swift */,
 				D5466F1427EF17C900720F80 /* OptionsView.swift */,
 				D5C9B3C427EF73C50011AE7F /* AccountUIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5EF18672803059D003F4E94 /* Skill */ = {
+			isa = PBXGroup;
+			children = (
+				D5D4CAB527F936720040F3F0 /* Skill+Definition.swift */,
+				D5AECFFD27D55AEA00FBEE17 /* Skill.swift */,
+			);
+			path = Skill;
+			sourceTree = "<group>";
+		};
+		D5EF1868280305AB003F4E94 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D5AECFFB27D55ACE00FBEE17 /* Project.swift */,
+				D5EF1865280304EB003F4E94 /* WrappedAccount.swift */,
+				D5AECFF927D55ABF00FBEE17 /* Applicant.swift */,
+				D570CB3827E7D00600155781 /* User.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		D5EF1869280305C6003F4E94 /* Technology */ = {
+			isa = PBXGroup;
+			children = (
+				D5BFA1AF27EA862C007A872A /* Technology.swift */,
+				D5D4CAB727F93D800040F3F0 /* Technology+Definition.swift */,
+			);
+			path = Technology;
+			sourceTree = "<group>";
+		};
+		D5EF186A280305DF003F4E94 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */,
+				D5AECFF727D55A7600FBEE17 /* UserRegister.swift */,
+				D5AED00527D55C0500FBEE17 /* Role.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		D5EF186B2803062B003F4E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */,
+				D5BFA1B327EA8737007A872A /* ProjectCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5EF186C28030645003F4E94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D544724727EFE68E00421940 /* OfferListUIView.swift */,
+				D5C9B3D527EFA5A40011AE7F /* OfferCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -578,6 +628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */,
+				D5EF1866280304EB003F4E94 /* WrappedAccount.swift in Sources */,
 				D5AECFFE27D55AEA00FBEE17 /* Skill.swift in Sources */,
 				D5AED00627D55C0500FBEE17 /* Role.swift in Sources */,
 				D5D4CAAC27F912C20040F3F0 /* ApplicationView.swift in Sources */,
@@ -653,7 +704,6 @@
 			files = (
 				D5E25FF727D4C569001CA5B1 /* io_LavoroUITests.swift in Sources */,
 				D544724E27F0431C00421940 /* EmployeeHomeView.swift in Sources */,
-				D544724A27EFE68E00421940 /* OfferListUIView.swift in Sources */,
 				D544725227F04D0F00421940 /* EmployeeViewModel.swift in Sources */,
 				D544725627F0571D00421940 /* EmployeeParametersView.swift in Sources */,
 				D5E25FF927D4C569001CA5B1 /* io_LavoroUITestsLaunchTests.swift in Sources */,

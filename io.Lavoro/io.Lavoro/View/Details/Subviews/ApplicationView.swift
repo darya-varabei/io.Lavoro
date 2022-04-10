@@ -15,8 +15,9 @@ struct ApplicationView: View {
         VStack {
             GHMultilineTextField("Сообщение", text: $message)
             Button(action: {}, label: {
-                Text("")
+                Text("Отправить")
             })
+            Spacer()
         }.padding(.horizontal, 20)
     }
 }
