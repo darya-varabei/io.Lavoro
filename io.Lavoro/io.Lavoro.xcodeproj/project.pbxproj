@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D53FCA5628049FD40078323A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5528049FD40078323A /* Endpoint.swift */; };
+		D53FCA5828049FF80078323A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5728049FF80078323A /* HTTPClient.swift */; };
+		D53FCA5A2804A0200078323A /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA592804A0200078323A /* RequestMethod.swift */; };
+		D53FCA5C2804A0380078323A /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5B2804A0380078323A /* RequestError.swift */; };
+		D53FCA5F2804A0A80078323A /* LavoroEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5E2804A0A80078323A /* LavoroEndpoints.swift */; };
+		D53FCA622804A0EC0078323A /* LavoroService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA612804A0EC0078323A /* LavoroService.swift */; };
 		D544724827EFE68E00421940 /* OfferListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724727EFE68E00421940 /* OfferListUIView.swift */; };
 		D544724927EFE68E00421940 /* OfferListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724727EFE68E00421940 /* OfferListUIView.swift */; };
 		D544724C27F0431C00421940 /* EmployeeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724B27F0431C00421940 /* EmployeeHomeView.swift */; };
@@ -105,6 +111,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D53FCA5528049FD40078323A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		D53FCA5728049FF80078323A /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		D53FCA592804A0200078323A /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		D53FCA5B2804A0380078323A /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		D53FCA5E2804A0A80078323A /* LavoroEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroEndpoints.swift; sourceTree = "<group>"; };
+		D53FCA612804A0EC0078323A /* LavoroService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroService.swift; sourceTree = "<group>"; };
 		D544724727EFE68E00421940 /* OfferListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferListUIView.swift; sourceTree = "<group>"; };
 		D544724B27F0431C00421940 /* EmployeeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeView.swift; sourceTree = "<group>"; };
 		D544724F27F04D0F00421940 /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
@@ -202,6 +214,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D53FCA5328049FAA0078323A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D53FCA5D2804A0870078323A /* Endpoints */,
+				D53FCA5428049FBA0078323A /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D53FCA5428049FBA0078323A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D53FCA5528049FD40078323A /* Endpoint.swift */,
+				D53FCA5728049FF80078323A /* HTTPClient.swift */,
+				D53FCA592804A0200078323A /* RequestMethod.swift */,
+				D53FCA5B2804A0380078323A /* RequestError.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D53FCA5D2804A0870078323A /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				D53FCA5E2804A0A80078323A /* LavoroEndpoints.swift */,
+				D53FCA612804A0EC0078323A /* LavoroService.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		D54A3A0427F98EFF00104A06 /* Skills */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +255,7 @@
 		D570CB3527E7CF9400155781 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D53FCA5328049FAA0078323A /* Network */,
 				D570CB3627E7CFB300155781 /* WebService.swift */,
 			);
 			path = Service;
@@ -635,6 +677,7 @@
 				D5AECFFE27D55AEA00FBEE17 /* Skill.swift in Sources */,
 				D5AED00627D55C0500FBEE17 /* Role.swift in Sources */,
 				D5D4CAAC27F912C20040F3F0 /* ApplicationView.swift in Sources */,
+				D53FCA5A2804A0200078323A /* RequestMethod.swift in Sources */,
 				D5D4CAB427F935560040F3F0 /* TechCellView.swift in Sources */,
 				D544725427F0571D00421940 /* EmployeeParametersView.swift in Sources */,
 				D5AECFF227D5594A00FBEE17 /* ParametersFormUIView.swift in Sources */,
@@ -645,6 +688,7 @@
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
 				D5B92E8227F6C898005E3E70 /* OfferDetailView.swift in Sources */,
 				D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */,
+				D53FCA622804A0EC0078323A /* LavoroService.swift in Sources */,
 				D5466F1527EF17C900720F80 /* OptionsView.swift in Sources */,
 				D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */,
 				D5AECFFA27D55ABF00FBEE17 /* Applicant.swift in Sources */,
@@ -661,8 +705,10 @@
 				D5C9B3D627EFA5A40011AE7F /* OfferCellView.swift in Sources */,
 				D5D4CAA827F912260040F3F0 /* OfferDescriptionView.swift in Sources */,
 				D5C9B3C527EF73C60011AE7F /* AccountUIView.swift in Sources */,
+				D53FCA5628049FD40078323A /* Endpoint.swift in Sources */,
 				D5EF186F28031C08003F4E94 /* LavoroTitledText.swift in Sources */,
 				D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */,
+				D53FCA5828049FF80078323A /* HTTPClient.swift in Sources */,
 				D5C62F3627F20A51004AEFA5 /* LavoroMultilineTextField.swift in Sources */,
 				D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */,
 				D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */,
@@ -674,6 +720,7 @@
 				D5C62F3427F209E4004AEFA5 /* LavoroTextFieldStyle.swift in Sources */,
 				D5D4CAB227F935460040F3F0 /* TechSetListView.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
+				D53FCA5F2804A0A80078323A /* LavoroEndpoints.swift in Sources */,
 				D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */,
 				D5D4CAAA27F912B40040F3F0 /* ProjectDescriptionView.swift in Sources */,
 				D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */,
@@ -683,6 +730,7 @@
 				D5AECFFC27D55ACE00FBEE17 /* Project.swift in Sources */,
 				D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */,
 				D54A3A0827F98F3100104A06 /* SkillCellView.swift in Sources */,
+				D53FCA5C2804A0380078323A /* RequestError.swift in Sources */,
 				D54A3A0627F98F2400104A06 /* SkillSetListView.swift in Sources */,
 				D5466F1027EEF99300720F80 /* TabBar.swift in Sources */,
 				D5B92E8427F6C8CE005E3E70 /* OfferViewModel.swift in Sources */,
