@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol Account {
     func getName() -> String
@@ -17,6 +18,7 @@ protocol Account {
     func getInterests() -> String
     func getMode() -> String
     func getCategory() -> String
+    func getPhoto() -> UIImage
 }
 
 class WrappedAccount: Account {
@@ -61,6 +63,10 @@ class WrappedAccount: Account {
     
     func getCategory() -> String {
         return account.getCategory()
+    }
+    
+    func getPhoto() -> UIImage {
+        return account.getPhoto()
     }
     
 }

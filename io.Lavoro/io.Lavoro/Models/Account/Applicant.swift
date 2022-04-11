@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Applicant: Account, Identifiable {
     
@@ -81,5 +82,9 @@ class Applicant: Account, Identifiable {
     
     func getCategory() -> String {
         return ""
+    }
+    
+    func getPhoto() -> UIImage {
+        return user.photo
     }
 }

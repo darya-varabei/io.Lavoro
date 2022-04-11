@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Project: Account {
     
@@ -57,5 +58,13 @@ class Project: Account {
     
     func getMode() -> String {
         return mode
+    }
+    
+    func getPhoto() -> UIImage {
+        return user.photo
+    }
+    
+    func getCategory() -> String {
+        return category
     }
 }
