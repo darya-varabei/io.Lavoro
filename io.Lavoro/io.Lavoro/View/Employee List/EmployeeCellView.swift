@@ -20,7 +20,7 @@ struct EmployeeCellView: View {
             
             VStack(alignment: .leading, spacing: 33) {
                 HStack(spacing: 15) {
-                    Image(uiImage: applicant.user.photo)
+                    Image(uiImage: UIImage(data: applicant.user.photo.photo)!)
                         .resizable()
                         .scaledToFit()
                     VStack(spacing: 10) {

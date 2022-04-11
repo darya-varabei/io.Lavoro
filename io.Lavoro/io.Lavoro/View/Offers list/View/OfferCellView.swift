@@ -22,7 +22,7 @@ struct OfferCellView: View {
                 
                 HStack(spacing: 15) {
                     if isFullInfo {
-                    Image(uiImage: offer.project.user.photo)
+                        Image(uiImage: UIImage(data: offer.project.user.photo.photo)!)
                             .resizable()
                             .scaledToFit()
                     Spacer()

@@ -7,14 +7,15 @@
 
 import Foundation
 
-protocol MoviesServiceable {
-    func getAccountInfo() async -> Result<WrappedAccount, RequestError>
+protocol LavoroServiceable {
+    func getAccountInfo() async -> Result<Project, RequestError>
     func getProjects() async -> Result<[Project], RequestError>
 }
 
-struct MoviesService: HTTPClient, MoviesServiceable {
-    func getAccountInfo() async -> Result<WrappedAccount, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.account, responseModel: WrappedAccount.self)
+struct LavoroService: HTTPClient, LavoroServiceable {
+    
+    func getAccountInfo() async -> Result<Project, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.account, responseModel: Project.self)
     }
     
     func getProjects() async -> Result<[Project], RequestError> {

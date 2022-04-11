@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Project: Account {
+struct Project: Account, Hashable, Equatable {
     
     var user: User
     var category: String
@@ -17,6 +17,14 @@ class Project: Account {
     var description: String
     var offers: [Offer]?
     var mode: String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+    
+    static func ==(lhs: Project, rhs: Project) -> Bool {
+        return lhs.name == rhs.name
+    }
     
     init(user: User, name: String, location: String, description: String, offers: [Offer]? = nil, category: String, mode: String) {
         self.user = user
@@ -61,10 +69,22 @@ class Project: Account {
     }
     
     func getPhoto() -> UIImage {
-        return user.photo
+        return UIImage(data: user.photo.photo)!
     }
     
     func getCategory() -> String {
         return category
+    }
+}
+
+extension Project: Codable {
+    enum CodingKeys: String, CodingKey {
+        case user
+        case category
+        case name
+        case location
+        case description
+        case offers
+        case mode
     }
 }

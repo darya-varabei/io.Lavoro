@@ -13,6 +13,8 @@
 		D53FCA5C2804A0380078323A /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5B2804A0380078323A /* RequestError.swift */; };
 		D53FCA5F2804A0A80078323A /* LavoroEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5E2804A0A80078323A /* LavoroEndpoints.swift */; };
 		D53FCA622804A0EC0078323A /* LavoroService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA612804A0EC0078323A /* LavoroService.swift */; };
+		D53FCA642804A6590078323A /* UIImage+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA632804A6590078323A /* UIImage+Codable.swift */; };
+		D53FCA662804A7320078323A /* UIImage+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA652804A7320078323A /* UIImage+Data.swift */; };
 		D544724827EFE68E00421940 /* OfferListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724727EFE68E00421940 /* OfferListUIView.swift */; };
 		D544724927EFE68E00421940 /* OfferListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724727EFE68E00421940 /* OfferListUIView.swift */; };
 		D544724C27F0431C00421940 /* EmployeeHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544724B27F0431C00421940 /* EmployeeHomeView.swift */; };
@@ -117,6 +119,8 @@
 		D53FCA5B2804A0380078323A /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		D53FCA5E2804A0A80078323A /* LavoroEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroEndpoints.swift; sourceTree = "<group>"; };
 		D53FCA612804A0EC0078323A /* LavoroService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroService.swift; sourceTree = "<group>"; };
+		D53FCA632804A6590078323A /* UIImage+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Codable.swift"; sourceTree = "<group>"; };
+		D53FCA652804A7320078323A /* UIImage+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Data.swift"; sourceTree = "<group>"; };
 		D544724727EFE68E00421940 /* OfferListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferListUIView.swift; sourceTree = "<group>"; };
 		D544724B27F0431C00421940 /* EmployeeHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeHomeView.swift; sourceTree = "<group>"; };
 		D544724F27F04D0F00421940 /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
@@ -319,6 +323,8 @@
 				D5BFA1BE27EA89FF007A872A /* Controls */,
 				D5D4CAA327F855310040F3F0 /* RoundedShape.swift */,
 				D5D4CAA527F8BC110040F3F0 /* UIImage+Brightness.swift */,
+				D53FCA632804A6590078323A /* UIImage+Codable.swift */,
+				D53FCA652804A7320078323A /* UIImage+Data.swift */,
 			);
 			path = LavoroUI;
 			sourceTree = "<group>";
@@ -691,6 +697,7 @@
 				D53FCA622804A0EC0078323A /* LavoroService.swift in Sources */,
 				D5466F1527EF17C900720F80 /* OptionsView.swift in Sources */,
 				D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */,
+				D53FCA662804A7320078323A /* UIImage+Data.swift in Sources */,
 				D5AECFFA27D55ABF00FBEE17 /* Applicant.swift in Sources */,
 				D570CB3927E7D00600155781 /* User.swift in Sources */,
 				D5D4CAB827F93D800040F3F0 /* Technology+Definition.swift in Sources */,
@@ -717,6 +724,7 @@
 				D5D4CAA427F855310040F3F0 /* RoundedShape.swift in Sources */,
 				D5B92E7C27F6C446005E3E70 /* EmployeeDetailsView.swift in Sources */,
 				D5B92E7E27F6C6B9005E3E70 /* ProjectViewModel.swift in Sources */,
+				D53FCA642804A6590078323A /* UIImage+Codable.swift in Sources */,
 				D5C62F3427F209E4004AEFA5 /* LavoroTextFieldStyle.swift in Sources */,
 				D5D4CAB227F935460040F3F0 /* TechSetListView.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,

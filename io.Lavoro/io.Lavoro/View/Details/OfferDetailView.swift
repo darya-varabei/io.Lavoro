@@ -13,14 +13,14 @@ struct OfferDetailView: View {
     @State var index = 0
     @Namespace var name
     private var textColor: Color {
-        return offer.project.user.photo.brightness ? Color.customWhite : Color.black
+        return UIImage(data: offer.project.user.photo.photo)!.brightness ? Color.customWhite : Color.black
     }
     //var animation: Namespace.ID
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         VStack {
             ZStack(alignment: Alignment(horizontal: .center, vertical: .top)){
-                Image(uiImage: offer.project.user.photo)
+                Image(uiImage: UIImage(data: offer.project.user.photo.photo)!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 200)
@@ -162,6 +162,6 @@ struct OfferDetailView: View {
 
 struct OfferDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        OfferDetailView(offer: Offer(project: Project(user: User(username: "", role: "", photo: UIImage(named: "guideHuman")!), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time", description: ""))
+        OfferDetailView(offer: Offer(project: Project(user: User(username: "", role: "", photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time", description: ""))
     }
 }

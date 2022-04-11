@@ -18,7 +18,7 @@ struct ProjectCellView: View {
                 .foregroundColor(Color.customWhite)
             
             HStack(spacing: 20) {
-                Image(uiImage: project.user.photo)
+                Image(uiImage: UIImage(data: project.user.photo.photo)!)
                     .resizable()
                     .scaledToFit()
                 VStack(alignment: .leading, spacing: 21) {

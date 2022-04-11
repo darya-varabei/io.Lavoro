@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Applicant: Account, Identifiable {
+class Applicant: Account, Identifiable, Hashable, Equatable {
     
     var id: ObjectIdentifier?
     var user: User
@@ -23,6 +23,14 @@ class Applicant: Account, Identifiable {
     var description: String
     var skills: [Skill]
     var relocate: Bool
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+    
+    static func ==(lhs: Applicant, rhs: Applicant) -> Bool {
+        return lhs.name == rhs.name
+    }
     
     init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool, mode: String, payment: String, id: ObjectIdentifier? = nil, specialization: String) {
         self.user = user
@@ -85,6 +93,6 @@ class Applicant: Account, Identifiable {
     }
     
     func getPhoto() -> UIImage {
-        return user.photo
+        return UIImage(data: user.photo.photo)!
     }
 }

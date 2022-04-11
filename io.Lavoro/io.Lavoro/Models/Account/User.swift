@@ -8,14 +8,30 @@
 import Foundation
 import UIKit
 
-class User {
+struct User: Hashable, Equatable {
     var username: String
     var role: String
-    var photo: UIImage
+    var photo: SomeImage
     
-    init(username: String, role: String, photo: UIImage) {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(username)
+    }
+    
+    static func ==(lhs: User, rhs: User) -> Bool {
+        return lhs.username == rhs.username
+    }
+    
+    init(username: String, role: String, photo: SomeImage) {
         self.username = username
         self.role = role
         self.photo = photo
+    }
+}
+
+extension User: Codable {
+    enum CodingKeys: String, CodingKey {
+        case username
+        case role
+        case photo
     }
 }
