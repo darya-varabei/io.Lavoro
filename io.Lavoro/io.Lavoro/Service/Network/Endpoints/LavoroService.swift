@@ -8,14 +8,19 @@
 import Foundation
 
 protocol LavoroServiceable {
-    func getAccountInfo() async -> Result<Project, RequestError>
+    func getApplicantInfo() async -> Result<Applicant, RequestError>
+    func getProjectInfo() async -> Result<Project, RequestError>
     func getProjects() async -> Result<[Project], RequestError>
 }
 
 struct LavoroService: HTTPClient, LavoroServiceable {
     
-    func getAccountInfo() async -> Result<Project, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.account, responseModel: Project.self)
+    func getApplicantInfo() async -> Result<Applicant, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.applicant, responseModel: Applicant.self)
+    }
+    
+    func getProjectInfo() async -> Result<Project, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.project, responseModel: Project.self)
     }
     
     func getProjects() async -> Result<[Project], RequestError> {

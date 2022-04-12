@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-class Applicant: Account, Identifiable, Hashable, Equatable {
+struct Applicant: Account, Hashable, Equatable {
     
-    var id: ObjectIdentifier?
+    //var id: ObjectIdentifier?
     var user: User
     var name: String
     var surname: String
@@ -44,7 +44,7 @@ class Applicant: Account, Identifiable, Hashable, Equatable {
         self.description = description
         self.skills = skills
         self.relocate = relocate
-        self.id = id
+        //self.id = id
         self.specialization = specialization
     }
     
@@ -94,5 +94,23 @@ class Applicant: Account, Identifiable, Hashable, Equatable {
     
     func getPhoto() -> UIImage {
         return UIImage(data: user.photo.photo)!
+    }
+}
+
+extension Applicant: Codable {
+    enum CodingKeys: String, CodingKey {
+        //case id
+        case user
+        case name
+        case surname
+        case specialization
+        case age
+        case location
+        case mode
+        case payment
+        case interests
+        case description
+        case skills
+        case relocate
     }
 }

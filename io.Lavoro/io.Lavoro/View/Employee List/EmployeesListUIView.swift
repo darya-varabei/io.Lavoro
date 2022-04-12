@@ -12,7 +12,7 @@ struct EmployeesListUIView: View {
     @State var employeeViewModel: EmployeeViewModel
     var body: some View {
         NavigationView {
-            List(employeeViewModel.applicants, id: \.id) { applicant in
+            List(employeeViewModel.applicants, id: \.name) { applicant in
                 NavigationLink(
                     destination: EmployeeDetailsView(applicant: applicant),
                     label: { EmployeeCellView(applicant: applicant)

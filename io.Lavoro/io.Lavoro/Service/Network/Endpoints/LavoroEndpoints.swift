@@ -8,14 +8,17 @@
 import Foundation
 
 enum LavoroEndpoint {
-    case account
+    case applicant
+    case project
     case projects
 }
 
 extension LavoroEndpoint: Endpoint {
     var path: String {
         switch self {
-        case .account:
+        case .applicant:
+            return "account/getInfo"
+        case .project:
             return "account/getInfo"
         case .projects:
             return "projects/list"
@@ -24,7 +27,7 @@ extension LavoroEndpoint: Endpoint {
 
     var method: RequestMethod {
         switch self {
-        case .account, .projects:
+        case .applicant, .project, .projects:
             return .get
         }
     }
@@ -33,7 +36,7 @@ extension LavoroEndpoint: Endpoint {
         // Access Token to use in Bearer header
         let accessToken = "insert your access token here -> https://www.themoviedb.org/settings/api"
         switch self {
-        case .account, .projects:
+        case .applicant, .project, .projects:
             return [
                 "Authorization": "Bearer \(accessToken)",
                 "Content-Type": "application/json;charset=utf-8"
@@ -43,7 +46,7 @@ extension LavoroEndpoint: Endpoint {
     
     var body: [String: String]? {
         switch self {
-        case .account, .projects:
+        case .applicant, .project, .projects:
             return nil
         }
     }
