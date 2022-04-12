@@ -19,6 +19,7 @@ struct LavoroLabeledText: View {
             Text(text)
                 .font(.custom("Montserrat-Regular", size: 12))
                 .foregroundColor(.black)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }

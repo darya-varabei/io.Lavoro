@@ -12,9 +12,11 @@ struct SkillCellView: View {
     var body: some View {
         HStack {
             Text(skill.name)
-                .font(.custom("Montserrat-Medium.ttf", size: 16))
+                .font(.custom("Montserrat-Medium", size: 12))
                 .foregroundColor(Color.black)
-            ZStack {
+            
+            Spacer()
+            ZStack(alignment: .leading) {
                 Rectangle()
                     .frame(width: 100, height: 10, alignment: .leading)
                     .foregroundColor(.gray)
