@@ -38,13 +38,21 @@ struct AccountUIView: View {
                             Text(account.getSpecialization())
                                 .font(.custom("Montserrat-Medium", size: 14))
                         }
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("Изменить")
+                                .font(.custom("Montserrat-Medium", size: 10))
+                                .foregroundColor(.darkBlue)
+                                .underline()
+                        })
                     }.padding(.bottom, 30)
                     Spacer()
                     Image(uiImage: account.account.getPhoto())
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 85,
-                               height: 85)
+                        .frame(width: 70,
+                               height: 70)
                         .clipShape(Circle())
                 }
                 HStack(spacing: 0) {
@@ -107,7 +115,8 @@ struct AccountUIView: View {
                                 .font(.custom("Montserrat-Medium", size: 14))
                                 .padding(.bottom)
                         SkillSetListView(skillset: account.getSkills())
-                        }
+                        }.padding(.horizontal, 5)
+                        
                         HStack {
                             LavoroLabeledText(title: "Локация", text: account.getLocation())
                             Spacer()
@@ -208,13 +217,6 @@ struct AccountUIView: View {
             else {
                 applicationsView
             }
-        }
-    }
-    
-    @ViewBuilder
-    var skillsView: some View {
-        VStack {
-            
         }
     }
     
