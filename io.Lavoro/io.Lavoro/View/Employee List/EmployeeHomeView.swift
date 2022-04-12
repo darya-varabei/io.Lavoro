@@ -16,14 +16,14 @@ struct EmployeeHomeView: View {
             VStack(spacing: 15) {
                 HStack(alignment: .bottom){
                     Text("Привет, \(user.username)")
-                        .font(.custom("Montserrat-SemiBold.ttf", size: 18))
+                        .font(.custom("Montserrat-SemiBold", size: 18))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Button {
                         
                     } label: {
                         Text("Параметры")
-                            .font(.custom("Montserrat-Regular.ttf", size: 10))
+                            .font(.custom("Montserrat-Regular", size: 10))
                             .foregroundColor(Color.darkBlue)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 20)

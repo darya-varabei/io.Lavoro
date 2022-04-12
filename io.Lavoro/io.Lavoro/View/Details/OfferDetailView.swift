@@ -47,18 +47,18 @@ struct OfferDetailView: View {
                     
                     VStack(alignment: .leading, spacing: 11) {
                         Text(offer.name)
-                            .font(.custom("Montserrat-SemiBold.ttf", size: 18))
+                            .font(.custom("Montserrat-SemiBold", size: 18))
                             .foregroundColor(textColor)
                         
                         HStack{
                             Text(offer.project.location)
-                                .font(.custom("Montserrat-Medium.ttf", size: 14))
+                                .font(.custom("Montserrat-Medium", size: 14))
                                 .foregroundColor(textColor)
                             
                             Spacer()
                             
                             Text("\(Literals.OfferDetail.salary) \(offer.salary)")
-                                .font(.custom("Montserrat-Medium.ttf", size: 14))
+                                .font(.custom("Montserrat-Medium", size: 14))
                                 .foregroundColor(textColor)
                         }
                     }
@@ -75,7 +75,7 @@ struct OfferDetailView: View {
                 }) {
                     VStack {
                         Text(Literals.OfferDescripttion.description)
-                            .font(.custom("Montserrat-Medium.ttf", size: 14))
+                            .font(.custom("Montserrat-Medium", size: 14))
                             .foregroundColor(index == 0 ? .darkBlue : .gray)
                         
                         ZStack {
@@ -101,7 +101,7 @@ struct OfferDetailView: View {
                     VStack {
                         Text(Literals.OfferDetail.aboutProject
                         )
-                            .font(.custom("Montserrat-Medium.ttf", size: 14))
+                            .font(.custom("Montserrat-Medium", size: 14))
                             .foregroundColor(index == 1 ? .darkBlue : .gray)
                         
                         ZStack {
@@ -126,7 +126,7 @@ struct OfferDetailView: View {
                 }) {
                     VStack {
                         Text("Заявка")
-                            .font(.custom("Montserrat-Medium.ttf", size: 14))
+                            .font(.custom("Montserrat-Medium", size: 14))
                             .foregroundColor(index == 2 ? .darkBlue : .gray)
                         
                         ZStack {

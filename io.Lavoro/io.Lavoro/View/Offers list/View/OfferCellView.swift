@@ -29,21 +29,21 @@ struct OfferCellView: View {
                     }
                     VStack(alignment: .leading, spacing: 10) {
                         Text("\(offer.timeMode)")
-                            .font(.custom("Montserrat-SemiBold.ttf", size: 10))
+                            .font(.custom("Montserrat-SemiBold", size: 10))
                         Text("\(offer.name)")
-                            .font(.custom("Montserrat-Bold.ttf", size: 14))
+                            .font(.custom("Montserrat-Bold", size: 14))
                         
                         HStack {
                             Text("\(offer.project.location)")
-                                .font(.custom("Montserrat-SemiBold.ttf", size: 10))
+                                .font(.custom("Montserrat-SemiBold", size: 10))
                             
                             Text("\(offer.mode)")
-                                .font(.custom("Montserrat-SemiBold.ttf", size: 10))
+                                .font(.custom("Montserrat-SemiBold", size: 10))
                         }
                     }
                 }
                 Text("\(offer.salary)")
-                    .font(.custom("Montserrat-Medium.ttf", size: 10))
+                    .font(.custom("Montserrat-Medium", size: 10))
             }.padding(.all, 16)
         }.frame(width: UIScreen.main.bounds.width - 80, height: 133)
     }

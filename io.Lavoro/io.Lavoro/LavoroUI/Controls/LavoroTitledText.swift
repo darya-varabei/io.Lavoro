@@ -19,10 +19,10 @@ struct LavoroTitledText: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text(title)
-                .font(.custom("Montserrat-Medium.ttf", size: 13))
+                .font(.custom("Montserrat-Medium", size: 13))
                 .foregroundColor(.customBlack)
             Text(text)
-                .font(.custom("Montserrat-Regular.ttf", size: 11))
+                .font(.custom("Montserrat-Regular", size: 11))
                 .foregroundColor(.customBlack)
         }.padding(.horizontal, 27)
     }
