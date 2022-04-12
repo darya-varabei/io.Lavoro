@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Application {
+struct Application {
     var sender: User
     var reciever: User
     var offer: Offer
@@ -18,5 +18,14 @@ class Application {
         self.reciever = reciever
         self.offer = offer
         self.message = message
+    }
+}
+
+extension Application: Codable {
+    enum CodingKeys: String, CodingKey {
+        case sender
+        case reciever
+        case offer
+        case message
     }
 }
