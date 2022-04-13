@@ -218,6 +218,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D515FF302807542A0046A417 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D5466F1427EF17C900720F80 /* OptionsView.swift */,
+				D5E25FDD27D4C567001CA5B1 /* ContentView.swift */,
+				D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D515FF31280754D50046A417 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D5C9B3C427EF73C50011AE7F /* AccountUIView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		D53FCA5328049FAA0078323A /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +338,10 @@
 		D5BFA1B727EA8974007A872A /* LavoroUI */ = {
 			isa = PBXGroup;
 			children = (
+				D5472C5728061B0F00107D88 /* Montserrat-Bold.ttf */,
+				D5472C5628061B0E00107D88 /* Montserrat-Medium.ttf */,
+				D5472C5828061B0F00107D88 /* Montserrat-Regular.ttf */,
+				D5472C5928061B0F00107D88 /* Montserrat-SemiBold.ttf */,
 				D5BFA1BE27EA89FF007A872A /* Controls */,
 				D5D4CAA327F855310040F3F0 /* RoundedShape.swift */,
 				D5D4CAA527F8BC110040F3F0 /* UIImage+Brightness.swift */,
@@ -417,10 +439,6 @@
 				D5C9B3D327EF930B0011AE7F /* io-Lavoro-Info.plist */,
 				D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */,
 				D57F297727D568BB00703726 /* Literals.swift */,
-				D5472C5728061B0F00107D88 /* Montserrat-Bold.ttf */,
-				D5472C5628061B0E00107D88 /* Montserrat-Medium.ttf */,
-				D5472C5828061B0F00107D88 /* Montserrat-Regular.ttf */,
-				D5472C5928061B0F00107D88 /* Montserrat-SemiBold.ttf */,
 				D5C9B3C627EF909F0011AE7F /* Resources */,
 				D5BFA1B727EA8974007A872A /* LavoroUI */,
 				D570CB3A27E7D06E00155781 /* ViewModels */,
@@ -460,6 +478,8 @@
 		D5E2600527D4C5CF001CA5B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D515FF31280754D50046A417 /* Account */,
+				D515FF302807542A0046A417 /* Base */,
 				D54A3A0427F98EFF00104A06 /* Skills */,
 				D5D4CAB027F9352B0040F3F0 /* Techs */,
 				D5D4CAA227F84E770040F3F0 /* Details */,
@@ -467,11 +487,7 @@
 				D5BFA1B627EA8866007A872A /* Employee List */,
 				D5BFA1B527EA8828007A872A /* Project list */,
 				D5AECFF327D559C000FBEE17 /* Authorization */,
-				D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */,
 				D5AECFF127D5594A00FBEE17 /* ParametersFormUIView.swift */,
-				D5E25FDD27D4C567001CA5B1 /* ContentView.swift */,
-				D5466F1427EF17C900720F80 /* OptionsView.swift */,
-				D5C9B3C427EF73C50011AE7F /* AccountUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

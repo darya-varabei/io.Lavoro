@@ -24,115 +24,120 @@ struct AccountUIView: View {
     
     @ViewBuilder
     var applicantProfileView: some View {
-        ZStack(){
+        ZStack(alignment: .center){
             RoundedRectangle(cornerRadius: 25)
-                .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height - 140, alignment: .center)
                 .foregroundColor(Color.customWhite)
-            VStack {
-                HStack() {
-                    VStack(alignment: .leading, spacing: 15) {
-                        Text("Мой профиль").font(.custom("Montserrat-Medium", size: 10))
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text(account.getName())
-                                .font(.custom("Montserrat-Medium", size: 14))
-                            Text(account.getSpecialization())
-                                .font(.custom("Montserrat-Medium", size: 14))
-                        }
+            ScrollView {
+                VStack {
+                    HStack() {
+                        VStack(alignment: .leading, spacing: 15) {
+                            Text("Мой профиль").font(.custom("Montserrat-Medium", size: 10))
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text(account.getName())
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                                    .foregroundColor(.customBlack)
+                                Text(account.getSpecialization())
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                                    .foregroundColor(.customBlack)
+                            }
+                            Button(action: {
+                                
+                            }, label: {
+                                Text("Изменить")
+                                    .font(.custom("Montserrat-Medium", size: 10))
+                                    .foregroundColor(.darkBlue)
+                                    .underline()
+                            })
+                        }.padding(.bottom, 30)
+                        Spacer()
+                        Image(uiImage: account.account.getPhoto())
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 70,
+                                   height: 70)
+                            .clipShape(Circle())
+                    }
+                    HStack(spacing: 0) {
                         Button(action: {
-                            
-                        }, label: {
-                            Text("Изменить")
-                                .font(.custom("Montserrat-Medium", size: 10))
-                                .foregroundColor(.darkBlue)
-                                .underline()
-                        })
-                    }.padding(.bottom, 30)
-                    Spacer()
-                    Image(uiImage: account.account.getPhoto())
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 70,
-                               height: 70)
-                        .clipShape(Circle())
-                }
-                HStack(spacing: 0) {
-                    Button(action: {
-                        withAnimation(.spring()) {
-                            index = 0
-                        }
-                    }) {
-                        VStack {
-                            Text("Обо мне")
-                                .font(.custom("Montserrat-Medium", size: 14))
-                                .foregroundColor(index == 0 ? .darkBlue : .gray)
-                            
-                            ZStack {
-                                Capsule()
-                                    .fill(Color.white)
-                                    .frame(height: 4)
+                            withAnimation(.spring()) {
+                                index = 0
+                            }
+                        }) {
+                            VStack {
+                                Text("Обо мне")
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                                    .foregroundColor(index == 0 ? .darkBlue : .gray)
                                 
-                                if index == 0 {
+                                ZStack {
                                     Capsule()
-                                        .fill(Color.darkBlue)
+                                        .fill(Color.white)
                                         .frame(height: 4)
+                                    
+                                    if index == 0 {
+                                        Capsule()
+                                            .fill(Color.darkBlue)
+                                            .frame(height: 4)
+                                    }
                                 }
                             }
                         }
-                    }
-                    
-                    Button(action: {
-                        withAnimation(.spring()) {
-                            index = 1
-                        }
-                    }) {
-                        VStack {
-                            Text("Мои заявки")
-                                .font(.custom("Montserrat-Medium", size: 14))
-                                .foregroundColor(index == 1 ? .darkBlue : .gray)
-                            
-                            ZStack {
-                                Capsule()
-                                    .fill(Color.white)
-                                    .frame(height: 4)
-                                
-                                if index == 1 {
-                                    Capsule()
-                                        .fill(Color.darkBlue)
-                                        .frame(height: 4)
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                if index == 0 {
-                    
-                    VStack {
-                        LavoroLabeledText(title: "Обо мне", text: account.getDescription())
-                            .padding(.vertical, 10)
-                        VStack(alignment: .leading) {
-                            Text("Мои навыки")
-                                .font(.custom("Montserrat-Medium", size: 14))
-                                .padding(.bottom)
-                        SkillSetListView(skillset: account.getSkills())
-                        }.padding(.horizontal, 5)
                         
-                        HStack {
-                            LavoroLabeledText(title: "Локация", text: account.getLocation())
-                            Spacer()
-                            LavoroLabeledText(title: "Релокейт", text: account.getRelocate())
+                        Button(action: {
+                            withAnimation(.spring()) {
+                                index = 1
+                            }
+                        }) {
+                            VStack {
+                                Text("Мои заявки")
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                                    .foregroundColor(index == 1 ? .darkBlue : .gray)
+                                
+                                ZStack {
+                                    Capsule()
+                                        .fill(Color.white)
+                                        .frame(height: 4)
+                                    
+                                    if index == 1 {
+                                        Capsule()
+                                            .fill(Color.darkBlue)
+                                            .frame(height: 4)
+                                    }
+                                }
+                            }
                         }
-                        .padding(.vertical, 10)
-                        LavoroLabeledText(title: "Интересы", text: account.getInterests())
-                            .padding(.vertical, 10)
                     }
-                }
-                else {
-                    applicationsView
-                }
-            }.padding(.horizontal, 30)
-                .padding(.top, 30)
-        }.frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height - 140, alignment: .center)
+                    
+                    if index == 0 {
+                        
+                        VStack {
+                            LavoroLabeledText(title: "Обо мне", text: account.getDescription())
+                                .padding(.vertical, 10)
+                            VStack(alignment: .leading) {
+                                Text("Мои навыки")
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                                    .foregroundColor(.customBlack)
+                                    .padding(.bottom)
+                                SkillSetListView(skillset: account.getSkills())
+                            }.padding(.horizontal, 5)
+                            
+                            HStack {
+                                LavoroLabeledText(title: "Локация", text: account.getLocation())
+                                Spacer()
+                                LavoroLabeledText(title: "Релокейт", text: "Возможен")
+                            }
+                            .padding(.vertical, 10)
+                            LavoroLabeledText(title: "Интересы", text: account.getInterests())
+                                .foregroundColor(.customBlack)
+                                .padding(.vertical, 10)
+                        }
+                    }
+                    else {
+                        applicationsView
+                    }
+                }.padding(.horizontal, 30)
+                    .padding(.top, 30)
+            }
+        }.frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
     }
     
     @ViewBuilder

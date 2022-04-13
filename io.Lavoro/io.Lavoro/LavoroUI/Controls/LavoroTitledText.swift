@@ -24,7 +24,7 @@ struct LavoroTitledText: View {
             Text(text)
                 .font(.custom("Montserrat-Regular", size: 11))
                 .foregroundColor(.customBlack)
-        }.padding(.horizontal, 27)
+        }//.padding(.horizontal, 27)
     }
 }
 
