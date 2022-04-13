@@ -23,7 +23,7 @@ struct HomeUIView: View {
             Image(Images.logo.rawValue)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .padding(.horizontal, 100)
+                .padding(.horizontal, 50)
                 .padding(.vertical)
             
             HStack {
@@ -45,9 +45,20 @@ struct HomeUIView: View {
                 
                 TextField(Literals.email, text: $loginVM.username)
                     .autocapitalization(.none)
+                
+                Spacer()
+                //if getBiometricStatus() {
+                    Button(action: { performAuthentification() }, label: {
+                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
+                            .font(.title)
+                            .foregroundColor(.darkBlue)
+                            //.padding()
+                           // .background(.primaryBlue)
+                    })
+            //}
             }
             .padding()
-            .background(Color.white.opacity(0.12))
+            .background(Color.darkBlue.opacity(0.12))
             .cornerRadius(15)
             .padding(.horizontal)
             
@@ -61,34 +72,38 @@ struct HomeUIView: View {
                     .autocapitalization(.none)
             }
             .padding()
-            .background(Color.white.opacity(0.12))
+            .background(Color.darkBlue.opacity(0.12))
             .cornerRadius(15)
             .padding(.horizontal)
             .padding(.top)
             
             HStack(spacing: 15) {
+                ZStack{
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor(.darkBlue)
+                        .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
                 Button(action: { performAuthentification() }, label: {
                     Text(Literals.enter)
                         .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                        .foregroundColor(.customWhite)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 150)
-                        
+                        //.cornerRadius(10)
                         //.backgroundColor(.primaryBlue)
                         .clipShape(Capsule())
                 })
                     .opacity(1)//($loginVM.username != "" && loginVM.password != "" ? 1: 0.5)
                     .disabled(false)//($loginVM.userName != "" && $loginVM.password != "" ? false: true)
-                
-                if getBiometricStatus() {
-                    Button(action: { performAuthentification() }, label: {
-                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .padding()
-                           // .background(.primaryBlue)
-                    })
                 }
+//                //if getBiometricStatus() {
+//                    Button(action: { performAuthentification() }, label: {
+//                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
+//                            .font(.title)
+//                            .foregroundColor(.black)
+//                            .padding()
+//                           // .background(.primaryBlue)
+//                    })
+//            //}
             }.padding(.top)
             Button(action: {}, label: {
                 Text(Literals.forgotPassword)
