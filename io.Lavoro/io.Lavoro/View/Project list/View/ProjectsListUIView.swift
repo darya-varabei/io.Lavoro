@@ -10,6 +10,7 @@ import SwiftUI
 struct ProjectsListUIView: View {
     @Namespace var animationID
     @State var projectViewModel: ProjectViewModel = ProjectViewModel()
+    @State private var searchText = ""
     var body: some View {
         NavigationView {
             List(projectViewModel.projects, id: \.name) { project in
@@ -18,8 +19,20 @@ struct ProjectsListUIView: View {
                     label: { ProjectCellView(project: project)
                     }
                 )
-            }
+            }.searchable(text: $searchText, prompt: "Поиск проекта")
         }.padding(.top, 20)
+    }
+    
+    var filterProjects: [Project] {
+        if searchText.isEmpty {
+            return projectViewModel.projects
+        }
+        else {
+            return projectViewModel.projects.filter {
+                $0.name.localizedCaseInsensitiveContains(searchText) ||
+                $0.category.localizedCaseInsensitiveContains(searchText)
+            }
+        }
     }
 }
 

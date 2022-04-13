@@ -8,29 +8,40 @@
 import SwiftUI
 
 struct OfferListUIView: View {
-    //@Namespace var animationID
+    @Namespace var animationID
+    @State private var searchText = ""
     @State var offerViewModel: OfferViewModel = OfferViewModel()
     var body: some View {
         NavigationView {
-            List(offerViewModel.offers, id: \.name) { offer in
+            List(filterOffers, id: \.name) { offer in
                 NavigationLink(
                     destination: OfferDetailView(offer: offer),
                     label: { OfferCellView(offer: offer)
                     }
                 )
-            }.background(Color.primaryBlue.ignoresSafeArea())
-                .onAppear {
-                    // Set the default to clear
-                    UITableView.appearance().backgroundColor = .clear
-                }
+            }.searchable(text: $searchText, prompt: "Поиск вакансии")//.background(Color.primaryBlue.ignoresSafeArea())
+//                .onAppear {
+//                    // Set the default to clear
+//                    UITableView.appearance().backgroundColor = .clear
+//                }
         }//.padding(.top, 20)
-        .navigationBarTitle("")
-            .navigationBarHidden(true)
+    }
+    
+    var filterOffers: [Offer] {
+        if searchText.isEmpty {
+            return offerViewModel.offers
+        }
+        else {
+            return offerViewModel.offers.filter {
+                $0.name.localizedCaseInsensitiveContains(searchText) ||
+                (($0.technologies.first?.name.localizedCaseInsensitiveContains(searchText)) != nil)
+            }
+        }
     }
 }
 
-struct OfferListUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        OfferListUIView()
-    }
-}
+//struct OfferListUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OfferListUIView()
+//    }
+//}

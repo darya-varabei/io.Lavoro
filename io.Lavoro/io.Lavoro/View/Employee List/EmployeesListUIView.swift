@@ -10,16 +10,31 @@ import SwiftUI
 struct EmployeesListUIView: View {
     @Namespace var animationID
     @State var employeeViewModel: EmployeeViewModel
+    @State private var searchText = ""
     var body: some View {
         NavigationView {
-            List(employeeViewModel.applicants, id: \.name) { applicant in
+            List(filterEmployees, id: \.name) { applicant in
                 NavigationLink(
                     destination: EmployeeDetailsView(applicant: applicant),
                     label: { EmployeeCellView(applicant: applicant)
                     }
                 )
             }
+            .searchable(text: $searchText, prompt: "Поиск анкеты")
         }.padding(.top, 20)
+    }
+    
+    var filterEmployees: [Applicant] {
+        if searchText.isEmpty {
+            return employeeViewModel.applicants
+        }
+        else {
+            return employeeViewModel.applicants.filter {
+                $0.name.localizedCaseInsensitiveContains(searchText) ||
+                $0.specialization.localizedCaseInsensitiveContains(searchText) ||
+                $0.surname.localizedCaseInsensitiveContains(searchText)
+            }
+        }
     }
 }
 
