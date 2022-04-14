@@ -9,8 +9,32 @@ import SwiftUI
 
 struct ApplicationDetailView: View {
     @State var application: Application
+    @State var message: String = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20) {
+            LavoroLabeledText(title: "Сообщение", text: application.message)
+            GHMultilineTextField("Введите сообщение", text: $message, onCommit: {})
+            ZStack{
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(.darkBlue)
+                    .frame(width: UIScreen.main.bounds.width - 200, height: 48, alignment: .center)
+                Button(action: {
+                }, label: {
+                    Text("Отправить")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.customWhite)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 150)
+                        .clipShape(Capsule())
+                })
+            }
+        }
+        .padding(.top)
+        .padding(.horizontal, 20)
+    }
+    
+    private func sendResponse() {
+        
     }
 }
 

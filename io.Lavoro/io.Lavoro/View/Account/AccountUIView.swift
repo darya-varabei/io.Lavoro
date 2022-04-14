@@ -22,6 +22,8 @@ struct AccountUIView: View {
         }
     }
     
+    @State var applicationList = ApplicationListView()
+    
     @ViewBuilder
     var applicantProfileView: some View {
         ZStack(alignment: .center){
@@ -228,7 +230,7 @@ struct AccountUIView: View {
     @ViewBuilder
     var applicationsView: some View {
         VStack {
-            
+            applicationList
         }
     }
 }
