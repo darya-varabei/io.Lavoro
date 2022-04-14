@@ -43,6 +43,8 @@
 		D5517FD42808A1F7001BA226 /* ApplicationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FD32808A1F7001BA226 /* ApplicationListView.swift */; };
 		D5517FD62808A52F001BA226 /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FD52808A52F001BA226 /* ApplicationViewModel.swift */; };
 		D5517FD82808A5D8001BA226 /* ApplicationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FD72808A5D8001BA226 /* ApplicationDetailView.swift */; };
+		D5517FDB2808B603001BA226 /* UpdateProjecttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FDA2808B603001BA226 /* UpdateProjecttView.swift */; };
+		D5517FDD2808B61B001BA226 /* UpdateEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FDC2808B61B001BA226 /* UpdateEmployeeView.swift */; };
 		D570CB3727E7CFB300155781 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3627E7CFB300155781 /* WebService.swift */; };
 		D570CB3927E7D00600155781 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3827E7D00600155781 /* User.swift */; };
 		D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3B27E7D08500155781 /* LoginViewModel.swift */; };
@@ -51,7 +53,6 @@
 		D5AECFEC27D558BE00FBEE17 /* MainUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */; };
 		D5AECFEE27D5590500FBEE17 /* EmployeesListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */; };
 		D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */; };
-		D5AECFF227D5594A00FBEE17 /* ParametersFormUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF127D5594A00FBEE17 /* ParametersFormUIView.swift */; };
 		D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */; };
 		D5AECFF827D55A7600FBEE17 /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF727D55A7600FBEE17 /* UserRegister.swift */; };
 		D5AECFFA27D55ABF00FBEE17 /* Applicant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AECFF927D55ABF00FBEE17 /* Applicant.swift */; };
@@ -141,6 +142,8 @@
 		D5517FD32808A1F7001BA226 /* ApplicationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationListView.swift; sourceTree = "<group>"; };
 		D5517FD52808A52F001BA226 /* ApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
 		D5517FD72808A5D8001BA226 /* ApplicationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetailView.swift; sourceTree = "<group>"; };
+		D5517FDA2808B603001BA226 /* UpdateProjecttView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProjecttView.swift; sourceTree = "<group>"; };
+		D5517FDC2808B61B001BA226 /* UpdateEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmployeeView.swift; sourceTree = "<group>"; };
 		D570CB3627E7CFB300155781 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D570CB3827E7D00600155781 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D570CB3B27E7D08500155781 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -149,7 +152,6 @@
 		D5AECFEB27D558BE00FBEE17 /* MainUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIView.swift; sourceTree = "<group>"; };
 		D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListUIView.swift; sourceTree = "<group>"; };
 		D5AECFEF27D5591500FBEE17 /* ProjectsListUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsListUIView.swift; sourceTree = "<group>"; };
-		D5AECFF127D5594A00FBEE17 /* ParametersFormUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersFormUIView.swift; sourceTree = "<group>"; };
 		D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		D5AECFF727D55A7600FBEE17 /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
 		D5AECFF927D55ABF00FBEE17 /* Applicant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applicant.swift; sourceTree = "<group>"; };
@@ -240,6 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				D5C9B3C427EF73C50011AE7F /* AccountUIView.swift */,
+				D5517FDA2808B603001BA226 /* UpdateProjecttView.swift */,
+				D5517FDC2808B61B001BA226 /* UpdateEmployeeView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -291,6 +295,13 @@
 				D5517FD72808A5D8001BA226 /* ApplicationDetailView.swift */,
 			);
 			path = Applications;
+			sourceTree = "<group>";
+		};
+		D5517FD92808B18D001BA226 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parameters;
 			sourceTree = "<group>";
 		};
 		D570CB3527E7CF9400155781 /* Service */ = {
@@ -497,6 +508,7 @@
 		D5E2600527D4C5CF001CA5B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D5517FD92808B18D001BA226 /* Parameters */,
 				D5517FD02808A118001BA226 /* Applications */,
 				D515FF31280754D50046A417 /* Account */,
 				D515FF302807542A0046A417 /* Base */,
@@ -507,7 +519,6 @@
 				D5BFA1B627EA8866007A872A /* Employee List */,
 				D5BFA1B527EA8828007A872A /* Project list */,
 				D5AECFF327D559C000FBEE17 /* Authorization */,
-				D5AECFF127D5594A00FBEE17 /* ParametersFormUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -723,7 +734,6 @@
 				D53FCA5A2804A0200078323A /* RequestMethod.swift in Sources */,
 				D5D4CAB427F935560040F3F0 /* TechCellView.swift in Sources */,
 				D544725427F0571D00421940 /* EmployeeParametersView.swift in Sources */,
-				D5AECFF227D5594A00FBEE17 /* ParametersFormUIView.swift in Sources */,
 				D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */,
 				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
 				D5D4CAB627F936720040F3F0 /* Skill+Definition.swift in Sources */,
@@ -743,6 +753,7 @@
 				D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */,
 				D5D4CAAF27F914DB0040F3F0 /* LavoroLabeledText.swift in Sources */,
 				D5517FD82808A5D8001BA226 /* ApplicationDetailView.swift in Sources */,
+				D5517FDB2808B603001BA226 /* UpdateProjecttView.swift in Sources */,
 				D5AECFF827D55A7600FBEE17 /* UserRegister.swift in Sources */,
 				D570CB3727E7CFB300155781 /* WebService.swift in Sources */,
 				D57F297827D568BB00703726 /* Literals.swift in Sources */,
@@ -768,6 +779,7 @@
 				D5C62F3427F209E4004AEFA5 /* LavoroTextFieldStyle.swift in Sources */,
 				D5D4CAB227F935460040F3F0 /* TechSetListView.swift in Sources */,
 				D5E2600727D4C5E7001CA5B1 /* HomeUIView.swift in Sources */,
+				D5517FDD2808B61B001BA226 /* UpdateEmployeeView.swift in Sources */,
 				D53FCA5F2804A0A80078323A /* LavoroEndpoints.swift in Sources */,
 				D5BFA1BB27EA89C2007A872A /* LavoroCounterTextField.swift in Sources */,
 				D5D4CAAA27F912B40040F3F0 /* ProjectDescriptionView.swift in Sources */,

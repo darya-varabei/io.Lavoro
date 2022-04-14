@@ -21,6 +21,7 @@ struct AccountUIView: View {
             projectProfileView
         }
     }
+    @State var editInfo = false
     
     @State var applicationList = ApplicationListView()
     
@@ -43,7 +44,7 @@ struct AccountUIView: View {
                                     .foregroundColor(.customBlack)
                             }
                             Button(action: {
-                                
+                                editInfo.toggle()
                             }, label: {
                                 Text("Изменить")
                                     .font(.custom("Montserrat-Medium", size: 10))
@@ -140,6 +141,8 @@ struct AccountUIView: View {
                     .padding(.top, 30)
             }
         }.frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
+            .fullScreenCover(isPresented: $editInfo
+                             , content: account.account.getCategory() == "" ? UpdateEmployeeView(applicant:) : UpdateProjecttView)
     }
     
     @ViewBuilder
