@@ -23,7 +23,7 @@ struct OfferDetailView: View {
                 Image(uiImage: UIImage(data: offer.project.user.photo.photo)!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 200)
+                    .frame(height: 210)
                     .clipShape(RoundedShape(corners: [.bottomLeft, .bottomRight]))
                 //.matchedGeometryEffect(id: offer.project.user.photo, in: animation)
                 
@@ -143,7 +143,7 @@ struct OfferDetailView: View {
                         }
                     }
                 }
-            }
+            }.padding(.top, 20)
             
             switch(index) {
             case 0:
@@ -162,6 +162,6 @@ struct OfferDetailView: View {
 
 struct OfferDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        OfferDetailView(offer: Offer(project: Project(user: User(username: "", role: "", photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time", description: ""))
+        OfferDetailView(offer: Offer(project: Project(user: User(username: "", role: "", photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time", description: "На проект по разработке социальной сети требуется Middle IOS разработчик с опытом работы на коммерческих проектах, наличие опыта работы в сфере Social app будет плюсом"))
     }
 }

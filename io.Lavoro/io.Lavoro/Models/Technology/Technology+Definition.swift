@@ -20,7 +20,7 @@ extension Technology {
         return 3
         case "Advanced":
         return 4
-        case "Prrofessional":
+        case "Professional":
         return 5
             
         default:

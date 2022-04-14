@@ -7,11 +7,19 @@
 
 import Foundation
 
-struct Application {
+struct Application: Hashable, Equatable {
     var sender: User
     var reciever: User
     var offer: Offer
     var message: String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(sender)
+    }
+    
+    static func ==(lhs: Application, rhs: Application) -> Bool {
+        return lhs.sender == rhs.sender
+    }
     
     init(sender: User, reciever: User, offer: Offer, message: String) {
         self.sender = sender

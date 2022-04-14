@@ -10,16 +10,8 @@ import SwiftUI
 struct TechSetListView: View {
     @State var skillset: [Technology]
     var body: some View {
-        NavigationView {
-            List(skillset, id: \.name) { skill in
-                TechCellView(technologies: skill)
-            }
-        }.padding(.top, 20)
+        ForEach(skillset, id: \.self) { skill in
+            TechCellView(technologies: skill)
+        }
     }
 }
-
-//struct SkillSetListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SkillSetListView()
-//    }
-//}

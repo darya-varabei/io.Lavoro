@@ -10,17 +10,8 @@ import SwiftUI
 struct SkillSetListView: View {
     @State var skillset: [Skill]
     var body: some View {
-        //NavigationView {
-            //List(skillset, id: \.name) { skill in
         ForEach(skillset, id: \.self) { skill in
-               SkillCellView(skill: skill)
-            }
+            SkillCellView(skill: skill)
         }
-       // }//.padding(.top, 20)
+    }
 }
-
-//struct SkillSetListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SkillSetListView()
-//    }
-//}
