@@ -19,8 +19,14 @@ struct EmployeesListUIView: View {
                     label: { EmployeeCellView(applicant: applicant)
                     }
                 )
-            }
-            .searchable(text: $searchText, prompt: "Поиск анкеты")
+            }.background(Color.primaryBlue.ignoresSafeArea())
+                .onAppear {
+                    // Set the default to clear
+                    UITableView.appearance().backgroundColor = .clear
+                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
+                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+                }
+                .searchable(text: $searchText, prompt: "Поиск анкеты")
         }.padding(.top, 20)
     }
     

@@ -25,7 +25,13 @@ struct OptionsView: View {
                       
                 case 1:
                     //EmptyView()
+                    ZStack {
+                        Rectangle()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+                            .foregroundColor(.primaryBlue)
                     EmployeesListUIView( employeeViewModel: EmployeeViewModel())
+                    }
+                        //.foregroundColor(Color.primaryBlue)
                 case 2:
                    // ParametersFormUIView()
                     OfferListUIView()

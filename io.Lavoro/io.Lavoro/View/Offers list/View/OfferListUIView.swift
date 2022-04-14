@@ -19,11 +19,15 @@ struct OfferListUIView: View {
                     label: { OfferCellView(offer: offer)
                     }
                 )
-            }.searchable(text: $searchText, prompt: "Поиск вакансии")//.background(Color.primaryBlue.ignoresSafeArea())
-//                .onAppear {
-//                    // Set the default to clear
-//                    UITableView.appearance().backgroundColor = .clear
-//                }
+            }.searchable(text: $searchText, prompt: "Поиск вакансии")//
+                
+                .background(Color.primaryBlue.ignoresSafeArea())
+                .onAppear {
+                    // Set the default to clean
+                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
+                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+                    UITableView.appearance().backgroundColor = .clear
+                }
         }//.padding(.top, 20)
     }
     
@@ -45,3 +49,4 @@ struct OfferListUIView: View {
 //        OfferListUIView()
 //    }
 //}
+

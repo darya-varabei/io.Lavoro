@@ -11,6 +11,7 @@ struct ProjectsListUIView: View {
     @Namespace var animationID
     @State var projectViewModel: ProjectViewModel = ProjectViewModel()
     @State private var searchText = ""
+    
     var body: some View {
         NavigationView {
             List(projectViewModel.projects, id: \.name) { project in
@@ -20,6 +21,13 @@ struct ProjectsListUIView: View {
                     }
                 )
             }.searchable(text: $searchText, prompt: "Поиск проекта")
+                .background(Color.primaryBlue.ignoresSafeArea())
+                .onAppear {
+                    // Set the default to clear
+                    UITableView.appearance().backgroundColor = .clear
+                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
+                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+                }
         }.padding(.top, 20)
     }
     
