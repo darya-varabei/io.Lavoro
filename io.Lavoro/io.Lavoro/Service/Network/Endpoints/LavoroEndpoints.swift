@@ -20,6 +20,7 @@ enum LavoroEndpoint {
     case sendResponse// post application respose
     case updateProject// put project
     case updateApplicant// put applicant
+    case updateOffer// put offer
     case offers// get offers
     case parametrizedOffers// get parametrized offers
     case deleteApplicant
@@ -54,6 +55,8 @@ extension LavoroEndpoint: Endpoint {
             return "project/update"
         case .updateApplicant:
             return "applicant/update"
+        case .updateOffer:
+            return "offer/update"
         case .offers:
             return "offers/list"
         case .parametrizedOffers:
@@ -73,8 +76,8 @@ extension LavoroEndpoint: Endpoint {
             return .get
         case .createProject, .createApplicant, .sendApplication, .sendResponse:
             return .post
-        case .updateProject, .updateApplicant:
-            return .get
+        case .updateProject, .updateApplicant, .updateOffer:
+            return .put
         case .deleteOffer, .deleteApplicant, .deleteProject:
             return .delete
         }
@@ -120,6 +123,8 @@ extension LavoroEndpoint: Endpoint {
         case .deleteProject:
             return nil
         case .deleteOffer:
+            return nil
+        case .updateOffer:
             return nil
         }
     }

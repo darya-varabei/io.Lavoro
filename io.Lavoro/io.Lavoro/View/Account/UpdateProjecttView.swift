@@ -15,6 +15,6 @@ struct UpdateProjectView: View {
 
 struct UpdateProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        UpdateProjecttView()
+        UpdateProjectView()
     }
 }

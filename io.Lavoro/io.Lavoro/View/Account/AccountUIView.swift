@@ -140,9 +140,9 @@ struct AccountUIView: View {
                 }.padding(.horizontal, 30)
                     .padding(.top, 30)
             }
-        }.frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
-            .fullScreenCover(isPresented: $editInfo
-                             , content: account.account.getCategory() == "" ? UpdateEmployeeView(applicant:) : UpdateProjecttView)
+        }
+        .fullScreenCover(isPresented: $editInfo) {  UpdateEmployeeView(applicant: account.account as! Applicant) }
+            .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
     }
     
     @ViewBuilder

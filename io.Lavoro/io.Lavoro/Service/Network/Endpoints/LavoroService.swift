@@ -58,6 +58,10 @@ struct LavoroService: HTTPClient, LavoroServiceable {
     func updateProject() async -> Result<Project, RequestError> {
         return await sendRequest(endpoint: LavoroEndpoint.updateProject, responseModel: Project.self)
     }
+    
+    func updateOffer() async -> Result<Offer, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.updateOffer, responseModel: Offer.self)
+    }
 
     func updateApplicant() async -> Result<Applicant, RequestError> {
         return await sendRequest(endpoint: LavoroEndpoint.updateApplicant, responseModel: Applicant.self)

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UpdateEmployeeView: View {
     @State var applicant: Applicant
+    @State var employeeViewModel: EmployeeViewModel = EmployeeViewModel()
     var body: some View {
         ScrollView {
             VStack {
@@ -29,13 +30,28 @@ struct UpdateEmployeeView: View {
                 LavoroTextField(labelText: "Описание", text: $applicant.description)
                 LavoroTextField(labelText: "Режим работы", text: $applicant.mode)
                 LavoroTextField(labelText: "Интересы", text: $applicant.interests)
+                ZStack{
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor(.darkBlue)
+                        .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
+                    Button(action: { }, label: {
+                    Text(Literals.enter)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.customWhite)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 150)
+                        //.cornerRadius(10)
+                        //.backgroundColor(.primaryBlue)
+                        .clipShape(Capsule())
+                })
+                }
             }
         }
     }
 }
 
-struct UpdateEmployeeView_Previews: PreviewProvider {
-    static var previews: some View {
-        UpdateEmployeeView()
-    }
-}
+//struct UpdateEmployeeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UpdateEmployeeView()
+//    }
+//}
