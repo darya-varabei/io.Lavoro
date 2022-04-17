@@ -13,18 +13,27 @@ struct UpdateEmployeeView: View {
     var body: some View {
         ScrollView {
             VStack {
+                ZStack {
+                Image(uiImage: applicant.getPhoto())
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 120,
+                           height: 120)
+                    .clipShape(Circle())
+                    .padding(.bottom, 40)
+                }
                 LavoroTextField(labelText: "Имя", text: $applicant.name)
                 LavoroTextField(labelText: "Фамилия", text: $applicant.surname)
-                VStack(
-                  alignment: .leading,
-                  spacing: 10,
-                  content: {
-                    Text("Возраст")
-                      .padding(.leading, 20)
-                      TextField("", value: $applicant.age, formatter: NumberFormatter())
-                      .textFieldStyle(GHRoundedTextFieldStyle(textColor: .primaryBlue, cornerRadius: 120, borderColor: .darkBlue))
-                  }
-                )
+//                VStack(
+//                  alignment: .leading,
+//                  spacing: 10,
+//                  content: {
+//                    Text("Возраст")
+//                      .padding(.leading, 20)
+//                      TextField("", value: $applicant.age, formatter: NumberFormatter())
+//                      .textFieldStyle(GHRoundedTextFieldStyle(textColor: .primaryBlue, cornerRadius: 120, borderColor: .darkBlue))
+//                  }
+//                )
                 LavoroTextField(labelText: "Местоположение", text: $applicant.location)
                 LavoroTextField(labelText: "Специализация", text: $applicant.specialization)
                 LavoroTextField(labelText: "Описание", text: $applicant.description)
@@ -35,18 +44,16 @@ struct UpdateEmployeeView: View {
                         .foregroundColor(.darkBlue)
                         .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
                     Button(action: { }, label: {
-                    Text(Literals.enter)
+                    Text("Сохранить")
                         .fontWeight(.semibold)
                         .foregroundColor(.customWhite)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width - 150)
-                        //.cornerRadius(10)
-                        //.backgroundColor(.primaryBlue)
                         .clipShape(Capsule())
                 })
-                }
+                }.padding(.vertical, 40)
             }
-        }
+        }.padding(.horizontal, 25)
     }
 }
 

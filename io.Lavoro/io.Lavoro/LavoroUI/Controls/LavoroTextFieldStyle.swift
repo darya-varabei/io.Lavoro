@@ -35,9 +35,6 @@ struct GHRoundedTextFieldStyle: TextFieldStyle {
   
   func _body(configuration: TextField<Self._Label>) -> some View {
     configuration
-//      .ghTextStyle(textStyle,
-//                   maxPointSize: maxPointSize,
-//                   color: textColor ?? .ghBrown)
       .padding(.vertical, verticalIndent)
       .padding(.horizontal, horizontalIndent)
       .background(

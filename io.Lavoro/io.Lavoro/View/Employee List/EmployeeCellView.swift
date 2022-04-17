@@ -24,7 +24,7 @@ struct EmployeeCellView: View {
                         .resizable()
                         .scaledToFit()
                     VStack(spacing: 10) {
-                        Text("\(applicant.description)")
+                        Text("\(applicant.specialization)")
                             .font(.custom("Montserrat-SemiBold", size: 10))
                         Text("\(applicant.name) \(applicant.surname)")
                             .font(.custom("Montserrat-Bold", size: 14))

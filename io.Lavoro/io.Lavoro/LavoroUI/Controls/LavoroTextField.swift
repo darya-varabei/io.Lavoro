@@ -26,11 +26,13 @@ struct LavoroTextField: View {
       alignment: .leading,
       spacing: 10,
       content: {
-        Text(labelText)
+          Text(labelText)
+              .font(.custom("Montserrat-Medium", size: 10))
+              .foregroundColor(.customBlack)
           //.ghTextStyle(.mobileSecondarySmall, color: .ghBrown)
           .padding(.leading, 20)
         TextField(placeholder, text: $text)
-          .textFieldStyle(GHRoundedTextFieldStyle(textColor: .primaryBlue, cornerRadius: cornerRadius, borderColor: .darkBlue))
+          .textFieldStyle(GHRoundedTextFieldStyle(textColor: .customBlack, cornerRadius: cornerRadius, borderColor: .darkBlue))
       }
     )
   }

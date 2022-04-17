@@ -11,12 +11,13 @@ struct OfferCellView: View {
     @State var offer: Offer
     @State var isFullInfo: Bool = true
     var body: some View {
-        Color.primaryBlue// as! CGColor).opacity(0.0)
-            .edgesIgnoringSafeArea(.all)
+//        Color.primaryBlue// as! CGColor).opacity(0.0)
+//            .edgesIgnoringSafeArea(.all)
         ZStack(){
             RoundedRectangle(cornerRadius: 19)
                 .frame(width: UIScreen.main.bounds.width - 80, height: 133, alignment: .center)
-                .foregroundColor(Color.clear)
+                .foregroundColor(Color.white)
+                .shadow(color: .gray, radius: 5, x: 5, y: 5)
             
             VStack(alignment: .leading, spacing: 10) {
                 
@@ -25,6 +26,7 @@ struct OfferCellView: View {
                         Image(uiImage: UIImage(data: offer.project.user.photo.photo)!)
                             .resizable()
                             .scaledToFit()
+                            .frame(width: 70, height: 70)
                     Spacer()
                     }
                     VStack(alignment: .leading, spacing: 10) {

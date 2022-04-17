@@ -21,7 +21,6 @@ struct EmployeesListUIView: View {
                 )
             }.background(Color.primaryBlue.ignoresSafeArea())
                 .onAppear {
-                    // Set the default to clear
                     UITableView.appearance().backgroundColor = .clear
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black

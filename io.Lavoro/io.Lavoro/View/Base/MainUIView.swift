@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainUIView: View {
-    @State var index = 2
+    @State var index = 3
     var body: some View {
         VStack(spacing: 0) {
             OptionsView(index: self.$index)

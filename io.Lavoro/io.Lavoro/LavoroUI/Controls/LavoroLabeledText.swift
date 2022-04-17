@@ -13,11 +13,11 @@ struct LavoroLabeledText: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text(title)
-                .font(.custom("Montserrat-Regular", size: 14))
+                .font(.custom("Montserrat-Medium", size: 14))
                 .foregroundColor(.black)
             
             Text(text)
-                .font(.custom("Montserrat-Regular", size: 12))
+                .font(.custom("Montserrat-Medium", size: 12))
                 .foregroundColor(.black)
                 .fixedSize(horizontal: false, vertical: true)
         }

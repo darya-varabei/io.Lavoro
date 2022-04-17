@@ -12,11 +12,22 @@ struct ApplicationView: View {
     @State var message: String = ""
     @State var offer: Offer
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             GHMultilineTextField("Сообщение", text: $message)
-            Button(action: {}, label: {
+            Button(action: {}) {
                 Text("Отправить")
-            })
+                    .fontWeight(.semibold)
+                    .foregroundColor(.customWhite)
+                    .padding(.vertical)
+                    .frame(width: UIScreen.main.bounds.width - 150)
+                    .cornerRadius(10)
+                    //.backgroundColor(.primaryBlue)
+                    .clipShape(
+                        Capsule()
+                    )
+            }.background(Color.primaryBlue)
+                .cornerRadius(10)
+                .frame(width: UIScreen.main.bounds.width - 150)
             Spacer()
         }.padding(.horizontal, 20)
     }

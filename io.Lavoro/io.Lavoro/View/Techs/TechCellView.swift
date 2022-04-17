@@ -15,6 +15,7 @@ struct TechCellView: View {
             Text(technologies.name)
                 .font(.custom("Montserrat-Medium", size: 16))
                 .foregroundColor(Color.black)
+            Spacer()
             ZStack(alignment: .leading) {
                 Rectangle()
                     .frame(width: 100, height: 10, alignment: .leading)
@@ -23,7 +24,7 @@ struct TechCellView: View {
                     .frame(width: technologies.defineNumericLevel() * 20, height: 10, alignment: .leading)
                     .foregroundColor(Color.primaryBlue)
             }
-        }
+        }.padding(.horizontal, 10)
     }
 }
 

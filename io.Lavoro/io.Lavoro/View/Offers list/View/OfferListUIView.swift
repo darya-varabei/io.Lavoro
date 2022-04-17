@@ -28,7 +28,7 @@ struct OfferListUIView: View {
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
                     UITableView.appearance().backgroundColor = .clear
                 }
-        }//.padding(.top, 20)
+        }
     }
     
     var filterOffers: [Offer] {

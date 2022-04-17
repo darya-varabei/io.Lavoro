@@ -41,6 +41,7 @@ struct GHMultilineTextField: View {
       spacing: 10,
       content: {
         Text(title)
+              .foregroundColor(Color.darkBlue)
           //.ghTextStyle(.mobileSecondarySmall)
           .padding(.leading, 20)
         UITextViewWrapper(text: self.internalText, calculatedHeight: $dynamicHeight, onDone: onCommit)
@@ -51,7 +52,7 @@ struct GHMultilineTextField: View {
             RoundedRectangle(cornerRadius: 20)
               .inset(by: 2)
               .stroke()
-              .foregroundColor(.darkBlue)
+              .foregroundColor(Color.darkBlue)
           )
       }
     )
@@ -70,8 +71,6 @@ private struct UITextViewWrapper: UIViewRepresentable {
     textField.delegate = context.coordinator
     
     textField.isEditable = true
-//    textField.font = UIFont(name: Font.yelixMediumName, size: 16)
-//    textField.textColor = UIColor(.ghBrown)
     textField.isSelectable = true
     textField.isUserInteractionEnabled = true
     textField.isScrollEnabled = true
@@ -88,8 +87,6 @@ private struct UITextViewWrapper: UIViewRepresentable {
     if uiView.text != self.text {
       uiView.text = self.text
     }
-    
-    //        UITextViewWrapper.recalculateHeight(view: uiView, result: $calculatedHeight)
   }
   
   fileprivate static func recalculateHeight(view: UIView, result: Binding<CGFloat>) {
@@ -118,7 +115,6 @@ private struct UITextViewWrapper: UIViewRepresentable {
     
     func textViewDidChange(_ uiView: UITextView) {
       text.wrappedValue = uiView.text
-      //            UITextViewWrapper.recalculateHeight(view: uiView, result: calculatedHeight)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

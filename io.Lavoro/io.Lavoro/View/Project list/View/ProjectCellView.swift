@@ -10,7 +10,7 @@ import SwiftUI
 struct ProjectCellView: View {
     @State var project: Project
     var body: some View {
-        Color(Color.primaryBlue as! CGColor).opacity(0.0)
+       Color.primaryBlue// as! CGColor).opacity(0.0)
             .edgesIgnoringSafeArea(.all)
         ZStack(){
             RoundedRectangle(cornerRadius: 19)
@@ -21,6 +21,7 @@ struct ProjectCellView: View {
                 Image(uiImage: UIImage(data: project.user.photo.photo)!)
                     .resizable()
                     .scaledToFit()
+                    .frame(width: 70, height: 70)
                 VStack(alignment: .leading, spacing: 21) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("\(project.category)")
@@ -36,7 +37,7 @@ struct ProjectCellView: View {
                     }
                 }
             }.padding(.all, 16)
-        }
+        }.frame(width: UIScreen.main.bounds.width - 80, height: 133)
     }
 }
 

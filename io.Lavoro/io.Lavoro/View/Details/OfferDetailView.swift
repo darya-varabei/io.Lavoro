@@ -13,7 +13,7 @@ struct OfferDetailView: View {
     @State var index = 0
     @Namespace var name
     private var textColor: Color {
-        return UIImage(data: offer.project.user.photo.photo)!.brightness ? Color.customWhite : Color.black
+        return UIImage(data: offer.project.user.photo.photo)!.brightness ? Color.customWhite : Color.customBlack
     }
     //var animation: Namespace.ID
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -23,7 +23,7 @@ struct OfferDetailView: View {
                 Image(uiImage: UIImage(data: offer.project.user.photo.photo)!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 210)
+                    .frame(height: 250)
                     .clipShape(RoundedShape(corners: [.bottomLeft, .bottomRight]))
                 //.matchedGeometryEffect(id: offer.project.user.photo, in: animation)
                 
@@ -37,7 +37,7 @@ struct OfferDetailView: View {
                         }) {
                             Image(systemName: Images.chevronLeft.rawValue)
                                 .font(.title)
-                                .frame(width: 44, height: 44, alignment: .leading)
+                                .frame(width: 40, height: 40, alignment: .leading)
                                 .foregroundColor(textColor)
                                 .background(Color.clear)
                                 .clipShape(Circle())

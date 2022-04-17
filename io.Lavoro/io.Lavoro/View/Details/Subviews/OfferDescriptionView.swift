@@ -16,18 +16,22 @@ struct OfferDescriptionView: View {
             
             VStack(alignment: .leading, spacing: 10) {
             Text("Навыки")
+                    .padding(.leading, 10)
             TechSetListView(skillset: offer.technologies)
             }.padding(.top, 20)
                 
-            
+            HStack {
             LavoroLabeledText(title: "Локакция", text: offer.project.location)
                 .padding(.top, 15)
+                Spacer()
+                Text("")
+            }.padding(.bottom, 20)
             
             HStack {
                 LavoroLabeledText(title: "Режим работы", text: offer.timeMode)
                 Spacer()
                 LavoroLabeledText(title: "Рабочее место", text: offer.project.mode)
-            }
+            }.padding(.horizontal, 10)
         }
         }
         .padding(.top, 20)

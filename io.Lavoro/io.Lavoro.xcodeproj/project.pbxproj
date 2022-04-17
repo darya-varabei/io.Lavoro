@@ -45,6 +45,8 @@
 		D5517FD82808A5D8001BA226 /* ApplicationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FD72808A5D8001BA226 /* ApplicationDetailView.swift */; };
 		D5517FDB2808B603001BA226 /* UpdateProjecttView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FDA2808B603001BA226 /* UpdateProjecttView.swift */; };
 		D5517FDD2808B61B001BA226 /* UpdateEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FDC2808B61B001BA226 /* UpdateEmployeeView.swift */; };
+		D5517FDF28090801001BA226 /* SkillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FDE28090801001BA226 /* SkillViewModel.swift */; };
+		D5517FE128090811001BA226 /* TechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5517FE028090811001BA226 /* TechViewModel.swift */; };
 		D570CB3727E7CFB300155781 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3627E7CFB300155781 /* WebService.swift */; };
 		D570CB3927E7D00600155781 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3827E7D00600155781 /* User.swift */; };
 		D570CB3C27E7D08500155781 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D570CB3B27E7D08500155781 /* LoginViewModel.swift */; };
@@ -144,6 +146,8 @@
 		D5517FD72808A5D8001BA226 /* ApplicationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetailView.swift; sourceTree = "<group>"; };
 		D5517FDA2808B603001BA226 /* UpdateProjecttView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProjecttView.swift; sourceTree = "<group>"; };
 		D5517FDC2808B61B001BA226 /* UpdateEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmployeeView.swift; sourceTree = "<group>"; };
+		D5517FDE28090801001BA226 /* SkillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillViewModel.swift; sourceTree = "<group>"; };
+		D5517FE028090811001BA226 /* TechViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechViewModel.swift; sourceTree = "<group>"; };
 		D570CB3627E7CFB300155781 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D570CB3827E7D00600155781 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D570CB3B27E7D08500155781 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 			children = (
 				D54A3A0527F98F2400104A06 /* SkillSetListView.swift */,
 				D54A3A0727F98F3100104A06 /* SkillCellView.swift */,
+				D5517FDE28090801001BA226 /* SkillViewModel.swift */,
 			);
 			path = Skills;
 			sourceTree = "<group>";
@@ -368,10 +373,6 @@
 		D5BFA1B727EA8974007A872A /* LavoroUI */ = {
 			isa = PBXGroup;
 			children = (
-				D5472C5728061B0F00107D88 /* Montserrat-Bold.ttf */,
-				D5472C5628061B0E00107D88 /* Montserrat-Medium.ttf */,
-				D5472C5828061B0F00107D88 /* Montserrat-Regular.ttf */,
-				D5472C5928061B0F00107D88 /* Montserrat-SemiBold.ttf */,
 				D5BFA1BE27EA89FF007A872A /* Controls */,
 				D5D4CAA327F855310040F3F0 /* RoundedShape.swift */,
 				D5D4CAA527F8BC110040F3F0 /* UIImage+Brightness.swift */,
@@ -439,6 +440,7 @@
 			children = (
 				D5D4CAB127F935460040F3F0 /* TechSetListView.swift */,
 				D5D4CAB327F935560040F3F0 /* TechCellView.swift */,
+				D5517FE028090811001BA226 /* TechViewModel.swift */,
 			);
 			path = Techs;
 			sourceTree = "<group>";
@@ -469,6 +471,10 @@
 				D5C9B3D327EF930B0011AE7F /* io-Lavoro-Info.plist */,
 				D5E25FDB27D4C567001CA5B1 /* io_LavoroApp.swift */,
 				D57F297727D568BB00703726 /* Literals.swift */,
+				D5472C5728061B0F00107D88 /* Montserrat-Bold.ttf */,
+				D5472C5628061B0E00107D88 /* Montserrat-Medium.ttf */,
+				D5472C5828061B0F00107D88 /* Montserrat-Regular.ttf */,
+				D5472C5928061B0F00107D88 /* Montserrat-SemiBold.ttf */,
 				D5C9B3C627EF909F0011AE7F /* Resources */,
 				D5BFA1B727EA8974007A872A /* LavoroUI */,
 				D570CB3A27E7D06E00155781 /* ViewModels */,
@@ -738,6 +744,7 @@
 				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
 				D5D4CAB627F936720040F3F0 /* Skill+Definition.swift in Sources */,
 				D5B92E8027F6C71B005E3E70 /* ProjectDetailView.swift in Sources */,
+				D5517FE128090811001BA226 /* TechViewModel.swift in Sources */,
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
 				D5B92E8227F6C898005E3E70 /* OfferDetailView.swift in Sources */,
 				D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */,
@@ -785,6 +792,7 @@
 				D5D4CAAA27F912B40040F3F0 /* ProjectDescriptionView.swift in Sources */,
 				D5AECFEA27D5588500FBEE17 /* RegistrationUIView.swift in Sources */,
 				D544725027F04D0F00421940 /* EmployeeViewModel.swift in Sources */,
+				D5517FDF28090801001BA226 /* SkillViewModel.swift in Sources */,
 				D544724C27F0431C00421940 /* EmployeeHomeView.swift in Sources */,
 				D5BFA1B027EA862C007A872A /* Technology.swift in Sources */,
 				D5AECFFC27D55ACE00FBEE17 /* Project.swift in Sources */,

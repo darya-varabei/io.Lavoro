@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectsListUIView: View {
-    @Namespace var animationID
+    //@Namespace var animationID
     @State var projectViewModel: ProjectViewModel = ProjectViewModel()
     @State private var searchText = ""
     
@@ -28,7 +28,7 @@ struct ProjectsListUIView: View {
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
                 }
-        }.padding(.top, 20)
+        }
     }
     
     var filterProjects: [Project] {
@@ -44,8 +44,8 @@ struct ProjectsListUIView: View {
     }
 }
 
-//struct ProjectsListUIView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProjectsListUIView()
-//    }
-//}
+struct ProjectsListUIView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProjectsListUIView()
+    }
+}

@@ -22,27 +22,22 @@ struct OptionsView: View {
                         .cornerRadius(25)
                         .foregroundColor(Color.customWhite)
                         .padding(.top, 50)
-                      
+                    
                 case 1:
-                    //EmptyView()
                     ZStack {
                         Rectangle()
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
                             .foregroundColor(.primaryBlue)
-                    EmployeesListUIView( employeeViewModel: EmployeeViewModel())
+                        EmployeesListUIView( employeeViewModel: EmployeeViewModel())
                     }
-                        //.foregroundColor(Color.primaryBlue)
                 case 2:
-                   // ParametersFormUIView()
                     OfferListUIView()
                 case 3:
-                    //EmptyView()
                     ProjectsListUIView()
                 default:
                     EmptyView()
                 }
             }
-            //.padding(.top, 40)
         }.background(Color.primaryBlue.edgesIgnoringSafeArea(.top))
             .clipShape(Corners())
     }
