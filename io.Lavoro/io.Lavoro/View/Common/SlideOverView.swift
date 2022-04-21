@@ -14,7 +14,7 @@ struct SlideOverView<Content: View>: View {
   @Binding var position: ViewPosition
   
   var isHalfScreenHeight: Bool
-  
+    
   var isHalfScreenAvailable: Bool = false
   
   var isFullScreenAvailable: Bool = true

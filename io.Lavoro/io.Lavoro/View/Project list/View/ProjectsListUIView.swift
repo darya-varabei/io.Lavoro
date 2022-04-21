@@ -11,8 +11,23 @@ struct ProjectsListUIView: View {
     //@Namespace var animationID
     @State var projectViewModel: ProjectViewModel = ProjectViewModel()
     @State private var searchText = ""
+    @State private var slideOverViewPosition: ViewPosition = .hidden
     
     var body: some View {
+        ZStack {
+            VStack {
+                HStack {
+                    Button(action: {
+                        slideOverViewPosition = .top
+                    }, label: {
+                        Text("Параметры")
+                            .underline()
+                            .foregroundColor(.customWhite)
+                            .font(.custom("Montserrat-Medium", size: 14))
+                    })
+                    Spacer()
+                    Text("")
+                }.padding(.horizontal, 30)
         NavigationView {
             List(projectViewModel.projects, id: \.name) { project in
                 NavigationLink(
@@ -28,8 +43,16 @@ struct ProjectsListUIView: View {
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
                 }
-        }
+        }.padding(.top, 20)
     }
+    SlideOverView(position: $slideOverViewPosition,
+                  isHalfScreenHeight: false,
+                  isHalfScreenAvailable: true,
+                  handleOption: .staticWithHandler) {
+        ProjectParametersView()
+    }
+}
+}
     
     var filterProjects: [Project] {
         if searchText.isEmpty {

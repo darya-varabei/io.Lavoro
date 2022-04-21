@@ -11,7 +11,23 @@ struct OfferListUIView: View {
     @Namespace var animationID
     @State private var searchText = ""
     @State var offerViewModel: OfferViewModel = OfferViewModel()
+    @State private var slideOverViewPosition: ViewPosition = .hidden
+    
     var body: some View {
+        ZStack {
+            VStack {
+                HStack {
+                    Button(action: {
+                        slideOverViewPosition = .top
+                    }, label: {
+                        Text("Параметры")
+                            .underline()
+                            .foregroundColor(.customWhite)
+                            .font(.custom("Montserrat-Medium", size: 14))
+                    })
+                    Spacer()
+                    Text("")
+                }.padding(.horizontal, 30)
         NavigationView {
             List(filterOffers, id: \.name) { offer in
                 NavigationLink(
@@ -28,8 +44,16 @@ struct OfferListUIView: View {
                     UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
                     UITableView.appearance().backgroundColor = .clear
                 }
-        }
+        }.padding(.top, 20)
     }
+    SlideOverView(position: $slideOverViewPosition,
+                  isHalfScreenHeight: false,
+                  isHalfScreenAvailable: true,
+                  handleOption: .staticWithHandler) {
+        OfferParametersView()
+    }
+}
+}
     
     var filterOffers: [Offer] {
         if searchText.isEmpty {
