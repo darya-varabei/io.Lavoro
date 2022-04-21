@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D503C0FA2812013C00572AF9 /* SlideOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D503C0F92812013C00572AF9 /* SlideOverView.swift */; };
 		D53FCA5628049FD40078323A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5528049FD40078323A /* Endpoint.swift */; };
 		D53FCA5828049FF80078323A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5728049FF80078323A /* HTTPClient.swift */; };
 		D53FCA5A2804A0200078323A /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA592804A0200078323A /* RequestMethod.swift */; };
@@ -120,6 +121,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D503C0F92812013C00572AF9 /* SlideOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverView.swift; sourceTree = "<group>"; };
 		D53FCA5528049FD40078323A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		D53FCA5728049FF80078323A /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		D53FCA592804A0200078323A /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
@@ -232,6 +234,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D503C0F82812011800572AF9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D503C0F92812013C00572AF9 /* SlideOverView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		D515FF302807542A0046A417 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +524,7 @@
 		D5E2600527D4C5CF001CA5B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D503C0F82812011800572AF9 /* Common */,
 				D5517FD92808B18D001BA226 /* Parameters */,
 				D5517FD02808A118001BA226 /* Applications */,
 				D515FF31280754D50046A417 /* Account */,
@@ -745,6 +756,7 @@
 				D5D4CAB627F936720040F3F0 /* Skill+Definition.swift in Sources */,
 				D5B92E8027F6C71B005E3E70 /* ProjectDetailView.swift in Sources */,
 				D5517FE128090811001BA226 /* TechViewModel.swift in Sources */,
+				D503C0FA2812013C00572AF9 /* SlideOverView.swift in Sources */,
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
 				D5B92E8227F6C898005E3E70 /* OfferDetailView.swift in Sources */,
 				D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */,
