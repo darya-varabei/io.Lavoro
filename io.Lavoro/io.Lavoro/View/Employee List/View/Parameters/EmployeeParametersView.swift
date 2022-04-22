@@ -255,7 +255,16 @@ struct EmployeeParametersView: View {
                                     .textFieldStyle(GHRoundedTextFieldStyle(textColor: .customBlack, cornerRadius: 5, borderColor: .customBlack.opacity(0.5)))
                             }
                         }.padding(.trailing, 100)
-                    }.padding(.bottom, 180)
+                    }
+                    Button(action: {
+                    }, label: {
+                        Text("Подобрать")
+                            .font(.custom("Montserrat-Medium", size: 12))
+                            .foregroundColor(.customWhite)
+                            .frame(width: UIScreen.main.bounds.width - 300)
+                            .clipShape(Capsule())
+                    })
+                    .padding(.bottom, 180)
                 }.padding()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .background(Color.clear)
