@@ -15,7 +15,7 @@ struct OfferListUIView: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     Button(action: {
                         slideOverViewPosition = .top
@@ -28,32 +28,34 @@ struct OfferListUIView: View {
                     Spacer()
                     Text("")
                 }.padding(.horizontal, 30)
-        NavigationView {
-            List(filterOffers, id: \.name) { offer in
-                NavigationLink(
-                    destination: OfferDetailView(offer: offer),
-                    label: { OfferCellView(offer: offer)
-                    }
-                )
-            }.searchable(text: $searchText, prompt: "Поиск вакансии")//
-                
-                .background(Color.primaryBlue.ignoresSafeArea())
-                .onAppear {
-                    // Set the default to clean
-                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
-                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
-                    UITableView.appearance().backgroundColor = .clear
-                }
-        }.padding(.top, 20)
+                    .padding(.top, 50)
+                    .background(Color.primaryBlue.ignoresSafeArea())
+                NavigationView {
+                    List(filterOffers, id: \.name) { offer in
+                        NavigationLink(
+                            destination: OfferDetailView(offer: offer),
+                            label: { OfferCellView(offer: offer)
+                            }
+                        )
+                    }.searchable(text: $searchText, prompt: "Поиск вакансии")//
+                    
+                        .background(Color.primaryBlue.ignoresSafeArea())
+                        .onAppear {
+                            // Set the default to clean
+                            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
+                            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+                            UITableView.appearance().backgroundColor = .clear
+                        }
+                }.navigationBarHidden(true)
+            }
+            SlideOverView(position: $slideOverViewPosition,
+                          isHalfScreenHeight: false,
+                          isHalfScreenAvailable: true,
+                          handleOption: .regular) {
+                OfferParametersView()
+            }
+        }
     }
-    SlideOverView(position: $slideOverViewPosition,
-                  isHalfScreenHeight: false,
-                  isHalfScreenAvailable: true,
-                  handleOption: .staticWithHandler) {
-        OfferParametersView()
-    }
-}
-}
     
     var filterOffers: [Offer] {
         if searchText.isEmpty {

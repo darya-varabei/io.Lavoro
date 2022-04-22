@@ -106,7 +106,7 @@ enum ViewPosition: Equatable {
   var height: CGFloat {
     switch self {
     case .top:
-      return 0.98
+      return 0.9
     case .halfScreen:
       return 0.5
     case .bottom:

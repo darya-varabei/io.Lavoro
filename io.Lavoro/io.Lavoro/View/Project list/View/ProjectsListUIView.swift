@@ -15,7 +15,7 @@ struct ProjectsListUIView: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     Button(action: {
                         slideOverViewPosition = .top
@@ -28,31 +28,34 @@ struct ProjectsListUIView: View {
                     Spacer()
                     Text("")
                 }.padding(.horizontal, 30)
-        NavigationView {
-            List(projectViewModel.projects, id: \.name) { project in
-                NavigationLink(
-                    destination: ProjectDetailView(project: project),
-                    label: { ProjectCellView(project: project)
-                    }
-                )
-            }.searchable(text: $searchText, prompt: "Поиск проекта")
-                .background(Color.primaryBlue.ignoresSafeArea())
-                .onAppear {
-                    // Set the default to clear
-                    UITableView.appearance().backgroundColor = .clear
-                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
-                    UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+                    .padding(.top, 50)
+                    .background(Color.primaryBlue.ignoresSafeArea())
+                NavigationView {
+                    List(projectViewModel.projects, id: \.name) { project in
+                        NavigationLink(
+                            destination: ProjectDetailView(project: project),
+                            label: { ProjectCellView(project: project)
+                            }
+                        )
+                    }.searchable(text: $searchText, prompt: "Поиск проекта")
+                        .background(Color.primaryBlue)//.ignoresSafeArea())
+                        .onAppear {
+                            // Set the default to clear
+                            UITableView.appearance().backgroundColor = .clear
+                            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
+                            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+                        }
                 }
-        }.padding(.top, 20)
+                    .navigationBarHidden(true)
+            }
+            SlideOverView(position: $slideOverViewPosition,
+                          isHalfScreenHeight: false,
+                          isHalfScreenAvailable: true,
+                          handleOption: .regular) {
+                ProjectParametersView()
+            }
+        }
     }
-    SlideOverView(position: $slideOverViewPosition,
-                  isHalfScreenHeight: false,
-                  isHalfScreenAvailable: true,
-                  handleOption: .staticWithHandler) {
-        ProjectParametersView()
-    }
-}
-}
     
     var filterProjects: [Project] {
         if searchText.isEmpty {

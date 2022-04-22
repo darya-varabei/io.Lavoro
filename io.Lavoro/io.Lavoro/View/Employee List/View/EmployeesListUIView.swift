@@ -16,7 +16,7 @@ struct EmployeesListUIView: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     Button(action: {
                         slideOverViewPosition = .top
@@ -29,6 +29,8 @@ struct EmployeesListUIView: View {
                     Spacer()
                     Text("")
                 }.padding(.horizontal, 30)
+                    .padding(.top, 100)
+                    .background(Color.primaryBlue.ignoresSafeArea())
                 NavigationView {
                     List(filterEmployees, id: \.name) { applicant in
                         NavigationLink(
@@ -43,13 +45,13 @@ struct EmployeesListUIView: View {
                             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
                         }
                         .searchable(text: $searchText, prompt: "Поиск анкеты")
-                }.padding(.top, 20)
+                }.navigationBarHidden(true)
             }
             SlideOverView(position: $slideOverViewPosition,
                           isHalfScreenHeight: false,
                           isHalfScreenAvailable: true,
-                          handleOption: .staticWithHandler) {
-                EmployeeParametersView()
+                          handleOption: .regular) {
+                EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition)
             }
         }
     }

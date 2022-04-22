@@ -10,6 +10,7 @@
 		D503C0FA2812013C00572AF9 /* SlideOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D503C0F92812013C00572AF9 /* SlideOverView.swift */; };
 		D503C0FC2812077E00572AF9 /* ProjectParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D503C0FB2812077E00572AF9 /* ProjectParametersView.swift */; };
 		D503C0FF281207A200572AF9 /* OfferParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D503C0FE281207A200572AF9 /* OfferParametersView.swift */; };
+		D503C1032812CF0E00572AF9 /* LavoroCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D503C1022812CF0E00572AF9 /* LavoroCheckBox.swift */; };
 		D53FCA5628049FD40078323A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5528049FD40078323A /* Endpoint.swift */; };
 		D53FCA5828049FF80078323A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA5728049FF80078323A /* HTTPClient.swift */; };
 		D53FCA5A2804A0200078323A /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53FCA592804A0200078323A /* RequestMethod.swift */; };
@@ -122,6 +123,7 @@
 		D503C0F92812013C00572AF9 /* SlideOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverView.swift; sourceTree = "<group>"; };
 		D503C0FB2812077E00572AF9 /* ProjectParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectParametersView.swift; sourceTree = "<group>"; };
 		D503C0FE281207A200572AF9 /* OfferParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferParametersView.swift; sourceTree = "<group>"; };
+		D503C1022812CF0E00572AF9 /* LavoroCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroCheckBox.swift; sourceTree = "<group>"; };
 		D53FCA5528049FD40078323A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		D53FCA5728049FF80078323A /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		D53FCA592804A0200078323A /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
@@ -245,12 +247,28 @@
 		D503C0FD2812078500572AF9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D503C1012812751A00572AF9 /* Parameters */,
 				D5BFA1B127EA8724007A872A /* EmployeeCellView.swift */,
 				D544724B27F0431C00421940 /* EmployeeHomeView.swift */,
 				D5AECFED27D5590500FBEE17 /* EmployeesListUIView.swift */,
-				D544725327F0571D00421940 /* EmployeeParametersView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D503C1002812750B00572AF9 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				D503C0FE281207A200572AF9 /* OfferParametersView.swift */,
+			);
+			path = Parameters;
+			sourceTree = "<group>";
+		};
+		D503C1012812751A00572AF9 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				D544725327F0571D00421940 /* EmployeeParametersView.swift */,
+			);
+			path = Parameters;
 			sourceTree = "<group>";
 		};
 		D515FF302807542A0046A417 /* Base */ = {
@@ -411,6 +429,7 @@
 				D5C62F3527F20A51004AEFA5 /* LavoroMultilineTextField.swift */,
 				D5D4CAAE27F914DB0040F3F0 /* LavoroLabeledText.swift */,
 				D5EF186E28031C08003F4E94 /* LavoroTitledText.swift */,
+				D503C1022812CF0E00572AF9 /* LavoroCheckBox.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -600,9 +619,9 @@
 		D5EF186C28030645003F4E94 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D503C1002812750B00572AF9 /* Parameters */,
 				D544724727EFE68E00421940 /* OfferListUIView.swift */,
 				D5C9B3D527EFA5A40011AE7F /* OfferCellView.swift */,
-				D503C0FE281207A200572AF9 /* OfferParametersView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -765,6 +784,7 @@
 				D5BFA1B227EA8724007A872A /* EmployeeCellView.swift in Sources */,
 				D5AECFF627D55A5E00FBEE17 /* UserLogin.swift in Sources */,
 				D5D4CAB627F936720040F3F0 /* Skill+Definition.swift in Sources */,
+				D503C1032812CF0E00572AF9 /* LavoroCheckBox.swift in Sources */,
 				D5B92E8027F6C71B005E3E70 /* ProjectDetailView.swift in Sources */,
 				D5517FE128090811001BA226 /* TechViewModel.swift in Sources */,
 				D503C0FA2812013C00572AF9 /* SlideOverView.swift in Sources */,
