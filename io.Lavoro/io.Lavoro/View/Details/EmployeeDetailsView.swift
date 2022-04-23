@@ -9,8 +9,9 @@ import SwiftUI
 
 struct EmployeeDetailsView: View {
     @State var applicant: Applicant
+    @State var index = 0
     private var textColor: Color {
-        return UIImage(data: applicant.user.photo.photo)!.brightness ? Color.customWhite : Color.customBlack
+        return UIImage(data: applicant.user.photo.photo)!.brightness ? Color.customBlack : Color.customWhite
     }
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
@@ -63,6 +64,62 @@ struct EmployeeDetailsView: View {
                 Spacer(minLength: 0)
             }
             VStack {
+                HStack(spacing: 0) {
+                    Button(action: {
+                        withAnimation(.spring()) {
+                            index = 0
+                        }
+                    }) {
+                        VStack {
+                            Text("Обо мне")
+                                .font(.custom("Montserrat-Medium", size: 14))
+                                .foregroundColor(index == 0 ? .darkBlue : .gray)
+                            
+                            ZStack {
+                            Capsule()
+                                .fill(Color.white)
+                                .frame(height: 4)
+                                
+                                if index == 0 {
+                                    Capsule()
+                                        .fill(Color.darkBlue)
+                                        .frame(height: 4)
+                                        //.matchedGeometryEffect(id: "Tab", in: name)
+                                }
+                            }
+                        }
+                    }
+                    
+                    Button(action: {
+                        withAnimation(.spring()) {
+                            index = 1
+                        }
+                    }) {
+                        VStack {
+                            Text("Заявка"
+                            )
+                                .font(.custom("Montserrat-Medium", size: 14))
+                                .foregroundColor(index == 1 ? .darkBlue : .gray)
+                            
+                            ZStack {
+                            Capsule()
+                                .fill(Color.white)
+                                .frame(height: 4)
+                                
+                                if index == 1 {
+                                    Capsule()
+                                        .fill(Color.darkBlue)
+                                        .frame(height: 4)
+                                       // .matchedGeometryEffect(id: "Tab", in: name)
+                                }
+                            }
+                        }
+                    }
+                }
+                Text(applicant.getSpecialization())
+                    .font(.custom("Montserrat-SemiBold", size: 18))
+                    .foregroundColor(textColor)
+                    .padding(.vertical, 10)
                 LavoroLabeledText(title: "Обо мне", text: applicant.getDescription())
                     .padding(.vertical, 10)
                 VStack(alignment: .leading) {
@@ -82,8 +139,9 @@ struct EmployeeDetailsView: View {
                 LavoroLabeledText(title: "Интересы", text: applicant.getInterests())
                     .foregroundColor(.customBlack)
                     .padding(.vertical, 10)
-            }
-        }
+            }.padding(.horizontal, 20)
+        }.navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
     

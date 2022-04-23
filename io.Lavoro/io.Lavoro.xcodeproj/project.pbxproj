@@ -351,13 +351,6 @@
 			path = Applications;
 			sourceTree = "<group>";
 		};
-		D5517FD92808B18D001BA226 /* Parameters */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Parameters;
-			sourceTree = "<group>";
-		};
 		D570CB3527E7CF9400155781 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,7 +556,6 @@
 			isa = PBXGroup;
 			children = (
 				D503C0F82812011800572AF9 /* Common */,
-				D5517FD92808B18D001BA226 /* Parameters */,
 				D5517FD02808A118001BA226 /* Applications */,
 				D515FF31280754D50046A417 /* Account */,
 				D515FF302807542A0046A417 /* Base */,

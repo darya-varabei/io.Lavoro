@@ -16,11 +16,10 @@ struct ContentView: View {
         NavigationView {
             
             if logged {
-                Text("User logged")
+                MainUIView()
             }
             else {
-            MainUIView()
-                //HomeUIView()
+                HomeUIView()
             }
         }
     }

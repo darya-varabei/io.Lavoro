@@ -59,40 +59,26 @@ class Webservice {
     
     
     func login(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
-        
-        guard let url = URL(string: "https://strong-spangled-apartment.glitch.me/login") else {
-            completion(.failure(.custom(errorMessage: "URL is not correct")))
-            return
+        do {
+            let url = URL(string: "http://127.0.0.1:8080/users/login")
+            var urlReq = URLRequest(url: url!)
+            urlReq.setValue("application/json", forHTTPHeaderField: "Content-type")
+            urlReq.httpMethod = "POST"
+            
+            let encoder = JSONEncoder()
+            let payload = try encoder.encode(UserLogin(username: username, password: password))
+            print("login payload \(payload)")
+            URLSession.shared.uploadTask(with: urlReq, from: payload) { (data, resp, err) in
+                print("login attempt complete")
+                guard let data = data else { return }
+                
+                let token = String(data: data, encoding: String.Encoding.utf8)
+                print("login token: \(token)")
+                //self.token = token
+                //self.store
+            }.resume()
+        } catch {
+            print("Login failed during call")
         }
-        
-        let body = LoginRequestBody(username: username, password: password)
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = try? JSONEncoder().encode(body)
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            guard let data = data, error == nil else {
-                completion(.failure(.custom(errorMessage: "No data")))
-                return
-            }
-            
-            try! JSONDecoder().decode(LoginResponse.self, from: data)
-            
-            guard let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) else {
-                completion(.failure(.invalidCredentials))
-                return
-            }
-            
-            guard let token = loginResponse.token else {
-                completion(.failure(.invalidCredentials))
-                return
-            }
-            
-            completion(.success(token))
-            
-        }.resume()
     }
 }

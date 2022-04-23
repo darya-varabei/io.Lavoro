@@ -36,7 +36,7 @@ extension UIImage {
     var brightness: Bool {
         get {
            // print(self.cgImage!.brightness)
-            return (self.cgImage!.brightness > 150)
+            return (self.cgImage!.brightness > 70)
         }
     }
 }

@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct UserLigin {
-    private let email: String
+struct UserLogin: Encodable {
+    private let username: String
     private let password: String
+    
+    init(username: String, password: String) {
+        self.username = username
+        self.password = password
+    }
 }

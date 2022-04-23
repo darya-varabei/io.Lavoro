@@ -82,7 +82,7 @@ struct HomeUIView: View {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundColor(.darkBlue)
                         .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
-                Button(action: { performAuthentification() }, label: {
+                    Button(action: { loginVM.login() }, label: {
                     Text(Literals.enter)
                         .fontWeight(.semibold)
                         .foregroundColor(.customWhite)

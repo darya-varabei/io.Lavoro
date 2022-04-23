@@ -16,6 +16,7 @@ struct OfferListUIView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
+                if slideOverViewPosition != .hidden {
                 HStack {
                     Button(action: {
                         slideOverViewPosition = .top
@@ -30,6 +31,7 @@ struct OfferListUIView: View {
                 }.padding(.horizontal, 30)
                     .padding(.top, 50)
                     .background(Color.primaryBlue.ignoresSafeArea())
+                }
                 NavigationView {
                     List(filterOffers, id: \.name) { offer in
                         NavigationLink(
@@ -52,7 +54,7 @@ struct OfferListUIView: View {
                           isHalfScreenHeight: false,
                           isHalfScreenAvailable: true,
                           handleOption: .regular) {
-                OfferParametersView()
+                EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition)
             }
         }
     }

@@ -17,6 +17,8 @@ struct EmployeesListUIView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
+                
+                if slideOverViewPosition != .hidden {
                 HStack {
                     Button(action: {
                         slideOverViewPosition = .top
@@ -31,6 +33,7 @@ struct EmployeesListUIView: View {
                 }.padding(.horizontal, 30)
                     .padding(.top, 100)
                     .background(Color.primaryBlue.ignoresSafeArea())
+                }
                 NavigationView {
                     List(filterEmployees, id: \.name) { applicant in
                         NavigationLink(
