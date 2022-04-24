@@ -10,13 +10,12 @@ import SwiftUI
 struct RegistrationUIView: View {
     @State var userName = ""
     @State var password = ""
-    @AppStorage("stored_User") var user = "daria-vo@rambler.ru"
-    @AppStorage("status") var logged = false
+    @State var role = "employee"
     @StateObject private var loginVM = LoginViewModel()
+    @State var showLoginView = false
     
     var body: some View {
         VStack {
-            
             Spacer(minLength: 0)
             Image(Images.logo.rawValue)
                 .resizable()
@@ -26,10 +25,10 @@ struct RegistrationUIView: View {
             
             HStack {
                 VStack(alignment: .leading, spacing: 12, content: {
-                    Text(Literals.logInText)
+                    Text("Регистрация")
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(.primaryBlue)//(Color(Colors.primaryBlue.rawValue))
+                        .foregroundColor(.primaryBlue)
                 })
                 Spacer(minLength: 0)
             }
@@ -64,43 +63,54 @@ struct RegistrationUIView: View {
             .padding(.horizontal)
             .padding(.top)
             
-//            HStack(spacing: 15) {
-//                Button(action: { //performAuthentification() }, label: {
-//                    Text(Literals.enter.rawValue)
-//                        .fontWeight(.semibold)
-//                        .foregroundColor(.white)
-//                        .padding(.vertical)
-//                        .frame(width: UIScreen.main.bounds.width - 150)
-//
-//                        //.backgroundColor(.primaryBlue)
-//                        .clipShape(Capsule())
-//                })
-//                    .opacity(1)//($loginVM.username != "" && loginVM.password != "" ? 1: 0.5)
-//                    .disabled(false)//($loginVM.userName != "" && $loginVM.password != "" ? false: true)
-//
-//                if getBiometricStatus() {
-//                    Button(action: { performAuthentification() }, label: {
-//                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
-//                            .font(.title)
-//                            .foregroundColor(.black)
-//                            .padding()
-//                           // .background(.primaryBlue)
-//                    })
-//                }
-//            }.padding(.top)
-//            Button(action: {}, label: {
-//                Text(Literals.forgotPassword.rawValue)
-//                    .foregroundColor(.primaryBlue)
-//            }).padding(.top, 8)
+            HStack(spacing: 15) {
+                Button(action: { self.role = "employee"
+                }, label: {
+                    Text("Специалист")
+                        .fontWeight(.medium)
+                        .padding(.vertical)
+                        .frame(width: 100)
+                        .foregroundColor( self.role == "project" ? .gray.opacity(0.5) : Color.primaryBlue)
+                        .clipShape(Capsule())
+                })
+                
+                Button(action: { self.role = "project"
+                }, label: {
+                    Text("Проект")
+                        .fontWeight(.medium)
+                        .padding(.vertical)
+                        .frame(width: 100)
+                        .foregroundColor( self.role == "employee" ? .gray.opacity(0.5) : Color.primaryBlue)
+                        .clipShape(Capsule())
+                })
+            }
+            
+            HStack(spacing: 15) {
+                ZStack{
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor(.darkBlue)
+                        .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
+                Button(action: { loginVM.register() }, label: {
+                    Text("Зарегистрироваться")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 150)
+                        .clipShape(Capsule())
+                })
+                }
+            }
             
             Spacer(minLength: 0)
             
             HStack(spacing: 5) {
-                Text(Literals.noAccount)
+                Text("Уже есть аккаунт?")
                     .foregroundColor(.primaryBlue).opacity(0.8)
                 
-                Button(action: {}, label: {
-                    Text(Literals.register)
+                Button(action: {
+                    showLoginView = true
+                }, label: {
+                    Text("Авторизируйтесь")
                         .fontWeight(.medium)
                         .foregroundColor(.primaryBlue)
                 })
@@ -116,6 +126,8 @@ struct RegistrationUIView: View {
                 .padding(.all, 10)
             })
         }
+        .navigate(to: HomeUIView(), when: $showLoginView)
+        //.navigate(to: MainUIView(), when: $loginVM.isAuthenticated)
         .background(Color("white").ignoresSafeArea(.all, edges: .all))
         .animation(.easeOut)
     }

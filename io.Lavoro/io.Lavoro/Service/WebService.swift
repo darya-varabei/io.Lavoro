@@ -82,4 +82,29 @@ class Webservice {
             print("Login failed during call")
         }
     }
+    
+    func register(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
+        do {
+            let url = URL(string: "http://127.0.0.1:8080/users/register")
+            var urlReq = URLRequest(url: url!)
+            urlReq.setValue("application/json", forHTTPHeaderField: "Content-type")
+            urlReq.httpMethod = "POST"
+            
+            let encoder = JSONEncoder()
+            let payload = try encoder.encode(UserLogin(username: "dary", password: "password"))
+            URLSession.shared.uploadTask(with: urlReq, from: payload) { (data, resp, err) in
+                guard let data = data, err == nil else {
+                               completion(.failure(.custom(errorMessage: "No data")))
+                               return
+                           }
+                guard let token = String(data: data, encoding: String.Encoding.utf8) else {
+                                completion(.failure(.invalidCredentials))
+                                return
+                            }
+                completion(.success(token))
+            }.resume()
+        } catch {
+            print("Login failed during call")
+        }
+    }
 }

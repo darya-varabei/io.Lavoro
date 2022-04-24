@@ -14,6 +14,7 @@ struct HomeUIView: View {
     @State var password = ""
     @StateObject private var loginVM = LoginViewModel()
     let defaults = UserDefaults.standard
+    @State var showRegistrationView = false
     
     var body: some View {
         VStack {
@@ -108,7 +109,9 @@ struct HomeUIView: View {
                 Text(Literals.noAccount)
                     .foregroundColor(.primaryBlue).opacity(0.8)
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    showRegistrationView = true
+                }, label: {
                     Text(Literals.register)
                         .fontWeight(.medium)
                         .foregroundColor(.primaryBlue)
@@ -125,6 +128,7 @@ struct HomeUIView: View {
                 .padding(.all, 10)
             })
         }
+        .navigate(to: RegistrationUIView(), when: $showRegistrationView)
         .navigate(to: MainUIView(), when: $loginVM.isAuthenticated)
         .background(Color("white").ignoresSafeArea(.all, edges: .all))
         .animation(.easeOut)
