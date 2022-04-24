@@ -12,9 +12,8 @@ struct HomeUIView: View {
     
     @State var userName = ""
     @State var password = ""
-    @AppStorage("stored_User") var user = "daria-vo@rambler.ru"
-    @AppStorage("status") var logged = false
     @StateObject private var loginVM = LoginViewModel()
+    let defaults = UserDefaults.standard
     
     var body: some View {
         VStack {
@@ -31,7 +30,7 @@ struct HomeUIView: View {
                     Text(Literals.logInText)
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundColor(.primaryBlue)//(Color(Colors.primaryBlue.rawValue))
+                        .foregroundColor(.primaryBlue)
                 })
                 Spacer(minLength: 0)
             }
@@ -47,15 +46,15 @@ struct HomeUIView: View {
                     .autocapitalization(.none)
                 
                 Spacer()
-                //if getBiometricStatus() {
-                Button(action: { performAuthentification() }, label: {
+                Button(action: {
+                    loginVM.username = defaults.string(forKey: "login") ?? ""
+                    loginVM.password = defaults.string(forKey: "password") ?? ""
+                    performAuthentification()
+                }, label: {
                     Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
                         .font(.title)
                         .foregroundColor(.darkBlue)
-                    //.padding()
-                    // .background(.primaryBlue)
                 })
-                //}
             }
             .padding()
             .background(Color.darkBlue.opacity(0.12))
@@ -84,28 +83,19 @@ struct HomeUIView: View {
                         .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
                     Button(action: {
                         loginVM.login()
+                        defaults.setValue(loginVM.username, forKey: "login")
+                        defaults.setValue(loginVM.password, forKey: "password")
                     }, label: {
                         Text(Literals.enter)
                             .fontWeight(.semibold)
                             .foregroundColor(.customWhite)
                             .padding(.vertical)
                             .frame(width: UIScreen.main.bounds.width - 150)
-                        //.cornerRadius(10)
-                        //.backgroundColor(.primaryBlue)
                             .clipShape(Capsule())
                     })
-                    .opacity(1)//($loginVM.username != "" && loginVM.password != "" ? 1: 0.5)
-                    .disabled(false)//($loginVM.userName != "" && $loginVM.password != "" ? false: true)
+                    .opacity(1)
+                    .disabled(false)
                 }
-                //                //if getBiometricStatus() {
-                //                    Button(action: { performAuthentification() }, label: {
-                //                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
-                //                            .font(.title)
-                //                            .foregroundColor(.black)
-                //                            .padding()
-                //                           // .background(.primaryBlue)
-                //                    })
-                //            //}
             }.padding(.top)
             Button(action: {}, label: {
                 Text(Literals.forgotPassword)
@@ -142,7 +132,7 @@ struct HomeUIView: View {
     
     private func getBiometricStatus() -> Bool {
         let scanner = LAContext()
-        if userName == user && scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none) {
+        if scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none) {
             return true
         }
         return false
@@ -155,7 +145,7 @@ struct HomeUIView: View {
                 print(err!.localizedDescription)
                 return
             }
-            withAnimation(.easeOut){ logged = true }
+            withAnimation(.easeOut){ loginVM.login() }
         }
     }
 }
