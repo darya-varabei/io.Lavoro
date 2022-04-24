@@ -66,16 +66,17 @@ class Webservice {
             urlReq.httpMethod = "POST"
             
             let encoder = JSONEncoder()
-            let payload = try encoder.encode(UserLogin(username: username, password: password))
-            print("login payload \(payload)")
+            let payload = try encoder.encode(UserLogin(username: "dary", password: "password"))
             URLSession.shared.uploadTask(with: urlReq, from: payload) { (data, resp, err) in
-                print("login attempt complete")
-                guard let data = data else { return }
-                
-                let token = String(data: data, encoding: String.Encoding.utf8)
-                print("login token: \(token)")
-                //self.token = token
-                //self.store
+                guard let data = data, err == nil else {
+                               completion(.failure(.custom(errorMessage: "No data")))
+                               return
+                           }
+                guard let token = String(data: data, encoding: String.Encoding.utf8) else {
+                                completion(.failure(.invalidCredentials))
+                                return
+                            }
+                completion(.success(token))
             }.resume()
         } catch {
             print("Login failed during call")

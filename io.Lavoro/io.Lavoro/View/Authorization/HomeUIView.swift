@@ -48,14 +48,14 @@ struct HomeUIView: View {
                 
                 Spacer()
                 //if getBiometricStatus() {
-                    Button(action: { performAuthentification() }, label: {
-                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
-                            .font(.title)
-                            .foregroundColor(.darkBlue)
-                            //.padding()
-                           // .background(.primaryBlue)
-                    })
-            //}
+                Button(action: { performAuthentification() }, label: {
+                    Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
+                        .font(.title)
+                        .foregroundColor(.darkBlue)
+                    //.padding()
+                    // .background(.primaryBlue)
+                })
+                //}
             }
             .padding()
             .background(Color.darkBlue.opacity(0.12))
@@ -82,28 +82,30 @@ struct HomeUIView: View {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundColor(.darkBlue)
                         .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
-                    Button(action: { loginVM.login() }, label: {
-                    Text(Literals.enter)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.customWhite)
-                        .padding(.vertical)
-                        .frame(width: UIScreen.main.bounds.width - 150)
+                    Button(action: {
+                        loginVM.login()
+                    }, label: {
+                        Text(Literals.enter)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.customWhite)
+                            .padding(.vertical)
+                            .frame(width: UIScreen.main.bounds.width - 150)
                         //.cornerRadius(10)
                         //.backgroundColor(.primaryBlue)
-                        .clipShape(Capsule())
-                })
+                            .clipShape(Capsule())
+                    })
                     .opacity(1)//($loginVM.username != "" && loginVM.password != "" ? 1: 0.5)
                     .disabled(false)//($loginVM.userName != "" && $loginVM.password != "" ? false: true)
                 }
-//                //if getBiometricStatus() {
-//                    Button(action: { performAuthentification() }, label: {
-//                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
-//                            .font(.title)
-//                            .foregroundColor(.black)
-//                            .padding()
-//                           // .background(.primaryBlue)
-//                    })
-//            //}
+                //                //if getBiometricStatus() {
+                //                    Button(action: { performAuthentification() }, label: {
+                //                        Image(systemName: LAContext().biometryType == .faceID ? Images.faceid.rawValue : Images.touchid.rawValue)
+                //                            .font(.title)
+                //                            .foregroundColor(.black)
+                //                            .padding()
+                //                           // .background(.primaryBlue)
+                //                    })
+                //            //}
             }.padding(.top)
             Button(action: {}, label: {
                 Text(Literals.forgotPassword)
@@ -133,6 +135,7 @@ struct HomeUIView: View {
                 .padding(.all, 10)
             })
         }
+        .navigate(to: MainUIView(), when: $loginVM.isAuthenticated)
         .background(Color("white").ignoresSafeArea(.all, edges: .all))
         .animation(.easeOut)
     }
