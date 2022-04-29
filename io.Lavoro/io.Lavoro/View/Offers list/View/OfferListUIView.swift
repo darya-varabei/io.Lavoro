@@ -13,10 +13,14 @@ struct OfferListUIView: View {
     @State var offerViewModel: OfferViewModel = OfferViewModel()
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
+    init() {
+        offerViewModel.getOfferList()
+    }
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                if slideOverViewPosition != .hidden {
+                if slideOverViewPosition == .hidden {
                 HStack {
                     Button(action: {
                         slideOverViewPosition = .top

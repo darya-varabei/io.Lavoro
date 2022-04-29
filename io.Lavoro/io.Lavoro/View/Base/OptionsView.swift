@@ -28,7 +28,7 @@ struct OptionsView: View {
                         Rectangle()
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
                             .foregroundColor(.primaryBlue)
-                        EmployeesListUIView( employeeViewModel: EmployeeViewModel())
+                        EmployeesListUIView()
                     }
                 case 2:
                     OfferListUIView()

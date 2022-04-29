@@ -10,7 +10,7 @@ import SwiftUI
 struct EmployeeParametersView: View {
     @State var employeeModel: EmployeeViewModel = EmployeeViewModel()
     @Binding var slideOverViewPosition: ViewPosition
-    @State var employeeParameters = EmployeeParameters()
+    @State var employeeParameters = EmployeeParameters(mode: .employee)
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {

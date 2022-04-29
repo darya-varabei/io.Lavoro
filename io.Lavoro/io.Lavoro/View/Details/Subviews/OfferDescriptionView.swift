@@ -30,7 +30,7 @@ struct OfferDescriptionView: View {
             HStack {
                 LavoroLabeledText(title: "Режим работы", text: offer.timeMode)
                 Spacer()
-                LavoroLabeledText(title: "Рабочее место", text: offer.project.mode)
+                LavoroLabeledText(title: "Рабочее место", text: offer.project.mode!)
             }.padding(.horizontal, 10)
         }
         }

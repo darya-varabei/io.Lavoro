@@ -9,16 +9,17 @@ import SwiftUI
 
 struct EmployeesListUIView: View {
     @Namespace var animationID
-    @State var employeeViewModel: EmployeeViewModel
+    @State var employeeViewModel: EmployeeViewModel = EmployeeViewModel()
     @State private var searchText = ""
-    
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
+    init() {
+        employeeViewModel.getEmployeeList()
+    }
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                
-                if slideOverViewPosition != .hidden {
+                if slideOverViewPosition == .hidden {
                 HStack {
                     Button(action: {
                         slideOverViewPosition = .top

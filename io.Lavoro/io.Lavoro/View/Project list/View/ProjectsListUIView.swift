@@ -13,6 +13,9 @@ struct ProjectsListUIView: View {
     @State private var searchText = ""
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
+    init() {
+        projectViewModel.getProjectList()
+    }
     var body: some View {
         ZStack {
             VStack(spacing: 0) {

@@ -23,6 +23,7 @@ extension HTTPClient {
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.header
+        print(url)
 
         if let body = endpoint.body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
@@ -42,6 +43,7 @@ extension HTTPClient {
             case 401:
                 return .failure(.unauthorized)
             default:
+                print(response.statusCode)
                 return .failure(.unexpectedStatusCode)
             }
         } catch {

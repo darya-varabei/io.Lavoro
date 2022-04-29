@@ -12,11 +12,13 @@ struct Project: Account, Hashable, Equatable {
     
     var user: User
     var category: String
+    var id: UUID?
+    var photo: Data?
     var name: String
     var location: String
     var description: String
     var offers: [Offer]?
-    var mode: String
+    var mode: String?
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
@@ -26,7 +28,7 @@ struct Project: Account, Hashable, Equatable {
         return lhs.name == rhs.name
     }
     
-    init(user: User, name: String, location: String, description: String, offers: [Offer]? = nil, category: String, mode: String) {
+    init(user: User, name: String, location: String, description: String, offers: [Offer]? = nil, category: String, mode: String, id: UUID? = nil) {
         self.user = user
         self.name = name
         self.location = location
@@ -65,7 +67,7 @@ struct Project: Account, Hashable, Equatable {
     }
     
     func getMode() -> String {
-        return mode
+        return mode!
     }
     
     func getPhoto() -> UIImage {
@@ -86,5 +88,6 @@ extension Project: Codable {
         case description
         case offers
         case mode
+        case id
     }
 }

@@ -17,6 +17,6 @@ protocol Endpoint {
 
 extension Endpoint {
     var baseURL: String {
-        return "https://api.themoviedb.org/3/"
+        return "http://127.0.0.1:8080/"
     }
 }

@@ -26,6 +26,8 @@ enum LavoroEndpoint {
     case deleteApplicant
     case deleteProject
     case deleteOffer
+    case skills
+    case technology
 }
 
 extension LavoroEndpoint: Endpoint {
@@ -36,9 +38,9 @@ extension LavoroEndpoint: Endpoint {
         case .project:
             return "project/getInfo"
         case .projects:
-            return "projects/list"
+            return "project/list"
         case .applicants:
-            return "account/list"
+            return "employee/list"
         case .parametrizedApplicants:
             return "applicants/getWithParameters"
         case .parametrizedProjects:
@@ -58,7 +60,7 @@ extension LavoroEndpoint: Endpoint {
         case .updateOffer:
             return "offer/update"
         case .offers:
-            return "offers/list"
+            return "offer/list"
         case .parametrizedOffers:
             return "offers/getWithParameters"
         case .deleteApplicant:
@@ -67,12 +69,16 @@ extension LavoroEndpoint: Endpoint {
             return "project/delete"
         case .deleteOffer:
             return "offer/delete"
+        case .skills:
+            return "skill/list"
+        case .technology:
+            return "technology/list"
         }
     }
 
     var method: RequestMethod {
         switch self {
-        case .applicant, .project, .projects, .applicants, .parametrizedOffers, .parametrizedProjects, .parametrizedApplicants, .offers:
+        case .applicant, .project, .projects, .applicants, .parametrizedOffers, .parametrizedProjects, .parametrizedApplicants, .offers, .skills, .technology:
             return .get
         case .createProject, .createApplicant, .sendApplication, .sendResponse:
             return .post
@@ -85,7 +91,7 @@ extension LavoroEndpoint: Endpoint {
 
     var header: [String: String]? {
         // Access Token to use in Bearer header
-        let accessToken = "insert your access token here -> https://www.themoviedb.org/settings/api"
+        let accessToken = UserDefaults.standard.string(forKey: "login") ?? ""
             return [
                 "Authorization": "Bearer \(accessToken)",
                 "Content-Type": "application/json;charset=utf-8"
@@ -125,6 +131,10 @@ extension LavoroEndpoint: Endpoint {
         case .deleteOffer:
             return nil
         case .updateOffer:
+            return nil
+        case .skills:
+            return nil
+        case .technology:
             return nil
         }
     }

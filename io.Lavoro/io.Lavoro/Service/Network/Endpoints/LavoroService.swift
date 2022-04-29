@@ -11,6 +11,23 @@ protocol LavoroServiceable {
     func getApplicantInfo() async -> Result<Applicant, RequestError>
     func getProjectInfo() async -> Result<Project, RequestError>
     func getProjects() async -> Result<[Project], RequestError>
+    func getApplicants() async -> Result<[Applicant], RequestError>
+    func getParametrizedApplicants() async -> Result<[Applicant], RequestError>
+    func getParametrizedProjects() async -> Result<[Project], RequestError>
+    func createProject() async -> Result<Project, RequestError>
+    func createApplicant() async -> Result<Applicant, RequestError>
+    func sendApplication() async -> Result<Application, RequestError>
+    func sendResponse() async -> Result<Response, RequestError>
+    func updateProject() async -> Result<Project, RequestError>
+    func updateOffer() async -> Result<Offer, RequestError>
+    func updateApplicant() async -> Result<Applicant, RequestError>
+    func getOffers() async -> Result<[Offer], RequestError>
+    func getParametrizedOffers() async -> Result<[Offer], RequestError>
+    func deleteApplicant() async -> Result<String, RequestError>
+    func deleteProject() async -> Result<String, RequestError>
+    func deleteOffer() async -> Result<String, RequestError>
+    func getSkills() async -> Result<[Skill], RequestError>
+    func getTechnologies() async -> Result<[Technology], RequestError>
 }
 
 struct LavoroService: HTTPClient, LavoroServiceable {
@@ -85,5 +102,13 @@ struct LavoroService: HTTPClient, LavoroServiceable {
     
     func deleteOffer() async -> Result<String, RequestError> {
         return await sendRequest(endpoint: LavoroEndpoint.deleteOffer, responseModel: String.self)
+    }
+    
+    func getSkills() async -> Result<[Skill], RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.skills, responseModel: [Skill].self)
+    }
+    
+    func getTechnologies() async -> Result<[Technology], RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.technology, responseModel: [Technology].self)
     }
 }

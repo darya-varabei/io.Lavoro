@@ -127,7 +127,7 @@ struct RegistrationUIView: View {
             })
         }
         .navigate(to: HomeUIView(), when: $showLoginView)
-        //.navigate(to: MainUIView(), when: $loginVM.isAuthenticated)
+        .navigate(to: MainUIView(), when: $loginVM.isAuthenticated)
         .background(Color("white").ignoresSafeArea(.all, edges: .all))
         .animation(.easeOut)
     }

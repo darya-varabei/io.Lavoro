@@ -55,5 +55,4 @@ class LoginViewModel: ObservableObject {
             self.isAuthenticated = false
         }
     }
-    
 }

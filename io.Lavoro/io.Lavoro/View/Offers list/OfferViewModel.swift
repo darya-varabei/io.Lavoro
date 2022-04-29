@@ -20,10 +20,17 @@ class OfferViewModel: ObservableObject {
         }
     }
     
-    func getOfferList(completion: @escaping (Result<[Offer], RequestError>) -> Void) {
-        Task(priority: .background) {
-            let result = await service.getOffers()
-            completion(result)
+    func getOfferList(completion: (() -> Void)? = nil) {
+        fetchData { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                self.offers = response
+                completion?()
+            case .failure(let error):
+                print(error)
+                completion?()
+            }
         }
     }
     
@@ -33,5 +40,12 @@ class OfferViewModel: ObservableObject {
     
     func deleteOffer() {
         
+    }
+    
+    private func fetchData(completion: @escaping (Result<[Offer], RequestError>) -> Void) {
+        Task(priority: .background) {
+            let result = await service.getOffers()
+            completion(result)
+        }
     }
 }
