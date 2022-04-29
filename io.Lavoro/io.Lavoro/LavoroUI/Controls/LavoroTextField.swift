@@ -29,11 +29,29 @@ struct LavoroTextField: View {
           Text(labelText)
               .font(.custom("Montserrat-Medium", size: 10))
               .foregroundColor(.customBlack)
-          //.ghTextStyle(.mobileSecondarySmall, color: .ghBrown)
           .padding(.leading, 20)
-        TextField(placeholder, text: $text)
-          .textFieldStyle(GHRoundedTextFieldStyle(textColor: .customBlack, cornerRadius: cornerRadius, borderColor: .darkBlue))
+        TextField(text, text: $text)
+              .textFieldStyle(OvalTextFieldStyle())//GHRoundedTextFieldStyle(textColor: Color.black, cornerRadius: cornerRadius, borderColor: .darkBlue))
       }
     )
   }
+}
+
+
+struct OvalTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(15)
+            .foregroundColor(Color.customBlack)
+            .font(.custom("Montserrat-Medium", size: 12))
+            .background(
+              RoundedRectangle(cornerRadius: 20)
+                .inset(by: 0)
+                .strokeBorder()
+                .foregroundColor(Color.darkBlue)
+            )
+            //.background(Color.customWhite)LinearGradient(gradient: Gradient(colors: [Color.orange, Color.orange]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .cornerRadius(20)
+            //.shadow(color: .gray, radius: 10)
+    }
 }

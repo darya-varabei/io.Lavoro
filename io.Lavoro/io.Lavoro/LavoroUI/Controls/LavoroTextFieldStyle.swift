@@ -11,7 +11,7 @@ import SwiftUI
 struct GHRoundedTextFieldStyle: TextFieldStyle {
   var textColor: Color?
   //var textStyle: GHTextStyle
-  var maxPointSize: CGFloat?
+  var maxPointSize: CGFloat? = 12
   var horizontalIndent: CGFloat
   var verticalIndent: CGFloat
   var cornerRadius: CGFloat
@@ -19,7 +19,7 @@ struct GHRoundedTextFieldStyle: TextFieldStyle {
   
   init(textColor: Color? = nil,
        //textStyle: GHTextStyle = .mobileSecondaryMedium,
-       maxPointSize: CGFloat? = nil,
+       maxPointSize: CGFloat? = 12,
        horizontalIndent: CGFloat = 20,
        verticalIndent: CGFloat = 15,
        cornerRadius: CGFloat = 20,

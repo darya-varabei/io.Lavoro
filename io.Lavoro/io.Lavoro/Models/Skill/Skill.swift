@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Skill: Hashable, Equatable {
+final class Skill: Hashable, Equatable {
     var name: String
     var level: String
     

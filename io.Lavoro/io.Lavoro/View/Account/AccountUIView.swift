@@ -141,7 +141,7 @@ struct AccountUIView: View {
                     .padding(.top, 30)
             }
         }
-        .fullScreenCover(isPresented: $editInfo) {  UpdateEmployeeView(applicant: account.account as! Applicant) }
+        .fullScreenCover(isPresented: $editInfo) {  UpdateEmployeeView(editInfo: $editInfo, applicant: account.account as! Applicant) }
             .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
     }
     
