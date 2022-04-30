@@ -39,6 +39,7 @@ extension HTTPClient {
                 guard let decodedResponse = try? JSONDecoder().decode(responseModel, from: data) else {
                     return .failure(.decode)
                 }
+                print(decodedResponse)
                 return .success(decodedResponse)
             case 401:
                 return .failure(.unauthorized)

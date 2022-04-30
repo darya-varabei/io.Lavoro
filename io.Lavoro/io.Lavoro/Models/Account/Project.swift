@@ -18,7 +18,7 @@ struct Project: Account, Hashable, Equatable {
     var location: String
     var description: String
     var offers: [Offer]?
-    var mode: String?
+    var mode: String
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
@@ -67,7 +67,7 @@ struct Project: Account, Hashable, Equatable {
     }
     
     func getMode() -> String {
-        return mode!
+        return mode
     }
     
     func getPhoto() -> UIImage {

@@ -19,7 +19,7 @@ struct ContentView: View {
                 MainUIView()
             }
             else {
-                MainUIView()//HomeUIView()
+                HomeUIView()
             }
         }
     }

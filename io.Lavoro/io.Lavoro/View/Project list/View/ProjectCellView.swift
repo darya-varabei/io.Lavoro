@@ -32,7 +32,7 @@ struct ProjectCellView: View {
                     HStack(spacing: 20) {
                         Text("\(project.location)")
                             .font(.custom("Montserrat-SemiBold", size: 10))
-                        Text("\(project.mode!)")
+                        Text("\(project.mode)")
                             .font(.custom("Montserrat-SemiBold", size: 10))
                     }
                 }

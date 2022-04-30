@@ -60,6 +60,7 @@ class Webservice {
     
     func login(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
         do {
+            let defaults = UserDefaults.standard
             let url = URL(string: "http://127.0.0.1:8080/users/login")
             var urlReq = URLRequest(url: url!)
             urlReq.setValue("application/json", forHTTPHeaderField: "Content-type")
@@ -72,11 +73,13 @@ class Webservice {
                                completion(.failure(.custom(errorMessage: "No data")))
                                return
                            }
-                guard let token = String(data: data, encoding: String.Encoding.utf8) else {
+                guard let token = try? JSONDecoder().decode(CurrentUser.self, from: data) else {
                                 completion(.failure(.invalidCredentials))
                                 return
                             }
-                completion(.success(token))
+                defaults.setValue(token.id, forKey: "id")
+                print(token.id)
+                completion(.success(token.token!))
             }.resume()
         } catch {
             print("Login failed during call")

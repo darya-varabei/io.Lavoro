@@ -98,7 +98,8 @@ struct UpdateEmployeeView: View {
             SlideOverView(position: $skillSlideOver,
                           isHalfScreenHeight: false,
                           handleOption: .staticWithoutHandler) {
-                UpdateSkillView(position: $skillSlideOver, skillToUpdate: $skillToUpdate)
+                UpdateSkillView(position: $skillSlideOver, skillToUpdate: $skillToUpdate,
+                                updatedSkill: skillToUpdate)
             }
         }
     }

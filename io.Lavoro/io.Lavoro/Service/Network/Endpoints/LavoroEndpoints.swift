@@ -28,6 +28,8 @@ enum LavoroEndpoint {
     case deleteOffer
     case skills
     case technology
+    case offerTechnologies
+    case employeeSkills
 }
 
 extension LavoroEndpoint: Endpoint {
@@ -73,12 +75,16 @@ extension LavoroEndpoint: Endpoint {
             return "skill/list"
         case .technology:
             return "technology/list"
+        case .employeeSkills:
+            return "skill/list"
+        case .offerTechnologies:
+            return "technology/list"
         }
     }
 
     var method: RequestMethod {
         switch self {
-        case .applicant, .project, .projects, .applicants, .parametrizedOffers, .parametrizedProjects, .parametrizedApplicants, .offers, .skills, .technology:
+        case .applicant, .project, .projects, .applicants, .parametrizedOffers, .parametrizedProjects, .parametrizedApplicants, .offers, .skills, .technology, .employeeSkills, .offerTechnologies:
             return .get
         case .createProject, .createApplicant, .sendApplication, .sendResponse:
             return .post
@@ -90,7 +96,6 @@ extension LavoroEndpoint: Endpoint {
     }
 
     var header: [String: String]? {
-        // Access Token to use in Bearer header
         let accessToken = UserDefaults.standard.string(forKey: "login") ?? ""
             return [
                 "Authorization": "Bearer \(accessToken)",
@@ -135,6 +140,10 @@ extension LavoroEndpoint: Endpoint {
         case .skills:
             return nil
         case .technology:
+            return nil
+        case .employeeSkills:
+            return nil
+        case .offerTechnologies:
             return nil
         }
     }

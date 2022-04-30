@@ -1,16 +1,16 @@
 //
-//  UpdateSkillView.swift
+//  UpdateTechnologyView.swift
 //  io.Lavoro
 //
-//  Created by Дарья Воробей on 29.04.22.
+//  Created by Дарья Воробей on 30.04.22.
 //
 
 import SwiftUI
 
-struct UpdateSkillView: View {
+struct UpdateTechnologyView: View {
     @Binding var position: ViewPosition
-    @Binding var skillToUpdate: Skill
-    @State var updatedSkill: Skill {
+    @Binding var skillToUpdate: Technology
+    @State var updatedSkill: Technology {
         didSet {
             skillToUpdate = updatedSkill
         }

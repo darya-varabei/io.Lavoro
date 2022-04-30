@@ -13,6 +13,10 @@
 		D503C0FF281207A200572AF9 /* OfferParametersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D503C0FE281207A200572AF9 /* OfferParametersView.swift */; };
 		D503C1032812CF0E00572AF9 /* LavoroCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D503C1022812CF0E00572AF9 /* LavoroCheckBox.swift */; };
 		D5099F66281C7442008A265E /* UpdateSkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F65281C7442008A265E /* UpdateSkillView.swift */; };
+		D5099F68281C9C2C008A265E /* AccountOffersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F67281C9C2C008A265E /* AccountOffersView.swift */; };
+		D5099F6A281C9D55008A265E /* UpdateOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F69281C9D55008A265E /* UpdateOfferView.swift */; };
+		D5099F6C281CA969008A265E /* UpdateTechnologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F6B281CA969008A265E /* UpdateTechnologyView.swift */; };
+		D5099F6E281CB18D008A265E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F6D281CB18D008A265E /* CurrentUser.swift */; };
 		D50E935B2815D39E008CB109 /* ObservableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E935A2815D39E008CB109 /* ObservableStore.swift */; };
 		D51D915F2815F4210002EB2A /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D915E2815F4210002EB2A /* View+Navigation.swift */; };
 		D51D91622815F5D30002EB2A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D91612815F5D30002EB2A /* LaunchView.swift */; };
@@ -132,6 +136,10 @@
 		D503C0FE281207A200572AF9 /* OfferParametersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferParametersView.swift; sourceTree = "<group>"; };
 		D503C1022812CF0E00572AF9 /* LavoroCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LavoroCheckBox.swift; sourceTree = "<group>"; };
 		D5099F65281C7442008A265E /* UpdateSkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSkillView.swift; sourceTree = "<group>"; };
+		D5099F67281C9C2C008A265E /* AccountOffersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOffersView.swift; sourceTree = "<group>"; };
+		D5099F69281C9D55008A265E /* UpdateOfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOfferView.swift; sourceTree = "<group>"; };
+		D5099F6B281CA969008A265E /* UpdateTechnologyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTechnologyView.swift; sourceTree = "<group>"; };
+		D5099F6D281CB18D008A265E /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		D50E935A2815D39E008CB109 /* ObservableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableStore.swift; sourceTree = "<group>"; };
 		D51D915E2815F4210002EB2A /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		D51D91612815F5D30002EB2A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -308,6 +316,9 @@
 				D5517FDA2808B603001BA226 /* UpdateProjecttView.swift */,
 				D5517FDC2808B61B001BA226 /* UpdateEmployeeView.swift */,
 				D5099F65281C7442008A265E /* UpdateSkillView.swift */,
+				D5099F67281C9C2C008A265E /* AccountOffersView.swift */,
+				D5099F69281C9D55008A265E /* UpdateOfferView.swift */,
+				D5099F6B281CA969008A265E /* UpdateTechnologyView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -628,6 +639,7 @@
 				D5AECFF527D55A5E00FBEE17 /* UserLogin.swift */,
 				D5AECFF727D55A7600FBEE17 /* UserRegister.swift */,
 				D5AED00527D55C0500FBEE17 /* Role.swift */,
+				D5099F6D281CB18D008A265E /* CurrentUser.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -800,6 +812,7 @@
 				D5E25FDE27D4C567001CA5B1 /* ContentView.swift in Sources */,
 				D5EF1866280304EB003F4E94 /* WrappedAccount.swift in Sources */,
 				D5AECFFE27D55AEA00FBEE17 /* Skill.swift in Sources */,
+				D5099F6A281C9D55008A265E /* UpdateOfferView.swift in Sources */,
 				D5099F66281C7442008A265E /* UpdateSkillView.swift in Sources */,
 				D5AED00627D55C0500FBEE17 /* Role.swift in Sources */,
 				D5517FD22808A1E8001BA226 /* ApplicationCellView.swift in Sources */,
@@ -831,6 +844,7 @@
 				D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */,
 				D5D4CAAF27F914DB0040F3F0 /* LavoroLabeledText.swift in Sources */,
 				D5517FD82808A5D8001BA226 /* ApplicationDetailView.swift in Sources */,
+				D5099F6C281CA969008A265E /* UpdateTechnologyView.swift in Sources */,
 				D51D915F2815F4210002EB2A /* View+Navigation.swift in Sources */,
 				D5517FDB2808B603001BA226 /* UpdateProjecttView.swift in Sources */,
 				D5AECFF827D55A7600FBEE17 /* UserRegister.swift in Sources */,
@@ -840,6 +854,7 @@
 				D5AED00027D55B0900FBEE17 /* Application.swift in Sources */,
 				D5C9B3D627EFA5A40011AE7F /* OfferCellView.swift in Sources */,
 				D5D4CAA827F912260040F3F0 /* OfferDescriptionView.swift in Sources */,
+				D5099F6E281CB18D008A265E /* CurrentUser.swift in Sources */,
 				D5C9B3C527EF73C60011AE7F /* AccountUIView.swift in Sources */,
 				D53FCA5628049FD40078323A /* Endpoint.swift in Sources */,
 				D5EF186F28031C08003F4E94 /* LavoroTitledText.swift in Sources */,
@@ -852,6 +867,7 @@
 				D5BFA1B427EA8737007A872A /* ProjectCellView.swift in Sources */,
 				D544724827EFE68E00421940 /* OfferListUIView.swift in Sources */,
 				D5BFA1BD27EA89F3007A872A /* LavoroButton.swift in Sources */,
+				D5099F68281C9C2C008A265E /* AccountOffersView.swift in Sources */,
 				D5D4CAA427F855310040F3F0 /* RoundedShape.swift in Sources */,
 				D5B92E7C27F6C446005E3E70 /* EmployeeDetailsView.swift in Sources */,
 				D5B92E7E27F6C6B9005E3E70 /* ProjectViewModel.swift in Sources */,

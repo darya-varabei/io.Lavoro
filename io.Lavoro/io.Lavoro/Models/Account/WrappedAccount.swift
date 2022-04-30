@@ -68,5 +68,4 @@ class WrappedAccount: Account {
     func getPhoto() -> UIImage {
         return account.getPhoto()
     }
-    
 }

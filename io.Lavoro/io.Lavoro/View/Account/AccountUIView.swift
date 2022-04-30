@@ -14,7 +14,7 @@ struct AccountUIView: View {
     @State var account: WrappedAccount
     @State var index = 0
     var body: some View {
-        if account.account is Applicant {
+        if CurrentUser.shared.getRole() == "employee" {
             applicantProfileView
         }
         else {
@@ -142,7 +142,7 @@ struct AccountUIView: View {
             }
         }
         .fullScreenCover(isPresented: $editInfo) {  UpdateEmployeeView(editInfo: $editInfo, applicant: account.account as! Applicant) }
-            .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
+        .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
     }
     
     @ViewBuilder
