@@ -25,7 +25,10 @@ class OfferViewModel: ObservableObject {
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                self.offers = response
+                for i in response {
+                    self.offers.append(Offer(project: Project(user: User(username: "Dary", role: "project", photo: SomeImage(photo: UIImage(named: "neurona")!)), name: "", location: "", description: "", category: "", mode: ""), name: i.name, technologies: [], mode: i.mode, salary: i.salary, timeMode: i.mode, description: i.welcomeDescription))
+                }
+               // self.offers = response
                 completion?()
             case .failure(let error):
                 print(error)
@@ -42,7 +45,7 @@ class OfferViewModel: ObservableObject {
         
     }
     
-    private func fetchData(completion: @escaping (Result<[Offer], RequestError>) -> Void) {
+    private func fetchData(completion: @escaping (Result<[DomainOffer], RequestError>) -> Void) {
         Task(priority: .background) {
             let result = await service.getOffers()
             completion(result)

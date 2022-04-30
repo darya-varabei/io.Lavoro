@@ -23,6 +23,8 @@ struct EmployeeCellView: View {
                     Image(uiImage: UIImage(data: applicant.user.photo.photo)!)
                         .resizable()
                         .scaledToFit()
+                    
+                    Spacer()
                     VStack(spacing: 10) {
                         Text("\(applicant.specialization)")
                             .font(.custom("Montserrat-SemiBold", size: 10))

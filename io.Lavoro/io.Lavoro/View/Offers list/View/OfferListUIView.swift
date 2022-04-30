@@ -13,10 +13,6 @@ struct OfferListUIView: View {
     @State var offerViewModel: OfferViewModel = OfferViewModel()
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
-    init() {
-        offerViewModel.getOfferList()
-    }
-    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -60,6 +56,8 @@ struct OfferListUIView: View {
                           handleOption: .regular) {
                 EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition)
             }
+        }.onAppear {
+            offerViewModel.getOfferList()
         }
     }
     

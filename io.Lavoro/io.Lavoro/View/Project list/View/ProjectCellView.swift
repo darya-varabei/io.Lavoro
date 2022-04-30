@@ -22,6 +22,7 @@ struct ProjectCellView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 70, height: 70)
+                Spacer()
                 VStack(alignment: .leading, spacing: 21) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("\(project.category)")

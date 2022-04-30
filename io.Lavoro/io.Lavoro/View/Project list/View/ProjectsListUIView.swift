@@ -9,25 +9,22 @@ import SwiftUI
 
 struct ProjectsListUIView: View {
     //@Namespace var animationID
-    @State var projectViewModel: ProjectViewModel = ProjectViewModel()
+    @StateObject var projectViewModel: ProjectViewModel = ProjectViewModel()
     @State private var searchText = ""
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
-    init() {
-        projectViewModel.getProjectList()
-    }
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 HStack {
-                    Button(action: {
-                        slideOverViewPosition = .top
-                    }, label: {
-                        Text("Параметры")
-                            .underline()
-                            .foregroundColor(.customWhite)
-                            .font(.custom("Montserrat-Medium", size: 14))
-                    })
+//                    Button(action: {
+//                        slideOverViewPosition = .top
+//                    }, label: {
+//                        Text("Параметры")
+//                            .underline()
+//                            .foregroundColor(.customWhite)
+//                            .font(.custom("Montserrat-Medium", size: 14))
+//                    })
                     Spacer()
                     Text("")
                 }.padding(.horizontal, 30)
@@ -57,6 +54,8 @@ struct ProjectsListUIView: View {
                           handleOption: .regular) {
                 ProjectParametersView()
             }
+        }.onAppear {
+            projectViewModel.getProjectList()
         }
     }
     

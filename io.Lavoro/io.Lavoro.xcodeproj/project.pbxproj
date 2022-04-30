@@ -17,6 +17,7 @@
 		D5099F6A281C9D55008A265E /* UpdateOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F69281C9D55008A265E /* UpdateOfferView.swift */; };
 		D5099F6C281CA969008A265E /* UpdateTechnologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F6B281CA969008A265E /* UpdateTechnologyView.swift */; };
 		D5099F6E281CB18D008A265E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F6D281CB18D008A265E /* CurrentUser.swift */; };
+		D5099F71281D070C008A265E /* DomainProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F70281D070B008A265E /* DomainProject.swift */; };
 		D50E935B2815D39E008CB109 /* ObservableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E935A2815D39E008CB109 /* ObservableStore.swift */; };
 		D51D915F2815F4210002EB2A /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D915E2815F4210002EB2A /* View+Navigation.swift */; };
 		D51D91622815F5D30002EB2A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D91612815F5D30002EB2A /* LaunchView.swift */; };
@@ -140,6 +141,7 @@
 		D5099F69281C9D55008A265E /* UpdateOfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOfferView.swift; sourceTree = "<group>"; };
 		D5099F6B281CA969008A265E /* UpdateTechnologyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTechnologyView.swift; sourceTree = "<group>"; };
 		D5099F6D281CB18D008A265E /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		D5099F70281D070B008A265E /* DomainProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainProject.swift; sourceTree = "<group>"; };
 		D50E935A2815D39E008CB109 /* ObservableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableStore.swift; sourceTree = "<group>"; };
 		D51D915E2815F4210002EB2A /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		D51D91612815F5D30002EB2A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -299,6 +301,14 @@
 			path = Parameters;
 			sourceTree = "<group>";
 		};
+		D5099F6F281D067E008A265E /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				D5099F70281D070B008A265E /* DomainProject.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		D515FF302807542A0046A417 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +421,7 @@
 		D5AECFF427D55A3200FBEE17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D5099F6F281D067E008A265E /* Domain */,
 				D5007A6F28134376002A486E /* Parameters */,
 				D5EF186A280305DF003F4E94 /* User */,
 				D5EF1868280305AB003F4E94 /* Account */,
@@ -840,6 +851,7 @@
 				D570CB3927E7D00600155781 /* User.swift in Sources */,
 				D5D4CAB827F93D800040F3F0 /* Technology+Definition.swift in Sources */,
 				D5E25FDC27D4C567001CA5B1 /* io_LavoroApp.swift in Sources */,
+				D5099F71281D070C008A265E /* DomainProject.swift in Sources */,
 				D5D4CAA627F8BC110040F3F0 /* UIImage+Brightness.swift in Sources */,
 				D5AED00427D55B8100FBEE17 /* Offer.swift in Sources */,
 				D5D4CAAF27F914DB0040F3F0 /* LavoroLabeledText.swift in Sources */,

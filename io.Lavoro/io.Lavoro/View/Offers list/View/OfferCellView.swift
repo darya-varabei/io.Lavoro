@@ -29,6 +29,7 @@ struct OfferCellView: View {
                             .frame(width: 70, height: 70)
                     Spacer()
                     }
+                    Spacer()
                     VStack(alignment: .leading, spacing: 10) {
                         Text("\(offer.timeMode)")
                             .font(.custom("Montserrat-SemiBold", size: 10))

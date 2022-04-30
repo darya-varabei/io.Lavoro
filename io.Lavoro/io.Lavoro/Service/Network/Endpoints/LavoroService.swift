@@ -10,8 +10,8 @@ import Foundation
 protocol LavoroServiceable {
     func getApplicantInfo() async -> Result<Applicant, RequestError>
     func getProjectInfo() async -> Result<Project, RequestError>
-    func getProjects() async -> Result<[Project], RequestError>
-    func getApplicants() async -> Result<[Applicant], RequestError>
+    func getProjects() async -> Result<[DomainProject], RequestError>
+    func getApplicants() async -> Result<[DomainEmployee], RequestError>
     func getParametrizedApplicants() async -> Result<[Applicant], RequestError>
     func getParametrizedProjects() async -> Result<[Project], RequestError>
     func createProject() async -> Result<Project, RequestError>
@@ -21,13 +21,13 @@ protocol LavoroServiceable {
     func updateProject() async -> Result<Project, RequestError>
     func updateOffer() async -> Result<Offer, RequestError>
     func updateApplicant() async -> Result<Applicant, RequestError>
-    func getOffers() async -> Result<[Offer], RequestError>
+    func getOffers() async -> Result<[DomainOffer], RequestError>
     func getParametrizedOffers() async -> Result<[Offer], RequestError>
     func deleteApplicant() async -> Result<String, RequestError>
     func deleteProject() async -> Result<String, RequestError>
     func deleteOffer() async -> Result<String, RequestError>
-    func getSkills() async -> Result<[Skill], RequestError>
-    func getTechnologies() async -> Result<[Technology], RequestError>
+    func getSkills() async -> Result<[DomainSkill], RequestError>
+    func getTechnologies() async -> Result<[DomainTechnology], RequestError>
 }
 
 struct LavoroService: HTTPClient, LavoroServiceable {
@@ -40,12 +40,12 @@ struct LavoroService: HTTPClient, LavoroServiceable {
         return await sendRequest(endpoint: LavoroEndpoint.project, responseModel: Project.self)
     }
     
-    func getProjects() async -> Result<[Project], RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.projects, responseModel: [Project].self)
+    func getProjects() async -> Result<[DomainProject], RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.projects, responseModel: [DomainProject].self)
     }
     
-    func getApplicants() async -> Result<[Applicant], RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.applicants, responseModel: [Applicant].self)
+    func getApplicants() async -> Result<[DomainEmployee], RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.applicants, responseModel: [DomainEmployee].self)
     }
     
     func getParametrizedApplicants() async -> Result<[Applicant], RequestError> {
@@ -84,8 +84,8 @@ struct LavoroService: HTTPClient, LavoroServiceable {
         return await sendRequest(endpoint: LavoroEndpoint.updateApplicant, responseModel: Applicant.self)
     }
     
-    func getOffers() async -> Result<[Offer], RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.offers, responseModel: [Offer].self)
+    func getOffers() async -> Result<[DomainOffer], RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.offers, responseModel: [DomainOffer].self)
     }
     
     func getParametrizedOffers() async -> Result<[Offer], RequestError> {
@@ -104,11 +104,11 @@ struct LavoroService: HTTPClient, LavoroServiceable {
         return await sendRequest(endpoint: LavoroEndpoint.deleteOffer, responseModel: String.self)
     }
     
-    func getSkills() async -> Result<[Skill], RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.skills, responseModel: [Skill].self)
+    func getSkills() async -> Result<[DomainSkill], RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.skills, responseModel: [DomainSkill].self)
     }
     
-    func getTechnologies() async -> Result<[Technology], RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.technology, responseModel: [Technology].self)
+    func getTechnologies() async -> Result<[DomainTechnology], RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.technology, responseModel: [DomainTechnology].self)
     }
 }

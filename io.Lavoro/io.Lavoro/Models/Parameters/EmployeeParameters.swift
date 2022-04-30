@@ -45,14 +45,14 @@ struct EmployeeParameters {
         return Double(maximalSalary) ?? 0.0
     }
     
-    private func fetchSkills(completion: @escaping (Result<[Skill], RequestError>) -> Void) {
+    private func fetchSkills(completion: @escaping (Result<[DomainSkill], RequestError>) -> Void) {
         Task(priority: .background) {
             let result = await service.getSkills()
             completion(result)
         }
     }
     
-    private func fetchTechnologies(completion: @escaping (Result<[Technology], RequestError>) -> Void) {
+    private func fetchTechnologies(completion: @escaping (Result<[DomainTechnology], RequestError>) -> Void) {
         Task(priority: .background) {
             let result = await service.getTechnologies()
             completion(result)
@@ -64,6 +64,10 @@ struct EmployeeParameters {
             fetchSkills { result in
                 switch result {
                 case .success(let response):
+                    var technologies: [Skill] = []
+                    for i in response {
+                        technologies.append(Skill(name: i.name, level: i.level))
+                    }
                     self.skills = response.map({$0.name})
                     completion?()
                 case .failure(let error):
@@ -76,7 +80,11 @@ struct EmployeeParameters {
             fetchTechnologies { result in
                 switch result {
                 case .success(let response):
-                    self.skills = response.map({$0.name})
+                    var technologies: [Technology] = []
+                    for i in response {
+                        technologies.append(Technology(name: i.name, level: i.level))
+                    }
+                    self.skills = technologies.map({$0.name})
                     completion?()
                 case .failure(let error):
                     print(error)

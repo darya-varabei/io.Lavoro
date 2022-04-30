@@ -9,13 +9,10 @@ import SwiftUI
 
 struct EmployeesListUIView: View {
     @Namespace var animationID
-    @State var employeeViewModel: EmployeeViewModel = EmployeeViewModel()
+    @StateObject var employeeViewModel: EmployeeViewModel = EmployeeViewModel()
     @State private var searchText = ""
     @State private var slideOverViewPosition: ViewPosition = .hidden
-    
-    init() {
-        employeeViewModel.getEmployeeList()
-    }
+   
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -57,6 +54,8 @@ struct EmployeesListUIView: View {
                           handleOption: .regular) {
                 EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition)
             }
+        }.onAppear {
+            employeeViewModel.getEmployeeList()
         }
     }
     

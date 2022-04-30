@@ -67,7 +67,7 @@ class Webservice {
             urlReq.httpMethod = "POST"
             
             let encoder = JSONEncoder()
-            let payload = try encoder.encode(UserLogin(username: "dary", password: "password"))
+            let payload = try encoder.encode(UserLogin(username: username, password: password))
             URLSession.shared.uploadTask(with: urlReq, from: payload) { (data, resp, err) in
                 guard let data = data, err == nil else {
                                completion(.failure(.custom(errorMessage: "No data")))
@@ -77,7 +77,9 @@ class Webservice {
                                 completion(.failure(.invalidCredentials))
                                 return
                             }
-                defaults.setValue(token.id, forKey: "id")
+                print(token)
+               // defaults.setValue(token.id, forKey: "id")
+                print(token.role)
                 print(token.id)
                 completion(.success(token.token!))
             }.resume()
