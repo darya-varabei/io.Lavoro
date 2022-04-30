@@ -21,6 +21,7 @@ struct AccountUIView: View {
             projectProfileView
         }
     }
+    @StateObject var accountViewModel = AccountViewModel()
     @State var editInfo = false
     
     @State var applicationList = ApplicationListView()
@@ -53,7 +54,7 @@ struct AccountUIView: View {
                             })
                         }.padding(.bottom, 30)
                         Spacer()
-                        Image(uiImage: account.account.getPhoto())
+                        Image(uiImage: account.account?.getPhoto() ?? UIImage(named: "ally")!)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 70,
@@ -156,7 +157,7 @@ struct AccountUIView: View {
                         Text(account.getCategory())
                     }
                 }
-                Image(uiImage: account.account.getPhoto())
+                Image(uiImage: account.account?.getPhoto() ?? UIImage(systemName: "star")!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 70,
@@ -238,8 +239,8 @@ struct AccountUIView: View {
     }
 }
 
-struct AccountUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        AccountUIView(account: WrappedAccount(account: Applicant(user: User(username: "darySp", role: "applicant", photo: SomeImage(photo: UIImage(named: "kate")!)), name: "Дарья", surname: "Воробей", age: 19, location: "Минск, Беларусь", interests: "Тренажерный зал, стретчинг, иностранные языки, рок музыка", description: "IOS разработчик с опытом работы на коммерческий проектах в категориях Enterprise, EduTech, IoT. Открыта к проектной работе", skills: [Skill(name: "Swift", level: "Advanced"), Skill(name: "Xcode", level: "Advanced"), Skill(name: "Objective C", level: "Advanced"), Skill(name: "Git", level: "Advanced"),], relocate: false, mode: "Remote", payment: "$1500", specialization: "IOS разработчик")))
-    }
-}
+//struct AccountUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AccountUIView(account: WrappedAccount(account: Applicant(user: User(username: "darySp", role: "applicant", photo: SomeImage(photo: UIImage(named: "kate")!)), name: "Дарья", surname: "Воробей", age: 19, location: "Минск, Беларусь", interests: "Тренажерный зал, стретчинг, иностранные языки, рок музыка", description: "IOS разработчик с опытом работы на коммерческий проектах в категориях Enterprise, EduTech, IoT. Открыта к проектной работе", skills: [Skill(name: "Swift", level: "Advanced"), Skill(name: "Xcode", level: "Advanced"), Skill(name: "Objective C", level: "Advanced"), Skill(name: "Git", level: "Advanced"),], relocate: false, mode: "Remote", payment: "$1500", specialization: "IOS разработчик")))
+//    }
+//}

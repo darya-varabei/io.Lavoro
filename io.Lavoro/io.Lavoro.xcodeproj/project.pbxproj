@@ -18,6 +18,7 @@
 		D5099F6C281CA969008A265E /* UpdateTechnologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F6B281CA969008A265E /* UpdateTechnologyView.swift */; };
 		D5099F6E281CB18D008A265E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F6D281CB18D008A265E /* CurrentUser.swift */; };
 		D5099F71281D070C008A265E /* DomainProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F70281D070B008A265E /* DomainProject.swift */; };
+		D5099F73281D3240008A265E /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5099F72281D3240008A265E /* AccountViewModel.swift */; };
 		D50E935B2815D39E008CB109 /* ObservableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50E935A2815D39E008CB109 /* ObservableStore.swift */; };
 		D51D915F2815F4210002EB2A /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D915E2815F4210002EB2A /* View+Navigation.swift */; };
 		D51D91622815F5D30002EB2A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51D91612815F5D30002EB2A /* LaunchView.swift */; };
@@ -142,6 +143,7 @@
 		D5099F6B281CA969008A265E /* UpdateTechnologyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTechnologyView.swift; sourceTree = "<group>"; };
 		D5099F6D281CB18D008A265E /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		D5099F70281D070B008A265E /* DomainProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainProject.swift; sourceTree = "<group>"; };
+		D5099F72281D3240008A265E /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		D50E935A2815D39E008CB109 /* ObservableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableStore.swift; sourceTree = "<group>"; };
 		D51D915E2815F4210002EB2A /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		D51D91612815F5D30002EB2A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				D5099F67281C9C2C008A265E /* AccountOffersView.swift */,
 				D5099F69281C9D55008A265E /* UpdateOfferView.swift */,
 				D5099F6B281CA969008A265E /* UpdateTechnologyView.swift */,
+				D5099F72281D3240008A265E /* AccountViewModel.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				D5AED00227D55B1900FBEE17 /* Response.swift in Sources */,
 				D5B92E8227F6C898005E3E70 /* OfferDetailView.swift in Sources */,
 				D5BFA1B927EA899E007A872A /* LavoroTextField.swift in Sources */,
+				D5099F73281D3240008A265E /* AccountViewModel.swift in Sources */,
 				D53FCA622804A0EC0078323A /* LavoroService.swift in Sources */,
 				D5466F1527EF17C900720F80 /* OptionsView.swift in Sources */,
 				D5AECFF027D5591500FBEE17 /* ProjectsListUIView.swift in Sources */,

@@ -20,18 +20,18 @@ struct ApplicationCellView: View {
             VStack(alignment: .leading, spacing: 10) {
                 
                 HStack(spacing: 15) {
-                    Image(uiImage: sender.account.getPhoto())
+                    Image(uiImage: sender.account?.getPhoto() ?? UIImage(systemName: "person")!)
                         .resizable()
                         .scaledToFit()
                     Spacer()
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("\(sender.account.getName())")
+                        Text(sender.account?.getName() ?? "")
                             .font(.custom("Montserrat-Bold", size: 14))
-                        Text("\(sender.account.getCategory())")
+                        Text(sender.account?.getCategory() ?? "")
                             .font(.custom("Montserrat-Medium", size: 14))
                             .padding(.bottom, 10)
                         
-                        Text("\(sender.account.getCategory())")
+                        Text(sender.account?.getCategory() ?? "")
                             .font(.custom("Montserrat-Medium", size: 14))
                     }
                 }

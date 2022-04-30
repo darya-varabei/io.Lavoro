@@ -23,49 +23,49 @@ protocol Account {
 
 class WrappedAccount: Account {
     
-    var account: Account
+    var account: Account?
     
-    init(account: Account) {
+    init(account: Account? = nil) {
         self.account = account
     }
     
     func getName() -> String {
-        return account.getName()
+        return account?.getName() ?? ""
     }
     
     func getSpecialization() -> String {
-        return account.getSpecialization()
+        return account?.getSpecialization() ?? ""
     }
     
     func getDescription() -> String {
-        return account.getDescription()
+        return account?.getDescription() ?? ""
     }
     
     func getSkills() -> [Skill] {
-        return account.getSkills()
+        return account?.getSkills() ?? []
     }
     
     func getLocation() -> String {
-        return account.getLocation()
+        return account?.getLocation() ?? ""
     }
     
     func getRelocate() -> String {
-        return account.getLocation()
+        return account?.getLocation() ?? ""
     }
     
     func getInterests() -> String {
-        return account.getInterests()
+        return account?.getInterests() ?? ""
     }
     
     func getMode() -> String {
-        return account.getMode()
+        return account?.getMode() ?? ""
     }
     
     func getCategory() -> String {
-        return account.getCategory()
+        return account?.getCategory() ?? ""
     }
     
     func getPhoto() -> UIImage {
-        return account.getPhoto()
+        return account?.getPhoto() ?? UIImage(systemName: "person")!
     }
 }
