@@ -17,7 +17,7 @@ struct OfferCellView: View {
             RoundedRectangle(cornerRadius: 19)
                 .frame(width: UIScreen.main.bounds.width - 80, height: 133, alignment: .center)
                 .foregroundColor(Color.white)
-                .shadow(color: .gray, radius: 5, x: 5, y: 5)
+                .shadow(color: .gray.opacity(0.2), radius: 5, x: 5, y: 5)
             
             VStack(alignment: .leading, spacing: 10) {
                 

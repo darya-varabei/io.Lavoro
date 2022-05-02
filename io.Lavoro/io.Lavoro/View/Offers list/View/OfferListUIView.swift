@@ -15,42 +15,39 @@ struct OfferListUIView: View {
         }
     }
     @State var array: [Offer] = []
-    @State var offerViewModel: OfferViewModel = OfferViewModel()
+    @StateObject var offerViewModel: OfferViewModel = OfferViewModel()
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 if slideOverViewPosition == .hidden {
-                HStack {
-                    Button(action: {
-                        slideOverViewPosition = .top
-                    }, label: {
-                        Text("Параметры")
-                            .underline()
-                            .foregroundColor(.customWhite)
-                            .font(.custom("Montserrat-Medium", size: 14))
-                    })
-                    Spacer()
-                    Text("")
-                }.padding(.horizontal, 30)
-                    .padding(.top, 50)
-                    .background(Color.primaryBlue.ignoresSafeArea())
+                    HStack {
+                        Button(action: {
+                            slideOverViewPosition = .top
+                        }, label: {
+                            Text("Параметры")
+                                .underline()
+                                .foregroundColor(.customWhite)
+                                .font(.custom("Montserrat-Medium", size: 14))
+                        })
+                        Spacer()
+                        Text("")
+                    }.padding(.horizontal, 30)
+                        .padding(.top, 50)
+                        .background(Color.primaryBlue.ignoresSafeArea())
                 }
                 NavigationView {
-                    List {
-                                   ForEach(array) { offer in
+                    List (offerViewModel.offers, id: \.name) { offer in
                         NavigationLink(
                             destination: OfferDetailView(offer: offer),
                             label: { OfferCellView(offer: offer)
                             }
                         )
-                    }
                     }.searchable(text: $searchText, prompt: "Поиск вакансии")//
-                        
+                    
                         .background(Color.primaryBlue.ignoresSafeArea())
                         .onAppear {
-                            // Set the default to clean
                             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
                             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
                             UITableView.appearance().backgroundColor = .clear
@@ -81,10 +78,3 @@ struct OfferListUIView: View {
         }
     }
 }
-
-//struct OfferListUIView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OfferListUIView()
-//    }
-//}
-
