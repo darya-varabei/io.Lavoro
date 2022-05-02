@@ -38,12 +38,12 @@ class CurrentUser: Decodable {
         token = newToken
     }
     
-    func geToken() -> String {
+    func getToken() -> String {
         return token ?? ""
     }
     
-    func setShared(id: UUID, role: String, token: String) {
-        //CurrentUser.shared.setId(newId: id)
+    static func setShared(id: UUID, role: String, token: String) {
+        CurrentUser.shared.setId(newId: id)
         CurrentUser.shared.setRole(newRole: role)
         CurrentUser.shared.setToken(newToken: token)
     }

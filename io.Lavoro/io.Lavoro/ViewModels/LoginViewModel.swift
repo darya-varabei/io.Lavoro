@@ -12,6 +12,7 @@ class LoginViewModel: ObservableObject {
     var username: String = ""
     var password: String = ""
     @Published var isAuthenticated: Bool = false
+    @Published var isFailed: Bool = false
     
     func login() {
         
@@ -23,8 +24,13 @@ class LoginViewModel: ObservableObject {
                 defaults.setValue(token, forKey: "jsonwebtoken")
                 DispatchQueue.main.async {
                     self.isAuthenticated = true
+                    self.isFailed = false
                 }
             case .failure(let error):
+                DispatchQueue.main.async {
+                self.isAuthenticated = false
+                self.isFailed = true
+                }
                 print(error.localizedDescription)
             }
         }

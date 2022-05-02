@@ -13,11 +13,12 @@ struct DomainProject: Codable {
     let name: String
     let photo: Data?
     let location, category, mode: String
+    let offers: [DomainOffer]
     
 
     enum CodingKeys: String, CodingKey {
         case welcomeDescription = "description"
-        case id, user, name, photo, location, category, mode
+        case id, user, name, photo, location, category, mode, offers
     }
 }
 
@@ -77,10 +78,11 @@ typealias DomainEmployeeArray = [DomainEmployee]
 struct DomainOffer: Codable {
     let id: String
     let project: IdentProject
+    let relocate: Bool
     let name, location, welcomeDescription, mode, salary: String
 
     enum CodingKeys: String, CodingKey {
-        case id, project, name, location, mode, salary
+        case id, project, name, location, mode, salary, relocate
         case welcomeDescription = "description"
     }
 }

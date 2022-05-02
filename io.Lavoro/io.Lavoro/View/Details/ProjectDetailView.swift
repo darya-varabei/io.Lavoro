@@ -93,6 +93,7 @@ struct ProjectDetailView: View {
             }
             ProjectDescriptionView(project: project)
         }.padding(.bottom, 50)
+            .navigationBarHidden(true)
     }
 }
 

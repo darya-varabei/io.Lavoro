@@ -9,7 +9,7 @@ import SwiftUI
 import LocalAuthentication
 
 struct HomeUIView: View {
-    
+    @Binding var isLogging: Bool
     @State var userName = ""
     @State var password = ""
     @StateObject private var loginVM = LoginViewModel()
@@ -77,27 +77,34 @@ struct HomeUIView: View {
             .padding(.horizontal)
             .padding(.top)
             
-            HStack(spacing: 15) {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(.darkBlue)
-                        .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
-                    Button(action: {
-                        loginVM.login()
-                        defaults.setValue(loginVM.username, forKey: "login")
-                        defaults.setValue(loginVM.password, forKey: "password")
-                    }, label: {
-                        Text(Literals.enter)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.customWhite)
-                            .padding(.vertical)
-                            .frame(width: UIScreen.main.bounds.width - 150)
-                            .clipShape(Capsule())
-                    })
-                    .opacity(1)
-                    .disabled(false)
-                }
-            }.padding(.top)
+            VStack(spacing: 10) {
+                HStack(spacing: 15) {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 15)
+                            .foregroundColor(.darkBlue)
+                            .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
+                        Button(action: {
+                            loginVM.login()
+                            defaults.setValue(loginVM.username, forKey: "login")
+                            defaults.setValue(loginVM.password, forKey: "password")
+                        }, label: {
+                            Text(Literals.enter)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.customWhite)
+                                .padding(.vertical)
+                                .frame(width: UIScreen.main.bounds.width - 150)
+                                .clipShape(Capsule())
+                        })
+                        .opacity(1)
+                        .disabled(false)
+                    }
+                }.padding(.top)
+                
+                Text("Неверный ввод")
+                    .font(.custom("Montserrat-Medium", size: 12))
+                    .foregroundColor(loginVM.isFailed ? .red : .clear)
+            }
+            
             Button(action: {}, label: {
                 Text(Literals.forgotPassword)
                     .foregroundColor(.primaryBlue)
@@ -110,7 +117,7 @@ struct HomeUIView: View {
                     .foregroundColor(.primaryBlue).opacity(0.8)
                 
                 Button(action: {
-                    showRegistrationView = true
+                    isLogging = false
                 }, label: {
                     Text(Literals.register)
                         .fontWeight(.medium)
@@ -128,7 +135,6 @@ struct HomeUIView: View {
                 .padding(.all, 10)
             })
         }
-        .navigate(to: RegistrationUIView(), when: $showRegistrationView)
         .navigate(to: MainUIView(), when: $loginVM.isAuthenticated)
         .background(Color("white").ignoresSafeArea(.all, edges: .all))
         .animation(.easeOut)
@@ -151,11 +157,5 @@ struct HomeUIView: View {
             }
             withAnimation(.easeOut){ loginVM.login() }
         }
-    }
-}
-
-struct HomeUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeUIView()
     }
 }

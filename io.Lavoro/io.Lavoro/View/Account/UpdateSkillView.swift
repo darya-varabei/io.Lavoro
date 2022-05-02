@@ -19,7 +19,7 @@ struct UpdateSkillView: View {
     var body: some View {
         VStack {
             HStack(spacing: 10) {
-                LavoroTextField(labelText: "Название", text: $skillToUpdate.name)
+                LavoroTextField(labelText: "Название", text: $updatedSkill.name)
                 Menu {
                     ForEach(levels, id: \.self) { level in
                         Button(level) {

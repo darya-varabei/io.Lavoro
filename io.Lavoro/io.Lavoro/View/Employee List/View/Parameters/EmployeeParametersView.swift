@@ -10,7 +10,13 @@ import SwiftUI
 struct EmployeeParametersView: View {
     @State var employeeModel: EmployeeViewModel = EmployeeViewModel()
     @Binding var slideOverViewPosition: ViewPosition
+    @State var mode: RoleMode
     @State var employeeParameters = EmployeeParameters(mode: .employee)
+    
+    @State var selectedName = ""
+    @State var selectedLevel = ""
+    @State var parameterSkills: [Skill] = []
+    @State var selectedLanguages:[String] = []
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -19,6 +25,7 @@ struct EmployeeParametersView: View {
                     HStack {
                         Button(action: {
                             slideOverViewPosition = .hidden
+                            employeeParameters.performFiltration(offers: employeeModel.applicants)
                         }, label: {
                             Text("Закрыть параметры")
                                 .underline()
@@ -38,10 +45,10 @@ struct EmployeeParametersView: View {
                             HStack(spacing: 15) {
                                 ForEach(employeeParameters.skills, id: \.self) { skill in
                                     ZStack{
-                                        //                                    RoundedRectangle(cornerRadius: 15)
-                                        //                                        .foregroundColor(selectedName == skill ?  .darkBlue.opacity(0.3) : .customWhite)
-                                        //                                        .padding(.vertical, 8)
-                                        //                                        .padding(.horizontal, 40)
+                                                                            RoundedRectangle(cornerRadius: 15)
+                                            .foregroundColor(selectedName == skill ?  .darkBlue.opacity(0.3) : .customWhite)
+                                                                                .padding(.vertical, 8)
+                                                                                .padding(.horizontal, 10)
                                         Text(skill)
                                             .font(.custom("Montserrat-Medium", size: 12))
                                             .foregroundColor(.darkBlue)
@@ -51,10 +58,10 @@ struct EmployeeParametersView: View {
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 15)
                                                     .stroke(Color.primaryBlue.opacity(0.5), lineWidth: 1)
-                                                    .foregroundColor(employeeParameters.selectedName == skill ?  .darkBlue.opacity(0.3) : .customWhite)
+                                                    .foregroundColor(.clear)
                                             )
                                     }.onTapGesture {
-                                        employeeParameters.selectedName = skill
+                                        selectedName = skill
                                     }
                                 }.padding(.vertical, 15)
                             }
@@ -70,10 +77,10 @@ struct EmployeeParametersView: View {
                             HStack(spacing: 15) {
                                 ForEach(employeeParameters.levels, id: \.self) { level in
                                     ZStack{
-                                        //                                    RoundedRectangle(cornerRadius: 15)
-                                        //                                        .foregroundColor(selectedLevel == level ? .darkBlue.opacity(0.3) : .customWhite)
-                                        //                                        .padding(.vertical, 8)
-                                        //                                        .padding(.horizontal, 40)
+                                                                            RoundedRectangle(cornerRadius: 15)
+                                            .foregroundColor(selectedLevel == level ? .darkBlue.opacity(0.3) : .customWhite)
+                                                                                .padding(.vertical, 8)
+                                                                                .padding(.horizontal, 40)
                                         Text(level)
                                             .font(.custom("Montserrat-Medium", size: 12))
                                             .foregroundColor(.darkBlue)
@@ -83,10 +90,10 @@ struct EmployeeParametersView: View {
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 15)
                                                     .stroke(Color.primaryBlue.opacity(0.5), lineWidth: 1)
-                                                    .foregroundColor(employeeParameters.selectedLevel == level ? .darkBlue.opacity(0.3) : .customWhite)
+                                                    .foregroundColor(.clear)
                                             )
                                     }.onTapGesture {
-                                        employeeParameters.selectedLevel = level
+                                        selectedLevel = level
                                     }
                                 }.padding(.vertical, 15)
                             }
@@ -95,24 +102,24 @@ struct EmployeeParametersView: View {
                     
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
-                            .foregroundColor(.darkBlue)
+                            .foregroundColor((selectedName == "" || selectedLevel == "") ? .green : .darkBlue)
                             .frame(width: UIScreen.main.bounds.width - 300, height: 44, alignment: .center)
                         Button(action: {
-                            employeeParameters.parameterSkills.append(Skill(name: employeeParameters.selectedName, level: employeeParameters.selectedLevel))
-                            employeeParameters.selectedName = ""
-                            employeeParameters.selectedLevel = ""
+                            parameterSkills.append(Skill(name: selectedName, level: selectedLevel))
+                            selectedName = ""
+                            selectedLevel = ""
                         }, label: {
                             Text("Сохранить")
                                 .font(.custom("Montserrat-Medium", size: 12))
                                 .foregroundColor(.customWhite)
                                 .frame(width: UIScreen.main.bounds.width - 300)
                                 .clipShape(Capsule())
-                        }).disabled(employeeParameters.selectedName == "" || employeeParameters.selectedLevel == "")
+                        }).disabled(selectedName == "" || selectedLevel == "")
                     }.padding(.vertical, 20)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 15) {
-                            ForEach(employeeParameters.parameterSkills, id: \.self) { skill in
+                            ForEach(parameterSkills, id: \.self) { skill in
                                 VStack {
                                     Text(skill.name)
                                         .font(.custom("Montserrat-Medium", size: 12))
@@ -225,10 +232,10 @@ struct EmployeeParametersView: View {
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 15)
                                                     .stroke(Color.primaryBlue.opacity(0.5), lineWidth: 1)
-                                                    .foregroundColor(employeeParameters.selectedLanguages.contains(language) ? .darkBlue.opacity(0.3) : .customWhite)
+                                                    .foregroundColor(selectedLanguages.contains(language) ? .darkBlue.opacity(0.3) : .customWhite)
                                             )
                                     }.onTapGesture {
-                                        employeeParameters.selectedLanguages.append(language)
+                                        selectedLanguages.append(language)
                                     }
                                 }.padding(.vertical, 15)
                             }

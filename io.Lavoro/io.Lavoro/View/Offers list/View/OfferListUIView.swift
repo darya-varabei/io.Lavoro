@@ -9,7 +9,12 @@ import SwiftUI
 
 struct OfferListUIView: View {
     @Namespace var animationID
-    @State private var searchText = ""
+    @State private var searchText = "" {
+        didSet {
+            array = filterOffers()
+        }
+    }
+    @State var array: [Offer] = []
     @State var offerViewModel: OfferViewModel = OfferViewModel()
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
@@ -33,14 +38,16 @@ struct OfferListUIView: View {
                     .background(Color.primaryBlue.ignoresSafeArea())
                 }
                 NavigationView {
-                    List(filterOffers, id: \.name) { offer in
+                    List {
+                                   ForEach(array) { offer in
                         NavigationLink(
                             destination: OfferDetailView(offer: offer),
                             label: { OfferCellView(offer: offer)
                             }
                         )
+                    }
                     }.searchable(text: $searchText, prompt: "Поиск вакансии")//
-                    
+                        
                         .background(Color.primaryBlue.ignoresSafeArea())
                         .onAppear {
                             // Set the default to clean
@@ -54,14 +61,15 @@ struct OfferListUIView: View {
                           isHalfScreenHeight: false,
                           isHalfScreenAvailable: true,
                           handleOption: .regular) {
-                EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition)
+                EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition, mode: .employee)
             }
         }.onAppear {
             offerViewModel.getOfferList()
+            array = offerViewModel.offers
         }
     }
     
-    var filterOffers: [Offer] {
+    func filterOffers() -> [Offer] {
         if searchText.isEmpty {
             return offerViewModel.offers
         }

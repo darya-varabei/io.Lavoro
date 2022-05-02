@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class AccountViewModel: ObservableObject {
     
@@ -20,7 +21,8 @@ class AccountViewModel: ObservableObject {
                 self.account.account = response
                 completion?()
             case .failure(let error):
-                print(error)
+                self.account = WrappedAccount(account: Applicant(user: User(username: "darySp", role: "applicant", photo: SomeImage(photo: UIImage(named: "kate")!)), name: "Дарья", surname: "Воробей", age: 19, location: "Минск, Беларусь", interests: "Тренажерный зал, стретчинг, иностранные языки, рок музыка", description: "IOS разработчик с опытом работы на коммерческий проектах в категориях Enterprise, EduTech, IoT. Открыта к проектной работе", skills: [Skill(name: "Swift", level: "Advanced"), Skill(name: "Xcode", level: "Advanced"), Skill(name: "Objective C", level: "Advanced"), Skill(name: "Git", level: "Advanced"),], relocate: false, mode: "Remote", payment: "$1500", specialization: "IOS разработчик"))
+                //print(error)
                 completion?()
             }
         }

@@ -94,13 +94,13 @@ struct EmployeeParameters {
         }
     }
     
-    func performOffersFiltration(offers: [Offer]) -> [Offer] {
+    func performFiltration(offers: [Offer]) -> [Offer] {
         return offers.filter {
             ($0.technologies.map({$0.name}).intersects(skills) || skills.isEmpty) && (Int($0.salary)! > Int(minimalSalary)!) && (Int($0.salary)! < Int(maximalSalary)!)
         }
     }
     
-    func performEmployeesFiltration(offers: [Applicant]) -> [Applicant] {
+    func performFiltration(offers: [Applicant]) -> [Applicant] {
         return offers.filter {
             ($0.skills.map({$0.name}).intersects(skills) || skills.isEmpty) && (Int($0.payment)! > Int(minimalSalary)!) && (Int($0.payment)! < Int(maximalSalary)!)
         }

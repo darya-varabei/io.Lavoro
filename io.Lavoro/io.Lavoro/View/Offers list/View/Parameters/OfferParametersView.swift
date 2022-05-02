@@ -11,9 +11,12 @@ struct OfferParametersView: View {
     @State var employeeModel: EmployeeViewModel = EmployeeViewModel()
     @Binding var slideOverViewPosition: ViewPosition
     @State var employeeParameters = EmployeeParameters(mode: .employee)
+    
+    @State var selectedName: String = ""
+    @State var selectedLevel: String = ""
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+       // ScrollView(.vertical, showsIndicators: false) {
             if !employeeModel.isParametersOpen {
                 VStack(alignment: .leading) {
                     HStack {
@@ -38,10 +41,10 @@ struct OfferParametersView: View {
                             HStack(spacing: 15) {
                                 ForEach(employeeParameters.skills, id: \.self) { skill in
                                     ZStack{
-                                        //                                    RoundedRectangle(cornerRadius: 15)
-                                        //                                        .foregroundColor(selectedName == skill ?  .darkBlue.opacity(0.3) : .customWhite)
-                                        //                                        .padding(.vertical, 8)
-                                        //                                        .padding(.horizontal, 40)
+                                                                            RoundedRectangle(cornerRadius: 15)
+                                                                                .foregroundColor(selectedName == skill ?  .darkBlue.opacity(0.3) : .customWhite)
+                                                                                .padding(.vertical, 8)
+                                                                                .padding(.horizontal, 40)
                                         Text(skill)
                                             .font(.custom("Montserrat-Medium", size: 12))
                                             .foregroundColor(.darkBlue)
@@ -51,10 +54,10 @@ struct OfferParametersView: View {
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 15)
                                                     .stroke(Color.primaryBlue.opacity(0.5), lineWidth: 1)
-                                                    .foregroundColor(employeeParameters.selectedName == skill ?  .darkBlue.opacity(0.3) : .customWhite)
+                                                    .foregroundColor(.clear)
                                             )
                                     }.onTapGesture {
-                                        employeeParameters.selectedName = skill
+                                        selectedName = skill
                                     }
                                 }.padding(.vertical, 15)
                             }
@@ -70,10 +73,10 @@ struct OfferParametersView: View {
                             HStack(spacing: 15) {
                                 ForEach(employeeParameters.levels, id: \.self) { level in
                                     ZStack{
-                                        //                                    RoundedRectangle(cornerRadius: 15)
-                                        //                                        .foregroundColor(selectedLevel == level ? .darkBlue.opacity(0.3) : .customWhite)
-                                        //                                        .padding(.vertical, 8)
-                                        //                                        .padding(.horizontal, 40)
+                                                                            RoundedRectangle(cornerRadius: 15)
+                                                                                .foregroundColor(selectedLevel == level ? .darkBlue.opacity(0.3) : .customWhite)
+                                                                                .padding(.vertical, 8)
+                                                                                .padding(.horizontal, 40)
                                         Text(level)
                                             .font(.custom("Montserrat-Medium", size: 12))
                                             .foregroundColor(.darkBlue)
@@ -83,10 +86,11 @@ struct OfferParametersView: View {
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 15)
                                                     .stroke(Color.primaryBlue.opacity(0.5), lineWidth: 1)
-                                                    .foregroundColor(employeeParameters.selectedLevel == level ? .darkBlue.opacity(0.3) : .customWhite)
+                                                    .foregroundColor(.clear)
                                             )
                                     }.onTapGesture {
-                                        employeeParameters.selectedLevel = level
+                                        
+                                        selectedLevel = level
                                     }
                                 }.padding(.vertical, 15)
                             }
@@ -98,16 +102,17 @@ struct OfferParametersView: View {
                             .foregroundColor(.darkBlue)
                             .frame(width: UIScreen.main.bounds.width - 300, height: 44, alignment: .center)
                         Button(action: {
-                            employeeParameters.parameterSkills.append(Skill(name: employeeParameters.selectedName, level: employeeParameters.selectedLevel))
-                            employeeParameters.selectedName = ""
-                            employeeParameters.selectedLevel = ""
+                            employeeParameters.parameterSkills.append(Skill(name: selectedName, level:
+                                                                                selectedLevel))
+                            selectedName = ""
+                            selectedLevel = ""
                         }, label: {
                             Text("Сохранить")
                                 .font(.custom("Montserrat-Medium", size: 12))
                                 .foregroundColor(.customWhite)
                                 .frame(width: UIScreen.main.bounds.width - 300)
                                 .clipShape(Capsule())
-                        }).disabled(employeeParameters.selectedName == "" || employeeParameters.selectedLevel == "")
+                        }).disabled(selectedName == "" || selectedLevel == "")
                     }.padding(.vertical, 20)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -270,7 +275,7 @@ struct OfferParametersView: View {
                     .background(Color.clear)
             }
         }
-    }
+  //  }
 }
 
 //struct OfferParametersView_Previews: PreviewProvider {

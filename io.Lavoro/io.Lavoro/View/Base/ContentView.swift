@@ -11,6 +11,7 @@ import LocalAuthentication
 struct ContentView: View {
     
     @AppStorage("status") var logged = false
+    @State var isLoggin = true
     
     var body: some View {
         NavigationView {
@@ -19,7 +20,12 @@ struct ContentView: View {
                 MainUIView()
             }
             else {
-                HomeUIView()
+                if isLoggin {
+                    HomeUIView(isLogging: $isLoggin)
+                }
+                else {
+                    RegistrationUIView(isLogging: $isLoggin)
+                }
             }
         }
     }

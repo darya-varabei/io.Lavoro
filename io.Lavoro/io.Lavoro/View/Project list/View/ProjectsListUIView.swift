@@ -14,39 +14,15 @@ struct ProjectsListUIView: View {
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
     var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                HStack {
-//                    Button(action: {
-//                        slideOverViewPosition = .top
-//                    }, label: {
-//                        Text("Параметры")
-//                            .underline()
-//                            .foregroundColor(.customWhite)
-//                            .font(.custom("Montserrat-Medium", size: 14))
-//                    })
-                    Spacer()
-                    Text("")
-                }.padding(.horizontal, 30)
-                    .padding(.top, 50)
-                    .background(Color.primaryBlue.ignoresSafeArea())
-                NavigationView {
-                    List(projectViewModel.projects, id: \.name) { project in
-                        NavigationLink(
-                            destination: ProjectDetailView(project: project),
-                            label: { ProjectCellView(project: project)
-                            }
-                        )
-                    }.searchable(text: $searchText, prompt: "Поиск проекта")
-                        .background(Color.primaryBlue)//.ignoresSafeArea())
-                        .onAppear {
-                            // Set the default to clear
-                            UITableView.appearance().backgroundColor = .clear
-                            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
-                            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+        NavigationView {
+            ZStack {
+                List(projectViewModel.projects, id: \.name) { project in
+                    NavigationLink(
+                        destination: ProjectDetailView(project: project),
+                        label: { ProjectCellView(project: project)
                         }
+                    )
                 }
-                    .navigationBarHidden(true)
             }
             SlideOverView(position: $slideOverViewPosition,
                           isHalfScreenHeight: false,
@@ -57,6 +33,16 @@ struct ProjectsListUIView: View {
         }.onAppear {
             projectViewModel.getProjectList()
         }
+        .searchable(text: $searchText, prompt: "Поиск проекта")
+        .background(Color.primaryBlue)//.ignoresSafeArea())
+        .onAppear {
+            // Set the default to clear
+            UITableView.appearance().backgroundColor = UIColor(Color.primaryBlue)
+            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .systemGray6
+            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+            
+        }
+        .navigationBarHidden(true)
     }
     
     var filterProjects: [Project] {

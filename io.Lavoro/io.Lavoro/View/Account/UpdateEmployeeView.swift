@@ -7,7 +7,13 @@
 
 import SwiftUI
 
+enum EditionMode {
+    case create
+    case update
+}
+
 struct UpdateEmployeeView: View {
+    @State var editMode: EditionMode
     @Binding var editInfo: Bool
     @State var applicant: Applicant
     @State var employeeViewModel: EmployeeViewModel = EmployeeViewModel()
@@ -85,7 +91,7 @@ struct UpdateEmployeeView: View {
                     }.padding(.vertical, 40)
                     
                     Button(action: { editInfo.toggle() }, label: {
-                        Text("Отменить")
+                        Text("Удалить")
                             .underline()
                             .fontWeight(.semibold)
                             .foregroundColor(.gray)

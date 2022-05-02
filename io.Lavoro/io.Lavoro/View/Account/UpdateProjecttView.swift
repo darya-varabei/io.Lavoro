@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UpdateProjectView: View {
     @Binding var editInfo: Bool
-    
+    @State var editMode: EditionMode
     @State var openOffers = false
     @State var project: Project
     @State var projectViewModel: ProjectViewModel = ProjectViewModel()

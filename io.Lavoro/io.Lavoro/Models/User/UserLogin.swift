@@ -8,14 +8,13 @@
 import Foundation
 
 struct UserLogin: Encodable {
-    private let username: String
-    private let password: String
-    private let login: String = "sss"
-    private let role: String = "project"
-   //private let photo: [UInt8] = []
+    private var password: String
+    private var login: String
+    private var role: String
     
-    init(username: String, password: String) {
-        self.username = username
+    init(username: String, password: String, role: String) {
+        self.login = username
         self.password = password
+        self.role = role
     }
 }

@@ -47,27 +47,19 @@ class Webservice {
                 completion(.failure(.noData))
                 return
             }
-            
-//            guard let accounts = try? JSONDecoder().decode([User].self, from: data) else {
-//                completion(.failure(.decodingError))
-//                return
-//            }
-//            
-//            completion(.success(accounts))
         }.resume()
     }
     
     
     func login(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
         do {
-            let defaults = UserDefaults.standard
             let url = URL(string: "http://127.0.0.1:8080/users/login")
             var urlReq = URLRequest(url: url!)
             urlReq.setValue("application/json", forHTTPHeaderField: "Content-type")
             urlReq.httpMethod = "POST"
             
             let encoder = JSONEncoder()
-            let payload = try encoder.encode(UserLogin(username: username, password: password))
+            let payload = try encoder.encode(UserLogin(username: username, password: password, role: "project"))
             URLSession.shared.uploadTask(with: urlReq, from: payload) { (data, resp, err) in
                 guard let data = data, err == nil else {
                                completion(.failure(.custom(errorMessage: "No data")))
@@ -76,12 +68,13 @@ class Webservice {
                 guard let token = try? JSONDecoder().decode(CurrentUser.self, from: data) else {
                                 completion(.failure(.invalidCredentials))
                                 return
-                            }
-                print(token)
-               // defaults.setValue(token.id, forKey: "id")
-                print(token.role)
-                print(token.id)
-                completion(.success(token.token!))
+                }
+                guard let tok = token.token else {
+                    completion(.failure(.invalidCredentials))
+                    return
+                }
+                CurrentUser.setShared(id: token.getId(), role: token.getRole(), token: token.getToken())
+                completion(.success(tok))
             }.resume()
         } catch {
             print("Login failed during call")
@@ -96,17 +89,20 @@ class Webservice {
             urlReq.httpMethod = "POST"
             
             let encoder = JSONEncoder()
-            let payload = try encoder.encode(UserLogin(username: "dary", password: "password"))
+            let payload = try encoder.encode(UserLogin(username: username, password: password, role: ""))
             URLSession.shared.uploadTask(with: urlReq, from: payload) { (data, resp, err) in
                 guard let data = data, err == nil else {
                                completion(.failure(.custom(errorMessage: "No data")))
                                return
                            }
-                guard let token = String(data: data, encoding: String.Encoding.utf8) else {
+                guard let token = try? JSONDecoder().decode(CurrentUser.self, from: data) else {
                                 completion(.failure(.invalidCredentials))
                                 return
                             }
-                completion(.success(token))
+                
+                CurrentUser.setShared(id: token.getId(), role: token.getRole(), token: token.getToken())
+                completion(.success(token.getToken()))
+                
             }.resume()
         } catch {
             print("Login failed during call")

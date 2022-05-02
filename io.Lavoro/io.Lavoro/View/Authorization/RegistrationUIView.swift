@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RegistrationUIView: View {
+    @Binding var isLogging: Bool
     @State var userName = ""
     @State var password = ""
     @State var role = "employee"
@@ -108,7 +109,8 @@ struct RegistrationUIView: View {
                     .foregroundColor(.primaryBlue).opacity(0.8)
                 
                 Button(action: {
-                    showLoginView = true
+                    isLogging = true
+                    //showLoginView = true
                 }, label: {
                     Text("Авторизируйтесь")
                         .fontWeight(.medium)
@@ -126,15 +128,9 @@ struct RegistrationUIView: View {
                 .padding(.all, 10)
             })
         }
-        .navigate(to: HomeUIView(), when: $showLoginView)
+//        .navigate(to: HomeUIView(), when: $showLoginView)
         .navigate(to: MainUIView(), when: $loginVM.isAuthenticated)
         .background(Color("white").ignoresSafeArea(.all, edges: .all))
         .animation(.easeOut)
-    }
-}
-
-struct RegistrationUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegistrationUIView()
     }
 }

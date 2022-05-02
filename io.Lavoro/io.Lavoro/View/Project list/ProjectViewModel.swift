@@ -22,14 +22,17 @@ class ProjectViewModel: ObservableObject {
     }
     
     func getProjectList(completion: (() -> Void)? = nil) {
+        var offers: [Offer] = []
         fetchData { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
                 for i in response {
-                    self.projects.append(Project(user: User(username: "", role: "", photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: i.name, location: i.location, description: i.welcomeDescription, offers: [], category: i.category, mode: i.mode, id: nil))
+                    for j in i.offers {
+                        offers.append(Offer(project: Project(user: User(username: "", role: "", photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: i.name, location: i.location, description: i.welcomeDescription, offers: [], category: i.category, mode: i.mode, id: nil), name: j.name, technologies: [], mode: j.mode, salary: j.salary, timeMode: j.mode, description: j.welcomeDescription))
+                    }
+                    self.projects.append(Project(user: User(username: "", role: "", photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: i.name, location: i.location, description: i.welcomeDescription, offers: offers, category: i.category, mode: i.mode, id: nil))
                 }
-                //self.projects = response
                 completion?()
             case .failure(let error):
                 print(error)

@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Offer: Hashable, Equatable {
+struct Offer: Hashable, Equatable, Identifiable {
+    var id: UUID?
     var project: Project
     var name: String
     var mode: String

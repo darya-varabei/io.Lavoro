@@ -27,7 +27,7 @@ class EmployeeViewModel: ObservableObject {
             switch result {
             case .success(let response):
                 for i in response {
-                    self.applicants.append(Applicant(user: User(username: CurrentUser.shared.getRole(), role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: "kate")!)), name: i.name, surname: i.surname, age: i.age, location: i.location, interests: i.interests, description: i.welcomeDescription, skills: [], relocate: i.relocate, mode: i.mode, payment: i.salary, id: nil, specialization: i.specialization))
+                    self.applicants.append(Applicant(user: User(username: CurrentUser.shared.getRole(), role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: "kate")!)), name: i.name, surname: i.surname, age: i.age, location: i.location, interests: i.interests, description: i.welcomeDescription, skills: skillBase, relocate: i.relocate, mode: i.mode, payment: i.salary, id: nil, specialization: i.specialization))
                 }
                // self.applicants = response
                 completion?()

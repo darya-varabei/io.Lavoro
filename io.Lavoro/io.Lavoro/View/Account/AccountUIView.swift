@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct AccountUIView: View {
-    
+    @State var editionMode: EditionMode = .update
     @State var name: String = ""
     @State var specialization: String = ""
-    @State var account: WrappedAccount
     @State var index = 0
     var body: some View {
         if CurrentUser.shared.getRole() == "employee" {
             applicantProfileView
+                .onAppear(perform: {
+                    accountViewModel.getEmployee()})
         }
         else {
             projectProfileView
+                .onAppear(perform: {
+                    accountViewModel.getProject()})
         }
     }
     @StateObject var accountViewModel = AccountViewModel()
@@ -28,6 +31,7 @@ struct AccountUIView: View {
     
     @ViewBuilder
     var applicantProfileView: some View {
+        if accountViewModel.account.getName() != "" {
         ZStack(alignment: .center){
             RoundedRectangle(cornerRadius: 25)
                 .foregroundColor(Color.customWhite)
@@ -37,10 +41,10 @@ struct AccountUIView: View {
                         VStack(alignment: .leading, spacing: 15) {
                             Text("Мой профиль").font(.custom("Montserrat-Medium", size: 10))
                             VStack(alignment: .leading, spacing: 10) {
-                                Text(account.getName())
+                                Text(accountViewModel.account.getName())
                                     .font(.custom("Montserrat-Medium", size: 14))
                                     .foregroundColor(.customBlack)
-                                Text(account.getSpecialization())
+                                Text(accountViewModel.account.getSpecialization())
                                     .font(.custom("Montserrat-Medium", size: 14))
                                     .foregroundColor(.customBlack)
                             }
@@ -54,7 +58,7 @@ struct AccountUIView: View {
                             })
                         }.padding(.bottom, 30)
                         Spacer()
-                        Image(uiImage: account.account?.getPhoto() ?? UIImage(named: "ally")!)
+                        Image(uiImage: accountViewModel.account.account?.getPhoto() ?? UIImage(named: "ally")!)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 70,
@@ -114,23 +118,23 @@ struct AccountUIView: View {
                     if index == 0 {
                         
                         VStack {
-                            LavoroLabeledText(title: "Обо мне", text: account.getDescription())
+                            LavoroLabeledText(title: "Обо мне", text: accountViewModel.account.getDescription())
                                 .padding(.vertical, 10)
                             VStack(alignment: .leading) {
                                 Text("Мои навыки")
                                     .font(.custom("Montserrat-Medium", size: 14))
                                     .foregroundColor(.customBlack)
                                     .padding(.bottom)
-                                SkillSetListView(skillset: account.getSkills())
+                                SkillSetListView(skillset: accountViewModel.account.getSkills())
                             }.padding(.horizontal, 5)
                             
                             HStack {
-                                LavoroLabeledText(title: "Локация", text: account.getLocation())
+                                LavoroLabeledText(title: "Локация", text: accountViewModel.account.getLocation())
                                 Spacer()
                                 LavoroLabeledText(title: "Релокейт", text: "Возможен")
                             }
                             .padding(.vertical, 10)
-                            LavoroLabeledText(title: "Интересы", text: account.getInterests())
+                            LavoroLabeledText(title: "Интересы", text: accountViewModel.account.getInterests())
                                 .foregroundColor(.customBlack)
                                 .padding(.vertical, 10)
                         }
@@ -142,22 +146,42 @@ struct AccountUIView: View {
                     .padding(.top, 30)
             }
         }
-        .fullScreenCover(isPresented: $editInfo) {  UpdateEmployeeView(editInfo: $editInfo, applicant: account.account as! Applicant) }
+        .fullScreenCover(isPresented: $editInfo) {  UpdateEmployeeView(editMode: editionMode, editInfo: $editInfo, applicant: accountViewModel.account.account as! Applicant) }
         .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
+        }
+        else {
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(.darkBlue)
+                    .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
+                Button(action: {
+                    editionMode = .create
+                    editInfo.toggle()
+                }, label: {
+                    Text("Создать анкету")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.customWhite)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 150)
+                        .clipShape(Capsule())
+                })
+            }.padding(.vertical, 40)
+        }
     }
     
     @ViewBuilder
     var projectProfileView: some View {
+        if accountViewModel.account.getName() != "" {
         VStack {
             HStack {
                 VStack {
                     Text("Проект")
                     VStack {
-                        Text(account.getName())
-                        Text(account.getCategory())
+                        Text(accountViewModel.account.getName())
+                        Text(accountViewModel.account.getCategory())
                     }
                 }
-                Image(uiImage: account.account?.getPhoto() ?? UIImage(systemName: "star")!)
+                Image(uiImage: accountViewModel.account.account?.getPhoto() ?? UIImage(systemName: "star")!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 70,
@@ -217,17 +241,39 @@ struct AccountUIView: View {
             if index == 0 {
                 
                 VStack {
-                    LavoroLabeledText(title: "О проекте", text: account.getDescription())
+                    LavoroLabeledText(title: "О проекте", text: accountViewModel.account.getDescription())
                     HStack {
-                        LavoroLabeledText(title: "Локация", text: account.getLocation())
-                        LavoroLabeledText(title: "Режим работы", text: account.getMode())
+                        LavoroLabeledText(title: "Локация", text: accountViewModel.account.getLocation())
+                        LavoroLabeledText(title: "Режим работы", text: accountViewModel.account.getMode())
                     }
-                    LavoroLabeledText(title: "Интересы", text: account.getInterests())
+                    LavoroLabeledText(title: "Интересы", text: accountViewModel.account.getInterests())
                 }
             }
             else {
                 applicationsView
             }
+        }.fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: editionMode, project: accountViewModel.account.account as! Project) }
+                .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
+        }
+        else {
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(.darkBlue)
+                    .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
+                Button(action: {
+                    editionMode = .create
+                    editInfo.toggle()
+                }, label: {
+                    Text("Создать проект")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.customWhite)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 150)
+                        .clipShape(Capsule())
+                })
+            }.padding(.vertical, 40)
+                .fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: editionMode, project: accountViewModel.account.account as! Project) }
+                        .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
         }
     }
     
