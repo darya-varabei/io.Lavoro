@@ -19,6 +19,7 @@ struct OfferListUIView: View {
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
     var body: some View {
+        NavigationView {
         ZStack {
             VStack(spacing: 0) {
                 if slideOverViewPosition == .hidden {
@@ -33,11 +34,12 @@ struct OfferListUIView: View {
                         })
                         Spacer()
                         Text("")
-                    }.padding(.horizontal, 30)
+                    }.opacity(CurrentUser.shared.getRole() == "project" ? 0 : 1)//.isHidden(CurrentUser.shared.getRole() == "project")
+                    .padding(.horizontal, 30)
                         .padding(.top, 50)
                         .background(Color.primaryBlue.ignoresSafeArea())
                 }
-                NavigationView {
+//                NavigationView {
                     List (offerViewModel.offers, id: \.name) { offer in
                         NavigationLink(
                             destination: OfferDetailView(offer: offer),
@@ -52,7 +54,6 @@ struct OfferListUIView: View {
                             UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
                             UITableView.appearance().backgroundColor = .clear
                         }
-                }.navigationBarHidden(true)
             }
             SlideOverView(position: $slideOverViewPosition,
                           isHalfScreenHeight: false,
@@ -64,6 +65,7 @@ struct OfferListUIView: View {
             offerViewModel.getOfferList()
             array = offerViewModel.offers
         }
+        }.navigationBarHidden(true)
     }
     
     func filterOffers() -> [Offer] {

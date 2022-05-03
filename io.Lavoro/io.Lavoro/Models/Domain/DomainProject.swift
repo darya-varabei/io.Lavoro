@@ -63,6 +63,21 @@ struct DomainEmployee: Codable {
     let location, id: String
     let relocate: Bool
     let age: Int
+    let skills: [DomainSkill]
+    let interests, surname, welcomeDescription, name, salary, mode, specialization: String
+    let user: DomainUser
+
+    enum CodingKeys: String, CodingKey {
+        case location, id, relocate, age, interests, surname, salary, skills
+        case welcomeDescription = "description"
+        case name, user, mode, specialization
+    }
+}
+
+struct DomainPureEmployee: Codable {
+    let location, id: String
+    let relocate: Bool
+    let age: Int
     let interests, surname, welcomeDescription, name, salary, mode, specialization: String
     let user: DomainUser
 

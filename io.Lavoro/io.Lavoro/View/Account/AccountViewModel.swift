@@ -12,17 +12,28 @@ class AccountViewModel: ObservableObject {
     
     @Published var account: WrappedAccount = WrappedAccount()
     private let service: LavoroServiceable = LavoroService()
+    static var accountExists: Bool = false
     
     func getEmployee(completion: (() -> Void)? = nil) {
+        var skills: [Skill] = []
         fetchEmployeeData { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                self.account.account = response
+                DispatchQueue.main.async {
+                    for i in response.skills {
+                        skills.append(Skill(name: i.name, level: i.level, id: i.id))
+                    }
+                    self.account.account = Applicant(user: User(username: "", role: "applicant", photo: SomeImage(photo: UIImage(named: "kate")!)), name: response.name, surname: response.surname, age: response.age, location: response.location, interests: response.interests, description: response.welcomeDescription, skills: skills, relocate: response
+                        .relocate, mode: response.mode, payment: response.salary, id: response.id, specialization: response.specialization)
+                AccountViewModel.accountExists = true
                 completion?()
+                }
             case .failure(let error):
-                self.account = WrappedAccount(account: Applicant(user: User(username: "darySp", role: "applicant", photo: SomeImage(photo: UIImage(named: "kate")!)), name: "Дарья", surname: "Воробей", age: 19, location: "Минск, Беларусь", interests: "Тренажерный зал, стретчинг, иностранные языки, рок музыка", description: "IOS разработчик с опытом работы на коммерческий проектах в категориях Enterprise, EduTech, IoT. Открыта к проектной работе", skills: [Skill(name: "Swift", level: "Advanced"), Skill(name: "Xcode", level: "Advanced"), Skill(name: "Objective C", level: "Advanced"), Skill(name: "Git", level: "Advanced"),], relocate: false, mode: "Remote", payment: "$1500", specialization: "IOS разработчик"))
-                //print(error)
+                DispatchQueue.main.async {
+                self.account = WrappedAccount(account: Applicant(user: User(username: "", role: "applicant", photo: SomeImage(photo: UIImage(named: "kate")!)), name: "", surname: "", age: 0, location: "", interests: "", description: "", skills: [], relocate: false, mode: "", payment: "", specialization: ""))
+                }
+                print(error)
                 completion?()
             }
         }
@@ -43,16 +54,32 @@ class AccountViewModel: ObservableObject {
         }
     }
     
+    func createProject() {
+        
+    }
+    
+    func createEmployee() {
+        
+    }
+    
+    func updateProject() {
+        
+    }
+    
+    func updateEmployee() {
+        
+    }
+    
     private func fetchProjectData(completion: @escaping (Result<Project, RequestError>) -> Void) {
         Task(priority: .background) {
-            let result = await service.getProjectInfo()
+            let result = await service.getProjectInfo(id: CurrentUser.shared.getId().uuidString)
             completion(result)
         }
     }
     
-    private func fetchEmployeeData(completion: @escaping (Result<Applicant, RequestError>) -> Void) {
+    private func fetchEmployeeData(completion: @escaping (Result<DomainEmployee, RequestError>) -> Void) {
         Task(priority: .background) {
-            let result = await service.getApplicantInfo()
+            let result = await service.getApplicantInfo(id: "d8ae1b9a-8266-4a32-8cb2-b8848ad940be")
             completion(result)
         }
     }

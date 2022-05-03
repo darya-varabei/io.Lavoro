@@ -48,7 +48,15 @@ struct UpdateProjectView: View {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundColor(.darkBlue)
                         .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
-                    Button(action: { }, label: {
+                    Button(action: {
+                        if editMode == .create {
+                            projectViewModel.createProject(project: project, id: CurrentUser.shared.getId().uuidString)
+                        }
+                        else {
+                            projectViewModel.performUpdate()
+                        }
+                        editInfo.toggle()
+                    }, label: {
                         Text("Сохранить")
                             .fontWeight(.semibold)
                             .foregroundColor(.customWhite)

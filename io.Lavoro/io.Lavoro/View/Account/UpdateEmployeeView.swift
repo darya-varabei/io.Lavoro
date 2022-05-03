@@ -15,17 +15,22 @@ enum EditionMode {
 struct UpdateEmployeeView: View {
     @State var editMode: EditionMode
     @Binding var editInfo: Bool
-    @State var applicant: Applicant
+    @Binding var applicant: Applicant?
     @State var employeeViewModel: EmployeeViewModel = EmployeeViewModel()
     @State private var skillSlideOver: ViewPosition = .hidden
     @State var skillToUpdate = Skill(name: "", level: "")
     
+    init(editMode: EditionMode, editInfo: Binding<Bool>, applicant: Binding<Applicant?>) {
+        self.editMode = editMode
+        self._editInfo = editInfo
+        self._applicant = applicant
+    }
     var body: some View {
         ZStack {
             ScrollView {
                 VStack {
                     ZStack {
-                        Image(uiImage: applicant.getPhoto())
+                        Image(uiImage: applicant!.getPhoto())
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 120,
@@ -36,7 +41,7 @@ struct UpdateEmployeeView: View {
                     labeledFields
                     ScrollView(.horizontal, showsIndicators: false, content: {
                         HStack {
-                            ForEach(applicant.skills, id: \.self) { skill in
+                            ForEach(applicant!.skills, id: \.self) { skill in
                                 VStack {
                                     Text(skill.name)
                                         .font(.custom("Montserrat-Medium", size: 12))
@@ -68,8 +73,8 @@ struct UpdateEmployeeView: View {
                                 })
                             }
                             Button(action: {
-                                applicant.skills.append(Skill(name: "", level: ""))
-                                skillToUpdate = applicant.skills.last!
+                                applicant!.skills.append(Skill(name: "", level: ""))
+                                skillToUpdate = applicant!.skills.last!
                             }, label: {
                                 Image(systemName: "plus.app")
                                     .foregroundColor(.darkBlue)
@@ -80,7 +85,16 @@ struct UpdateEmployeeView: View {
                         RoundedRectangle(cornerRadius: 15)
                             .foregroundColor(.darkBlue)
                             .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
-                        Button(action: { }, label: {
+                        Button(action: {
+                            if editMode == .create {
+                                applicant = employeeViewModel.createEmployee(applicant: applicant!, id: CurrentUser.shared.getId().uuidString)
+                                AccountViewModel.accountExists = true
+                            }
+                            else {
+                                employeeViewModel.performUpdate()
+                            }
+                            editInfo.toggle()
+                        }, label: {
                             Text("Сохранить")
                                 .fontWeight(.semibold)
                                 .foregroundColor(.customWhite)
@@ -90,7 +104,12 @@ struct UpdateEmployeeView: View {
                         })
                     }.padding(.vertical, 40)
                     
-                    Button(action: { editInfo.toggle() }, label: {
+                    Button(action: {
+                        employeeViewModel.getDeleteEmployee(applicant: applicant!, id: CurrentUser.shared.getId().uuidString)
+                        AccountViewModel.accountExists = false
+                        editInfo.toggle()
+                        
+                    }, label: {
                         Text("Удалить")
                             .underline()
                             .fontWeight(.semibold)
@@ -113,13 +132,13 @@ struct UpdateEmployeeView: View {
     @ViewBuilder
     var labeledFields: some View {
         VStack(spacing: 10) {
-            LavoroTextField(labelText: "Имя", text: $applicant.name)
-            LavoroTextField(labelText: "Фамилия", text: $applicant.surname)
-            LavoroTextField(labelText: "Местоположение", text: $applicant.location)
-            LavoroTextField(labelText: "Специализация", text: $applicant.specialization)
-            LavoroTextField(labelText: "Описание", text: $applicant.description)
-            LavoroTextField(labelText: "Режим работы", text: $applicant.mode)
-            LavoroTextField(labelText: "Интересы", text: $applicant.interests)
+            LavoroTextField(labelText: "Имя", text: $applicant.toNonOptional().name)
+            LavoroTextField(labelText: "Фамилия", text: $applicant.toNonOptional().surname)
+            LavoroTextField(labelText: "Местоположение", text: $applicant.toNonOptional().location)
+            LavoroTextField(labelText: "Специализация", text: $applicant.toNonOptional().specialization)
+            LavoroTextField(labelText: "Описание", text: $applicant.toNonOptional().description)
+            LavoroTextField(labelText: "Режим работы", text: $applicant.toNonOptional().mode)
+            LavoroTextField(labelText: "Интересы", text: $applicant.toNonOptional().interests)
         }
     }
 }

@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct OfferDetailView: View {
-    //@Binding var offer: Offer
     var offer: Offer
     @State var index = 0
     @Namespace var name
     private var textColor: Color {
         return UIImage(data: offer.project.user.photo.photo)!.brightness ? Color.customWhite : Color.customBlack
     }
-    //var animation: Namespace.ID
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         VStack {
@@ -25,7 +23,6 @@ struct OfferDetailView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 250)
                     .clipShape(RoundedShape(corners: [.bottomLeft, .bottomRight]))
-                //.matchedGeometryEffect(id: offer.project.user.photo, in: animation)
                 
                 VStack(spacing: 110) {
                     
@@ -142,7 +139,7 @@ struct OfferDetailView: View {
                             }
                         }
                     }
-                }
+                }.disabled(CurrentUser.shared.getRole() == "project")
             }.padding(.top, 20)
             
             switch(index) {
@@ -157,11 +154,5 @@ struct OfferDetailView: View {
             }
         }.navigationBarTitle("")
             .navigationBarHidden(true)
-    }
-}
-
-struct OfferDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        OfferDetailView(offer: Offer(project: Project(user: User(username: "", role: "", photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: "guide:human", location: "Минск, Беларусь", description: "Kf,fjd", offers: [], category: "", mode: ""), name: "IOS Разработчик", technologies: [Technology(name: "Swift", level: "High")], mode: "Remote", salary: "$1400", timeMode: "Full time", description: "На проект по разработке социальной сети требуется Middle IOS разработчик с опытом работы на коммерческих проектах, наличие опыта работы в сфере Social app будет плюсом"))
     }
 }

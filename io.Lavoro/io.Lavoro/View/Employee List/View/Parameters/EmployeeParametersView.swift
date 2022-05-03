@@ -105,7 +105,7 @@ struct EmployeeParametersView: View {
                             .foregroundColor((selectedName == "" || selectedLevel == "") ? .green : .darkBlue)
                             .frame(width: UIScreen.main.bounds.width - 300, height: 44, alignment: .center)
                         Button(action: {
-                            parameterSkills.append(Skill(name: selectedName, level: selectedLevel))
+                            parameterSkills.append(Skill(name: selectedName, level: selectedLevel, id: ""))
                             selectedName = ""
                             selectedLevel = ""
                         }, label: {

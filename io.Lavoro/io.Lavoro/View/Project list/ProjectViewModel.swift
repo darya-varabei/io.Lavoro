@@ -43,8 +43,26 @@ class ProjectViewModel: ObservableObject {
         }
     }
     
-    func createProject() {
-        
+    func createProjectRequest(project: Project, id: String, completion: @escaping (Result<DomainProject, RequestError>) -> Void) {
+        Task(priority: .background) {
+            let result = await service.createProject(project: project, id: id)
+            completion(result)
+        }
+    }
+    
+    func createProject(project: Project, id: String, completion: (() -> Void)? = nil) {
+        createProjectRequest(project: project, id: id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                }
+                completion?()
+            case .failure(let error):
+                print(error)
+                completion?()
+            }
+        }
     }
     
     func deleteProject() {

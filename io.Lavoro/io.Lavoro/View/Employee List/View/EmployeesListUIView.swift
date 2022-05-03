@@ -29,7 +29,8 @@ struct EmployeesListUIView: View {
                         })
                         Spacer()
                         Text("")
-                    }.padding(.horizontal, 30)
+                    }.opacity(CurrentUser.shared.getRole() == "project" ? 1 : 0)
+                    .padding(.horizontal, 30)
                         .padding(.top, 100)
                         .background(Color.primaryBlue.ignoresSafeArea())
                 }

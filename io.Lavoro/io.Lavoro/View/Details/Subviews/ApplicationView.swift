@@ -10,7 +10,7 @@ import SwiftUI
 struct ApplicationView: View {
     @State var receiver: User
     @State var message: String = ""
-    @State var offer: Offer
+    @State var offer: Offer?
     var body: some View {
         VStack(spacing: 20) {
             GHMultilineTextField("Сообщение", text: $message)

@@ -9,8 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Applicant: Account, Hashable, Equatable {
-    
-    //var id: ObjectIdentifier?
+
     var user: User
     var name: String
     var surname: String
@@ -23,6 +22,7 @@ struct Applicant: Account, Hashable, Equatable {
     var description: String
     var skills: [Skill]
     var relocate: Bool
+    var id: String
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
@@ -32,7 +32,7 @@ struct Applicant: Account, Hashable, Equatable {
         return lhs.name == rhs.name
     }
     
-    init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool, mode: String, payment: String, id: ObjectIdentifier? = nil, specialization: String) {
+    init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool, mode: String, payment: String, id: String? = nil, specialization: String) {
         self.user = user
         self.name = name
         self.surname = surname
@@ -44,7 +44,7 @@ struct Applicant: Account, Hashable, Equatable {
         self.description = description
         self.skills = skills
         self.relocate = relocate
-        //self.id = id
+        self.id = id ?? ""
         self.specialization = specialization
     }
     
@@ -99,7 +99,7 @@ struct Applicant: Account, Hashable, Equatable {
 
 extension Applicant: Codable {
     enum CodingKeys: String, CodingKey {
-        //case id
+        case id
         case user
         case name
         case surname

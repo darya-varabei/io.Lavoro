@@ -8,19 +8,19 @@
 import Foundation
 
 protocol LavoroServiceable {
-    func getApplicantInfo() async -> Result<Applicant, RequestError>
-    func getProjectInfo() async -> Result<Project, RequestError>
+    func getApplicantInfo(id: String) async -> Result<DomainEmployee, RequestError>
+    func getProjectInfo(id: String) async -> Result<Project, RequestError>
     func getProjects() async -> Result<[DomainProject], RequestError>
     func getApplicants() async -> Result<[DomainEmployee], RequestError>
     func getParametrizedApplicants() async -> Result<[Applicant], RequestError>
     func getParametrizedProjects() async -> Result<[Project], RequestError>
-    func createProject() async -> Result<Project, RequestError>
-    func createApplicant() async -> Result<Applicant, RequestError>
+    func createProject(project: Project, id: String) async -> Result<DomainProject, RequestError>
+    func createApplicant(applicant: Applicant, id: String) async -> Result<DomainPureEmployee, RequestError>
     func sendApplication() async -> Result<Application, RequestError>
     func sendResponse() async -> Result<Response, RequestError>
-    func updateProject() async -> Result<Project, RequestError>
+    func updateProject(project: Project) async -> Result<Project, RequestError>
     func updateOffer() async -> Result<Offer, RequestError>
-    func updateApplicant() async -> Result<Applicant, RequestError>
+    func updateApplicant(applicant: Applicant) async -> Result<Applicant, RequestError>
     func getOffers() async -> Result<[DomainOffer], RequestError>
     func getParametrizedOffers() async -> Result<[Offer], RequestError>
     func deleteApplicant() async -> Result<String, RequestError>
@@ -32,12 +32,12 @@ protocol LavoroServiceable {
 
 struct LavoroService: HTTPClient, LavoroServiceable {
     
-    func getApplicantInfo() async -> Result<Applicant, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.applicant, responseModel: Applicant.self)
+    func getApplicantInfo(id: String) async -> Result<DomainEmployee, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.applicant(id: id), responseModel: DomainEmployee.self)
     }
     
-    func getProjectInfo() async -> Result<Project, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.project, responseModel: Project.self)
+    func getProjectInfo(id: String) async -> Result<Project, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.project(id: id), responseModel: Project.self)
     }
     
     func getProjects() async -> Result<[DomainProject], RequestError> {
@@ -56,12 +56,12 @@ struct LavoroService: HTTPClient, LavoroServiceable {
         return await sendRequest(endpoint: LavoroEndpoint.parametrizedProjects, responseModel: [Project].self)
     }
     
-    func createProject() async -> Result<Project, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.createProject, responseModel: Project.self)
+    func createProject(project: Project, id: String) async -> Result<DomainProject, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.createProject(project: project, id: id), responseModel: DomainProject.self)
     }
     
-    func createApplicant() async -> Result<Applicant, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.createApplicant, responseModel: Applicant.self)
+    func createApplicant(applicant: Applicant, id: String) async -> Result<DomainPureEmployee, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.createApplicant(applicant: applicant, id: id), responseModel: DomainPureEmployee.self)
     }
     
     func sendApplication() async -> Result<Application, RequestError> {
@@ -72,16 +72,16 @@ struct LavoroService: HTTPClient, LavoroServiceable {
         return await sendRequest(endpoint: LavoroEndpoint.sendResponse, responseModel: Response.self)
     }
     
-    func updateProject() async -> Result<Project, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.updateProject, responseModel: Project.self)
+    func updateProject(project: Project) async -> Result<Project, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.updateProject(project: project), responseModel: Project.self)
     }
     
     func updateOffer() async -> Result<Offer, RequestError> {
         return await sendRequest(endpoint: LavoroEndpoint.updateOffer, responseModel: Offer.self)
     }
 
-    func updateApplicant() async -> Result<Applicant, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.updateApplicant, responseModel: Applicant.self)
+    func updateApplicant(applicant: Applicant) async -> Result<Applicant, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.updateApplicant(applicant: applicant), responseModel: Applicant.self)
     }
     
     func getOffers() async -> Result<[DomainOffer], RequestError> {

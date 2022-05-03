@@ -10,6 +10,7 @@ import Foundation
 final class Skill: Hashable, Equatable {
     var name: String
     var level: String
+    var id: String?
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
@@ -19,9 +20,10 @@ final class Skill: Hashable, Equatable {
         return lhs.name == rhs.name
     }
     
-    init(name: String, level: String) {
+    init(name: String, level: String, id: String? = nil) {
         self.name = name
         self.level = level
+        self.id = id
     }
 }
 
@@ -29,6 +31,7 @@ extension Skill: Codable {
     enum CodingKeys: String, CodingKey {
         case name
         case level
+        case id
     }
 }
 

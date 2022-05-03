@@ -8,18 +8,18 @@
 import Foundation
 
 enum LavoroEndpoint {
-    case applicant// get applicant full info
-    case project// get project full info
+    case applicant(id: String)// get applicant full info
+    case project(id: String)// get project full info
     case projects// get all projects
     case applicants// get all applicants
     case parametrizedApplicants// get list of applicants with parameters
     case parametrizedProjects// get list of projects with parameters
-    case createProject// post project
-    case createApplicant// post applicant
+    case createProject(project: Project, id: String)// post project
+    case createApplicant(applicant: Applicant, id: String)// post applicant
     case sendApplication// post application
     case sendResponse// post application respose
-    case updateProject// put project
-    case updateApplicant// put applicant
+    case updateProject(project: Project)// put project
+    case updateApplicant(applicant: Applicant)// put applicant
     case updateOffer// put offer
     case offers// get offers
     case parametrizedOffers// get parametrized offers
@@ -36,9 +36,9 @@ extension LavoroEndpoint: Endpoint {
     var path: String {
         switch self {
         case .applicant:
-            return "account/getInfo"
+            return "applicant/getSingle"
         case .project:
-            return "project/getInfo"
+            return "project/getSingle"
         case .projects:
             return "project/list"
         case .applicants:
@@ -84,9 +84,9 @@ extension LavoroEndpoint: Endpoint {
 
     var method: RequestMethod {
         switch self {
-        case .applicant, .project, .projects, .applicants, .parametrizedOffers, .parametrizedProjects, .parametrizedApplicants, .offers, .skills, .technology, .employeeSkills, .offerTechnologies:
+        case .project, .projects, .applicants, .parametrizedOffers, .parametrizedProjects, .parametrizedApplicants, .offers, .skills, .technology, .employeeSkills, .offerTechnologies:
             return .get
-        case .createProject, .createApplicant, .sendApplication, .sendResponse:
+        case .applicant, .createProject, .createApplicant, .sendApplication, .sendResponse:
             return .post
         case .updateProject, .updateApplicant, .updateOffer:
             return .put
@@ -103,9 +103,13 @@ extension LavoroEndpoint: Endpoint {
             ]
     }
     
-    var body: [String: String]? {
+    var body: [String: Any]? {
         switch self {
-        case .applicant, .project, .projects:
+        case .applicant(let id), .project(let id):
+            return [
+                "id": id
+            ]
+        case .projects:
             return nil
         case .applicants:
             return nil
@@ -113,10 +117,38 @@ extension LavoroEndpoint: Endpoint {
             return nil
         case .parametrizedProjects:
             return nil
-        case .createProject:
-            return nil
-        case .createApplicant:
-            return nil
+        case .createProject(let project, let id):
+            return  [
+                "user": [
+                    "user_id": id,
+                ],
+                "name": project.name,
+                "surname": "application/json;charset=utf-8",
+                "age": "application/json;charset=utf-8",
+                "location": "application/json;charset=utf-8",
+                "salary": "application/json;charset=utf-8",
+                "mode": "application/json;charset=utf-8",
+                "description": "application/json;charset=utf-8",
+                "relocate": "application/json;charset=utf-8",
+                "interests": "application/json;charset=utf-8",
+                "specialization": "application/json;charset=utf-8"
+            ]
+        case .createApplicant(let applicant, let id):
+            return  [
+                "user": [
+                    "id": id,
+                ],
+                "name": applicant.name,
+                "surname": applicant.surname,
+                "age": applicant.age,
+                "location": applicant.location,
+                "salary": applicant.payment,
+                "mode": applicant.mode,
+                "description": applicant.description,
+                "relocate": applicant.relocate,
+                "interests": applicant.interests,
+                "specialization": applicant.specialization
+            ]
         case .sendApplication:
             return nil
         case .sendResponse:

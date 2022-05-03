@@ -15,6 +15,7 @@ struct EmployeeDetailsView: View {
     }
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
+        ScrollView(.vertical) {
         VStack {
             ZStack(alignment: Alignment(horizontal: .center, vertical: .top)){
                 Image(uiImage: UIImage(data: applicant.user.photo.photo)!)
@@ -22,7 +23,6 @@ struct EmployeeDetailsView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 250)
                     .clipShape(RoundedShape(corners: [.bottomLeft, .bottomRight]))
-                //.matchedGeometryEffect(id: offer.project.user.photo, in: animation)
                 
                 VStack(spacing: 110) {
                     
@@ -84,7 +84,6 @@ struct EmployeeDetailsView: View {
                                     Capsule()
                                         .fill(Color.darkBlue)
                                         .frame(height: 4)
-                                        //.matchedGeometryEffect(id: "Tab", in: name)
                                 }
                             }
                         }
@@ -110,38 +109,46 @@ struct EmployeeDetailsView: View {
                                     Capsule()
                                         .fill(Color.darkBlue)
                                         .frame(height: 4)
-                                       // .matchedGeometryEffect(id: "Tab", in: name)
                                 }
                             }
                         }
-                    }
+                    }.disabled(CurrentUser.shared.getRole() == "employee")
                 }
-                Text(applicant.getSpecialization())
-                    .font(.custom("Montserrat-SemiBold", size: 18))
-                    .foregroundColor(textColor)
-                    .padding(.vertical, 10)
-                LavoroLabeledText(title: "Обо мне", text: applicant.getDescription())
-                    .padding(.vertical, 10)
-                VStack(alignment: .leading) {
-                    Text("Мои навыки")
-                        .font(.custom("Montserrat-Medium", size: 14))
-                        .foregroundColor(.customBlack)
-                        .padding(.bottom)
-                    SkillSetListView(skillset: applicant.getSkills())
-                }.padding(.horizontal, 5)
                 
-                HStack {
-                    LavoroLabeledText(title: "Локация", text: applicant.getLocation())
-                    Spacer()
-                    LavoroLabeledText(title: "Релокейт", text: "Возможен")
-                }
-                .padding(.vertical, 10)
-                LavoroLabeledText(title: "Интересы", text: applicant.getInterests())
-                    .foregroundColor(.customBlack)
+                switch(index) {
+                case 0:
+                    Text(applicant.getSpecialization())
+                        .font(.custom("Montserrat-SemiBold", size: 18))
+                        .foregroundColor(textColor)
+                        .padding(.vertical, 10)
+                    LavoroLabeledText(title: "Обо мне", text: applicant.getDescription())
+                        .padding(.vertical, 10)
+                    VStack(alignment: .leading) {
+                        Text("Мои навыки")
+                            .font(.custom("Montserrat-Medium", size: 14))
+                            .foregroundColor(.customBlack)
+                            .padding(.bottom)
+                        SkillSetListView(skillset: applicant.getSkills())
+                    }.padding(.horizontal, 5)
+                    
+                    HStack {
+                        LavoroLabeledText(title: "Локация", text: applicant.getLocation())
+                        Spacer()
+                        LavoroLabeledText(title: "Релокейт", text: "Возможен")
+                    }
                     .padding(.vertical, 10)
+                    LavoroLabeledText(title: "Интересы", text: applicant.getInterests())
+                        .foregroundColor(.customBlack)
+                        .padding(.vertical, 10)
+                case 1:
+                    ApplicationView(receiver: applicant.user)
+                default:
+                    EmptyView()
+                }
             }.padding(.horizontal, 20)
         }.navigationBarTitle("")
         .navigationBarHidden(true)
+        }
     }
 }
     
