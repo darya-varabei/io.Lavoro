@@ -59,9 +59,9 @@ class ProjectViewModel: ObservableObject {
             case .success(let response):
                 DispatchQueue.main.async {
                     for i in response.offers {
-                        offers.append(Offer(project: Project(user: User(username: "", role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: response.name, location: response.location, description: response.location, offers: offers, category: response.category, mode: response.mode, id: UUID(uuidString: response.id)), name: i.name, technologies: [], mode: i.mode, salary: i.salary, timeMode: i.mode, description: i.welcomeDescription))
+                        offers.append(Offer(project: Project(user: User(username: "", role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: response.photo)!)), name: response.name, location: response.location, description: response.location, offers: offers, category: response.category, mode: response.mode, id: UUID(uuidString: response.id)), name: i.name, technologies: [], mode: i.mode, salary: i.salary, timeMode: i.mode, description: i.welcomeDescription))
                     }
-                    newProject = Project(user: User(username: "", role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: response.name, location: response.location, description: response.location, offers: offers, category: response.category, mode: response.mode, id: UUID(uuidString: response.id))
+                    newProject = Project(user: User(username: "", role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: response.photo)!)), name: response.name, location: response.location, description: response.location, offers: offers, category: response.category, mode: response.mode, id: UUID(uuidString: response.id))
                 }
                 completion?()
             case .failure(let error):

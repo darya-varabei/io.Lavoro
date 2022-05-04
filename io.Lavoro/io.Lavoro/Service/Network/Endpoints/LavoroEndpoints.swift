@@ -22,7 +22,7 @@ enum LavoroEndpoint {
     case getApplication
     case sendResponse// post application respose
     case updateProject(project: Project)// put project
-    case updateApplicant(applicant: Applicant)// put applicant
+    case updateApplicant(applicant: Applicant, id: String)// put applicant
     case updateOffer// put offer
     case offers// get offers
     case parametrizedOffers// get parametrized offers
@@ -127,18 +127,14 @@ extension LavoroEndpoint: Endpoint {
         case .createProject(let project, let id):
             return  [
                 "user": [
-                    "user_id": id,
+                    "id": id,
                 ],
                 "name": project.name,
-                "surname": "application/json;charset=utf-8",
-                "age": "application/json;charset=utf-8",
-                "location": "application/json;charset=utf-8",
-                "salary": "application/json;charset=utf-8",
-                "mode": "application/json;charset=utf-8",
-                "description": "application/json;charset=utf-8",
-                "relocate": "application/json;charset=utf-8",
-                "interests": "application/json;charset=utf-8",
-                "specialization": "application/json;charset=utf-8"
+                "location": project.location,
+                "category": project.category,
+                "mode": project.mode,
+                "description": project.description,
+                "photo": "guideHuman",
             ]
         case .createApplicant(let applicant, let id):
             return  [
@@ -151,6 +147,7 @@ extension LavoroEndpoint: Endpoint {
                 "location": applicant.location,
                 "salary": applicant.payment,
                 "mode": applicant.mode,
+                "photo": "amy",
                 "description": applicant.description,
                 "relocate": applicant.relocate,
                 "interests": applicant.interests,
@@ -168,8 +165,40 @@ extension LavoroEndpoint: Endpoint {
             return nil
         case .updateProject:
             return nil
-        case .updateApplicant:
-            return nil
+        case .updateApplicant(let applicant, let id):
+            return  [
+                "user": [
+                    "id": applicant.bufId,
+                ],
+                "name": applicant.name,
+                "surname": applicant.surname,
+                "age": applicant.age,
+                "location": applicant.location,
+                "salary": applicant.payment,
+                "mode": applicant.mode,
+                "description": applicant.description,
+                "relocate": applicant.relocate,
+                "interests": applicant.interests,
+                "specialization": applicant.specialization,
+                "skills": """
+                    "[
+                      "id": "6405DC34-3FE0-4C8B-B368-0198797F9745",
+                          "owner": {
+                               "id": "6405DC34-3FE0-4C8B-B368-0198797F9789"
+                           },
+                           "level": "Advanced",
+                           "name": "Github"
+                    ]
+""",
+//                "skills": [
+//                        "id": "6405DC34-3FE0-4C8B-B368-0198797F9745",
+//                        "owner": {
+//                            "id": "6405DC34-3FE0-4C8B-B368-0198797F9789"
+//                        },
+//                        "level": "Advanced",
+//                        "name": "Github"
+//                ]
+            ]
         case .offers:
             return nil
         case .parametrizedOffers:

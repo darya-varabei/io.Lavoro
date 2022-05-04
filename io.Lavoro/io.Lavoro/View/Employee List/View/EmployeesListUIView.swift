@@ -13,6 +13,8 @@ struct EmployeesListUIView: View {
     @State private var searchText = ""
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
+    @State var filtered: [Applicant] = []
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -47,7 +49,7 @@ struct EmployeesListUIView: View {
                               isHalfScreenHeight: false,
                               isHalfScreenAvailable: true,
                               handleOption: .regular) {
-                    EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition, mode: .employee)
+                    EmployeeParametersView(employeeModel: employeeViewModel, slideOverViewPosition: $slideOverViewPosition, mode: .employee, filtered: $filtered)
                 }
             }
                 .onAppear {
@@ -64,6 +66,9 @@ struct EmployeesListUIView: View {
     
     var filterEmployees: [Applicant] {
         if searchText.isEmpty {
+            if filtered.count != 0 {
+                return filtered
+            }
             return employeeViewModel.applicants
         }
         else {

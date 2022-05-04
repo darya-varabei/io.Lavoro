@@ -10,14 +10,17 @@ import SwiftUI
 struct EmployeeParametersView: View {
     @State var employeeModel: EmployeeViewModel = EmployeeViewModel()
     @Binding var slideOverViewPosition: ViewPosition
-    @State var mode: RoleMode
-    @State var employeeParameters = EmployeeParameters(mode: .employee)
-    
+    @State var mode: RoleMode = .employee
+    @State var employeeParameters: EmployeeParameters = EmployeeParameters(mode: .employee)
+    @State var skills: [Skill] = []
+    @Binding var filtered: [Applicant]
     @State var selectedName = ""
     @State var selectedLevel = ""
     @State var parameterSkills: [Skill] = []
     @State var selectedLanguages:[String] = []
 
+    @State var sortingHandled: Bool = false
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             if !employeeModel.isParametersOpen {
@@ -25,7 +28,7 @@ struct EmployeeParametersView: View {
                     HStack {
                         Button(action: {
                             slideOverViewPosition = .hidden
-                            employeeParameters.performFiltration(offers: employeeModel.applicants)
+                            filtered = employeeParameters.performFiltration(offers: employeeModel.applicants, parameterSkills: parameterSkills)
                         }, label: {
                             Text("Закрыть параметры")
                                 .underline()
@@ -264,6 +267,7 @@ struct EmployeeParametersView: View {
                         }.padding(.trailing, 100)
                     }
                     Button(action: {
+                        sortingHandled = true
                     }, label: {
                         Text("Подобрать")
                             .font(.custom("Montserrat-Medium", size: 12))
@@ -275,6 +279,10 @@ struct EmployeeParametersView: View {
                 }.padding()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .background(Color.clear)
+            }
+        }.onAppear {
+            if mode == .employee {
+                employeeParameters.getSkillList()
             }
         }
     }

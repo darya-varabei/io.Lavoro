@@ -26,7 +26,11 @@ struct AccountUIView: View {
         else {
             projectProfileView
                 .onAppear(perform: {
-                    accountViewModel.getProject()})
+                    accountViewModel.getProject()
+                    if AccountViewModel.accountExists {
+                        allow = true
+                    }
+                })
         }
     }
     @StateObject var accountViewModel = AccountViewModel()
@@ -177,109 +181,131 @@ struct AccountUIView: View {
     
     @ViewBuilder
     var projectProfileView: some View {
-        if accountViewModel.account.getName() != "" {
-            VStack {
-                HStack {
-                    VStack {
-                        Text("Проект")
-                        VStack {
-                            Text(accountViewModel.account.getName())
-                            Text(accountViewModel.account.getCategory())
+        ZStack(alignment: allow ? .top : .center){
+            RoundedRectangle(cornerRadius: 25)
+                .foregroundColor(Color.customWhite)
+            if allow {
+                VStack {
+                    HStack {
+                        VStack(spacing: 10) {
+                            Text("Мой проект")
+                                .font(.custom("Montserrat-Medium", size: 10))
+                                .foregroundColor(.customBlack)
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text(accountViewModel.account.getName())
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                                    .foregroundColor(.customBlack)
+                                Text(accountViewModel.account.getCategory())
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                                    .foregroundColor(.customBlack)
+                            }
+                            Button(action: {
+                                editInfo.toggle()
+                            }, label: {
+                                Text("Изменить")
+                                    .font(.custom("Montserrat-Medium", size: 10))
+                                    .foregroundColor(.darkBlue)
+                                    .underline()
+                            })
                         }
-                    }
-                    Image(uiImage: accountViewModel.account.account?.getPhoto() ?? UIImage(systemName: "star")!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 70,
-                               height: 70)
-                        .clipShape(Circle())
-                }
-                HStack(spacing: 0) {
-                    Button(action: {
-                        withAnimation(.spring()) {
-                            index = 0
-                        }
-                    }) {
-                        VStack {
-                            Text("О проекте")
-                                .font(.custom("Montserrat-Medium", size: 14))
-                                .foregroundColor(index == 0 ? .darkBlue : .gray)
-                            
-                            ZStack {
-                                Capsule()
-                                    .fill(Color.white)
-                                    .frame(height: 4)
+                        Spacer()
+                        Image(uiImage: accountViewModel.account.account?.getPhoto() ?? UIImage(systemName: "star")!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 70,
+                                   height: 70)
+                            .clipShape(Circle())
+                    }.padding(.horizontal, 20)
+                    HStack(spacing: 0) {
+                        Button(action: {
+                            withAnimation(.spring()) {
+                                index = 0
+                            }
+                        }) {
+                            VStack {
+                                Text("О проекте")
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                                    .foregroundColor(index == 0 ? .darkBlue : .gray)
                                 
-                                if index == 0 {
+                                ZStack {
                                     Capsule()
-                                        .fill(Color.darkBlue)
+                                        .fill(Color.white)
                                         .frame(height: 4)
+                                    
+                                    if index == 0 {
+                                        Capsule()
+                                            .fill(Color.darkBlue)
+                                            .frame(height: 4)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        Button(action: {
+                            withAnimation(.spring()) {
+                                index = 1
+                            }
+                        }) {
+                            VStack {
+                                Text("Заявки")
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                                    .foregroundColor(index == 1 ? .darkBlue : .gray)
+                                
+                                ZStack {
+                                    Capsule()
+                                        .fill(Color.white)
+                                        .frame(height: 4)
+                                    
+                                    if index == 1 {
+                                        Capsule()
+                                            .fill(Color.darkBlue)
+                                            .frame(height: 4)
+                                    }
                                 }
                             }
                         }
                     }
                     
-                    Button(action: {
-                        withAnimation(.spring()) {
-                            index = 1
-                        }
-                    }) {
+                    if index == 0 {
+                        
                         VStack {
-                            Text("Заявки")
-                                .font(.custom("Montserrat-Medium", size: 14))
-                                .foregroundColor(index == 1 ? .darkBlue : .gray)
-                            
-                            ZStack {
-                                Capsule()
-                                    .fill(Color.white)
-                                    .frame(height: 4)
-                                
-                                if index == 1 {
-                                    Capsule()
-                                        .fill(Color.darkBlue)
-                                        .frame(height: 4)
-                                }
-                            }
+                            LavoroLabeledText(title: "О проекте", text: accountViewModel.account.getDescription())
+                                .padding(.vertical, 10)
+                            HStack {
+                                LavoroLabeledText(title: "Локация", text: accountViewModel.account.getLocation())
+                                Spacer()
+                                LavoroLabeledText(title: "Режим работы", text: accountViewModel.account.getMode())
+                            }.padding(.vertical, 10)
                         }
                     }
-                }
-                
-                if index == 0 {
-                    
-                    VStack {
-                        LavoroLabeledText(title: "О проекте", text: accountViewModel.account.getDescription())
-                        HStack {
-                            LavoroLabeledText(title: "Локация", text: accountViewModel.account.getLocation())
-                            LavoroLabeledText(title: "Режим работы", text: accountViewModel.account.getMode())
-                        }
-                        LavoroLabeledText(title: "Интересы", text: accountViewModel.account.getInterests())
+                    else {
+                        applicationsView
                     }
-                }
-                else {
-                    applicationsView
-                }
-            }.fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: editionMode, project: $accountViewModel.account.account.toNonOptional().asProject) }
-                .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
-        }
-        else {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(.darkBlue)
-                    .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
-                Button(action: {
-                    editionMode = .create
-                    editInfo.toggle()
-                }, label: {
-                    Text("Создать проект")
-                        .fontWeight(.semibold)
-                        .foregroundColor(.customWhite)
-                        .padding(.vertical)
-                        .frame(width: UIScreen.main.bounds.width - 150)
-                        .clipShape(Capsule())
-                })
-            }.padding(.vertical, 40)
-                .fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: .create, project: $accountViewModel.account.account.toNonOptional().asProject) }
-                .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
+                }.fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: editionMode, project: $accountViewModel.account.account.toNonOptional().asProject) }
+                    .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
+                    .padding(.horizontal, 30)
+                    .padding(.top, 20)
+            }
+            else {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor(.darkBlue)
+                        .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
+                    Button(action: {
+                        editionMode = .create
+                        editInfo.toggle()
+                    }, label: {
+                        Text("Создать проект")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.customWhite)
+                            .padding(.vertical)
+                            .frame(width: UIScreen.main.bounds.width - 150)
+                            .clipShape(Capsule())
+                    })
+                }.padding(.vertical, 40)
+                    .fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: .create, project: $accountViewModel.account.account.toNonOptional().asProject) }
+                    .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
+            }
         }
     }
     

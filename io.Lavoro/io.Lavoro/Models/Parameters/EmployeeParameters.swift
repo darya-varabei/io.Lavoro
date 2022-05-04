@@ -21,8 +21,8 @@ struct EmployeeParameters {
     
     @State var countryPlaceholder = "Не указана"
     @State var cityPlaceholder = "Не указан"
-    @State var countries = ["PSO", "PFA", "AIR", "HOT"]
-    @State var cities = ["PSO", "PFA", "AIR", "HOT"]
+    @State var countries = ["Беларусь", "Россия", "Украина", "Польша", "Чехия", "Словакия", "Испания", "Грузия"]
+    @State var cities = ["Минск", "Москва", "Варшава", "Киев", "Прага", "Братислава", "Мадрид", "Тбилиси"]
     @State var selectedCity: String = ""
     @State var selectedCountry: String = ""
     
@@ -100,9 +100,12 @@ struct EmployeeParameters {
         }
     }
     
-    func performFiltration(offers: [Applicant]) -> [Applicant] {
+    func performFiltration(offers: [Applicant], parameterSkills: [Skill]) -> [Applicant] {
+        print(offers.filter {
+            ($0.skills.map({$0.name}).intersects(parameterSkills.map({$0.name})) || skills.isEmpty)})
         return offers.filter {
-            ($0.skills.map({$0.name}).intersects(skills) || skills.isEmpty) && (Int($0.payment)! > Int(minimalSalary)!) && (Int($0.payment)! < Int(maximalSalary)!)
-        }
+            ($0.skills.intersects(parameterSkills) || skills.isEmpty)}//offers.filter {
+            //($0.skills.map({$0.name}).intersects(skills) || skills.isEmpty) && (Int($0.payment)! > Int(minimalSalary)!) && (Int($0.payment)! < Int(maximalSalary)!)
+       // }
     }
 }

@@ -20,7 +20,7 @@ protocol LavoroServiceable {
     func sendResponse() async -> Result<Response, RequestError>
     func updateProject(project: Project) async -> Result<Project, RequestError>
     func updateOffer() async -> Result<Offer, RequestError>
-    func updateApplicant(applicant: Applicant) async -> Result<Applicant, RequestError>
+    func updateApplicant(applicant: Applicant, id: String) async -> Result<DomainEmployee, RequestError>
     func getOffers() async -> Result<[DomainOffer], RequestError>
     func getParametrizedOffers() async -> Result<[Offer], RequestError>
     func deleteApplicant() async -> Result<String, RequestError>
@@ -80,8 +80,8 @@ struct LavoroService: HTTPClient, LavoroServiceable {
         return await sendRequest(endpoint: LavoroEndpoint.updateOffer, responseModel: Offer.self)
     }
 
-    func updateApplicant(applicant: Applicant) async -> Result<Applicant, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.updateApplicant(applicant: applicant), responseModel: Applicant.self)
+    func updateApplicant(applicant: Applicant, id: String) async -> Result<DomainEmployee, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.updateApplicant(applicant: applicant, id: CurrentUser.shared.getId().uuidString), responseModel: DomainEmployee.self)
     }
     
     func getOffers() async -> Result<[DomainOffer], RequestError> {

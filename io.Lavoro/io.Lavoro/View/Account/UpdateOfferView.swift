@@ -52,7 +52,8 @@ struct UpdateOfferView: View {
                     }
                     Button(action: {
                         offer.technologies.append(Technology(name: "", level: ""))
-                        skillToUpdate = offer.technologies.last!
+                        skillToUpdate = offer.technologies.last ?? Technology(name: "", level: "")
+                        skillSlideOver = .halfScreen
                     }, label: {
                         Image(systemName: "plus.app")
                             .foregroundColor(.darkBlue)

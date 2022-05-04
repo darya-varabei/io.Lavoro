@@ -17,68 +17,68 @@ struct UpdateProjectView: View {
     
     var body: some View {
         ZStack(alignment: .center) {
-        ScrollView {
-            VStack {
-                ZStack {
-                    Image(uiImage: project!.getPhoto())
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 120,
-                               height: 120)
-                        .clipShape(Circle())
-                        .padding(.bottom, 40)
+            ScrollView {
+                VStack {
+                    ZStack {
+                        Image(uiImage: project!.getPhoto())
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 120,
+                                   height: 120)
+                            .clipShape(Circle())
+                            .padding(.bottom, 40)
+                    }
+                    labeledFields
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15)
+                            .foregroundColor(.darkBlue)
+                            .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
+                        Button(action: {
+                            openOffers = true
+                        }, label: {
+                            Text("Вакансии")
+                                .fontWeight(.semibold)
+                                .foregroundColor(.customWhite)
+                                .padding(.vertical)
+                                .frame(width: UIScreen.main.bounds.width - 150)
+                                .clipShape(Capsule())
+                        })
+                    }.padding(.vertical, 40)
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15)
+                            .foregroundColor(.darkBlue)
+                            .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
+                        Button(action: {
+                            if editMode == .create {
+                                projectViewModel.createProject(project: project!, id: CurrentUser.shared.getId().uuidString)
+                            }
+                            else {
+                                projectViewModel.performUpdate()
+                            }
+                            editInfo.toggle()
+                        }, label: {
+                            Text("Сохранить")
+                                .fontWeight(.semibold)
+                                .foregroundColor(.customWhite)
+                                .padding(.vertical)
+                                .frame(width: UIScreen.main.bounds.width - 150)
+                                .clipShape(Capsule())
+                        })
+                    }.padding(.vertical, 40)
+                    
+                    Button(action: { editInfo.toggle() }, label: {
+                        Text("Отменить")
+                            .underline()
+                            .fontWeight(.semibold)
+                            .foregroundColor(.gray)
+                            .padding(.vertical)
+                            .frame(width: UIScreen.main.bounds.width - 150)
+                            .clipShape(Capsule())
+                    })
                 }
-                labeledFields
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(.darkBlue)
-                        .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
-                    Button(action: {
-                        openOffers = true
-                    }, label: {
-                        Text("Вакансии")
-                            .fontWeight(.semibold)
-                            .foregroundColor(.customWhite)
-                            .padding(.vertical)
-                            .frame(width: UIScreen.main.bounds.width - 150)
-                            .clipShape(Capsule())
-                    })
-                }.padding(.vertical, 40)
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(.darkBlue)
-                        .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
-                    Button(action: {
-                        if editMode == .create {
-                            projectViewModel.createProject(project: project!, id: CurrentUser.shared.getId().uuidString)
-                        }
-                        else {
-                            projectViewModel.performUpdate()
-                        }
-                        editInfo.toggle()
-                    }, label: {
-                        Text("Сохранить")
-                            .fontWeight(.semibold)
-                            .foregroundColor(.customWhite)
-                            .padding(.vertical)
-                            .frame(width: UIScreen.main.bounds.width - 150)
-                            .clipShape(Capsule())
-                    })
-                }.padding(.vertical, 40)
-                
-                Button(action: { editInfo.toggle() }, label: {
-                    Text("Отменить")
-                        .underline()
-                        .fontWeight(.semibold)
-                        .foregroundColor(.gray)
-                        .padding(.vertical)
-                        .frame(width: UIScreen.main.bounds.width - 150)
-                        .clipShape(Capsule())
-                })
-            }
-        }.padding(.horizontal, 25)
+            }.padding(.horizontal, 25)
         }.fullScreenCover(isPresented: $openOffers) {  AccountOffersView(openOffers: $openOffers, offers: $project.toNonOptional().offers, changedOffers: project?.offers ?? [], selection: (project?.offers![0])!) }
     }
     

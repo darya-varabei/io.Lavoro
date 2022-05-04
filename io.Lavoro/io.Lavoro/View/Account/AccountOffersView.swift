@@ -20,9 +20,7 @@ struct AccountOffersView: View {
                     destination: UpdateOfferView(offer: $selection, changedOffer: offerSelected),
                     label: { OfferCellView(offer: offerSelected)
                     }
-                ).onTapGesture {
-                    selection = offerSelected
-                }
+                )
             }
         }.navigationBarHidden(false)
             .onAppear{

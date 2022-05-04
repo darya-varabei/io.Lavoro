@@ -91,7 +91,7 @@ struct UpdateEmployeeView: View {
                                 AccountViewModel.accountExists = true
                             }
                             else {
-                                employeeViewModel.performUpdate()
+                                //applicant = employeeViewModel.performUpdate(applicant: applicant!, id: (applicant?.bufId)!)
                             }
                             editInfo.toggle()
                         }, label: {

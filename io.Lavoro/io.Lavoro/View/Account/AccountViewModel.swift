@@ -25,13 +25,13 @@ class AccountViewModel: ObservableObject {
                         skills.append(Skill(name: i.name, level: i.level, id: i.id))
                     }
                     self.account.account = Applicant(user: User(username: "", role: "applicant", photo: SomeImage(photo: UIImage(named: "kate")!)), name: response.name, surname: response.surname, age: response.age, location: response.location, interests: response.interests, description: response.welcomeDescription, skills: skills, relocate: response
-                        .relocate, mode: response.mode, payment: response.salary, id: response.id, specialization: response.specialization)
+                        .relocate, mode: response.mode, payment: response.salary, id: response.id, specialization: response.specialization, bufId: response.id)
                 AccountViewModel.accountExists = true
                 completion?()
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                self.account = WrappedAccount(account: Applicant(user: User(username: "", role: "applicant", photo: SomeImage(photo: UIImage(named: "kate")!)), name: "", surname: "", age: 0, location: "", interests: "", description: "", skills: [], relocate: false, mode: "", payment: "", specialization: ""))
+                    self.account = WrappedAccount(account: Applicant(user: User(username: "", role: "applicant", photo: SomeImage(photo: UIImage(named: "kate")!)), name: "", surname: "", age: 0, location: "", interests: "", description: "", skills: [], relocate: false, mode: "", payment: "", specialization: "", bufId: ""))
                 }
                 print(error)
                 completion?()

@@ -11,7 +11,7 @@ struct DomainProject: Codable {
     let welcomeDescription, id: String
     let user: DomainUser
     let name: String
-    let photo: Data?
+    let photo: String
     let location, category, mode: String
     let offers: [DomainOfferProject]
     
@@ -63,6 +63,7 @@ struct DomainEmployee: Codable {
     let location, id: String
     let relocate: Bool
     let age: Int
+    let photo: String
     let skills: [DomainSkill]
     let interests, surname, welcomeDescription, name, salary, mode, specialization: String
     let user: DomainUser
@@ -70,7 +71,7 @@ struct DomainEmployee: Codable {
     enum CodingKeys: String, CodingKey {
         case location, id, relocate, age, interests, surname, salary, skills
         case welcomeDescription = "description"
-        case name, user, mode, specialization
+        case name, user, mode, specialization, photo
     }
 }
 

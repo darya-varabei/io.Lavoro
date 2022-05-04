@@ -11,6 +11,7 @@ struct OfferListUIView: View {
     @Namespace var animationID
     @State private var searchText = ""
     @State var array: [Offer] = []
+    @State var filtered: [Applicant] = []
     @StateObject var offerViewModel: OfferViewModel = OfferViewModel()
     @State private var slideOverViewPosition: ViewPosition = .hidden
     
@@ -54,7 +55,7 @@ struct OfferListUIView: View {
                               isHalfScreenHeight: false,
                               isHalfScreenAvailable: true,
                               handleOption: .regular) {
-                    EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition, mode: .employee)
+                    EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition, mode: .employee, filtered: $filtered)
                 }
             }.onAppear {
                 offerViewModel.getOfferList()

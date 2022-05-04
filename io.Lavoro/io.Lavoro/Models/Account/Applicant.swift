@@ -11,6 +11,7 @@ import SwiftUI
 struct Applicant: Account, Hashable, Equatable {
 
     var user: User
+    var bufId: String?
     var name: String
     var surname: String
     var specialization: String
@@ -32,7 +33,7 @@ struct Applicant: Account, Hashable, Equatable {
         return lhs.name == rhs.name
     }
     
-    init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool, mode: String, payment: String, id: String? = nil, specialization: String) {
+    init(user: User, name: String, surname: String, age: Int, location: String, interests: String, description: String, skills: [Skill], relocate: Bool, mode: String, payment: String, id: String? = nil, specialization: String, bufId: String) {
         self.user = user
         self.name = name
         self.surname = surname
@@ -46,6 +47,7 @@ struct Applicant: Account, Hashable, Equatable {
         self.relocate = relocate
         self.id = id ?? ""
         self.specialization = specialization
+        self.bufId = bufId
     }
     
     func getName() -> String {
@@ -100,6 +102,7 @@ struct Applicant: Account, Hashable, Equatable {
 extension Applicant: Codable {
     enum CodingKeys: String, CodingKey {
         case id
+        case bufId
         case user
         case name
         case surname
