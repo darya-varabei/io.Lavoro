@@ -40,15 +40,22 @@ class AccountViewModel: ObservableObject {
     }
     
     func getProject(completion: (() -> Void)? = nil) {
+        var offers: [Offer] = []
         fetchProjectData { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                self.account.account = response
-                //self.projects = response
+                DispatchQueue.main.async {
+                    for i in response.offers {
+                        offers.append(Offer(project: Project(user: User(username: "", role: "project", photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: response.name, location: response.location, description: response.welcomeDescription, category: response.category, mode: response.mode), name: i.name, technologies: [], mode: i.mode, salary: i.salary, timeMode: i.mode, description: i.welcomeDescription))
+                    }
+                    self.account.account = Project(user: User(username: "", role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: response.name, location: response.location, description: response
+                        .welcomeDescription, offers: offers, category: response.category, mode: response.mode, id: UUID(uuidString: response.id))
+                }
+                AccountViewModel.accountExists = true
                 completion?()
             case .failure(let error):
-                print(error)
+                self.account = WrappedAccount(account: Project(user: User(username: "", role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: "", location: "", description: "", offers: [], category: "", mode: "", id: nil))
                 completion?()
             }
         }
@@ -70,7 +77,7 @@ class AccountViewModel: ObservableObject {
         
     }
     
-    private func fetchProjectData(completion: @escaping (Result<Project, RequestError>) -> Void) {
+    private func fetchProjectData(completion: @escaping (Result<DomainProject, RequestError>) -> Void) {
         Task(priority: .background) {
             let result = await service.getProjectInfo(id: CurrentUser.shared.getId().uuidString)
             completion(result)
@@ -79,7 +86,7 @@ class AccountViewModel: ObservableObject {
     
     private func fetchEmployeeData(completion: @escaping (Result<DomainEmployee, RequestError>) -> Void) {
         Task(priority: .background) {
-            let result = await service.getApplicantInfo(id: "d8ae1b9a-8266-4a32-8cb2-b8848ad940be")
+            let result = await service.getApplicantInfo(id: CurrentUser.shared.getId().uuidString)
             completion(result)
         }
     }

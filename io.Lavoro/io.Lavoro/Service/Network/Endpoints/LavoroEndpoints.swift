@@ -17,6 +17,9 @@ enum LavoroEndpoint {
     case createProject(project: Project, id: String)// post project
     case createApplicant(applicant: Applicant, id: String)// post applicant
     case sendApplication// post application
+    case updateApplication
+    case deleteApplication
+    case getApplication
     case sendResponse// post application respose
     case updateProject(project: Project)// put project
     case updateApplicant(applicant: Applicant)// put applicant
@@ -36,13 +39,13 @@ extension LavoroEndpoint: Endpoint {
     var path: String {
         switch self {
         case .applicant:
-            return "applicant/getSingle"
+            return "applicant/\(CurrentUser.shared.getId())"
         case .project:
-            return "project/getSingle"
+            return "project/\(CurrentUser.shared.getId())"
         case .projects:
             return "project/list"
         case .applicants:
-            return "employee/list"
+            return "applicant/list"
         case .parametrizedApplicants:
             return "applicants/getWithParameters"
         case .parametrizedProjects:
@@ -52,7 +55,13 @@ extension LavoroEndpoint: Endpoint {
         case .createApplicant:
             return "applicant/create"
         case .sendApplication:
-            return "application/send"
+            return "application/create"
+        case .updateApplication:
+            return "application/update"
+        case .deleteApplication:
+            return "application/delete"
+        case .getApplication:
+            return "application/create"
         case .sendResponse:
             return "response/send"
         case .updateProject:
@@ -84,13 +93,13 @@ extension LavoroEndpoint: Endpoint {
 
     var method: RequestMethod {
         switch self {
-        case .project, .projects, .applicants, .parametrizedOffers, .parametrizedProjects, .parametrizedApplicants, .offers, .skills, .technology, .employeeSkills, .offerTechnologies:
+        case .applicant, .project, .projects, .applicants, .parametrizedOffers, .parametrizedProjects, .parametrizedApplicants, .offers, .skills, .technology, .employeeSkills, .offerTechnologies, .getApplication:
             return .get
-        case .applicant, .createProject, .createApplicant, .sendApplication, .sendResponse:
+        case .createProject, .createApplicant, .sendApplication, .sendResponse:
             return .post
-        case .updateProject, .updateApplicant, .updateOffer:
+        case .updateProject, .updateApplicant, .updateOffer, .updateApplication:
             return .put
-        case .deleteOffer, .deleteApplicant, .deleteProject:
+        case .deleteOffer, .deleteApplicant, .deleteProject, .deleteApplication:
             return .delete
         }
     }
@@ -105,10 +114,8 @@ extension LavoroEndpoint: Endpoint {
     
     var body: [String: Any]? {
         switch self {
-        case .applicant(let id), .project(let id):
-            return [
-                "id": id
-            ]
+        case .applicant, .project:
+            return nil
         case .projects:
             return nil
         case .applicants:
@@ -150,6 +157,12 @@ extension LavoroEndpoint: Endpoint {
                 "specialization": applicant.specialization
             ]
         case .sendApplication:
+            return nil
+        case .updateApplication:
+            return nil
+        case .deleteApplication:
+            return nil
+        case .getApplication:
             return nil
         case .sendResponse:
             return nil

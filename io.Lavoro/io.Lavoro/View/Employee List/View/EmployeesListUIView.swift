@@ -15,56 +15,51 @@ struct EmployeesListUIView: View {
     
     var body: some View {
         NavigationView {
-        ZStack {
-            VStack(spacing: 0) {
-                if slideOverViewPosition == .hidden {
-                    HStack {
-                        Button(action: {
-                            slideOverViewPosition = .top
-                        }, label: {
-                            Text("Параметры")
-                                .underline()
-                                .foregroundColor(.customWhite)
-                                .font(.custom("Montserrat-Medium", size: 14))
-                        })
-                        Spacer()
-                        Text("")
-                    }.opacity(CurrentUser.shared.getRole() == "project" ? 1 : 0)
-                    .padding(.horizontal, 30)
-                        .padding(.top, 100)
-                        .background(Color.primaryBlue.ignoresSafeArea())
-                }
+            ZStack {
+                VStack(spacing: 0) {
+                    if slideOverViewPosition == .hidden {
+                        HStack {
+                            Button(action: {
+                                slideOverViewPosition = .top
+                            }, label: {
+                                Text("Параметры")
+                                    .underline()
+                                    .foregroundColor(.customWhite)
+                                    .font(.custom("Montserrat-Medium", size: 14))
+                            })
+                            Spacer()
+                            Text("")
+                        }.opacity(CurrentUser.shared.getRole() == "project" ? 1 : 0)
+                            .padding(.horizontal, 30)
+                            .padding(.top, CurrentUser.shared.getRole() == "project" ? 100 : 0)
+                            .background(Color.primaryBlue.ignoresSafeArea())
+                    }
                     List(filterEmployees, id: \.name) { applicant in
                         NavigationLink(
                             destination: EmployeeDetailsView(applicant: applicant),
                             label: { EmployeeCellView(applicant: applicant)
                             }
                         )
-//                    }.background(Color.primaryBlue.ignoresSafeArea())
-//                        .onAppear {
-//                            UITableView.appearance().backgroundColor = .clear
-//                            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
-//                            UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
-//                        }
-//                        .searchable(text: $searchText, prompt: "Поиск анкеты")
-                }.navigationBarHidden(true)
+                    }.searchable(text: $searchText, prompt: "Поиск анкеты")//.navigationBarHidden(true)
+                    
+                }
+                SlideOverView(position: $slideOverViewPosition,
+                              isHalfScreenHeight: false,
+                              isHalfScreenAvailable: true,
+                              handleOption: .regular) {
+                    EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition, mode: .employee)
+                }
             }
-            SlideOverView(position: $slideOverViewPosition,
-                          isHalfScreenHeight: false,
-                          isHalfScreenAvailable: true,
-                          handleOption: .regular) {
-                EmployeeParametersView(slideOverViewPosition: $slideOverViewPosition, mode: .employee)
-            }
-        }.onAppear {
-            employeeViewModel.getEmployeeList()
-        }
+                .onAppear {
+                    employeeViewModel.getEmployeeList()
+                }
         }.background(Color.primaryBlue.ignoresSafeArea())
             .onAppear {
                 UITableView.appearance().backgroundColor = UIColor(Color.primaryBlue)
                 UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .systemGray6
                 UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
             }
-            .searchable(text: $searchText, prompt: "Поиск анкеты")
+            .navigationBarHidden(true)
     }
     
     var filterEmployees: [Applicant] {
@@ -73,9 +68,9 @@ struct EmployeesListUIView: View {
         }
         else {
             return employeeViewModel.applicants.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText) ||
-                $0.specialization.localizedCaseInsensitiveContains(searchText) ||
-                $0.surname.localizedCaseInsensitiveContains(searchText)
+                $0.name.contains(searchText) ||
+                $0.specialization.contains(searchText) ||
+                $0.surname.contains(searchText)
             }
         }
     }

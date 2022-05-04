@@ -12,11 +12,16 @@ struct AccountUIView: View {
     @State var name: String = ""
     @State var specialization: String = ""
     @State var index = 0
+    @State var allow = false
     var body: some View {
         if CurrentUser.shared.getRole() == "employee" {
             applicantProfileView
                 .onAppear(perform: {
-                    accountViewModel.getEmployee()})
+                    accountViewModel.getEmployee()
+                    if AccountViewModel.accountExists {
+                        allow = true
+                    }
+                })
         }
         else {
             projectProfileView
@@ -31,7 +36,7 @@ struct AccountUIView: View {
     
     @ViewBuilder
     var applicantProfileView: some View {
-        if accountViewModel.account.getName() != "" &&  AccountViewModel.accountExists {
+        if allow {
             ZStack(alignment: .center){
                 RoundedRectangle(cornerRadius: 25)
                     .foregroundColor(Color.customWhite)
@@ -253,7 +258,7 @@ struct AccountUIView: View {
                 else {
                     applicationsView
                 }
-            }.fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: editionMode, project: accountViewModel.account.account as! Project) }
+            }.fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: editionMode, project: $accountViewModel.account.account.toNonOptional().asProject) }
                 .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
         }
         else {
@@ -273,7 +278,7 @@ struct AccountUIView: View {
                         .clipShape(Capsule())
                 })
             }.padding(.vertical, 40)
-                .fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: .create, project: accountViewModel.account.account as! Project) }
+                .fullScreenCover(isPresented: $editInfo) {  UpdateProjectView(editInfo: $editInfo, editMode: .create, project: $accountViewModel.account.account.toNonOptional().asProject) }
                 .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height - 140, alignment: .center)
         }
     }
@@ -292,3 +297,11 @@ extension Account {
         set {self = newValue as! Self}
     }
 }
+
+extension Account {
+    var asProject: Project! {
+        get {self as! Project}
+        set {self = newValue as! Self}
+    }
+}
+

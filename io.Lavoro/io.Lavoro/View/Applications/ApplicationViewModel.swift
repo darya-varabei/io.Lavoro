@@ -6,9 +6,32 @@
 //
 
 import Foundation
-
 import SwiftUI
 
 class ApplicationViewModel {
-    @Published var applications: [Application] = []//[Application(sender: User(username: "Softteco", role: "Проект", photo: SomeImage(photo: UIImage())), reciever: User(username: "Softteco", role: "Проект", photo: SomeImage(photo: UIImage())), offer: Offer(project: <#T##Project#>, name: <#T##String#>, technologies: <#T##[Technology]#>, mode: <#T##String#>, salary: <#T##String#>, timeMode: <#T##String#>, description: <#T##String#>), message: <#T##String#>)]
+    @Published var applications: [Application] = []
+    private let service: LavoroServiceable = LavoroService()
+    
+    func createApplication() {
+        
+    }
+    
+    func updateApplication() {
+        
+    }
+    
+    func fetchApplications() {
+        
+    }
+    
+    func deleteApplication(application: Application, id: String, completion: @escaping (Result<String, RequestError>) -> Void) {
+        Task(priority: .background) {
+            let result = await service.deleteApplicant()
+            completion(result)
+        }
+    }
+    
+    func getUserApplications() {
+        
+    }
 }

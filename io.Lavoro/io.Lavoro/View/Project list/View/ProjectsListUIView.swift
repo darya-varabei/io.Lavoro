@@ -16,13 +16,13 @@ struct ProjectsListUIView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List(projectViewModel.projects, id: \.name) { project in
+                List(filterProjects, id: \.name) { project in
                     NavigationLink(
                         destination: ProjectDetailView(project: project),
                         label: { ProjectCellView(project: project)
                         }
                     )
-                }
+                }.searchable(text: $searchText, prompt: "Поиск проекта")
             }
             SlideOverView(position: $slideOverViewPosition,
                           isHalfScreenHeight: false,
@@ -33,7 +33,6 @@ struct ProjectsListUIView: View {
         }.onAppear {
             projectViewModel.getProjectList()
         }
-        .searchable(text: $searchText, prompt: "Поиск проекта")
         .background(Color.primaryBlue)//.ignoresSafeArea())
         .onAppear {
             // Set the default to clear
@@ -51,8 +50,8 @@ struct ProjectsListUIView: View {
         }
         else {
             return projectViewModel.projects.filter {
-                $0.name.localizedCaseInsensitiveContains(searchText) ||
-                $0.category.localizedCaseInsensitiveContains(searchText)
+                $0.name.contains(searchText) ||
+                $0.category.contains(searchText)
             }
         }
     }

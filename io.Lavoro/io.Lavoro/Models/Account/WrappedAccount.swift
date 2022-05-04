@@ -23,7 +23,7 @@ protocol Account {
 
 class WrappedAccount: Account {
     
-    var account: Account?
+    @Published var account: Account?
     
     init(account: Account? = nil) {
         self.account = account

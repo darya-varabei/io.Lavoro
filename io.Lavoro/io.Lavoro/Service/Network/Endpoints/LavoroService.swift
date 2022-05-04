@@ -9,7 +9,7 @@ import Foundation
 
 protocol LavoroServiceable {
     func getApplicantInfo(id: String) async -> Result<DomainEmployee, RequestError>
-    func getProjectInfo(id: String) async -> Result<Project, RequestError>
+    func getProjectInfo(id: String) async -> Result<DomainProject, RequestError>
     func getProjects() async -> Result<[DomainProject], RequestError>
     func getApplicants() async -> Result<[DomainEmployee], RequestError>
     func getParametrizedApplicants() async -> Result<[Applicant], RequestError>
@@ -36,8 +36,8 @@ struct LavoroService: HTTPClient, LavoroServiceable {
         return await sendRequest(endpoint: LavoroEndpoint.applicant(id: id), responseModel: DomainEmployee.self)
     }
     
-    func getProjectInfo(id: String) async -> Result<Project, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.project(id: id), responseModel: Project.self)
+    func getProjectInfo(id: String) async -> Result<DomainProject, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.project(id: id), responseModel: DomainProject.self)
     }
     
     func getProjects() async -> Result<[DomainProject], RequestError> {

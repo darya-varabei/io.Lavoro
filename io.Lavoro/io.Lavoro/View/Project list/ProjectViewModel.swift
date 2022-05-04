@@ -51,11 +51,17 @@ class ProjectViewModel: ObservableObject {
     }
     
     func createProject(project: Project, id: String, completion: (() -> Void)? = nil) {
+        var offers: [Offer] = []
+        var newProject: Project = project
         createProjectRequest(project: project, id: id) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
+                    for i in response.offers {
+                        offers.append(Offer(project: Project(user: User(username: "", role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: response.name, location: response.location, description: response.location, offers: offers, category: response.category, mode: response.mode, id: UUID(uuidString: response.id)), name: i.name, technologies: [], mode: i.mode, salary: i.salary, timeMode: i.mode, description: i.welcomeDescription))
+                    }
+                    newProject = Project(user: User(username: "", role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: "guideHuman")!)), name: response.name, location: response.location, description: response.location, offers: offers, category: response.category, mode: response.mode, id: UUID(uuidString: response.id))
                 }
                 completion?()
             case .failure(let error):
@@ -65,8 +71,11 @@ class ProjectViewModel: ObservableObject {
         }
     }
     
-    func deleteProject() {
-        
+    func deleteProject(project: Project, id: String, completion: @escaping (Result<String, RequestError>) -> Void) {
+        Task(priority: .background) {
+            let result = await service.deleteProject()
+            completion(result)
+        }
     }
     
     private func fetchData(completion: @escaping (Result<[DomainProject], RequestError>) -> Void) {
