@@ -95,8 +95,7 @@ struct EmployeeDetailsView: View {
                         }
                     }) {
                         VStack {
-                            Text("Заявка"
-                            )
+                            Text("Заявка")
                                 .font(.custom("Montserrat-Medium", size: 14))
                                 .foregroundColor(index == 1 ? .darkBlue : .gray)
                             
@@ -141,7 +140,7 @@ struct EmployeeDetailsView: View {
                         .foregroundColor(.customBlack)
                         .padding(.vertical, 10)
                 case 1:
-                    ApplicationView(receiver: applicant.user)
+                    ApplicationView(receiver: applicant.id)
                 default:
                     EmptyView()
                 }

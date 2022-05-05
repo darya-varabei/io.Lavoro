@@ -8,7 +8,7 @@
 import Foundation
 
 struct Offer: Hashable, Equatable, Identifiable {
-    var id: UUID?
+    var id: String?
     var project: Project
     var name: String
     var mode: String
@@ -25,7 +25,8 @@ struct Offer: Hashable, Equatable, Identifiable {
         return lhs.name == rhs.name
     }
     
-    init(project: Project, name: String, technologies: [Technology], mode: String, salary: String, timeMode: String, description: String) {
+    init(id: String? = nil, project: Project, name: String, technologies: [Technology], mode: String, salary: String, timeMode: String, description: String) {
+        self.id = id
         self.project = project
         self.name = name
         self.technologies = technologies

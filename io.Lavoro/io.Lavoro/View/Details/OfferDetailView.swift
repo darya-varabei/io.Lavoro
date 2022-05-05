@@ -148,7 +148,7 @@ struct OfferDetailView: View {
             case 1:
                 ProjectDescriptionView(project: offer.project)
             case 2:
-                ApplicationView(receiver: offer.project.user, offer: offer)
+                ApplicationView(receiver: offer.id ?? "6405dc34-3fe0-4c8b-b368-0198797f9786", offer: offer)
             default:
                 EmptyView()
             }

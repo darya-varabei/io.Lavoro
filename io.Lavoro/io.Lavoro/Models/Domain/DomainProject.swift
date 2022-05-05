@@ -124,3 +124,18 @@ struct IdentProject: Codable {
 typealias DomainOfferArray = [DomainOffer]
 
 
+struct DomainApplication: Codable {
+    var reciever, id: String
+    let sender, offer: DomainOfferId
+    let welcomeDescription: String
+
+    enum CodingKeys: String, CodingKey {
+        case reciever, id, sender, offer
+        case welcomeDescription = "description"
+    }
+}
+
+// MARK: - Offer
+struct DomainOfferId: Codable {
+    let id: String
+}

@@ -31,7 +31,7 @@ class OfferViewModel: ObservableObject {
                     for j in i.technologies {
                         technologies.append(Technology(name: j.name, level: j.level))
                     }
-                    self.offers.append(Offer(project: Project(user: User(username: "Dary", role: "project", photo: SomeImage(photo: UIImage(named: "neurona")!)), name: "", location: "", description: "", category: "", mode: ""), name: i.name, technologies: technologies, mode: i.mode, salary: i.salary, timeMode: i.mode, description: i.welcomeDescription))
+                    self.offers.append(Offer(id:  i.id, project: Project(user: User(username: "Dary", role: "project", photo: SomeImage(photo: UIImage(named: "neurona")!)), name: "", location: "", description: "", category: "", mode: ""), name: i.name, technologies: technologies, mode: i.mode, salary: i.salary, timeMode: i.mode, description: i.welcomeDescription))
                     technologies = []
                 }
                 }

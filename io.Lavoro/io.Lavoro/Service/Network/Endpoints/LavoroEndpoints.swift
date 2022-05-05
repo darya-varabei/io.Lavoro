@@ -154,7 +154,17 @@ extension LavoroEndpoint: Endpoint {
                 "specialization": applicant.specialization
             ]
         case .sendApplication:
-            return nil
+            return [
+                "reciever": "D8AE1B9A-8266-4A32-8CB2-B8848AD940BE",
+                       "id": "3CA258D4-178C-4640-9D8E-776668077777",
+                       "sender": [
+                           "id": "3CA258D4-178C-4640-9D8E-776668079DDC"
+                       ],
+                       "offer": [
+                           "id": "505E3AA6-B11D-43A0-8482-8E267A9432C4"
+                       ],
+                       "description": "йугкещцимшнфуагрфиымушкугаюлкцап"
+            ]
         case .updateApplication:
             return nil
         case .deleteApplication:

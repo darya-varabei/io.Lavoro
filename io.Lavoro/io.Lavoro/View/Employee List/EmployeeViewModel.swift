@@ -64,7 +64,7 @@ class EmployeeViewModel: ObservableObject {
                     for j in i.skills {
                         skills.append(Skill(name: j.name, level: j.level))
                     }
-                    self.applicants.append(Applicant(user: User(username: CurrentUser.shared.getRole(), role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: i.photo)!)), name: i.name, surname: i.surname, age: i.age, location: i.location, interests: i.interests, description: i.welcomeDescription, skills: skills, relocate: i.relocate, mode: i.mode, payment: i.salary, id: nil, specialization: i.specialization, bufId: i.id))
+                    self.applicants.append(Applicant(user: User(username: CurrentUser.shared.getRole(), role: CurrentUser.shared.getRole(), photo: SomeImage(photo: UIImage(named: i.photo)!)), name: i.name, surname: i.surname, age: i.age, location: i.location, interests: i.interests, description: i.welcomeDescription, skills: skills, relocate: i.relocate, mode: i.mode, payment: i.salary, id: i.user.id, specialization: i.specialization, bufId: i.id))
                     skills = []
                 }
                 }

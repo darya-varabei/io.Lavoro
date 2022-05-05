@@ -33,7 +33,7 @@ struct OfferListUIView: View {
                             Text("")
                         }.opacity(CurrentUser.shared.getRole() == "project" ? 0 : 1)
                             .padding(.horizontal, 30)
-                            .padding(.top, 50)
+                            .padding(.top, 10)
                             .background(Color.primaryBlue.ignoresSafeArea())
                     }
                     List (filterOffers, id: \.name) { offer in

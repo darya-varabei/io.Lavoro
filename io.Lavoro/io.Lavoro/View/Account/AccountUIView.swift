@@ -57,6 +57,7 @@ struct AccountUIView: View {
                                         .font(.custom("Montserrat-Medium", size: 14))
                                         .foregroundColor(.customBlack)
                                 }
+                            
                                 Button(action: {
                                     editInfo.toggle()
                                 }, label: {
@@ -67,12 +68,20 @@ struct AccountUIView: View {
                                 })
                             }.padding(.bottom, 30)
                             Spacer()
+                            VStack(spacing: 10) {
+                                NavigationLink(destination: HomeUIView(isLogging: $allow), label: {
+                                    Text("Выход")
+                                        .font(.custom("Montserrat-Medium", size: 10))
+                                        .foregroundColor(.darkBlue)
+                                        .underline()
+                                })
                             Image(uiImage: accountViewModel.account.account?.getPhoto() ?? UIImage(named: "ally")!)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 70,
                                        height: 70)
                                 .clipShape(Circle())
+                            }
                         }
                         HStack(spacing: 0) {
                             Button(action: {
@@ -160,20 +169,30 @@ struct AccountUIView: View {
         }
         else {
             ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(.darkBlue)
-                    .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
-                Button(action: {
-                    editionMode = .create
-                    editInfo.toggle()
-                }, label: {
-                    Text("Создать анкету")
-                        .fontWeight(.semibold)
-                        .foregroundColor(.customWhite)
-                        .padding(.vertical)
-                        .frame(width: UIScreen.main.bounds.width - 150)
-                        .clipShape(Capsule())
-                })
+                VStack {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15)
+                            .foregroundColor(.darkBlue)
+                            .frame(width: UIScreen.main.bounds.width - 150, height: 48, alignment: .center)
+                        Button(action: {
+                            editionMode = .create
+                            editInfo.toggle()
+                        }, label: {
+                            Text("Создать анкету")
+                                .fontWeight(.semibold)
+                                .foregroundColor(.customWhite)
+                                .padding(.vertical)
+                                .frame(width: UIScreen.main.bounds.width - 150)
+                                .clipShape(Capsule())
+                        })
+                        NavigationLink(destination: HomeUIView(isLogging: $allow), label: {
+                            Text("Выход")
+                                .font(.custom("Montserrat-Medium", size: 10))
+                                .foregroundColor(.darkBlue)
+                                .underline()
+                        })
+                    }
+                }
             }.padding(.vertical, 40)
                 .fullScreenCover(isPresented: $editInfo) {  UpdateEmployeeView(editMode: .create, editInfo: $editInfo, applicant: $accountViewModel.account.account.toNonOptional().asApplicant) }
         }
@@ -199,6 +218,8 @@ struct AccountUIView: View {
                                     .font(.custom("Montserrat-Medium", size: 14))
                                     .foregroundColor(.customBlack)
                             }
+                            
+                            
                             Button(action: {
                                 editInfo.toggle()
                             }, label: {
@@ -209,12 +230,21 @@ struct AccountUIView: View {
                             })
                         }
                         Spacer()
+                        
+                        VStack(spacing: 10) {
+                            NavigationLink(destination: HomeUIView(isLogging: $allow), label: {
+                                Text("Выход")
+                                    .font(.custom("Montserrat-Medium", size: 10))
+                                    .foregroundColor(.darkBlue)
+                                    .underline()
+                            })
                         Image(uiImage: accountViewModel.account.account?.getPhoto() ?? UIImage(systemName: "star")!)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 70,
                                    height: 70)
                             .clipShape(Circle())
+                        }
                     }.padding(.horizontal, 20)
                     HStack(spacing: 0) {
                         Button(action: {

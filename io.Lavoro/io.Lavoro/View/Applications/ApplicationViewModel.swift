@@ -12,13 +12,55 @@ class ApplicationViewModel {
     @Published var applications: [Application] = []
     private let service: LavoroServiceable = LavoroService()
     
-    func createApplication() {
-        
+    func createApplication(application: DomainApplication, completion: @escaping (Result<DomainApplication, RequestError>) -> Void) {
+        Task(priority: .background) {
+            let result = await service.sendApplication(application: application)
+            completion(result)
+        }
     }
     
-    func updateApplication() {
-        
+    func getCreateApplication(applicant: DomainApplication, completion: (() -> Void)? = nil) -> DomainApplication {
+        var id: String = ""
+        createApplication(application: applicant) {
+            [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let response):
+                    id = response.id
+                    //applicant.id = response.id
+                    completion?()
+                case .failure(let error):
+                    print(error)
+                    completion?()
+                }
+        }
+        return DomainApplication(reciever: applicant.reciever, id: id, sender: applicant.sender, offer: applicant.offer, welcomeDescription: applicant.welcomeDescription)
     }
+    
+    func getUpdateApplication(applicant: DomainApplication, completion: (() -> Void)? = nil) -> DomainApplication {
+        var id: String = ""
+        updateApplication(application: applicant) {
+            [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let response):
+                    id = response.id
+                    completion?()
+                case .failure(let error):
+                    print(error)
+                    completion?()
+                }
+        }
+        return DomainApplication(reciever: applicant.reciever, id: id, sender: applicant.sender, offer: applicant.offer, welcomeDescription: applicant.welcomeDescription)
+    }
+    
+    func updateApplication(application: DomainApplication, completion: @escaping (Result<DomainApplication, RequestError>) -> Void) {
+        Task(priority: .background) {
+            let result = await service.sendApplication(application: application)
+            completion(result)
+        }
+    }
+    
     
     func fetchApplications() {
         

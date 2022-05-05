@@ -33,7 +33,7 @@ struct EmployeesListUIView: View {
                             Text("")
                         }.opacity(CurrentUser.shared.getRole() == "project" ? 1 : 0)
                             .padding(.horizontal, 30)
-                            .padding(.top, CurrentUser.shared.getRole() == "project" ? 100 : 0)
+                            .padding(.top, CurrentUser.shared.getRole() == "project" ? 20 : 0)
                             .background(Color.primaryBlue.ignoresSafeArea())
                     }
                     List(filterEmployees, id: \.name) { applicant in

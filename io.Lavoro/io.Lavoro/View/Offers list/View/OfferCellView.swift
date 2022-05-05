@@ -33,25 +33,25 @@ struct OfferCellView: View {
                     VStack(alignment: .leading, spacing: 10) {
                         Text("\(offer.timeMode)")
                             .font(.custom("Montserrat-SemiBold", size: 10))
-                            .foregroundColor(.darkBlue)
+                            .foregroundColor(.customBlack)
                         Text("\(offer.name)")
                             .font(.custom("Montserrat-Bold", size: 14))
-                            .foregroundColor(.darkBlue)
+                            .foregroundColor(.customBlack)
                         
                         HStack {
                             Text("\(offer.project.location)")
                                 .font(.custom("Montserrat-SemiBold", size: 10))
-                                .foregroundColor(.darkBlue)
+                                .foregroundColor(.customBlack)
                             
                             Text("\(offer.mode)")
                                 .font(.custom("Montserrat-SemiBold", size: 10))
-                                .foregroundColor(.darkBlue)
+                                .foregroundColor(.customBlack)
                         }
                     }
                 }
                 Text("\(offer.salary)")
                     .font(.custom("Montserrat-Medium", size: 10))
-                    .foregroundColor(.darkBlue)
+                    .foregroundColor(.customBlack)
             }.padding(.all, 16)
         }.frame(width: UIScreen.main.bounds.width - 80, height: 133)
     }

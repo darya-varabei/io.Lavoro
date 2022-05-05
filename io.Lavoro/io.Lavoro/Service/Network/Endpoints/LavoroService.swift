@@ -16,7 +16,7 @@ protocol LavoroServiceable {
     func getParametrizedProjects() async -> Result<[Project], RequestError>
     func createProject(project: Project, id: String) async -> Result<DomainProject, RequestError>
     func createApplicant(applicant: Applicant, id: String) async -> Result<DomainPureEmployee, RequestError>
-    func sendApplication() async -> Result<Application, RequestError>
+    func sendApplication(application: DomainApplication) async -> Result<DomainApplication, RequestError>
     func sendResponse() async -> Result<Response, RequestError>
     func updateProject(project: Project) async -> Result<Project, RequestError>
     func updateOffer() async -> Result<Offer, RequestError>
@@ -64,8 +64,8 @@ struct LavoroService: HTTPClient, LavoroServiceable {
         return await sendRequest(endpoint: LavoroEndpoint.createApplicant(applicant: applicant, id: id), responseModel: DomainPureEmployee.self)
     }
     
-    func sendApplication() async -> Result<Application, RequestError> {
-        return await sendRequest(endpoint: LavoroEndpoint.sendApplication, responseModel: Application.self)
+    func sendApplication(application: DomainApplication) async -> Result<DomainApplication, RequestError> {
+        return await sendRequest(endpoint: LavoroEndpoint.sendApplication, responseModel: DomainApplication.self)
     }
     
     func sendResponse() async -> Result<Response, RequestError> {
